@@ -1,0 +1,12 @@
+{
+  "editor:open-search-replace": [],
+  "mathlive:open-modal": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "M"
+    }
+  ]
+}
