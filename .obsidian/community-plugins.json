@@ -6,12 +6,11 @@
   "obsidian-excel-to-markdown-table",
   "obsidian-kanban",
   "mathlive",
-  "obsidian-minimal-settings",
   "list-style",
   "quick-latex",
-  "obsidian-style-settings",
   "dataview",
   "obsidian-charts",
   "vim-toggle",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-minimal-settings"
 ]
