@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"ee92567bd7381d5a","type":"group","x":-1280,"y":-2340,"width":2260,"height":3040,"label":"The basics"},
+		{"id":"ed81ba0342c75aa5","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#YAML metadata","x":-440,"y":-2260,"width":620,"height":220},
+		{"id":"da352f48677c36ce","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#Implicit metadata","x":-440,"y":-1960,"width":620,"height":320},
+		{"id":"750baddf396ede9a","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#Inline metadata","x":-440,"y":-1560,"width":620,"height":160},
+		{"id":"d673714e84707a9e","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#Metadata","x":-1260,"y":-1890,"width":560,"height":180},
+		{"id":"78ec49bb290c06c6","x":-520,"y":-550,"width":200,"height":60,"type":"text","text":"QUERY TYPES"},
+		{"id":"726073a423b53453","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#Table","x":-100,"y":-680,"width":1060,"height":320},
+		{"id":"3e5998c64e02dfcb","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#Task","x":-100,"y":-259,"width":1060,"height":299},
+		{"id":"ca2a2b0c0c531d18","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#Group by","x":-100,"y":140,"width":1060,"height":520},
+		{"id":"04b2e8b3b18a7c42","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#List","x":-100,"y":-1200,"width":1060,"height":400},
+		{"id":"bfc0a30a39a8d401","x":-540,"y":60,"width":240,"height":60,"type":"text","text":"DATA COMMANDS"},
+		{"id":"068906295b8d428f","type":"file","file":"Learning Obsidian/Dataview/The basics of Dataview.md","subpath":"#Dataview Queries","x":-1260,"y":-460,"width":560,"height":500}
+	],
+	"edges":[
+		{"id":"313983342ad35f5e","fromNode":"d673714e84707a9e","fromSide":"right","toNode":"ed81ba0342c75aa5","toSide":"left"},
+		{"id":"85f0bbd64d4df67b","fromNode":"d673714e84707a9e","fromSide":"right","toNode":"da352f48677c36ce","toSide":"left"},
+		{"id":"255196f2ea92414d","fromNode":"d673714e84707a9e","fromSide":"right","toNode":"750baddf396ede9a","toSide":"left"},
+		{"id":"db4697b29635f23a","fromNode":"068906295b8d428f","fromSide":"right","toNode":"78ec49bb290c06c6","toSide":"left"},
+		{"id":"b911195b5249e93f","fromNode":"78ec49bb290c06c6","fromSide":"right","toNode":"04b2e8b3b18a7c42","toSide":"left"},
+		{"id":"a4742c2f87e2fd45","fromNode":"78ec49bb290c06c6","fromSide":"right","toNode":"726073a423b53453","toSide":"left"},
+		{"id":"3d44eba13192a3c5","fromNode":"78ec49bb290c06c6","fromSide":"right","toNode":"3e5998c64e02dfcb","toSide":"left"},
+		{"id":"15f9641729598eed","fromNode":"068906295b8d428f","fromSide":"right","toNode":"bfc0a30a39a8d401","toSide":"left"},
+		{"id":"5d5b7e6bcc95a08f","fromNode":"bfc0a30a39a8d401","fromSide":"right","toNode":"ca2a2b0c0c531d18","toSide":"left"}
+	]
+}

@@ -4,35 +4,44 @@
     "type": "split",
     "children": [
       {
-        "id": "bbf006e3e8813f55",
+        "id": "c3e3ae422de77b03",
         "type": "tabs",
         "children": [
           {
-            "id": "7aac4c7564ffe344",
+            "id": "6fc61717955a34e0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Fundamentos de la Programación en Java/Conceptos básicos POO.md",
+                "file": "Fundamentos de la Programación en Java/Lectura y escritura de ficheros.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "753f858be97baf2f",
+            "id": "afc146055195bd39",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Fundamentos de la Programación en Java/Clases vs Registros.md",
+                "file": "UNI/MAD/Aplicaciones, inyectividad y sobreyectividad.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "43a4001767fa8759",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "Tasks.md"
+              }
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Fundamentos de la Programación en Java/Clases vs Registros.md",
+                "file": "Fundamentos de la Programación en Java/Lectura y escritura de ficheros.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Fundamentos de la Programación en Java/Clases vs Registros.md",
+                "file": "Fundamentos de la Programación en Java/Lectura y escritura de ficheros.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,20 +147,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Fundamentos de la Programación en Java/Clases vs Registros.md"
+                "file": "Fundamentos de la Programación en Java/Lectura y escritura de ficheros.md"
               }
             }
           },
           {
-            "id": "1021c80fbf1f3445",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {}
-            }
-          },
-          {
-            "id": "efc4ab5fc938cbf2",
+            "id": "5c4d1c6c0861a143",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -163,11 +164,11 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 314.5,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -175,60 +176,61 @@
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": true,
       "templates:Insert template": true,
       "command-palette:Open command palette": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "753f858be97baf2f",
+  "active": "6fc61717955a34e0",
   "lastOpenFiles": [
-    "Fundamentos de la Programación en Java/Conceptos básicos POO.md",
-    "Fundamentos de la Programación en Java/Clases vs Registros.md",
+    "Fundamentos de la Programación en Java/Lectura y escritura de ficheros.md",
+    "UNI/MAD/Notas escritas/Álgebras de Boole.pdf",
+    "Fundamentos de la Programación en Java/Agregados de datos (con colecciones).md",
     "Tasks.md",
-    "Fundamentos de la Programación en Java/Intro.md",
-    "().md",
-    "Fundamentos de la Programación en Java",
-    "Excalidraw/Call Stack.svg",
-    "assets",
-    "Notas Java.md",
-    "Pasted Image 20240125070515_017.png",
-    "desmos-graph.svg",
-    "Excalidraw/Factorial Call Stack.md",
-    "Fórmulas implementadas recursivamente en Java.md",
-    "Excalidraw/Call Stack.md",
+    "UNI/MAD/Aplicaciones, inyectividad y sobreyectividad.md",
+    "Learning Obsidian/Advanced Slides",
+    "Fundamentos de la Programación en Java/Tipos para el manejo de fechas y horas.md",
+    "Fundamentos de la Programación en Java/Clases inmutables.md",
+    "Fundamentos de la Programación en Java/Switch estilo lambda.md",
+    "Learning Obsidian/Dataview/Dataview Overview.canvas",
+    "Fundamentos de la Programación en Java/Clases vs Registros en Java.md",
+    "Fundamentos de la Programación en Java/Conceptos básicos POO.md",
+    "UNI/FFI/Notas.md",
+    "Fundamentos de la Programación en Java/Fundamentos de programación Java (Miguel Toro Bonilla) (Z-Library).pdf",
+    "UNI/MAD/Notas escritas/Teoría de Números.pdf",
+    "UNI/MAD/Notas escritas/Relaciones.pdf",
+    "UNI/MAD/Notas escritas/Quine-McCluskey.pdf",
+    "Learning Obsidian/Dataview/The basics of Dataview.md",
+    "Learning Obsidian",
+    "Home.md",
+    "Introduction to Dataview/Part 2.md",
+    "Assets/linux_penguin.jpeg",
+    "UNI/AMA/Sucesiones.md",
+    "Learning Obsidian/Dataview",
     "UNI/PRG/Recursión.md",
     "Misc./Símbolos Matemáticos en LaTex.md",
-    "Excalidraw/Stack.md",
+    "Misc./Gráficos con Desmos.md",
+    "UNI/PRG/Fórmulas implementadas recursivamente en Java.md",
+    "UNI/MAD/Notas escritas/Álgebras de Boole 1.pdf",
+    "UNI/MAD/Notas escritas/Quine-McCluskey 1.pdf",
+    "UNI/MAD/Múltiplos, divisores, cociente y resto.md",
+    "UNI/MAD/MCD y MCM.md",
+    "UNI/MAD/Números fraccionales y fracciones contínuas.md",
+    "UNI/MAD/Múltiplos y divisores.md",
+    "Assets/aplicación sobreyectiva.md",
+    "Assets/aplicación inyectiva.md",
+    "Assets/aplicación.md",
+    "Assets/aplicación biyectiva.md",
+    "UNI/FFI/Vector Graph.svg",
+    "Excalidraw/Call Stack.svg",
+    "Pasted Image 20240125070515_017.png",
+    "desmos-graph.svg",
     "Excalidraw/Stack.svg",
-    "UNI/MAD/Problemas/Problemas de Matemática Discreta - Tema 1. LÓGICA.md",
     "Excalidraw/Drawing 2024-01-24 06.37.05.excalidraw.svg",
-    "Excalidraw/Drawing 2024-01-24 08.17.54.excalidraw.md",
     "Excalidraw/Scripts/Downloaded/Set Grid.svg",
-    "Excalidraw/Scripts/Downloaded/Set Grid.md",
     "Excalidraw/Scripts/Downloaded/Normalize Selected Arrows.svg",
-    "Excalidraw/Scripts/Downloaded/Normalize Selected Arrows.md",
     "Excalidraw/Scripts/Downloaded/Mindmap format.svg",
-    "Excalidraw/Scripts/Downloaded/Mindmap format.md",
-    "Excalidraw/Scripts/Downloaded/Elbow connectors.svg",
-    "Excalidraw/Scripts/Downloaded/Elbow connectors.md",
-    "Excalidraw/Scripts/Downloaded/Boolean Operations.svg",
-    "Excalidraw/Scripts/Downloaded/Boolean Operations.md",
-    "Excalidraw/Scripts/Downloaded",
-    "Excalidraw/Scripts",
-    "Excalidraw",
-    "UNI/PRG",
-    "UNI/AMA/Notas.md",
-    "UNI/FFI/Práctica 1.md",
-    "UNI/FCO/Notes.md",
-    "UNI/FFI/Notas.md",
-    "UNI/MAD/Notas.md",
-    "UNI/MAD/Problemas",
-    "Misc.",
-    "UNI/IIP",
-    "UNI/AMA",
-    "The Unsolvable ChatGPT Problem.md",
-    "Vademecum API/Graph.canvas",
-    "Vademecum API/Tareas.md"
+    "Vademecum API/Graph.canvas"
   ]
 }

@@ -1,13 +1,17 @@
 [
-  "obsidian-kanban",
-  "mathlive",
   "obsidian-admonition",
-  "obsidian-style-settings",
-  "obsidian-minimal-settings",
-  "list-style",
-  "obsidian-plugin-toc",
-  "quick-latex",
+  "obsidian-desmos",
+  "obsidian-advanced-slides",
   "obsidian-excalidraw-plugin",
   "obsidian-excel-to-markdown-table",
-  "obsidian-icon-folder"
+  "obsidian-kanban",
+  "mathlive",
+  "obsidian-minimal-settings",
+  "list-style",
+  "quick-latex",
+  "obsidian-style-settings",
+  "dataview",
+  "obsidian-charts",
+  "vim-toggle",
+  "obsidian-git"
 ]

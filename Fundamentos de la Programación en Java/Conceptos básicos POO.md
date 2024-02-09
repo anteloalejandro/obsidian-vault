@@ -29,9 +29,10 @@ Cuanto mejor definida y más específica es la funcionalidad de una Clase y sus 
 # *Low coupling*
 Se basa en reducir todo lo posible la dependencia entre unas clases y otras para poder funcionar. Si no se cumple este principio, mantener el código se vuelve difícil porque los cambios pueden tener efectos secundarios y refactorizar adecuadamente el código se vuelve un trabajo arduo.
 
-# Clases, Registros e Interfaces
+# Clases, Registros, Interfaces y Enums
 
 ## Clases
+
 Las Clases son la base a partir de la cual se instancian los objetos. A partir de la Clase se puede definir los atributos y definir e implementar la funcionalidad.
 
 Las Clases se crean a base de tipos de datos ya existentes, agregándolos para crear un tipo de dato nuevo con, potencialmente, nueva funcionalidad.
@@ -43,6 +44,7 @@ Además, pueden extender los atributos y funcionalidades de otra clase mediante 
 Los atributos y funcionalidad de las Clases puede ser de dos tipos: Específico de cada instancia o compartido entre todas las instancias (también llamado estático).
 
 ## Interfaces
+
 Una interfaz es, esencialmente, una Clase en la que **no se puede implementar nada, sólo definir**. Es decir, se puede declarar que propiedades tendrán los objetos y cómo serán los métodos, pero no se puede implementar su funcionamiento. 
 
 Las Interfaces, al igual que las Clases, sirven para crear tipos nuevos, pero no se pueden instanciar Objetos a partir de éstas sin más.
@@ -50,6 +52,13 @@ Las Interfaces, al igual que las Clases, sirven para crear tipos nuevos, pero no
 Otra diferencia importante con las Clases es que otras Clases (o Interfaces) pueden "heredar" de múltiples Interfaces sin problemas, ya al no poder implementar el comportamiento no es posible acabar con un objeto con comportamiento inesperado o indefinido pero las Clases que hereden de una interfaz deberán implementar todos los métodos especificados individualmente. A esta "herencia" se le llama *implementación* en vez de *extensión*.
 
 ## Registros
-Los Registros o *Records* son tipos especiales de Clase introducidos en Java 16 que dejan al compilador que se encargue la encapsulación, de los métodos constructores y de la implementación de algunos métodos comunes a todos los objetos, como `toString()`.
 
-[[Clases vs Registros]]
+Los Registros o *Records*, conceptualmente, son clases cuya única función es instanciar objetos que contienen información y cuyo único comportamiento es devolver esa información sin más. 
+
+En Java  son tipos especiales de Clase introducidos en Java 16 que dejan al compilador que se encargue la encapsulación, de los métodos constructores y de la implementación de algunos métodos comunes a todos los objetos, como `toString()`.
+
+Como su único propósito es contener y devolver información, son **[[Clases inmutables#*Records* e inmutabilidad| casi inmutables]]** por defecto.
+
+Otra característica especial de los Registros es que **no pueden extender ni ser extendidos** por otras clases, pero **sí implementar** interfaces.
+
+[[Clases vs Registros en Java]]
