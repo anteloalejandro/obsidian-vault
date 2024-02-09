@@ -7,7 +7,6 @@ kanban-plugin: basic
 ## PRIORITARIAS
 
 - [ ] Hacer cursos de Udemy de matrices y vectores
-- [ ] Acabar libro "Fundamentos de la Programación: Java"
 
 
 ## FFI
@@ -17,6 +16,7 @@ kanban-plugin: basic
 
 ## PRG
 
+- [ ] Acabar libro "Fundamentos de la Programación: Java"
 
 
 ## C
