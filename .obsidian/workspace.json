@@ -21,9 +21,9 @@
             "id": "f17458bb10cdac73",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "kanban",
               "state": {
-                "file": "UNI/FFI/Notas escritas/Vectores, Conceptos básicos.pdf"
+                "file": "Tasks.md"
               }
             }
           },
@@ -104,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UNI/FFI/Notas escritas/Vectores, Conceptos básicos.pdf",
+                "file": "Tasks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "UNI/FFI/Notas escritas/Vectores, Conceptos básicos.pdf",
+                "file": "Tasks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "UNI/FFI/Notas escritas/Vectores, Conceptos básicos.pdf"
+                "file": "Tasks.md"
               }
             }
           },
@@ -181,9 +181,9 @@
   },
   "active": "f17458bb10cdac73",
   "lastOpenFiles": [
+    "UNI/FFI/Notas escritas/Vectores, Conceptos básicos.pdf",
     "UNI/MAD/Notas escritas/Relaciones.pdf",
     "UNI/MAD/Notas escritas/Quine-McCluskey.pdf",
-    "UNI/FFI/Notas escritas/Vectores, Conceptos básicos.pdf",
     "Assets/Drawing 2024-02-10 15.34.09.excalidraw.md",
     "Tasks.md",
     "Untitled.md",
