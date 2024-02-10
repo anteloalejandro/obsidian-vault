@@ -12,6 +12,7 @@ kanban-plugin: basic
 ## FFI
 
 - [ ] Repasar conceptos básicos de física<br>https://jmas.webs.upv.es/ffi/material.htm
+- [ ] Pasar a limpio notas escritas
 
 
 ## PRG
@@ -42,6 +43,21 @@ kanban-plugin: basic
 ## Obsidian
 
 - [ ] Aprender a usar Advanced Slides
+
+
+## MAD
+
+- [ ] Pasar a limpio notas escritas (digitales y físicas)
+
+
+## AMA
+
+- [ ] Pasar a limpio notas escritas (digitales y físicas)
+
+
+## FCO
+
+- [ ] Pasar a limpio notas escritas (digitales y físicas)
 
 
 
