@@ -11,29 +11,21 @@
             "id": "6fc61717955a34e0",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Tasks.md"
+                "file": "UNI/EST/Estadísticos descriptivos.md",
+                "mode": "source",
+                "source": false
               }
             }
           },
           {
-            "id": "f17458bb10cdac73",
+            "id": "294d4279843b9205",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "pdf",
               "state": {
-                "file": "Tasks.md"
-              }
-            }
-          },
-          {
-            "id": "43a4001767fa8759",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "Tasks.md"
+                "file": "UNI/FFI/Vectores, Conceptos básicos.pdf"
               }
             }
           }
@@ -104,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tasks.md",
+                "file": "UNI/FFI/Vectores, Conceptos básicos.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tasks.md",
+                "file": "UNI/FFI/Vectores, Conceptos básicos.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +136,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tasks.md"
+                "file": "UNI/FFI/Vectores, Conceptos básicos.pdf"
               }
             }
           },
@@ -179,15 +171,23 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "f17458bb10cdac73",
+  "active": "7e63d54f79026dcf",
   "lastOpenFiles": [
-    "UNI/FFI/Notas escritas/Vectores, Conceptos básicos.pdf",
+    "UNI/ALG",
+    "UNI/TCO/Notas PR1.md",
+    "UNI/FFI/Notas.md",
+    "UNI/EST/Probabilidad.md",
+    "UNI/EST/Tablas de frecuencias.md",
+    "UNI/EST/Estadísticos descriptivos.md",
+    "UNI/TCO",
+    "Tasks.md",
+    "UNI/EST",
+    "Assets/Drawing 2024-02-10 15.34.09.excalidraw.md",
+    "UNI/FFI/Vectores, Conceptos básicos.pdf",
+    "Misc./Gráficos con Desmos.md",
     "UNI/MAD/Notas escritas/Relaciones.pdf",
     "UNI/MAD/Notas escritas/Quine-McCluskey.pdf",
-    "Assets/Drawing 2024-02-10 15.34.09.excalidraw.md",
-    "Tasks.md",
     "Untitled.md",
-    "UNI/FFI/Notas.md",
     "UNI/FFI/Notas escritas",
     "UNI/MAD/Notas escritas/Teoría de Números.pdf",
     "UNI/MAD/Notas escritas/Álgebras de Boole.pdf",
@@ -204,20 +204,13 @@
     "Fundamentos de la Programación en Java/Conceptos básicos POO.md",
     "Fundamentos de la Programación en Java/Fundamentos de programación Java (Miguel Toro Bonilla) (Z-Library).pdf",
     "Learning Obsidian/Dataview/The basics of Dataview.md",
-    "Learning Obsidian",
     "Home.md",
     "Introduction to Dataview/Part 2.md",
     "Assets/linux_penguin.jpeg",
     "UNI/AMA/Sucesiones.md",
-    "Learning Obsidian/Dataview",
     "UNI/PRG/Recursión.md",
     "Misc./Símbolos Matemáticos en LaTex.md",
-    "Misc./Gráficos con Desmos.md",
     "UNI/PRG/Fórmulas implementadas recursivamente en Java.md",
-    "UNI/MAD/Múltiplos, divisores, cociente y resto.md",
-    "UNI/MAD/MCD y MCM.md",
-    "UNI/MAD/Números fraccionales y fracciones contínuas.md",
-    "UNI/MAD/Múltiplos y divisores.md",
     "UNI/FFI/Vector Graph.svg",
     "Excalidraw/Call Stack.svg",
     "Pasted Image 20240125070515_017.png",
