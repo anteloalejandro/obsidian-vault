@@ -141,7 +141,7 @@ No se ha de confundir con la dispersión de la distribución normal. Es menester
 La siguiente imagen **no es un ejemplo de curtosis**.
 ![[not-kurtosis.png]]
 
-Esta imagen **si es un ejemplo de kurtosis**
+Esta imagen **sí es un ejemplo de kurtosis**
 ![[kurtosis.png]]
 
 # Representaciones gráficas
