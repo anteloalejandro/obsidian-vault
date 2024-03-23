@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "50bc28c122de5baa",
@@ -180,12 +181,12 @@
   },
   "active": "3f8409ea8c548ad2",
   "lastOpenFiles": [
+    "Assets/Rango intercualtílico.excalidraw.md",
+    "UNI/EST/Estadísticos descriptivos.md",
     "Assets/kurtosis.png",
     "Assets/not-kurtosis.png",
     "Assets/kurtosis.svg",
-    "UNI/EST/Estadísticos descriptivos.md",
     "Assets/Relationship_between_mean_and_median_under_different_skewness.png",
-    "Assets/Rango intercualtílico.excalidraw.md",
     "Assets/Rango intercualtílico.excalidraw.svg",
     "Assets/Comparison_mean_median_mode.svg",
     "UNI/EST/Estadística descriptiva.md",
@@ -209,7 +210,6 @@
     "export/Advanced slides overview/plugin/chalkboard/README.md",
     "export/Advanced slides overview/plugin/chalkboard/_style.css",
     "export/Advanced slides overview/plugin/chalkboard/img/blackboard.png",
-    "export/Advanced slides overview/plugin/chalkboard/img/boardmarker-black.png",
     "export/Advanced slides overview/plugin/chalkboard/img",
     "export/Advanced slides overview/plugin/chalkboard/plugin (copy).js",
     "export/Advanced slides overview/plugin/chalkboard/style.css",

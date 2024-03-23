@@ -117,10 +117,11 @@ En la campana de Gauss, si la cola está a la derecha, hay valores que tiran hac
 
 ![[Relationship_between_mean_and_median_under_different_skewness.png]]
 
-Los datos nunca son perfectamente simétricos, así que se emplean coeficientes de asimetría.
+Los datos nunca son perfectamente simétricos, así que se emplean coeficientes de asimetría para determinar, de forma aproximada, el tipo de simetría que tiene.
 $$
-CA = \frac{1}{s^{3}} \sum\limits \frac{(x_{i}-\overline{x})^{3}}{N-1}
+CA = \frac{1}{s^{3}·(n-1)}\sum\limits_{i=1}^{n}(x_{i}-\overline{x})^3
 $$
+*Nótese la similitud con la varianza*
 $$
 CA_{std}= \frac{CA}{\sqrt\frac{6}{N}}
 \begin{cases}
@@ -130,6 +131,16 @@ CA_{std} > 2 & \Leftrightarrow \text{simetría positiva}
 \end{cases}
 $$
 
+Alternativamente, se puede saber si tiene simetría positiva o negativa utilizando las propiedades de la media y la mediana.
+
+$$
+\overline{x} - Md\ 
+\begin{cases}
+\ =0 \Rightarrow \text{Es perfectamente simétrico} \\
+\ > 0 \Rightarrow \text{Tiene simetría positiva} \\
+\ < 0 \Rightarrow \text{Tiene simetría negativa}
+\end{cases}
+$$
 ## Curtosis
 
 Apuntalamiento, o cómo de puntiaguda es la distribución normal. Si hay mucho apuntalamiento, nos da a entender que tenemos poca variedad/cantidad de datos.
@@ -138,11 +149,19 @@ Si es plana, planícurtica, si es puntiaguta, leptocúrtica, si es normal, mesoc
 
 No se ha de confundir con la dispersión de la distribución normal. Es menester fijarse en que si la curtosis es alta, la distribución es más puntiaguda y la base es **igual o más ancha** y si la curtosis es baja, al revés.
 
-La siguiente imagen **no es un ejemplo de curtosis**.
+La siguiente imagen **no es un ejemplo de curtosis**, sino de dispersión/varianza.
 ![[not-kurtosis.png]]
 
 Esta imagen **sí es un ejemplo de kurtosis**
 ![[kurtosis.png]]
+
+Más información en [este enlace](https://stats.stackexchange.com/questions/84158/how-is-the-kurtosis-of-a-distribution-related-to-the-geometry-of-the-density-fun).
+
+Se puede determinar la curtosis utilizando una fórmula:
+
+$$
+CC = -3 + \frac{1}{s^{4}·(n-1)}\sum\limits_{i=1}^{n}(x_{i}-\overline{x})^{4}
+$$
 
 # Representaciones gráficas
 
