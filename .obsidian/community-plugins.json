@@ -1,5 +1,4 @@
 [
-  "obsidian-admonition",
   "obsidian-desmos",
   "obsidian-advanced-slides",
   "obsidian-excalidraw-plugin",
@@ -13,5 +12,7 @@
   "vim-toggle",
   "obsidian-git",
   "obsidian-minimal-settings",
-  "obsidian-style-settings"
+  "obsidian-style-settings",
+  "obsidian-icons-plugin",
+  "various-complements"
 ]

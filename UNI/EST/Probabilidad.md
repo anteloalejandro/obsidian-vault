@@ -25,4 +25,27 @@ Hay 4 tipos de evento:
 
 Por ejemplo, en el caso de dados, si $A = \text{sale número par}$, A sería el siguiente evento compuesto:
 $$A = \set{2, 4, 6}$$
+
 Dos eventos pueden ser excluyentes o incompatibles si no tienen elementos en común.
+$$
+A\cap B = \emptyset
+$$
+
+Dos sucesos son independientes si y solo si...
+$$
+P(A|B) = P(A) \land P(B|A) = P(B) 
+$$
+mientras las probabilidades no sean 0.
+
+Además, si y solo si dos sucesos son independientes:
+$$
+P(A\cap B) = P(A) · P(B)
+$$
+
+Si son dependientes, la probabilidad condicional es: 
+
+$$
+P(\frac{A}{B}= P(A\cap{B})
+$$
+
+Siempre se asume que son dependientes a no ser que se indique lo contrario o algo lo demuestre.

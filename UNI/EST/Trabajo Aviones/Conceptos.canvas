@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"8fa5a0a1e4ad4007","x":-540,"y":-40,"width":383,"height":120,"type":"text","text":"# DOS RAMAS DE ESTADÍSTICA"},
+		{"id":"0a9d59da13afae98","x":-20,"y":-240,"width":320,"height":64,"type":"text","text":"# Inferencial"},
+		{"id":"50340a624ccb8f76","x":320,"y":0,"width":400,"height":400,"type":"file","file":"UNI/EST/Estadísticos descriptivos.md"},
+		{"id":"8ab33363f7b04400","type":"text","text":"# Descriptiva","x":-20,"y":135,"width":320,"height":65}
+	],
+	"edges":[
+		{"id":"45baa8bed3085834","fromNode":"8fa5a0a1e4ad4007","fromSide":"right","toNode":"0a9d59da13afae98","toSide":"left"},
+		{"id":"af6b46aa96254653","fromNode":"8fa5a0a1e4ad4007","fromSide":"right","toNode":"8ab33363f7b04400","toSide":"left"}
+	]
+}

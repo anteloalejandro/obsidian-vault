@@ -2,7 +2,7 @@
 # Montar cirtcuito
 - Ajustar tensión a 15$V$
 - Limitar la corriente (*limit*) a 0$A$. La tensión baja, pero solo mientras esté en 0.
-- Ir subiendo el limit hasta 0.1$A$.
+- Ir subiendo el limit hasta 0.01$A$ mientras se hace cortocircuito.
 - Hacer las conexiones y subir el limit
 - Si los amperios están igual, hay un cortocircuito.
 

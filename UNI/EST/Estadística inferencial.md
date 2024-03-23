@@ -1,0 +1,1 @@
+Una rama de la estadística que hace uso de datos para dar predicciones o estimaciones con el objetivo de tomar decisiones más acertadas.
