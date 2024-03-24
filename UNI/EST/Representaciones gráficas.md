@@ -1,6 +1,6 @@
 Hay esencialmente dos tipos de representaciones gráficas, las unidimensionales y las bidimensionales. 
 
-# Gráficas univariables
+# Gráficas dimensionales
 
 ## Diagrama de barras
 
@@ -99,21 +99,25 @@ Tienen dos utilidades principales: Primero, al igual que con el histograma, es p
 
 # Estadística bidimesional
 
-Combinar variables por pares. Se puede combinar quanti con quanti y cuali con cuali.
+Consiste en crear gráficas que combinen pares de variables diferentes. Se pueden combinar dos variables cualitativas o dos variables cuantitativas, pero no se pueden mezclar.
 
-## Tablas de contingencia (cuali + cuali)
+## Tablas de contingencia
 
-También llamada tabla de frecuancias cruzadas. La tabla de frecuencias se usaba para las cualitativas, así que para combinar dos cualitativas se combinan dos tablas.
+También llamada tabla de frecuencias cruzadas. La tabla de frecuencias se usaba para las cualitativas, así que para combinar dos cualitativas se combinan dos tablas.
 
-Son la interseccion entre dos grupos de atributos, que están uno en filas y otro en columnas. Pueden tener cantidades, porcentajes o ambas.
+También llamada tabla de frecuencias cruzadas. Es similar a la tabla de frecuencias, pero en vez de clasificar la información por columnas, se hace por columnas y filas, usándose estas para representar dos variables diferentes.
 
-|  | Alta Calidad | Media Calidad | Baja Calidad | Total |
-| ---- | ---- | ---- | ---- | ---- |
-| **Proveedor 1** | 20<br>19.05% | 25<br>23.81% | 30<br>28.57% | 75 |
-| **Proveedor 2** | 15 | 10 | 15 | 30 |
-| **Total** | 35 | 35 | 35 | 105 |
+Del mismo modo que la tabla de frecuencias se usa para representar una variable cualitativa, en esta tabla se representa un par de variables cualitativas.
 
-En las columnas/filas del total o subtotal van las frecuencias marginales, que suman un 100%.
+En cada celda queda representada la intersección entre los dos grupos de atributos (por ejemplo, 'productos de alta calidad enviados por el Proveedor 1'), y pueden estar representada en forma de frecuencia absoluta o relativa (%)
+
+|                 | Alta Calidad | Media Calidad | Baja Calidad | Total |
+| --------------- | ------------ | ------------- | ------------ | ----- |
+| **Proveedor 1** | 20<br>       | 25<br>        | 30<br>       | 75    |
+| **Proveedor 2** | 15           | 10            | 15           | 30    |
+| **Total**       | 35           | 35            | 35           | 105   |
+
+En las columnas/filas del total van las frecuencias marginales, que suman un 100%.
 
 ## Gráficos de dispersión (quanti + quanti)
 
