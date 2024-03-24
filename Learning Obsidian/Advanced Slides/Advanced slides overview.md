@@ -75,7 +75,7 @@ $$
 
 You can embed all sorts of files like you would in obsidian
 
-![[Rango intercualtílico.excalidraw|100%]]
+![[Stack.excalidraw]]
 
 ---
 
@@ -106,7 +106,7 @@ note: Anything bellow this point will only be show to the speaker, including ima
 console.log('hello, world');
 ```
 
-![[Stack.svg]]
+![[Stack.excalidraw]]
 
 ---
 
