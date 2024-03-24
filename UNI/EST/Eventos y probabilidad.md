@@ -38,7 +38,7 @@ La probabilidad es la proporción de casos favorables entre los casos posibles e
 $$
 P(A) = \left(\frac{\text{Casos favorables}}{\text{Casos posibles}}\right) \in [0,1]
 $$
-# Propiedades
+
 
 ## Probabilidad de la unión de eventos
 
@@ -77,12 +77,12 @@ $$
 
 ### Independencia de sucesos
 
-Dos eventos son independientes si y solo si...
+Dos eventos son [[Población y muestra#Independencia|independientes]] si y solo si...
 - $P(A|B) = P(A)$
 - $P(AB) = P(A|B) · P(B) = P(A) · P(B)$
 - $P(A|B) = P(A|\overline{B})$
 ... siempre y cuando $B \neq 0$.
 
-Estas reglas se pueden usar para determinar si un evento es independiente del otro, pero cabe destacar que no es una relación que se aplique en ambas direcciones; 
+Estas reglas se pueden usar para determinar si un evento es independiente del otro, pero cabe destacar que no es una relación que se aplique en ambas direcciones.
 
 Siempre se asume que son dependientes a no ser que se indique lo contrario o algo lo demuestre.

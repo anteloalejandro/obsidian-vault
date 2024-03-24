@@ -1,13 +1,33 @@
 {
 	"nodes":[
 		{"id":"8fa5a0a1e4ad4007","type":"text","text":"# DOS RAMAS DE ESTADÍSTICA","x":-540,"y":-40,"width":383,"height":120},
-		{"id":"0a9d59da13afae98","type":"text","text":"# Inferencial","x":-20,"y":-240,"width":320,"height":64},
-		{"id":"8ab33363f7b04400","type":"text","text":"# Descriptiva","x":-20,"y":135,"width":320,"height":65},
-		{"id":"50340a624ccb8f76","type":"file","file":"UNI/EST/Estadísticos descriptivos.md","x":400,"y":-32,"width":400,"height":400}
+		{"id":"f5abf3df0da58142","type":"file","file":"UNI/EST/Estadística inferencial.md","x":-40,"y":-760,"width":403,"height":258},
+		{"id":"50d7350876456358","type":"file","file":"UNI/EST/Eventos y probabilidad.md","subpath":"#Probabilidad","x":480,"y":-1080,"width":400,"height":380},
+		{"id":"9a21d49c0eabbe5f","type":"file","file":"UNI/EST/Eventos y probabilidad.md","subpath":"#Eventos","x":480,"y":-582,"width":400,"height":260},
+		{"id":"c8528dc017e47182","type":"file","file":"UNI/EST/Estadística descriptiva.md","x":-40,"y":510,"width":403,"height":344},
+		{"id":"273aa97ff8990250","type":"file","file":"UNI/EST/Estadísticos descriptivos.md","subpath":"#Posición central","x":1066,"y":30,"width":414,"height":362},
+		{"id":"40895cb4c633bdb6","type":"file","file":"UNI/EST/Estadísticos descriptivos.md","subpath":"#Dispersión","x":1066,"y":481,"width":414,"height":402},
+		{"id":"08d627d2be32619f","type":"file","file":"UNI/EST/Estadísticos descriptivos.md","subpath":"#Posición","x":1066,"y":963,"width":414,"height":387},
+		{"id":"2fcb626c320fdd69","type":"file","file":"Assets/Comparison_mean_median_mode.svg","x":1666,"y":61,"width":400,"height":300},
+		{"id":"6984bc91f0443360","type":"file","file":"Assets/standard-deviation-diagram.jpg","x":1666,"y":582,"width":400,"height":200},
+		{"id":"50340a624ccb8f76","type":"file","file":"UNI/EST/Estadísticos descriptivos.md","x":506,"y":552,"width":400,"height":260},
+		{"id":"740c7a8c6f77937a","x":1048,"y":1612,"width":451,"height":217,"type":"file","file":"Assets/Estadístico y parámetro.excalidraw.md"},
+		{"id":"1031d7faee060281","type":"file","file":"UNI/EST/Población y muestra.md","x":506,"y":1521,"width":400,"height":400},
+		{"id":"44902fc92366c784","type":"file","file":"Assets/Rango intercualtílico.excalidraw.md","x":1666,"y":1083,"width":400,"height":147}
 	],
 	"edges":[
-		{"id":"45baa8bed3085834","fromNode":"8fa5a0a1e4ad4007","fromSide":"right","toNode":"0a9d59da13afae98","toSide":"left"},
-		{"id":"af6b46aa96254653","fromNode":"8fa5a0a1e4ad4007","fromSide":"right","toNode":"8ab33363f7b04400","toSide":"left"},
-		{"id":"369260d9320dfdda","fromNode":"8ab33363f7b04400","fromSide":"right","toNode":"50340a624ccb8f76","toSide":"left"}
+		{"id":"47ba97bb75832fa4","fromNode":"50340a624ccb8f76","fromSide":"right","toNode":"273aa97ff8990250","toSide":"left"},
+		{"id":"0545d0c80afdd79c","fromNode":"50340a624ccb8f76","fromSide":"right","toNode":"40895cb4c633bdb6","toSide":"left"},
+		{"id":"123c7574cc7736d4","fromNode":"50340a624ccb8f76","fromSide":"right","toNode":"08d627d2be32619f","toSide":"left"},
+		{"id":"27d4832bdd5c7a6c","fromNode":"273aa97ff8990250","fromSide":"right","toNode":"2fcb626c320fdd69","toSide":"left"},
+		{"id":"691d7e1886f6c155","fromNode":"08d627d2be32619f","fromSide":"right","toNode":"44902fc92366c784","toSide":"left"},
+		{"id":"1dea09e9796cbe3b","fromNode":"40895cb4c633bdb6","fromSide":"right","toNode":"6984bc91f0443360","toSide":"left"},
+		{"id":"69b7140adc63180f","fromNode":"8fa5a0a1e4ad4007","fromSide":"right","toNode":"c8528dc017e47182","toSide":"left"},
+		{"id":"8e3b2ba35a90e7e1","fromNode":"c8528dc017e47182","fromSide":"right","toNode":"50340a624ccb8f76","toSide":"left"},
+		{"id":"7015e6064fb3679b","fromNode":"f5abf3df0da58142","fromSide":"right","toNode":"50d7350876456358","toSide":"left"},
+		{"id":"6d29eca1f48df356","fromNode":"f5abf3df0da58142","fromSide":"right","toNode":"9a21d49c0eabbe5f","toSide":"left"},
+		{"id":"759314be9bcb8fd4","fromNode":"8fa5a0a1e4ad4007","fromSide":"right","toNode":"f5abf3df0da58142","toSide":"left"},
+		{"id":"5bb065c1933e32dc","fromNode":"c8528dc017e47182","fromSide":"right","toNode":"1031d7faee060281","toSide":"left"},
+		{"id":"dfa6b33c196b3f50","fromNode":"1031d7faee060281","fromSide":"right","toNode":"740c7a8c6f77937a","toSide":"left"}
 	]
 }

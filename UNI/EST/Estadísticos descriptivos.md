@@ -59,6 +59,8 @@ El signo de $s$ sin elevar al cuadrado dependerá de si la varianza es menor o m
 
 A una distancia de una desviación estándar (a partir de la media, por los dos lados), se espera que haya un 68% de los datos, y a dos desviaciones estándar, alrededor de un 95% ([[Distribución normal]]). Por esta relación y por el hecho de que se expresa en las mismas unidades que la variable aleatoria que se está midiendo, se considera **más fácil de interpretar** que la varianza.
 
+![[standard-deviation-diagram.jpg]]
+
 Al igual que la media (ya que es resultada de una media de diferencias), la desviación estándar (así como la varianza) se ve muy afectada por valores anómalos.
 
 ## Cuasi varianza
