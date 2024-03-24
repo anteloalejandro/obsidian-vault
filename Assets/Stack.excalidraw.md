@@ -36,7 +36,7 @@ next ^bdjcTbSf
 {
 	"type": "excalidraw",
 	"version": 2,
-	"source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.18",
+	"source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.25",
 	"elements": [
 		{
 			"type": "rectangle",
@@ -269,8 +269,8 @@ next ^bdjcTbSf
 		},
 		{
 			"type": "arrow",
-			"version": 703,
-			"versionNonce": 1200820486,
+			"version": 704,
+			"versionNonce": 1888276445,
 			"isDeleted": false,
 			"id": "RVdGzu8qJEOq5WffBSWb0",
 			"fillStyle": "solid",
@@ -292,7 +292,7 @@ next ^bdjcTbSf
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1710982831263,
+			"updated": 1711276003819,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -317,8 +317,8 @@ next ^bdjcTbSf
 		},
 		{
 			"type": "arrow",
-			"version": 37,
-			"versionNonce": 643235910,
+			"version": 38,
+			"versionNonce": 1770048573,
 			"isDeleted": false,
 			"id": "YH9_6QmnaIVUq7kz7iPoP",
 			"fillStyle": "solid",
@@ -340,7 +340,7 @@ next ^bdjcTbSf
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1710982831266,
+			"updated": 1711276003821,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -399,8 +399,8 @@ next ^bdjcTbSf
 		},
 		{
 			"type": "arrow",
-			"version": 737,
-			"versionNonce": 1832008134,
+			"version": 738,
+			"versionNonce": 79218557,
 			"isDeleted": false,
 			"id": "OAzDDiejl9pvuC5N2N5Vj",
 			"fillStyle": "solid",
@@ -422,7 +422,7 @@ next ^bdjcTbSf
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1710982831263,
+			"updated": 1711276003818,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -776,7 +776,7 @@ next ^bdjcTbSf
 		}
 	],
 	"appState": {
-		"theme": "light",
+		"theme": "dark",
 		"viewBackgroundColor": "#ffffff",
 		"currentItemStrokeColor": "#1e1e1e",
 		"currentItemBackgroundColor": "transparent",
@@ -790,10 +790,10 @@ next ^bdjcTbSf
 		"currentItemTextAlign": "left",
 		"currentItemStartArrowhead": null,
 		"currentItemEndArrowhead": "arrow",
-		"scrollX": 340.23286642217164,
-		"scrollY": 653.2716860486116,
+		"scrollX": 365.191199755505,
+		"scrollY": 533.5015285326087,
 		"zoom": {
-			"value": 1.2000000000000002
+			"value": 2
 		},
 		"currentItemRoundness": "round",
 		"gridSize": null,

@@ -1,6 +1,4 @@
-las variables cuantitativas (decimales) y estadísticas cualitativas (enteros) son variables aleatorias (v.a.).
-
-Los estadísticos estiman los parámetros, que son teóricos y conciernen a la población.
+Son resultados de los [[Población y muestra#Estadísticas muestrales y parámetros poblacionales|datos extraídos de una muestra]] representados de diferentes formas, ya sean gráficas o funciones
 
 # Posición central
 

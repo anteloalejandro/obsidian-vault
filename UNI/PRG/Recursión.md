@@ -42,10 +42,10 @@ En las recursiones lineales hay sólo una llamada recursiva en cada iteración, 
 # Recursividad y la pila de llamadas
 
 Cada vez que se llama a un método está se mete en la **pila de llamadas**. Las pilas son una estructura de datos en la que cada uno de los nodos apunta al siguiente miembro en la lista y cuando se inserta o elimina un nodo se hace al principio (o *top*), similar a una pila de platos.
-![[Stack|100%]]
+![[Stack.excalidraw|100%]]
 
 En lo que a métodos pertañe, sólo el método que está en el tope de la pila está en ejecución, y solo sale de la pila cuando termina de ejecutarse, pero si el método en ejecución llama a otro método, éste último se añade a la pila, deteniendo así la ejecución del método que lo llamó hasta que termine, y así sucesivamente.
-![[Factorial Call Stack|100%]]
+![[Factorial Call Stack.excalidraw|100%]]
 Las llamadas a funciones a si mismas, por su lado, están asociadas a un **registro de activación** propio que se apila sobre la pila de llamadas.
 
 Como las funciones recursivas abusan de la pila de llamadas, la memoria que utilizan incrementa muy rápidamente con cada recursión, por lo que son susceptibles al *stack overflow*, el nombre que recibe el evento de que la pila de llamadas se quede sin espacio. Aún así, la causa más común de *stack overflow* es la recursión infinita causada por problemas de lógica en la función recursiva, que en Java provoca la excepción StackOverflowError.
