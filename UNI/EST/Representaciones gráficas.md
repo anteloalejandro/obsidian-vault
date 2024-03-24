@@ -1,6 +1,6 @@
 Hay esencialmente dos tipos de representaciones gráficas, las unidimensionales y las bidimensionales. 
 
-# Gráficas dimensionales
+# Gráficas unidimensionales
 
 ## Diagrama de barras
 
@@ -97,7 +97,7 @@ Tienen dos utilidades principales: Primero, al igual que con el histograma, es p
 
 ![[comparative-boxplot.png]]
 
-# Estadística bidimesional
+# Gráficas bidimensionales
 
 Consiste en crear gráficas que combinen pares de variables diferentes. Se pueden combinar dos variables cualitativas o dos variables cuantitativas, pero no se pueden mezclar.
 
@@ -119,34 +119,20 @@ En cada celda queda representada la intersección entre los dos grupos de atribu
 
 En las columnas/filas del total van las frecuencias marginales, que suman un 100%.
 
-## Gráficos de dispersión (quanti + quanti)
+## Gráficos de dispersión
 
-Una gráfica en la que se usa un eje por cada variable. Los puntos probablemente no formarán una sola línea, pero se puede dibujar una línea que representa la dirección general de los datos.
+Una gráfica en la que se usa un eje por cada variable (cuantitativa) y se ponen puntos según como interceda cada dato. Lo más probable es que los puntos no formen una sola línea bien definida, pero se puede dibujar una siguiendo la dirección general hacia la que van los puntos.
 
-Las dos variables tienen que tener algún tipo de relación, y sólo vamos a ver las lineales. Si no es lineal, la línea pasa a ser una curva.
-
-Cuanto más alejados están los puntos respecto a la línea, más débil es la relación.
-
-Dadas las varaibles A y B, si la pendiente es positiva, se dice que cuanto más A más B. Si es negativa, cuanto más A menos B.
+Las dos variables tienen que tener algún tipo de relación, sino los puntos estarán completamente dispersos y no se podrá sacar ninguna conclusión. Cuanto más alejados están los puntos respecto a la línea, más débil es la relación entre las dos variables.
 
 Si los datos no tienen ninguna relación, los puntos se distribuyen de forma más o menos equitativa por el gráfico, haciendo imposible dibujar una línea en ninguna relación concreta.
 
-## Covarianza
+La relación entre las dos variables puede ser lineal o exponencial, pero de momento sólo se verán relaciones lineales, que forman lineas rectas.
 
-Medida de la dirección de una relación lineal entre dos variables.
-El promedio de todas las variables en todas las direcciones.
-Es la diferencia entre todas las distancias entre la media y los puntos.
+Dadas las variables A y B, si la pendiente es positiva, se dice que cuanto más A más B (directamente proporcional). Si es negativa, cuanto más A menos B (inversamente proporcional).
 
-$$Cov(x, y) = S_{xy}= \frac{1}{n-1} \sum\limits^{n}_{i=1}(x_{i}- \overline{x})(y_{i}- \overline{y})$$
+![[scatter-plot.png|100%]]
 
-Dará un número positivo o negativo
-- Si > 0 se mueven en la misma dirección (pendiente positiva)
-- Si < 0 se mueven en direcciones opuestas (pendiente negativa)
-- Si = 0, x e y son independientes.
+Lo juntos o separados que estén los puntos de la línea se mide mediante el [[Estadísticos descriptivos bidimensionales#Coeficiente de correlación|coeficiente de correlación]] ($r$).
 
-## Coeficiente Correlación
-
-Una medida tanto de la direccción como de la fuerza de una relación lineal entre dos variables.
-
-$$r = \frac{Cov(x,y)}{s_{x}s_{y}}$$
-Cuanto más grande es su valor absoluto, más relacionadas están. Si su valor absoluto es < 0.3, se dice que no están correlacionadas, ya que es demasiado débil. Si es positivo o negativo se aplica lo mismo que con la covarianza, ya que es directamente proporcional a esta.
+![[scatter-plot-correlation.png|100%]]

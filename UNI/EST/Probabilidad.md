@@ -7,7 +7,7 @@ Suceso que puede ocurrir o no. Tiene que ser posible que ocurra y que no ocurra.
 
 El conjunto de todos los eventos se llama **espacio muestral**.
 
-Existen fenómenos con carácter determinista, pero en estadística estudiamos fenómenos aleatorios o que simplemente no son deterministas, y se trata de aproximar resultados en base a tendencias en los datos. Por tanto, asumimos que hay variabilidad, pero que hay cierta tendencia o regularidad.
+Existen fenómenos con carácter determinista, pero en estadística estudiamos fenómenos aleatorios o que simplemente no son deterministas, y se trata de aproximar resultados en base a tendencias en los datos. Por tanto, asumimos que hay [[Variabilidad|variabilidad]], pero que hay cierta tendencia o regularidad.
 
 Si se coge, por ejemplo, un dado, su espacio muestral es:
 $$
