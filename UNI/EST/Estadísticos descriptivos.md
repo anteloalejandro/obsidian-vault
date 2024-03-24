@@ -103,7 +103,7 @@ $$
 
 La diferencia entre $Q_3$ y $Q_1$. Es un 50% de los datos centrales.
 
-$$II= Q_{3} - Q_{1}$$
+$$RI= Q_{3} - Q_{1}$$
 Es más resistente a los valores anómalos que los cuartiles y percentiles.
 
 ![[Rango intercualtílico.excalidraw|100%]]
@@ -162,33 +162,3 @@ Se puede determinar la curtosis utilizando una fórmula:
 $$
 CC = -3 + \frac{1}{s^{4}·(n-1)}\sum\limits_{i=1}^{n}(x_{i}-\overline{x})^{4}
 $$
-
-# Representaciones gráficas
-
-## Tabla de frecuencia
-
-Se usa para variables cualitativas (enteros), pero se puede usar para variables quantitativas (decimales).
-
-Es una tabla agrupando los elementos en filas y contando cuantos elementos entran en cada grupo.
-
-| Color | Frecuencia absoluta (cantidad) | Frecuencia Relativa (porcentaje) |
-| ---- | ---- | ---- |
-| Negro | 10 | $10/23 = 43.4\%$ |
-| Azul | 5 | $5/23$ |
-| Rojo | 5 | ... |
-| Verde | 2 |  |
-| Amarillo | 1 |  |
-
-Para variables quantitativas se suele hacer rangos para tratarlas como cualitativas.
-
-Si los grupos son ordenables, también se añaden las columnas de frecuencia absoluta acumulada y frecuencia relativa acumulada, en las que se suma el valor de la fila superior (sumatorio).
-
-## Diagrama de barras
-
-Para frecuencia absoluta
-
-## Diagrama por sectores
-
-Para frecuencia relativa
-
-## Tallo y hoja (stem and leaf)

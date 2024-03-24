@@ -75,7 +75,7 @@ $$
 
 You can embed all sorts of files like you would in obsidian
 
-![[Stack.svg]]
+![[Rango intercualtílico.excalidraw|100%]]
 
 ---
 
