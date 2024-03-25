@@ -99,13 +99,11 @@ Tienen dos utilidades principales: Primero, al igual que con el histograma, es p
 
 # Gráficas bidimensionales
 
-Consiste en crear gráficas que combinen pares de variables diferentes. Se pueden combinar dos variables cualitativas o dos variables cuantitativas, pero no se pueden mezclar.
+Consiste en crear gráficas que combinen pares de variables diferentes. Se combinan variables con la misma [[Clasificación de variables|clasificación]], es decir, se pueden combinar dos variables cualitativas o dos variables cuantitativas, pero no se pueden mezclar.
 
 ## Tablas de contingencia
 
-También llamada tabla de frecuencias cruzadas. La tabla de frecuencias se usaba para las cualitativas, así que para combinar dos cualitativas se combinan dos tablas.
-
-También llamada tabla de frecuencias cruzadas. Es similar a la tabla de frecuencias, pero en vez de clasificar la información por columnas, se hace por columnas y filas, usándose estas para representar dos variables diferentes.
+También llamada **tabla de frecuencias cruzadas**. Es similar a la [[Tablas de frecuencias|tabla de frecuencias]], pero en vez de clasificar la información por columnas, se hace por columnas y filas, usándose estas para representar dos variables diferentes.
 
 Del mismo modo que la tabla de frecuencias se usa para representar una variable cualitativa, en esta tabla se representa un par de variables cualitativas.
 

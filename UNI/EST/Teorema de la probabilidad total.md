@@ -1,14 +1,17 @@
 
-Se divide el espacio muestral en diferentes eventos (grupos) exclusivos denominados $A_i$ y se coge además un evento $B$ que es transversal a una o más particiones (puede parcial o completamente en una o varias).
+Supongamos que dentro del espacio muestral tenemos un evento $B$ que es un subconjunto de éste. Supongamos además, que dividimos el espacio muestral en particiones [[Eventos#Tipos de evento|mutuamente excluyentes]] con intersección en $B$, llamadas $\set{A_{1}, \dots, A_{n}}$. Si se desconoce la probabilidad de $B$ pero sí las de todas las $A_{i}$ y $P(B|A_{i})$ se puede averiguar $P(B)$.
 
-- $\sum\limits{P(A_{i})}$ es 1
-- $\sum\limits{P(B|A_{i})}$ no tiene por qué ser 1
-- $P(B|A_{i}) + P(\overline{B}|A_{i})$ es 1
-Si sabes $P(A_{i})$ y sabes $P(B|A_{i})$ se puede conocer $P(B)$:
-
+![[total_probability.png|100%]]
 $$
-\begin{align}
-P(B) &= P((A_{1}\cap B) \cup (A_{2} \cap B) \cup \dots \cup (A_{n} \cap B))\\
-&= P(B|A_{1})·P(A_{1}) + \dots
-\end{align}
+\begin{align*}
+P(B) & = P((A_{1} \cap B) \cup (A_{2} \cap B) \cup \dots \cup (A_{n} \cap B))\\
+& = P(A_{1} \cap B) + P(A_{2} \cap B) + \dots + P(A_{n} \cap B)\\
+& = P(A_{1})·P(B|A_{1}) + \dots + P(A_{n})·P(B|A_{n})
+\end{align*}
+$$
+Nótese que cada par $(A_{i} \cap B)$ es independiente del resto, ya que toda $A_{i}$ es mutuamente excluyente del resto, haciendo que se pueda aplicar las propiedades de la [[Probabilidad#Probabilidad de la unión de eventos|probabilidad de la unión de eventos]], pero $A_{i}$ y $B$ no son independientes entre sí, así que en el último paso no se aplican las propiedades de la [[Probabilidad#Independencia de sucesos|independencia de sucesos]].
+
+Por tanto, el teorema de la probabilidad total es el siguiente:
+$$
+\sum\limits_{i=1}^{n}P(A_{i})·P(B|A_{i})
 $$
