@@ -1,5 +1,5 @@
 
-Una distribución de probabilidad que tiene probabilidades iguales para todos los subintervalos dentro de un intervalo. Por ejemplo, la función `Math.random()` de Java presenta una distribución uniforme en la que todos los valores entre 0 y 1 tienen la misma probabilidad de suceder, y todos los valores fuera de ese intervalo también tienen la misma probabilidad de suceder (0). De expresa así:
+Una distribución de probabilidad que tiene probabilidades iguales para todos los subintervalos dentro de un intervalo. Por ejemplo, la función `Math.random()` de Java presenta una distribución uniforme en la que todos los valores entre 0 y 1 tienen la misma probabilidad de suceder, y todos los valores fuera de ese intervalo también tienen la misma probabilidad de suceder (0). Se expresa así:
 $$
 X \sim U(a, b)
 $$
