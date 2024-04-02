@@ -45,3 +45,41 @@ Además, según como se curve la línea, se puede observar gráficamente el tipo
 Usando esta gráfica y sabiendo que corresponde a una distribución normal se puede aproximar el valor correspondiente a la media aprovechando que la media y la mediana han de ser muy similares y deduciendo que el valor de la mediana ha de ser aquel para el cual la probabilidad es 50%.
 
 Aprovechando de nuevo esa lógica se puede averiguar también el valor de la desviación estándar, ya que también sabemos que a una distancia de $\sigma$ por la derecha y por la izquierda de la media se encuentra el 68% de los valores, lo que implica que en $\mu - \sigma$ habrá un $50\% - 34\% = 16\%$ y en $\mu + \sigma$ habrá un $50\% + 34\% = 84\%$. Sacando los valores correspondientes en la gráfica se puede despejar $\sigma$.
+
+# Teorema central del límite
+
+El teorema central del límite, en lo que a la distribución normal respecta, dice que:
+$$
+n \to \infty, \sum\limits^{n}_{i=1}(X_{i})  \sim N \left(\mu = \sum\limits^{n}_{i=1}\mu_{i},\  \sigma^{2} = \sum\limits^{n}_{i=1}\sigma^{2}_{i} \right)
+$$
+Es decir, que si $n$ tiende a infinito, la suma de las distribuciones normales es igual a una nueva distribución cuya variable aleatoria es la suma de las variables, cuya media es la suma de las medias y cuya varianza es la suma de las varianzas. En la práctica, mientras la $n$ sea suficientemente grande se considera que este resultado es una aproximación suficientemente buena.
+
+Este teorema quiere decir, esecialmente, que al sumar variables independientes aleatorias, cuantas más se sumen más se parecerá el resultado a una distribución normal.
+
+# Aproximación a la distribución normal
+
+Ya que el teorema central del límite da a entender que la suma de suficientes variables aleatorias da como resultado una distribución normal, se pueden aproximar las sumas de otros tipos de distribuciones a una nueva distribución normal.
+
+## Binomial
+
+Dada la [[Distribución binomial|distribución binomial]] $X \sim B(n, p)$, consideramos que la aproximación a la normal es suficientemente acertada si $\sigma_{x}^{2} = np(1-p) \geq 9$.
+
+La $Z$ se calcularía igual que en la distribución normal estandarizada:
+$$
+Z = \frac{X-\mu_{x}}{\sigma_{x}} = \frac{X-np}{\sqrt{np(1-p)}}
+$$
+
+## Poisson 
+
+Dada la [[Distribución de Poisson|distribución de Poisson]] $X \sim Ps(\lambda)$, consideramos que la aproximación a la normal es suficientemente acertada si $\sigma^{2}_{x} = \lambda \geq 9$
+
+La $Z$ se calcularía igual que en la distribución normal estandarizada, teniendo en cuenta que en Poisson $\mu = \sigma$ :
+$$
+Z = \frac{X-\mu_{x}}{\sigma_{x}} = \frac{X-\lambda}{\sqrt{\lambda}}
+$$
+
+## Correcciones por continuidad
+
+Al aproximar la binomial y Poisson (distribuciones para variables discretas) a la distribución normal (distribución para variables continuas) se producen errores de precision por continuidad. En resumidas cuentas, sumaremos o restaremos $0.5$ para asegurarnos de que cogemos o excluimos al valor concreto de $x$ según se dé.
+
+![[Correción por continuidad.excalidraw|100%]]
