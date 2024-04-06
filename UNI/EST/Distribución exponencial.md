@@ -3,7 +3,7 @@ Se utiliza para modelar el **tiempo transcurrido** entre dos sucesos.
 $$
 T \sim Exp(\alpha)
 $$
-Donde la variable aleatoria $T$ es el **tiempo transcurrido** entre sucesos y $\alpha$ es el parámetro (que a menudo se expresa como $\lambda$), que es a su vez la **inversa del promedio** de unidades/tiempo, es decir, la inversa de $\lambda$ en [[Distribución de Poisson|Poisson]].
+Donde la variable aleatoria $T$ es el **tiempo transcurrido** entre sucesos y $\alpha$ es el parámetro (que a menudo se expresa como $\lambda$), que es a su vez la **inversa del promedio** de unidades en unidad de tiempo (Ej: promedio = 25% en 5min), es decir, la inversa de $\lambda$ en [[Distribución de Poisson|Poisson]].
 
 ![[Exponencial vs Poisson.excalidraw|100%]]
 
@@ -18,8 +18,8 @@ $$
 Además, a partir de esta fórmula se puede concluir que:
 $$
 \begin{align*}
-f(T > t) &= 1 - F(t) = 1 - 1 - e^{-\alpha t} \\
-f(T > t) &= e^{-\alpha t}
+f(T \geq t) &= 1 - F(t) = 1 - 1 - e^{-\alpha t} \\
+f(T \geq t) &\simeq f(T>t) = e^{-\alpha t}
 \end{align*}
 $$
 Volviendo al caso del televisor, la probabilidad de que aguante más de 5 años se expresaría $f(T > t)$.
@@ -31,3 +31,4 @@ Se asume que la distribución exponencial no tiene memoria, es decir, que el com
 La [[Estadísticos descriptivos#Media|media]] y la [[Estadísticos descriptivos#Varianza|varianza]] están estrechamente relacionados en la distribución exponencial.
 $$\mu_{t} = E(t) = \frac{1}{\alpha}$$
 $$\sigma^{2}_{t} = \mu_{t}^{2} = \frac{1}{\alpha^{2}}$$
+Al sacar la media y la varianza de una proporción entre dos variables aleatorias usando el [[Distribución normal#Teorema central del límite|teorema central de límite]] hay que tener cuidado de aplicar esa proporción por separado a la media y varianza. Por ejemplo, dadas las variables aleatorias $X$ e $Y = 10X$, $\mu_{y} = 10 · \mu_{x}$ y $\sigma_{y}^{2} = 10 · \sigma_{x}^{2}$, pero no es cierto decir que $\sigma_{y}^{2} = \mu_{y}^{2}$.

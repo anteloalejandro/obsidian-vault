@@ -38,6 +38,18 @@ El valor que más se repite. Si tienes valores cuantitativos (decimales) es muy 
 
 Si los datos coinciden con una [[Distribución normal|distribución normal]], la media, mediana y moda son idénticas. Cuanto más de alejan de ese modelo, más dispares son entre ellas, donde la media es la que más se aleja del pico, seguida por la mediana, mientras que la moda se mantiene en el pico.
 
+# Posición
+## Cuartiles y percentiles
+
+1 cuartil es un cuarto. Los cuartiles son 3 puntos ($Q_{1}, Q_{2}, Q_{3}$) que dividen a la distribución en cuartos, similar a como la mediana lo divide en dos. De hecho, $Q_{2}=Md$.
+$$Q_{i} = \text{Número en la posición } \frac{i}{4}·(n+1)$$
+Si el cuartil está entre dos valores, es la media de esos dos valores.
+
+Los percentiles son igual que los cuartiles dividen en 4, los percentiles dividen entre 100 secciones. El percentil 0 y 100 no existen, así que hay 99 percentiles.
+$$
+P_{i}= \text{Número en la posición } \frac{i}{100}·(n+1)
+$$
+
 # Dispersión
 
 ## Varianza
@@ -86,18 +98,6 @@ Como no tiene dimensiones ni unidades y es una proporción, puede emplearse para
 
 *Cuando se reporte media, se ha de acompañar con la desviación típica y el coeficiente de variación.*
 
-# Posición
-## Cuartiles y percentiles
-
-1 cuartil es un cuarto. Los cuartiles son 3 puntos ($Q_{1}, Q_{2}, Q_{3}$) que dividen a la distribución en cuartos, similar a como la mediana lo divide en dos. De hecho, $Q_{2}=Md$.
-$$Q_{i} = \text{Número en la posición } \frac{i}{4}·(n+1)$$
-Si el cuartil está entre dos valores, es la media de esos dos valores.
-
-Los percentiles son igual que los cuartiles dividen en 4, los percentiles dividen entre 100 secciones. El percentil 0 y 100 no existen, así que hay 99 percentiles.
-$$
-P_{i}= \text{Número en la posición } \frac{i}{100}·(n+1)
-$$
-
 ## Rango intercualtílico
 
 La diferencia entre $Q_3$ y $Q_1$. Es un 50% de los datos centrales.
@@ -106,6 +106,7 @@ $$RI= Q_{3} - Q_{1}$$
 Es más resistente a los valores anómalos que los cuartiles y percentiles.
 
 ![[Rango intercualtílico.excalidraw|100%]]
+
 # Forma
 
 ## Asimetría

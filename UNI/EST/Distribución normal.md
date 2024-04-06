@@ -56,6 +56,8 @@ Es decir, que si $n$ tiende a infinito, la suma de las distribuciones normales e
 
 Este teorema quiere decir, esecialmente, que al sumar variables independientes aleatorias, cuantas más se sumen más se parecerá el resultado a una distribución normal.
 
+Cabe destacar que al aplicar este teorema a la **resta de dos variables aleatorias** $X$ e $Y$, la distribución aleatoria de la variable aleatoria $A$ resultante tiene como media la **resta de las medias** y como varianza la **suma de las varianzas**.
+$$A \sim N(\mu_{a}=\mu_{x}-\mu_{y}, \sigma_{a}=\sigma_{x}^{2}+\sigma_{y}^{2})$$
 # Aproximación a la distribución normal
 
 Ya que el teorema central del límite da a entender que la suma de suficientes variables aleatorias da como resultado una distribución normal, se pueden aproximar las sumas de otros tipos de distribuciones a una nueva distribución normal.
