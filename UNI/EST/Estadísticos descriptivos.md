@@ -4,7 +4,7 @@ Son resultados de los [[Población y muestra#Estadísticas muestrales y parámet
 
 ## Media
 
-$$\overline{x} = \mu = \frac{1}{n}\sum\limits^{n}_{i=1}x_{i}$$
+$$\overline{x} = \frac{1}{n}\sum\limits^{n}_{i=1}x_{i}$$
 
 
 La media se ve muy afectada por valores anómalos, así que no es un buen parámetro de distribución si hay muchos
@@ -59,13 +59,13 @@ Una cantidad que mide el grado de dispersión en una muestra
 Es el promedio de todas las distancias hasta la media de la muestra.
 
 $$
-S^{2} = \sigma^{2} =\frac{1}{n}\sum\limits^{n}_{i=1}(x_{i}-\overline{x})^{2}
+S^{2} =\frac{1}{n}\sum\limits^{n}_{i=1}(x_{i}-\overline{x})^{2}
 $$
 
 ## Desviación estándar
 
 $$
-S = \sigma =\sqrt{S^2}
+S =\sqrt{S^2}
 $$
 El signo de $s$ sin elevar al cuadrado dependerá de si la varianza es menor o mayor que la media.
 

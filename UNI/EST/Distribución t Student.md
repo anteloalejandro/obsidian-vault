@@ -1,0 +1,2 @@
+
+Es una familia de distribuciones simétricas más puntiagudas que la normal cuyos valores dependen de los grados de libertad. Cuanto más altos los grados de libertad, más se parece a la normal y, cuanto más baja, más curtosis tiene.

@@ -92,7 +92,7 @@ a\leq{b}\\
 b\geq{a}\\
 b>a\\
 a\ll{b}\\
-b\ll{a}\\
+b\gg{a}\\
 a\approx{b}\\
 a=b\\
 a\equiv{b}\\
