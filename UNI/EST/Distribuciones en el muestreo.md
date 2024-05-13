@@ -5,7 +5,7 @@ todo: true
 
 Supongamos que hay una población con una variable aleatoria $X$. Para sacar conclusiones sobre dicha variable aleatoria de ha de obtener una [[Población y muestra|muestra]] aleatoria constituida por $n_{i}$ individuos de la población.
 
-Del mismo modo, se pueden obtener múltiples muestras de tamaños diferentes, cada una con sus propios [[Estadísticos descriptivos]], como $\overline{X}$ o $S$. El conjunto de todas las muestras posibles que se pueden extraer de esta población es, por tanto, una nueva **población de las posibles muestras**. Como cada uno de los miembros de esta nueva población tiene sus propios estadísticos descriptivos, estos serán **variables aleatorias** válidas **para la nueva población** de muestras.
+Del mismo modo, se pueden obtener múltiples muestras de tamaños diferentes, cada una con sus propios [[Estadísticos descriptivos]], como $\overline{X}$ o $S$. El conjunto de todas las muestras posibles que se pueden extraer de esta población es, por tanto, una nueva **población compuesta de las posibles muestras** o, dicho de otro modo, el conjunto de partes de la población. Como cada uno de los miembros de esta nueva población tiene sus propios estadísticos descriptivos, estos serán **variables aleatorias** válidas **para la nueva población** de muestras.
 
 ![[Población y población de muestras.excalidraw|100%]]
 
@@ -18,12 +18,9 @@ Todos los estadísticos pueden considerarse variables aleatorias y, como tales, 
 ## Media muestral
 
 Dada la [[Estadísticos descriptivos#Media|media muestral]] $\overline{X} = \frac{1}{n} \sum\limits_{i=1}^{n}X_{i}$, cada una de las $X_{i}$ son **miembros de la muestra**, que a su vez son miembros de la población. Si sacamos las medias de todas las muestras posibles para la población, cada una de estas medias muestrales puede ser diferente, pero hacer **media de todas las medias muestrales** es lo mismo que hacer la media poblacional.
-
-Es decir, si $N$ es el número de individuos en la población, $n$ el número de muestras posibles, cada $X_{i}$ una muestra y cada $a_j$ un miembro de la población y teniendo en cuenta que la media de las particiones de un conjunto es igual a la media del conjunto...
-
 $$
 \begin{align*}
-E(\overline{X}) &= \frac{E(X_{1})+\dots+E(X_{n})}{n} = \frac{a_{1}+\dots+a_{N}}{N} = \mu\\
+E(\overline{X}) &= \frac{E(X_{1})+\dots+E(X_{n})}{n} = \mu\\
 E(\overline{X}) &= \mu
 \end{align*}
 $$

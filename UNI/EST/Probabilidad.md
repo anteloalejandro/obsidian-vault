@@ -10,11 +10,11 @@ $$
 
 ![[Unión.excalidraw|100%]]
 
-Cuando dos [[Eventos|eventos]] A y B tienen miembros en común, la probabilidad de la unión de ambos no se puede calcular simplemente sumando las probabilidades ambos eventos por separado, ya que hay miembros repetidos que no estarían duplicados en la unión pero sí al sumar por separado. Pero usando teoría de conjuntos, se puede deducir que...
+Cuando dos [[Eventos|eventos]] A y B tienen miembros en común, la probabilidad de la unión de ambos no se puede calcular simplemente sumando las probabilidades ambos eventos por separado, ya que hay miembros repetidos que no estarían duplicados en la unión pero sí al sumar por separado. Pero usando teoría de conjuntos, se puede deducir que la unión de A y B es igual a la unión de A con la intersección de B y todo lo que no es A.
 $$
-A \cup B = A \cup \overline{A}\cap B = A \cup B - AB
+A \cup B = A \cup (B \cap \overline{A}) = A \cup (B - A)
 $$
-Por lo que la probabilidad de la unión $A + B$ es...
+Por lo que la probabilidad de la unión $A + B$ es la suma de sus probabilidades menos la probabilidad de la intersección, para no contar dos veces los mismos elementos.
 $$
 P(A\cup B) = P(A) + P(B) - P(A\cap B)
 $$

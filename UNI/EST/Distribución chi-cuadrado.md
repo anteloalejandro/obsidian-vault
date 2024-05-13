@@ -1,3 +1,6 @@
+---
+todo: true
+---
 
 Para la cuasi-varianza muestral.
 

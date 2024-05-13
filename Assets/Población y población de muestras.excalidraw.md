@@ -66,9 +66,9 @@ Población (N) ^7souxuFH
 
 ... ^Cjh5knYz
 
-Población de muestras (N ) ^jDwEUvFA
+Población de muestras (2 ) ^jDwEUvFA
 
-2 ^YvdhPeMy
+N ^YvdhPeMy
 
 %%
 # Drawing
@@ -3537,8 +3537,8 @@ Población de muestras (N ) ^jDwEUvFA
 		},
 		{
 			"type": "text",
-			"version": 295,
-			"versionNonce": 1496423119,
+			"version": 297,
+			"versionNonce": 1522781536,
 			"isDeleted": false,
 			"id": "jDwEUvFA",
 			"fillStyle": "solid",
@@ -3551,63 +3551,63 @@ Población de muestras (N ) ^jDwEUvFA
 			"y": -667.7561676625005,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "#1e1e1e",
-			"width": 610.7198486328125,
+			"width": 613.8180541992188,
 			"height": 56.963195436444,
 			"seed": 752283777,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1713870766744,
+			"updated": 1713874349782,
 			"link": null,
 			"locked": false,
 			"fontSize": 45.570556349155204,
 			"fontFamily": 1,
-			"text": "Población de muestras (N )",
-			"rawText": "Población de muestras (N )",
+			"text": "Población de muestras (2 )",
+			"rawText": "Población de muestras (2 )",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Población de muestras (N )",
+			"originalText": "Población de muestras (2 )",
 			"lineHeight": 1.25,
 			"baseline": 39
 		},
 		{
-			"id": "YvdhPeMy",
 			"type": "text",
-			"x": 793.9448178021869,
-			"y": -677.2201751405585,
-			"width": 19.936080932617188,
-			"height": 35,
-			"angle": 0,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "#b2f2bb",
+			"version": 51,
+			"versionNonce": 1669392544,
+			"isDeleted": false,
+			"id": "YvdhPeMy",
 			"fillStyle": "solid",
 			"strokeWidth": 4,
 			"strokeStyle": "solid",
 			"roughness": 1,
 			"opacity": 100,
+			"angle": 0,
+			"x": 793.9448178021869,
+			"y": -677.2201751405585,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "#b2f2bb",
+			"width": 18.032073974609375,
+			"height": 35,
+			"seed": 127300367,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
-			"seed": 127300367,
-			"version": 50,
-			"versionNonce": 282541935,
-			"isDeleted": false,
-			"boundElements": null,
-			"updated": 1713870786635,
+			"boundElements": [],
+			"updated": 1713874357749,
 			"link": null,
 			"locked": false,
-			"text": "2",
-			"rawText": "2",
 			"fontSize": 28,
 			"fontFamily": 1,
+			"text": "N",
+			"rawText": "N",
 			"textAlign": "left",
 			"verticalAlign": "top",
-			"baseline": 25,
 			"containerId": null,
-			"originalText": "2",
-			"lineHeight": 1.25
+			"originalText": "N",
+			"lineHeight": 1.25,
+			"baseline": 25
 		}
 	],
 	"appState": {
@@ -3625,8 +3625,8 @@ Población de muestras (N ) ^jDwEUvFA
 		"currentItemTextAlign": "left",
 		"currentItemStartArrowhead": null,
 		"currentItemEndArrowhead": "arrow",
-		"scrollX": 1359.1926805332178,
-		"scrollY": 1170.2407423843083,
+		"scrollX": 626.0551821978131,
+		"scrollY": 1225.0934291110702,
 		"zoom": {
 			"value": 0.55
 		},
