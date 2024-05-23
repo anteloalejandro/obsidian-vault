@@ -9,7 +9,7 @@ Es la diferencia entre todas las distancias entre la media y los puntos.
 $$Cov(x, y) = S_{xy}= \frac{1}{n-1} \sum\limits^{n}_{i=1}(x_{i}- \overline{x})(y_{i}- \overline{y})$$
 *Nótese que es, esencialmente, la [[Estadísticos descriptivos#Varianza|varianza]] con dos variables $x$ e $y$.*
 
-Dará un número positivo o negativo
+La covarianza se ve influenciada por la dimensión de la muestra, así que la magnitud de esta no da demasiada información, pero si signo si:
 - Si $Cov(x, y) > 0$, se mueven en la misma dirección (pendiente positiva)
 - Si $Cov(x, y) < 0$, se mueven en direcciones opuestas (pendiente negativa)
 - Si $Cov(x, y) = 0$, x e y son independientes.

@@ -1,0 +1,25 @@
+---
+todo: true
+---
+Teniendo datos actuales o del pasado sacar la relación que hay entre ellos de modo que se pueda sacar un modelo, en forma de ecuación (como la suma de mínimos cuadrados), de modo que se pueda estimar el valor resultante de un dato que no se ha obtenido.
+
+[[Representaciones gráficas#Gráficos de dispersión]]
+
+Como para cada valor de x en la gráfica puede haber varios valores de y, no solo es una ecuación en vez de una función, sino que además, a la hora de estimar los valores en base a la ecuación, los valores de esos puntos fluctúan en base a la [[Distribución normal]].
+
+$$y = a+bx + u$$
+La $u$ en la ecuación anterior es el error generalmente diremos que es 0, menos cuando tengamos que calcular el error para un valor dado. Los modelos determinísticos tienen una $u$ muy baja, mientras que los modelos estocásticos / modelos aleatorios tienen una $u$ muy alta. Generalmente, cuanta más variedad y cantidad de datos, menor es la $u$.
+
+En Statgraphics, la $a$ es el *Intercepto* y la $b$ es la *Pendiente*.
+
+En principio, $a$ sería el valor de $y$ cuando la pendiente es 0, pero eso en estadística a menudo no tiene sentido. Por ejemplo, en la relación entre altura y peso, la $a$ sería el peso cuando la altura es 0, lo cual no es posible. Por tanto, a menudo la $b$ es un binomio con el valor mínimo mínimo restando a una incógnita.
+
+Como los puntos de la muestra pueden estar por encima o por debajo de la ecuación estimada, se usan los cuadrados con tal ignorar el signo. De ahí, el estar trabajando con sumas de cuadrados (SS).
+
+Cuando hablemos de poblaciones: $Y = \alpha + \beta · x_{t}$, es decir, se usan caracteres griegos al igual que con los parámetros y estadísticos.
+
+Hay tres hipótesis que se deben cumplir para aplicar un modelo de regresión lineal:
+- **Hipótesis de normalidad**: La variable sigue una dist. normal 
+- **Hipótesis de homocedasticidad:** La varianza condicional de Y para un valor de X es constante para cualquier valor de X, es decir, X e Y son independientes [[Probabilidad#Independencia de sucesos]].
+
+La calidad del ajuste lo determina el coeficiente de ??, $r^2$.

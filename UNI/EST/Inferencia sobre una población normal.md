@@ -3,7 +3,7 @@ todo: true
 ---
 [[Distribuciones en el muestreo]]
 
-# [[Notas]] 
+# Notas 
 
 Demostrar si hay una diferencia significativa entre el conocimiento previo y lo que muestran los datos.
 # Pasos
@@ -45,7 +45,6 @@ $$
 # Intervalo de confianza
 
 Consiste en calcular un intervalo que tenga una probabilidad elevada ($1-\alpha$) de contener el valor desconocido de $\mu$.
-
 
 $$
 \begin{align*}

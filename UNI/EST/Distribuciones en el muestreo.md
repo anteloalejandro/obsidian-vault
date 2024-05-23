@@ -77,7 +77,11 @@ Además, por el [[Distribución normal#Teorema central del límite|teorema centr
 
 Se usa la cuasi-varianza $s'$ para calcular fácilmente la varianza poblacional.
 
+## Idea 4
+
+La
+
 # Distribuciones
 
 Estas distribuciones se usan principalmente para tamaños de muestra pequeños, ya que para tamaños muy grandes se suele usar la normal.
-[[Distribución chi-cuadrado]]
+[[Distribución Chi-Cuadrado]]

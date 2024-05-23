@@ -9,6 +9,9 @@ todo: true
 
 - Dos muestras dependientes 
 - Volver a la misma muestra
+- Se usa t Student en vez de chi-cuadrado.
+
+
 
 # Diferencia 
 
