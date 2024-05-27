@@ -28,5 +28,12 @@ $$
 
 Además, si las dos varianzas poblacionales son igual, como en el caso de que ambas muestras se hayan cogido de la misma población, se puede simplificar la ecuación para dejar sólo las varianzas muestrales.
 $$
-F = \frac{S^{2}_{1}}{S^{2}_{2}} \sim F_{n_{1}-1, n_{2}-1}
+\sigma^{2}_{1} = \sigma^{2}_{2} \Rightarrow  F = \frac{S^{2}_{1}}{S^{2}_{2}} \sim F_{n_{1}-1, n_{2}-1}
 $$
+
+# Función de distribución acumulativa 
+
+La [[Probabilidad#Función de distribución acumulativa|función de distribución acumulativa]] de la F de Fisher se calcula a través de tablas, donde la $\alpha$ es la probabilidad de que un valor se encuentre en el área delimitada por el punto crítico $f$, $v_{1}$ son los grados de libertad del numerados y $v_{2}$ los grados de libertad del denominador. Al ser una distribución para dos variables independientes, hay que fijarse en las columnas y las filas. Son comunes las tablas que dan la probabilidad para una o para dos colas.
+
+![[Pasted image 20240527181419.png]]
+
