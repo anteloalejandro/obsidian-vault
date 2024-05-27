@@ -145,7 +145,7 @@ $$
 
 Apuntalamiento, o cómo de puntiaguda es la distribución normal. Si hay mucho apuntalamiento, nos da a entender que tenemos poca variedad/cantidad de datos.
 
-Si es plana, planícurtica, si es puntiaguta, leptocúrtica, si es normal, mesocúrtica.
+Si es plana, planicúrtica, si es puntiaguda, leptocúrtica, si es normal, mesocúrtica.
 
 No se ha de confundir con la dispersión de la distribución normal. Es menester fijarse en que si la curtosis es alta, la distribución es más puntiaguda y la base es **igual o más ancha** y si la curtosis es baja, al revés.
 
