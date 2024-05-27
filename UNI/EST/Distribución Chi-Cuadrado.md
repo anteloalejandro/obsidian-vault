@@ -26,11 +26,11 @@ P(\sigma^{2} < K) &= P\left(\chi^{2}_{n-1} < \frac{S^{2}}{n-1}\right) = \alpha
 \end{align*}
 $$
 
-# Función de probabilidad 
+# Función de distribución acumulativa
 
-La función de probabilidad se puede calcular usando una tabla como la siguiente, donde $\alpha$ es la probabilidad de estar después del punto $\chi^2_{v}$  y $v$ los grados de libertad.
+La [[Probabilidad#Función de distribución acumulativa|función de distribución acumulativa]] se puede calcular usando una tabla como la siguiente, donde $\alpha$ es la probabilidad de estar después del punto $\chi^2_{v}$  y $v$ los grados de libertad.
 
 La tabla no cuenta con muchos valores de $\alpha$, por lo que a menudo las probabilidades anteriormente mencionadas serán un rango del estilo $\alpha_{1} \leq P(S^{2} < K) \leq \alpha_{2}$, donde $\alpha_1$ y $\alpha_2$ son las probabilidades que darían como resultado los dos valores inmediatamente inferiores y superiores a $K$ que se encuentran en la tabla.
 
 ![[Tabla chi-cuadrado.png]]
-*Nótese que esta tabla da valores para $P(\chi^{2} \geq x) = \alpha$.*
+*Nótese que esta tabla da valores de $x$ para $P(\chi^{2} \geq x) = \alpha$.*

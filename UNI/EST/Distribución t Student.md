@@ -9,3 +9,8 @@ Es una familia de distribuciones simétricas cuya forma depende de sus grados de
 ![[t-student.png]]
 *Nótese que como $v = n-1$, al variar la $n$ y la $v$ sucede lo mismo*
 
+# Función de distribución acumulativa 
+
+La [[Probabilidad#Función de distribución acumulativa|Función de distribución acumulativa]] de la distribución t Student se puede calcular con tablas, donde $\alpha$ es la probabilidad de estar en una de las colas delimitada por el punto $\pm{t}$ y $v$ los grados de libertad. Usualmente calcula para las dos colas de la distribución por separado, que al ser simétrica dicha distribución simplemente implica usar $\frac{\alpha}{2}$ en vez de $\alpha$ .
+
+![[t-student-tabla.png]]
