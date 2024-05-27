@@ -15,6 +15,8 @@ Es decir, cualquier estadístico descriptivo es una nueva variable aleatoria par
 
 Todos los estadísticos pueden considerarse variables aleatorias y, como tales, la población de las muestras tendrán una media y desviación típica que dependerán de la distribución de la población original.
 
+Gracias a esto se pueden estimar [[Parámetros|parámetros]] poblacionales a partir de los estadísticos de estas nuevas variables aleatorias.
+
 ## Distribución de la media muestral
 
 Dada la [[Estadísticos descriptivos#Media|media muestral]] $\overline{X} = \frac{1}{n} \sum\limits_{i=1}^{n}X_{i}$, cada una de las $X_{i}$ son **miembros de la muestra**, que a su vez son miembros de la población. Si sacamos las medias de todas las muestras posibles para la población, cada una de estas medias muestrales puede ser diferente, pero hacer **media de *todas* las medias muestrales** es exactamente igual a la media poblacional.
@@ -24,13 +26,17 @@ E(\overline{X}) &= E\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{E(X_{1})+\d
 E(\overline{X}) &= \mu
 \end{align*}
 $$
-Por otro lado, y siguiendo con la definición de la media muestral, y teniendo en cuenta que la suma de las varianzas de todos los miembros de la población original es , podemos decir que la **varianza de *todas* las medias muestrales** es exactamente igual a la varianza poblacional dividida entre $n$.
+
+Por otro lado, y siguiendo con la definición de la media muestral, podemos decir que la **varianza de *todas* las medias muestrales** es exactamente igual a la varianza poblacional dividida entre $n$.
 $$
 \begin{align*}
 Var(\overline{X}) &= Var\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{Var(X_{1}) + \dots + Var(X_{n})}{n^{2}} = \frac{n\sigma^{2}}{n^{2}}\\
 Var(\overline{X}) &= \frac{\sigma^{2}}{n}
 \end{align*}
 $$
+
+Lo importante de esto último es que, como consecuencia, cuanto mayor sea el número de muestras $n$ más se acercará la varianza de $\overline{X}$ a 0 y, por tanto, más se acercará la media de las $\overline{X}$ a la media poblacional, permitiendo así estimar el parámetro a través del estadístico sin tomar medidas a todos los miembros de la población.
+
 ### Ejemplo
 
 Por ejemplo, dada la población $\set{18, 20, 22, 24}$, que tendría de media poblacional $\mu = 21$ usando [[muestreo con reemplazo]] se obtiene la siguiente tabla de medias de la muestras de tamaño 2 permitiendo repeticiones:
@@ -46,13 +52,21 @@ Y la media de todas estas medias muestrales es 21, que es idéntica a la media p
 
 
 
-## Varianza muestral
+## Distribución de la varianza muestral
 
+Dada la [[Estadísticos descriptivos#Varianza|varianza muestral]] o, en este caso en específico, la casi-varianza muestral $S^{2} =\frac{1}{n-1}\sum\limits^{n}_{i=1}(X_{i}-\overline{X})^{2}$, la **media de *todas* las varianzas muestrales** es exactamente igual la varianza poblacional, al igual que el caso anterior de la media muestral.
 $$
-Var(\overline{X}) = Var\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{Var(X_{1})+\dots+Var(X_{n})}{n^2}
+\begin{align*}
+E(S^{2}) &= E\left( \frac{(X_{1} - \overline{X})^{2}+ \dots + (X_{n} - \overline{X})^{2}}{n-1} \right) = \sigma^{2}\\
+E(S^{2}) &= \sigma^{2}
+\end{align*}
 $$
+*Esta relación solo es cierta con la cuasi-varianza.*
+
+Al igual que con la distribución de la media muestral, cuanto mayor sea el número de muestras $n$, más se va a acercar la media de las varianzas muestrales a la varianza poblacional.
 
 # NOTAS
+
 ![[Estadístico y parámetro.excalidraw|100%]]
 Hay dos métodos para comprobar si la estimación de los parámetros hecha a partir de los estadísticos de la muestra son correctos: Prueba de hipótesis e intervalo de confianza
 
