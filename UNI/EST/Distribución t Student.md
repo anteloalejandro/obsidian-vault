@@ -24,3 +24,4 @@ La [[Probabilidad#Función de distribución acumulativa|Función de distribució
 ![[t-student-cdf.png]]
 
 ![[t-student-tabla.png]]
+*Nótese que esta tabla da un valor de $t$ para $P(t_{v} \geq t) = \frac{\alpha}{2}$*
