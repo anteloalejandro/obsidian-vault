@@ -15,16 +15,22 @@ Es decir, cualquier estadístico descriptivo es una nueva variable aleatoria par
 
 Todos los estadísticos pueden considerarse variables aleatorias y, como tales, la población de las muestras tendrán una media y desviación típica que dependerán de la distribución de la población original.
 
-## Media muestral
+## Distribución de la media muestral
 
-Dada la [[Estadísticos descriptivos#Media|media muestral]] $\overline{X} = \frac{1}{n} \sum\limits_{i=1}^{n}X_{i}$, cada una de las $X_{i}$ son **miembros de la muestra**, que a su vez son miembros de la población. Si sacamos las medias de todas las muestras posibles para la población, cada una de estas medias muestrales puede ser diferente, pero hacer **media de todas las medias muestrales** es lo mismo que hacer la media poblacional.
+Dada la [[Estadísticos descriptivos#Media|media muestral]] $\overline{X} = \frac{1}{n} \sum\limits_{i=1}^{n}X_{i}$, cada una de las $X_{i}$ son **miembros de la muestra**, que a su vez son miembros de la población. Si sacamos las medias de todas las muestras posibles para la población, cada una de estas medias muestrales puede ser diferente, pero hacer **media de *todas* las medias muestrales** es exactamente igual a la media poblacional.
 $$
 \begin{align*}
-E(\overline{X}) &= \frac{E(X_{1})+\dots+E(X_{n})}{n} = \mu\\
+E(\overline{X}) &= E\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{E(X_{1})+\dots+E(X_{n})}{n} = \mu\\
 E(\overline{X}) &= \mu
 \end{align*}
 $$
-
+Por otro lado, y siguiendo con la definición de la media muestral, y teniendo en cuenta que la suma de las varianzas de todos los miembros de la población original es , podemos decir que la **varianza de *todas* las medias muestrales** es exactamente igual a la varianza poblacional dividida entre $n$.
+$$
+\begin{align*}
+Var(\overline{X}) &= Var\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{Var(X_{1}) + \dots + Var(X_{n})}{n^{2}} = \frac{n\sigma^{2}}{n^{2}}\\
+Var(\overline{X}) &= \frac{\sigma^{2}}{n}
+\end{align*}
+$$
 ### Ejemplo
 
 Por ejemplo, dada la población $\set{18, 20, 22, 24}$, que tendría de media poblacional $\mu = 21$ usando [[muestreo con reemplazo]] se obtiene la siguiente tabla de medias de la muestras de tamaño 2 permitiendo repeticiones:
@@ -38,6 +44,13 @@ Por ejemplo, dada la población $\set{18, 20, 22, 24}$, que tendría de media po
 
 Y la media de todas estas medias muestrales es 21, que es idéntica a la media poblacional.
 
+
+
+## Varianza muestral
+
+$$
+Var(\overline{X}) = Var\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{Var(X_{1})+\dots+Var(X_{n})}{n^2}
+$$
 
 # NOTAS
 ![[Estadístico y parámetro.excalidraw|100%]]
