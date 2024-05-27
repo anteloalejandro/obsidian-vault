@@ -1,6 +1,3 @@
----
-todo: true
----
 %%
 F es un ratio de poblaciones/varianzas, por lo que tiene dos grados de libertad independientes $n_{1}-1$ y $n_{2}-1$ .
 
@@ -33,7 +30,11 @@ $$
 
 # Función de distribución acumulativa 
 
-La [[Probabilidad#Función de distribución acumulativa|función de distribución acumulativa]] de la F de Fisher se calcula a través de tablas, donde la $\alpha$ es la probabilidad de que un valor se encuentre en el área delimitada por el punto crítico $f$, $v_{1}$ son los grados de libertad del numerados y $v_{2}$ los grados de libertad del denominador. Al ser una distribución para dos variables independientes, hay que fijarse en las columnas y las filas. Son comunes las tablas que dan la probabilidad para una o para dos colas.
+La [[Probabilidad#Función de distribución acumulativa|función de distribución acumulativa]] de la F de Fisher se calcula a través de tablas, donde la $\alpha$ es la probabilidad de que un valor se encuentre en el área delimitada por el punto crítico $f$, $v_{1}$ son los grados de libertad del numerados y $v_{2}$ los grados de libertad del denominador. Cada uno de los ejes de la tabla corresponde a los grados de libertad de una de las dos variables independientes.
 
-![[Pasted image 20240527181419.png]]
+![[f-fisher-tabla.png]]
+*Nótese que esta tabla da valores de $f$ para $P(F_{v_{1},v_{2}} \geq f) = \alpha$*
 
+Al ser una distribución asimétrica, también hay tablas que dan valores para los dos lados de la cola, donde se usa $\frac{\alpha}{2}$ en vez de $\alpha$, pero tienen que ser tablas diferentes para cada cola.
+
+![[f-fisher-tabla-2.png]]*Nótese que esta tabla da valores de $f$ para $P(F_{v_{1},v_{2}} \leq f) = \frac{\alpha}{2}$*
