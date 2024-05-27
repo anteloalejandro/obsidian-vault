@@ -1,6 +1,4 @@
----
-todo: true
----
+
 Es una familia de distribuciones simétricas cuya forma depende de sus grados de libertad $v$. Estas distribuciones tienden a la [[Distribución normal#Distribución normal estandarizada|distribución normal estandarizada]] conforme aumentan los grados de libertad $v$ y se vuelven más [[Estadísticos descriptivos#Curtosis|planicúrtica]] conforme disminuye $v$.
 
 ![[t-student.png]]
