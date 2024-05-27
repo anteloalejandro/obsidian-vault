@@ -66,9 +66,8 @@ Esta relación solo es completamente cierta con la cuasi-varianza, pero a la hor
 
 Al igual que con la distribución de la media muestral, cuanto mayor sea el número de muestras $n$, más se va a acercar la media de las varianzas muestrales a la varianza poblacional.
 
-# Muestreo de poblaciones normales
 
-## Propiedades de $\overline{X}$
+## Propiedades de la media muestral
 Cuando la población original se distribuye normalmente, $\overline{X}$ siempre se distribuirá normalmente, independientemente del tamaño de la muestra $n$.
 
 Al ser $\overline{X}$ una distribución normal, se puede transformar en una [[Distribución normal#Distribución normal estandarizada|distribución normal estandarizada]] del mismo modo que se haría con cualquier otra distribución normal.
@@ -80,6 +79,6 @@ $$
 \frac{\overline{X} - \mu_{\overline{X}}}{\sigma_{\overline{X}}} \sim N(0,1)
 $$
 
-## Relación entre $\overline{X}$ y $S^2$
+## Relación entre la media y varianza muestrales
 
 Si $X$ es una distribución normal, la media muestral y la varianza **siempre son independientes** al ser tratadas como variables aleatorias.
