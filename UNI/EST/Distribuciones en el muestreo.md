@@ -75,7 +75,7 @@ Al ser $\overline{X}$ una distribución normal, se puede transformar en una [[Di
 $$
 \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1)
 $$
-Además, al ser $\frac{\sigma}{\sqrt{n}}$ la desviación estándar de la media muestral, y $\mu$ es igual a la media de la media muestral, también se puede expresar así:
+Además, al ser $\frac{\sigma}{\sqrt{n}}$ la desviación estándar de la media muestral, y $\mu$ igual a la media de la media muestral, también se puede expresar así:
 $$
 \frac{\overline{X} - \mu_{\overline{X}}}{\sigma_{\overline{X}}} \sim N(0,1)
 $$
