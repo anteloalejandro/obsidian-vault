@@ -1,6 +1,4 @@
----
-todo: true
----
+
 # Estadísticos como variables aleatorias
 
 Supongamos que hay una población con una variable aleatoria $X$. Para sacar conclusiones sobre dicha variable aleatoria de ha de obtener una [[Población y muestra|muestra]] aleatoria constituida por $n_{i}$ individuos de la población.
@@ -23,7 +21,7 @@ Dada la [[Estadísticos descriptivos#Media|media muestral]] $\overline{X} = \fra
 $$
 \begin{align*}
 E(\overline{X}) &= E\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{E(X_{1})+\dots+E(X_{n})}{n} = \mu\\
-E(\overline{X}) &= \mu
+E(\overline{X}) &= \mu_{\overline{X}} = \mu
 \end{align*}
 $$
 
@@ -31,11 +29,13 @@ Por otro lado, y siguiendo con la definición de la media muestral, podemos deci
 $$
 \begin{align*}
 Var(\overline{X}) &= Var\left(\frac{X_{1}+\dots+X_{n}}{n}\right) = \frac{Var(X_{1}) + \dots + Var(X_{n})}{n^{2}} = \frac{n\sigma^{2}}{n^{2}}\\
-Var(\overline{X}) &= \frac{\sigma^{2}}{n}
+Var(\overline{X}) &= \sigma^{2}_{\overline{X}} = \frac{\sigma^{2}}{n}
 \end{align*}
 $$
 
 Lo importante de esto último es que, como consecuencia, cuanto mayor sea el número de muestras $n$ más se acercará la varianza de $\overline{X}$ a 0 y, por tanto, más se acercará la media de las $\overline{X}$ a la media poblacional, permitiendo así estimar el parámetro a través del estadístico sin tomar medidas a todos los miembros de la población.
+
+Además, por el [[Distribución normal#Teorema central del límite|Teorema central del límite]], como $\overline{X}$ es una suma de variables aleatorias independientes $X_{i}$, si $n > 30$ consideramos que $\overline{X} \sim N(\mu_{\overline{X}} = \mu, \sigma_{\overline{X}})$.
 
 ### Ejemplo
 
@@ -52,63 +52,34 @@ Y la media de todas estas medias muestrales es 21, que es idéntica a la media p
 
 
 
+
 ## Distribución de la varianza muestral
 
 Dada la [[Estadísticos descriptivos#Varianza|varianza muestral]] o, en este caso en específico, la casi-varianza muestral $S^{2} =\frac{1}{n-1}\sum\limits^{n}_{i=1}(X_{i}-\overline{X})^{2}$, la **media de *todas* las varianzas muestrales** es exactamente igual la varianza poblacional, al igual que el caso anterior de la media muestral.
 $$
 \begin{align*}
 E(S^{2}) &= E\left( \frac{(X_{1} - \overline{X})^{2}+ \dots + (X_{n} - \overline{X})^{2}}{n-1} \right) = \sigma^{2}\\
-E(S^{2}) &= \sigma^{2}
+E(S^{2}) &= \mu_{S^{2}} = \sigma^{2}
 \end{align*}
 $$
-*Esta relación solo es cierta con la cuasi-varianza.*
+Esta relación solo es completamente cierta con la cuasi-varianza, pero a la hora de aproximar o estimar parámetros, la diferencia no suele ser notable.
 
 Al igual que con la distribución de la media muestral, cuanto mayor sea el número de muestras $n$, más se va a acercar la media de las varianzas muestrales a la varianza poblacional.
 
-# NOTAS
+# Muestreo de poblaciones normales
 
-![[Estadístico y parámetro.excalidraw|100%]]
-Hay dos métodos para comprobar si la estimación de los parámetros hecha a partir de los estadísticos de la muestra son correctos: Prueba de hipótesis e intervalo de confianza
+## Propiedades de $\overline{X}$
+Cuando la población original se distribuye normalmente, $\overline{X}$ siempre se distribuirá normalmente, independientemente del tamaño de la muestra $n$.
 
-# Representación de estadísticos vs parámetros
+Al ser $\overline{X}$ una distribución normal, se puede transformar en una [[Distribución normal#Distribución normal estandarizada|distribución normal estandarizada]] del mismo modo que se haría con cualquier otra distribución normal.
+$$
+\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1)
+$$
+Además, al ser $\frac{\sigma}{\sqrt{n}}$ la desviación estándar de la media muestral, y $\mu$ es igual a la media de la media muestral, también se puede expresar así:
+$$
+\frac{\overline{X} - \mu_{\overline{X}}}{\sigma_{\overline{X}}} \sim N(0,1)
+$$
 
-Media poblacional: $\mu$
-Media muestral: $\overline{X}$ 
+## Relación entre $\overline{X}$ y $S^2$
 
-Desviación poblacional: $\sigma$
-Desviación muestral: $S$
-
-# Propiedades de la media muestral
-
-## Idea 1
-
-Supongamos una población de 4 personas, con una variable aleatoria $X = \set{\text{Edad de la persona}}$ con espacio muestral $\set{18,20,22,24}$.
-
-La media poblacional sería $\frac{18+20+22+24}{4}=21$ y la distribución sería uniforme porque todos tienen la misma probabilidad de aparecer.
-
-Si tomamos todas las posibles muestras de dos miembros (permitiendo repetidos, en este caso) las medias de muchas de las muestras no coincide, y la distribución para a ser una normal. Dicho esto la media de las medias de la muestra sí es igual a la media poblacional. Aparte de todo esto, la desviación estándar se ha reducido al tomar todas las muestras respecto a tomarla de la población (no se si es importante).
-
-Es decir, cuantas más muestras tomemos, más se acercará la media de las medias muestrales a la media poblacional, y la media de todas las medias muestrales es igual a la media poblacional.
-
-## Idea 2
-
-La desviación estándar de la media muestral es:
-
-$$\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$$
-
-Es decir, cuanto más alta la $n$, más baja es la desviación y, por tanto, más se parece la media muestral a la media poblacional.
-
-Además, por el [[Distribución normal#Teorema central del límite|teorema central del límite]], si $n\geq 30$, como $\overline{X} = \frac{X_{1}+\dots+X_{n}}{n}$, $\overline{X}$ es una distribución normal de la forma $\overline{X} \sim N(\mu, \sigma_{\overline{X}})$.
-
-## Idea 3
-
-Se usa la cuasi-varianza $s'$ para calcular fácilmente la varianza poblacional.
-
-## Idea 4
-
-La
-
-# Distribuciones
-
-Estas distribuciones se usan principalmente para tamaños de muestra pequeños, ya que para tamaños muy grandes se suele usar la normal.
-[[Distribución Chi-Cuadrado]]
+Si $X$ es una distribución normal, la media muestral y la varianza **siempre son independientes** al ser tratadas como variables aleatorias.
