@@ -5,8 +5,7 @@ Teniendo datos actuales o del pasado sacar la relación que hay entre ellos de m
 
 [[Representaciones gráficas#Gráficos de dispersión]]
 
-Como para cada valor de x en la gráfica puede haber varios valores de y, no solo es una ecuación en vez de una función, sino que además, a la hora de estimar los valores en base a la ecuación, los valores de esos puntos fluctúan en base a la [[Distribución normal]].
-
+Como para cada valor de x en la gráfica puede haber varios valores de y, no solo es una ecuación en vez de una función, sino que además, a la hora de estimar los valores en base a la ecuación, los valores de esos puntos, fluctúan en base a la [[Distribución normal]].
 $$y = a+bx + u$$
 La $u$ en la ecuación anterior es el error generalmente diremos que es 0, menos cuando tengamos que calcular el error para un valor dado. Los modelos determinísticos tienen una $u$ muy baja, mientras que los modelos estocásticos / modelos aleatorios tienen una $u$ muy alta. Generalmente, cuanta más variedad y cantidad de datos, menor es la $u$.
 
@@ -16,10 +15,21 @@ En principio, $a$ sería el valor de $y$ cuando la pendiente es 0, pero eso en e
 
 Como los puntos de la muestra pueden estar por encima o por debajo de la ecuación estimada, se usan los cuadrados con tal ignorar el signo. De ahí, el estar trabajando con sumas de cuadrados (SS).
 
-Cuando hablemos de poblaciones: $Y = \alpha + \beta · x_{t}$, es decir, se usan caracteres griegos al igual que con los parámetros y estadísticos.
+Cuando hablemos de poblaciones: $Y_{t} = \alpha + \beta · x_{t}$, es decir, se usan caracteres griegos al igual que con los parámetros y estadísticos.
 
 Hay tres hipótesis que se deben cumplir para aplicar un modelo de regresión lineal:
 - **Hipótesis de normalidad**: La variable sigue una dist. normal 
 - **Hipótesis de homocedasticidad:** La varianza condicional de Y para un valor de X es constante para cualquier valor de X, es decir, X e Y son independientes [[Probabilidad#Independencia de sucesos]].
 
 La calidad del ajuste lo determina el coeficiente de ??, $r^2$.
+
+Las estimaciones no son necesariamente válidas para estimar valores fuera del rango de los datos obtenidos. Las predicciones que hagamos a partir de los datos obtenidos debe limitarse a predicciones dentro del rango de datos obtenidos.
+
+---
+$$E(A / B) = a + b · B$$
+$$
+b = r · \frac{S_{A}}{S_{B}} = \frac{Cov_{A, B}}{S_{A}·S_{B}} · \frac{S_{A}}{S_{B}}
+$$
+$$
+a = \overrightarrow{y} - \overrightarrow{x}·B
+$$
