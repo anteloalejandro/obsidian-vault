@@ -58,8 +58,48 @@ Los métodos de Jacobi y Gauss-Seider son mucho más eficientes para calcular/ap
 
 Ambas convergerán siempre y cuando la matriz sea estrictamente dominante diagonalmente, pero puede darse el caso de que convergan sin cumplir esta condición. Este último caso se da más a menudo en Gauss-Seider que en Jacobi.
 
-En ambos métodos se descompone la matriz $A$ en una suma de 
+En ambos métodos se descompone la matriz $A$ en una suma de 3 matrices $(L + D + U)$, donde $D$ es la diagonal que se saca con `diag(diag(A))` y $L$ y $U$ son triangulares cuya diagonal es $\overrightarrow{0}$ que se sacan restando $D$ a las funciones `tril(A)` y `triu(A)`, respectivamente.
+
+Para ambos métodos es necesaria una aproximación inicial. Mientras converja, cualquier aproximación vale, así que se puede usar `ones(4,1)`, `zeros(4,1)` o incluso `A\b` (aunque esta última carecería de sentido).
 
 ## Método de Jacobi
 
-Consiste en 
+$$
+\begin{align*}
+& A\overrightarrow{x} = \overrightarrow{b} \Leftrightarrow (L + D + U)\overrightarrow{x} = \overrightarrow{b} \Leftrightarrow (L + U)\overrightarrow{x} + D\overrightarrow{x} = \overrightarrow{b} \\ & \overrightarrow{x} = D^{-1}·\left(\overrightarrow{b} - (L + U)\overrightarrow{x}\right)\\
+& x_k = D^{-1}·\left(\overrightarrow{b} - (L + U)x_{k-1}\right)\\
+\end{align*}
+$$
+$(L + U)$ en específico se puede sacar retándole $D$ a $A$:  `LU = A - D`.
+
+```c
+// Dada la matriz ampliada [A b]
+D = diag(diag(A));
+LU = A - D;
+x = zeros(4,1);
+for i = 1:10 do x = inv(D)*(b - LU*x); end
+```
+
+## Método de Gauss-Seider
+
+$$
+\begin{align*}
+& A\overrightarrow{x} = \overrightarrow{b} \Leftrightarrow (L + D + U)\overrightarrow{x} = \overrightarrow{b} \Leftrightarrow (L + D)\overrightarrow{x} + U\overrightarrow{x} = \overrightarrow{b} \\
+& (L + D)\overrightarrow{x} = \overrightarrow{b} - U\overrightarrow{x}\\
+& (L + D)x_{k} = \overrightarrow{b} - Ux_{k-1}
+\end{align*}
+$$
+No se puede continuar operando porque en Gauss-Seider no se siempre se puede inviertir $(L+D)$, por lo que se queda como parte de la recurrencia multiplicando a la $x_{k}$. $(L+D)$ es simplemente el resultado de $tril(A)$
+
+```c
+// Dada la matriz ampliada [A b]
+
+D = diag(diag(A));
+LD = tril(A);
+U = triu(A) - D;
+x = zeros(4,1);
+
+// asumiento que LD es invertible
+for i = 1:10 do x = inv(L+D)*(b-U*x)
+
+```
