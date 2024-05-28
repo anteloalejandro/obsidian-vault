@@ -26,7 +26,7 @@ x = R(:, 4)
 ```c
 // Directamente, cada columna del kernel será multiplicado por un escalar diferente (o igual). A\b saca la solución particular, y Kernel(A) es la homogénea (b = (0, 0, ..., 0))
 k = kernel(A);
-x = A\b + lambda_1*k(1) + lambda_1*k(2) ...
+x = A\b + lambda_1*k(:,1) + lambda_1*k(:,2) //...
 
 // rref, se tiene que expresar la ecuación paramétrica a mano
 R = rref([A b])
@@ -123,6 +123,12 @@ La cadena de Markov propiamente dicha es el conjunto de todos los vectores estoc
 $$
 \set{x_{0}, x_{1}, x_{2}, \dots, x_k}
 $$
+## Matriz estocástica regular
+
+Una matriz estocástica $P$ es regular si y sólo si $\exists k \in \mathbb{N} : 0 \notin P^{k}$, es decir, si alguna potencia de P carece de ceros.
+
+Además, si $P$ es estocástica regular la cadena de Markov es estable y convergerá a un $x_{k}$ único independientemente del valor de $x_{0}$.
+
 ## Vectores estacionarios
 
 Un vector estacionario $v_{e}$ es aquel $x_{k}$ de una cadena de Markov **convergente** de modo que los $x$ siguientes son iguales a $x_{k}$, es decir, idealmente sería $x_{k}$ cuando $k \to \infty$. De ahí el nombre "estacionario", ya que no cambia sin importar cuanto aumente la $k$. Como la $v_{e}$ no cambia por mucho que se continúe por la cadena de Markov, se puede inferir que
@@ -133,4 +139,14 @@ k \to \infty \Rightarrow \ & P·v_{e} = v_{e}\\
 & (P-I)v_{e} = \overrightarrow{0}
 \end{align*}
 $$
-Es decir, el vector estacionario $v_{e}$ es la solución homogénea de la matriz ampliada $\left[ (P-I) \divides \overrightarrow{0} \right]$
+Es decir, el vector estacionario $v_{e}$ es la solución homogénea de la matriz ampliada $\begin{bmatrix} (P-I) & | & v_{e} \end{bmatrix}$, o lo que es lo mismo, el kernel de $(P-I)$
+
+Es importante recordar que en Scilab `kernel(A)` da una única solución, pero en realidad es un sistema compatible indeterminado, lo que implica que tiene uno o más parámetros por el que habrá que multiplicar cada una de las columnas, dando como resultado infinitas soluciones.
+
+```c
+// Dada la matriz estocástica P
+k = kernel(P - I);
+ve = lambda_1 * k(:,1) + lambda_2 * k(:,2) //...
+```
+
+Sin embargo, si la matriz es estocástica **regular**, 
