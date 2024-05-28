@@ -89,7 +89,7 @@ $$
 & (L + D)x_{k} = \overrightarrow{b} - Ux_{k-1}
 \end{align*}
 $$
-No se puede continuar operando porque en Gauss-Seider no se siempre se puede inviertir $(L+D)$, por lo que se queda como parte de la recurrencia multiplicando a la $x_{k}$. $(L+D)$ es simplemente el resultado de $tril(A)$
+No se continua operando porque en Gauss-Seider no se siempre se puede inviertir $(L+D)$, por lo que se queda como parte de la recurrencia multiplicando a la $x_{k}$. $(L+D)$ es simplemente el resultado de $tril(A)$
 
 ```c
 // Dada la matriz ampliada [A b]
@@ -100,6 +100,37 @@ U = triu(A) - D;
 x = zeros(4,1);
 
 // asumiento que LD es invertible
-for i = 1:10 do x = inv(L+D)*(b-U*x)
+for i = 1:10 do x = inv(L+D)*(b-U*x); end
 
 ```
+
+# Vectores y matrices estocásticas
+
+*Estocástico* →De Probabilidad.
+
+Un vector $v_{p}$ es estocástico si la suma de sus magnitudes es exactamente igual a uno. Una matriz $P$ es estocástica si todas sus columnas son vectores estocásticos.
+
+## Cadena de Markov
+
+La ley de la cadena de Markov dice que dado un vector estocástico $x_{0}$ y una matriz estocástica P, $x_{1} = P·x_{0}$ también es estocástico, al igual que lo es $x_{2} = P·x_{1} = P^{2} · x_{0}$. Esto se aplica para todo $k\in \mathbb{N}$, por lo que podemos sacar una recurrencia y una ecuación:
+$$
+\begin{align*}
+x_{k}= P·x_{k-1}\\
+x_{k} = P^{k}·x_{0}
+\end{align*}
+$$
+La cadena de Markov propiamente dicha es el conjunto de todos los vectores estocásticos que se obtienen de este modo:
+$$
+\set{x_{0}, x_{1}, x_{2}, \dots, x_k}
+$$
+## Vectores estacionarios
+
+Un vector estacionario $v_{e}$ es aquel $x_{k}$ de una cadena de Markov **convergente** de modo que los $x$ siguientes son iguales a $x_{k}$, es decir, idealmente sería $x_{k}$ cuando $k \to \infty$. De ahí el nombre "estacionario", ya que no cambia sin importar cuanto aumente la $k$. Como la $v_{e}$ no cambia por mucho que se continúe por la cadena de Markov, se puede inferir que
+$$
+\begin{align*}
+k \to \infty \Rightarrow \ & P·v_{e} = v_{e}\\
+& P·v_{e} - v_{e} = \overrightarrow{0}\\
+& (P-I)v_{e} = \overrightarrow{0}
+\end{align*}
+$$
+Es decir, el vector estacionario $v_{e}$ es la solución homogénea de la matriz ampliada $\left[ (P-I) \divides \overrightarrow{0} \right]$
