@@ -9,7 +9,8 @@ Como para cada valor de x en la gráfica puede haber varios valores de y, no sol
 $$y = a+bx + u$$
 La $u$ en la ecuación anterior es el error generalmente diremos que es 0, menos cuando tengamos que calcular el error para un valor dado. Los modelos determinísticos tienen una $u$ muy baja, mientras que los modelos estocásticos / modelos aleatorios tienen una $u$ muy alta. Generalmente, cuanta más variedad y cantidad de datos, menor es la $u$.
 
-En Statgraphics, la $a$ es el *Intercepto* y la $b$ es la *Pendiente*.
+La $y$ será la variable cuantitativa y $x$ la variable cualitativa, mientras que 
+ la $a$ es el Intercepto y la $b$ es la Pendiente.
 
 En principio, $a$ sería el valor de $y$ cuando la pendiente es 0, pero eso en estadística a menudo no tiene sentido. Por ejemplo, en la relación entre altura y peso, la $a$ sería el peso cuando la altura es 0, lo cual no es posible. Por tanto, a menudo la $b$ es un binomio con el valor mínimo mínimo restando a una incógnita.
 
@@ -24,6 +25,10 @@ Hay tres hipótesis que se deben cumplir para aplicar un modelo de regresión li
 La calidad del ajuste lo determina el coeficiente de ??, $r^2$.
 
 Las estimaciones no son necesariamente válidas para estimar valores fuera del rango de los datos obtenidos. Las predicciones que hagamos a partir de los datos obtenidos debe limitarse a predicciones dentro del rango de datos obtenidos.
+
+El modelo de regresión tiene su propia [[Análisis de la varianza (ANOVA)|ANOVA]]. Los grados de libertad del numerador es igual al número de monomios en la ecuación que dependen de la $x$, mientras que los grados de libertad del denominador depende del error/residual y es igual a ??.
+
+En un ANOVA bien hecho todos los factores son significativos y la R-cuadrado se aproxima al 95%.
 
 ---
 $$E(A / B) = a + b · B$$
