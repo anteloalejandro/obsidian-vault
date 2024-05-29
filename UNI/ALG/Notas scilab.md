@@ -117,7 +117,7 @@ U = triu(A) - D;
 x = zeros(4,1);
 
 // asumiento que LD es invertible
-for i = 1:10 do x = inv(L+D)*(b-U*x); end
+for i = 1:10 do x = inv(LD)*(b-U*x); end
 
 ```
 
