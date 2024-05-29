@@ -43,7 +43,13 @@ Directamente. Dará un error o aviso en la mayoría casos en los que no es inver
 inv(A)
 ```
 
-Usando `rref([A eye(A)])`, que dará como resultado una matriz compuesta por $\begin{bmatrix} T·A & T \end{bmatrix}$, donde $T$ son las matrices elementales que 
+Usando `rref([A eye(A)])`, que dará como resultado una matriz compuesta por $\begin{bmatrix} T·A & T \end{bmatrix}$, donde $T·A$ es la forma reducida de $A$ y $T$, por consiguiente, el producto de matrices elementales que multiplican a $A$ de forma que se quede en su forma reducida. Si $T·A = I$, significa que $T = A^{-1}$, por lo que si $A$ es invertible la función `rref` devolverá una matriz con la $I$ y la inversa de $A$, en ese orden.
+
+```c
+// Dada una matriz invertible A de dimensiones 4x4
+S = rref([A I])
+A_inv = S(:,5:8)
+```
 
 # Dominancia diagonal
 
@@ -59,7 +65,7 @@ Es posible que una matriz no estrictamente dominante diagonalmente pueda serlo s
 A(:, [1 2 3]) = A(:, [2 1 3])
 ```
 
-# Aproximación de un SCD
+# Aproximación de un SCD, descomposición L+U
 
 Los métodos de Jacobi y Gauss-Seider son mucho más eficientes para calcular/aproximar una SCD grande, siempre y cuando se cumplan las siguiente condiciones:
 
@@ -186,3 +192,38 @@ for i = 1:10 do x = P*x end
 // Sacar el n-ésimo elemento de la cadena de Markov
 x = P^10 * x0
 ```
+
+# Descomposición L·U
+
+Usando forma principal reducida de una matriz como base, se puede descomponer cualquier matriz en un producto de una matriz triangular superior $U$ y otra triangular inferior $L$.
+$$
+\begin{align*}
+& A = L · U \\
+& U = rref(A) = T·A\\
+& rref\left(\begin{bmatrix} A & I \end{bmatrix}\right) = \begin{bmatrix} T·A & T \end{bmatrix}
+\end{align*}
+
+\Longrightarrow
+
+T·A = U \Rightarrow A = T^{-1} · U \Rightarrow L = T^{-1}
+
+$$
+
+Scilab también tiene una función, `lu(A)`, para hacerlo automáticamente, aunque la $L$ sólo es una equivalente a la triangular superior sobre la que falta hacer permutaciones sacando también la matriz $P$ de la función `lu`.
+
+```c
+// L no triangular
+[L, U] = lu(A)
+
+// L triangular
+[L, U, P] = lu(A)
+L = P*L
+```
+
+## Resolución de sistemas de ecuaciones
+
+Una de las utilidades principales de la descomposición L·U divide sistemas de ecuaciones complejos en dos sistemas más sencillos.
+
+$$
+A\overrightarrow{x} = \overrightarrow{b} \Rightarrow L·U\overrightarrow{x} = \overrightarrow{b} \Long
+$$
