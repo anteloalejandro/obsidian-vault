@@ -123,7 +123,7 @@ La cadena de Markov propiamente dicha es el conjunto de todos los vectores estoc
 $$
 \set{x_{0}, x_{1}, x_{2}, \dots, x_k}
 $$
-## Matriz estocástica regular
+### Matriz estocástica regular
 
 Una matriz estocástica $P$ es regular si y sólo si $\exists k \in \mathbb{N} : 0 \notin P^{k}$, es decir, si alguna potencia de P carece de ceros.
 
@@ -145,8 +145,20 @@ Es importante recordar que en Scilab `kernel(A)` da una única solución, pero e
 
 ```c
 // Dada la matriz estocástica P
-k = kernel(P - I);
+k = kernel(P - eye(P));
 ve = lambda_1 * k(:,1) + lambda_2 * k(:,2) //...
 ```
 
-Sin embargo, si la matriz es estocástica **regular**, 
+Sin embargo, si la matriz es estocástica **regular**, hay un sólo vector estacionario de probabilidad llamado $v_{ep}$  exactamente igual a $x_{k}$ cuando $k \to \infty$  que se obtiene dividiendo $v_{e}$ entre la suma de las componentes de $v_{e}$. Al dividir $v_e$ entre sus componentes, los parámetros se cancelan, de modo que si se conoce que la matriz $P$ es estocástica regular, se puede calcular el $v_{ep}$ de este modo:
+$$
+v_{ep} = \frac{v_{e}}{\sum\limits{\text{componentes de }v_e}}
+$$
+Y en Scilab, al cancelarse los parámetros:
+
+```c
+// Dada la matríz estocástica regular P
+k = kernel(P - eye(P))
+vep = k/sum(K);
+```
+
+Alternativamente, se puede estimar el vector estacionario único haciendo iteraciones de la 
