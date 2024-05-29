@@ -33,6 +33,18 @@ R = rref([A b])
 x = ...
 ```
 
+# Invertir matrices
+
+Las matrices son invertibles si son **cuadradas y SCD**, ya sólo así se pueden expresar en forma de matrices elementales y que se cumpla $A * A^{-1} = I$, ya que $I$ es cuadrada.
+
+Directamente. Dará un error o aviso en la mayoría casos en los que no es invertible, pero no en todos.
+
+```c
+inv(A)
+```
+
+Usando `rref([A eye(A)])`, que dará como resultado una matriz compuesta por $\begin{bmatrix} T·A & T \end{bmatrix}$, donde $T$ son las matrices elementales que 
+
 # Dominancia diagonal
 
 Una matriz $A$ es estrictamente dominante diagonalmente si todos los miembros de la diagonal tienen mayor magnitud que la suma de las magnitudes del resto de elementos de la misma columna.
@@ -126,9 +138,9 @@ $$
 
 Una matriz estocástica $P$ es regular si y sólo si $\exists k \in \mathbb{N} : 0 \notin P^{k}$, es decir, si alguna potencia de P carece de ceros. Por norma general, si conforme aumenta la $k$ el número de ceros disminuye, es probable que sí que haya recurrenciasun valor de $k$ para el que se cumpla esto.
 
-Finalmente, si $P$ es estocástica regular la cadena de Markov es estable y convergerá a un $x_{k}$ único, independientemente del valor de $x_{0}$.
+Finalmente, si y sólo si $P$ es estocástica regular la cadena de Markov es estable y convergerá a un $x_{k}$ único, independientemente del valor de $x_{0}$.
 
-## Vectores estacionarios
+## Vectores estacionarios y vectores estacionarios de probabilidad
 
 Un vector estacionario $v_{e}$ es aquel $x_{k}$ de una cadena de Markov **convergente** de modo que los $x$ siguientes son iguales a $x_{k}$, es decir, idealmente sería $x_{k}$ cuando $k \to \infty$. De ahí el nombre "estacionario", ya que no cambia sin importar cuanto aumente la $k$. Como la $v_{e}$ no cambia por mucho que se continúe por la cadena de Markov, se puede inferir que
 $$
