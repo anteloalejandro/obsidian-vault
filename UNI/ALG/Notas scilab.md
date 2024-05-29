@@ -225,5 +225,15 @@ L = P*L
 Una de las utilidades principales de la descomposición L·U divide sistemas de ecuaciones complejos en dos sistemas más sencillos.
 
 $$
-A\overrightarrow{x} = \overrightarrow{b} \Rightarrow L·U\overrightarrow{x} = \overrightarrow{b} \Long
+A\overrightarrow{x} = \overrightarrow{b} \Rightarrow L·U\overrightarrow{x} = \overrightarrow{b} \Longrightarrow
+
+\begin{cases}
+L\overrightarrow{y} = \overrightarrow{b}
+\\ \\
+U\overrightarrow{x} = \overrightarrow{y}
+\end{cases}
 $$
+
+## Cálculo de inversas
+
+También vuelve más sencillo hallar las inversas de una matriz dividiendo el problema en dos partes más pequeñas, ya que $A^{-1} = U^{-1} * L^{-1}$
