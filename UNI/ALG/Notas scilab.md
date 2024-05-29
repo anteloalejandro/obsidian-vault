@@ -35,7 +35,7 @@ x = ...
 
 # Dominancia diagonal
 
-Una matriz es estrictamente dominante diagonalmente si todos los miembros de la diagonal tienen mayor magnitud que la suma de las magnitudes del resto de elementos de la misma columna.
+Una matriz $A$ es estrictamente dominante diagonalmente si todos los miembros de la diagonal tienen mayor magnitud que la suma de las magnitudes del resto de elementos de la misma columna.
 $$
 A\text{ es diagonal} \Leftrightarrow \forall{i \neq j} : |a_{i,i}| > |a_{i,j}|
 $$
@@ -47,16 +47,15 @@ Es posible que una matriz no estrictamente dominante diagonalmente pueda serlo s
 A(:, [1 2 3]) = A(:, [2 1 3])
 ```
 
-# Método eficiente de una SCD
+# Aproximación de un SCD
 
 Los métodos de Jacobi y Gauss-Seider son mucho más eficientes para calcular/aproximar una SCD grande, siempre y cuando se cumplan las siguiente condiciones:
 
 - Que la recurrencia **converja**.
 - Que la matriz sea **cuadrada**.
-- Que la matriz ampliada sea **SCD**.
 - Que la diagonal no **tenga ningún 0**.
 
-Ambas convergerán siempre y cuando la matriz sea estrictamente dominante diagonalmente, pero puede darse el caso de que convergan sin cumplir esta condición. Este último caso se da más a menudo en Gauss-Seider que en Jacobi.
+Las recurrencias de ambos métodos convergerán siempre y cuando la matriz sea estrictamente dominante diagonalmente, pero puede darse el caso de que converjan sin cumplir esta condición. Este último caso se da más a menudo en Gauss-Seider que en Jacobi.
 
 En ambos métodos se descompone la matriz $A$ en una suma de 3 matrices $(L + D + U)$, donde $D$ es la diagonal que se saca con `diag(diag(A))` y $L$ y $U$ son triangulares cuya diagonal es $\overrightarrow{0}$ que se sacan restando $D$ a las funciones `tril(A)` y `triu(A)`, respectivamente.
 
@@ -104,7 +103,7 @@ for i = 1:10 do x = inv(L+D)*(b-U*x); end
 
 ```
 
-# Vectores y matrices estocásticas
+# Vectores y matrices estocásticos
 
 *Estocástico* →De Probabilidad.
 
@@ -125,9 +124,9 @@ $$
 $$
 ### Matriz estocástica regular
 
-Una matriz estocástica $P$ es regular si y sólo si $\exists k \in \mathbb{N} : 0 \notin P^{k}$, es decir, si alguna potencia de P carece de ceros.
+Una matriz estocástica $P$ es regular si y sólo si $\exists k \in \mathbb{N} : 0 \notin P^{k}$, es decir, si alguna potencia de P carece de ceros. Por norma general, si conforme aumenta la $k$ el número de ceros disminuye, es probable que sí que haya recurrenciasun valor de $k$ para el que se cumpla esto.
 
-Además, si $P$ es estocástica regular la cadena de Markov es estable y convergerá a un $x_{k}$ único independientemente del valor de $x_{0}$.
+Finalmente, si $P$ es estocástica regular la cadena de Markov es estable y convergerá a un $x_{k}$ único, independientemente del valor de $x_{0}$.
 
 ## Vectores estacionarios
 
@@ -157,8 +156,21 @@ Y en Scilab, al cancelarse los parámetros:
 
 ```c
 // Dada la matríz estocástica regular P
+
 k = kernel(P - eye(P))
 vep = k/sum(K);
 ```
 
-Alternativamente, se puede estimar el vector estacionario único haciendo iteraciones de la 
+Alternativamente, se puede estimar el vector estacionario único haciendo iteraciones de la cadena de Markov hasta que la diferencia entre un vector y el siguiente sea irrisoria.
+
+```c
+// Dada la matriz estocástica regular P, ya que sabemos que convergerá
+
+// x inicial, ha de ser estocástica
+x0 = 1/4 * ones(4, 1); 
+// Ver y comparar múltiples elementos de la cadena de Markov
+x = x0;
+for i = 1:10 do x = P*x end
+// Sacar el n-ésimo elemento de la cadena de Markov
+x = P^10 * x0
+```
