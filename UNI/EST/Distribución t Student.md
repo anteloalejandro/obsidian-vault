@@ -24,7 +24,7 @@ Esto es reminiscente de una de las [[Distribuciones en el muestreo#Propiedades d
 
 La [[Probabilidad#Función de distribución acumulativa|Función de distribución acumulativa]] de la distribución t Student se puede calcular con tablas, donde $\alpha$ es la probabilidad de estar en una de las colas delimitada por el punto crítico $\pm{t}$ y $v$ los grados de libertad. Usualmente calcula para las dos colas de la distribución por separado, que al ser simétrica dicha distribución simplemente implica usar $\frac{\alpha}{2}$ en vez de $\alpha$ .
 
-![[t-student-cdf.png]]
+![[t-student-critical.png]]
 
 ![[t-student-tabla.png]]
 *Nótese que esta tabla da un valor de $t$ para $P(t_{v} \geq t) = \frac{\alpha}{2}$*

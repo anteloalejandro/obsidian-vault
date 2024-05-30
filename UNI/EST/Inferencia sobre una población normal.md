@@ -38,7 +38,7 @@ $$
 
 Es decir, hay que comprobar si la $t$ calculada con el coeficiente anterior es igual al valor obtenido de una distribución t Student con $n-1$ grados de libertad, para un $\alpha$ concreto.
 
-La función de probabilidad a calcular cambiará según de la hipótesis alternativa: Si $H_{1}$ es $\mu \neq \mu_{0}$ mide el área bajo dos colas delimitadas por $\pm t_{n-1}$ y si $H_1$ es $\mu < \mu_0$ o $\mu > \mu_0$ es el área bajo una de las colas, que al ser t Student una distribución simétrica es igual en ambos casos al área de la cola delimitada por $t_{n-1}$. 
+La función de probabilidad a calcular cambiará según de la hipótesis alternativa: Si $H_{1}$ es $\mu \neq \mu_{0}$ mide el área bajo dos colas delimitadas por $\pm t_{n-1}$ y si $H_1$ es $\mu < \mu_0$ o $\mu > \mu_0$ es el área bajo una de las colas, que al ser t Student una distribución simétrica es igual en ambos casos al área de la cola delimitada por $t_{n-1}$.  Por delimitar el área bajo la cola, a $t_{n-1}$ también se le denomina *Valor crítico*.
 $$
 \begin{align*}
 \text{Si } \mu \neq \mu_{0} \Rightarrow P(t^{\alpha}_{n-1} > |t|) &\leq \alpha \\
@@ -47,16 +47,20 @@ P\left(t^{\alpha / 2}_{n-1} > t\right) &\leq \frac{\alpha}{2}\\\\
 \end{align*}
 $$
 
-A $\alpha$ también se le llama *Riesgo de especie*, y representa el área bajo la curva de la o las colas, o lo que es lo mismo, el porcentaje de población para el que se cumple la función de probabilidad. A este área se le llama *Área de rechazo*, ya que si la $t$ calculada es superior de la $t_{n-1}$ y entra en este área, se rechaza la hipótesis nula. A lo contrario del riesgo de primera especie, $1-\alpha$, se le llama *Nivel de confianza*. Si no se especifica
+A $\alpha$ se le llama *Riesgo de especie*, y representa el área bajo la curva de la o las colas, o lo que es lo mismo, el porcentaje de población para el que se cumple la función de probabilidad. %%A este área se le llama *Área de rechazo*, ya que si la $t$ calculada es superior de la $t_{n-1}$ y entra en este área, se rechaza la hipótesis nula. A lo contrario del riesgo de primera especie, $1-\alpha$, se le llama *Nivel de confianza*. Si no se especifica un riesgo de primera especie, se dice que $\alpha = 0.05$, con el que tendríamos un nivel de confianza del 95%.
+%%
+Nótese probabilidad resultante de la función de probabilidad anterior es menor o igual que $a$ o $\frac{a}{2}$ cuando se rechaza la hipótesis nula. A esta probabilidad se le llama Valor P, o $\text{p-value}$. Tanto el Valor P como el riesgo de primera especie son áreas delimitadas por los puntos $t$ y $t_n-1$. Por tanto, como se rechaza la hipótesis nula cuando $\text{p-value} > \alpha$
+$$
+t > t^{\alpha}_{n-1} \Leftrightarrow H_{0} \text{ se rechaza.}
+$$
 
-Tiene que comprobarse si el resultado obtenido encaja en la distribución t Student obtenida $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim t_{n-1}$, al que llamaremos $k$. Para ello, se calcula la probabilidad $P(t_{n-1} > |t|) \leq \alpha$, donde $\alpha$ es, por convenio, 0.05 (para tener una confianza del 95%).
-$$
-P(t^{a=0.05}_{n-1} > |t|) \leq 0.05 \Rightarrow 
-P(t^{a=0.025}_{n-1} > t) \leq 0.025
-$$
+![[t-student-critical.png]]
+
 Éste cálculo de probabilidad nos da un resultado, $p$. Si $k\in{[-p,p]}$, consideraremos que la hipótesis nula es aceptable.
 
 # Intervalos de confianza
+
+Los intervalos de confianza son una forma alternativa de comprobar si se cumple o no la hipótesis nula. En vez de comprobar
 
 Consiste en calcular un intervalo que tenga una probabilidad elevada ($1-\alpha$) de contener el valor desconocido de $\mu$.
 

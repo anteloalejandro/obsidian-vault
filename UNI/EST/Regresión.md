@@ -38,3 +38,9 @@ $$
 $$
 a = \overrightarrow{y} - \overrightarrow{x}·B
 $$
+
+---
+
+Si el modelo elegido modelo adecuadamente los datos, pasa algo ¿? con la gráfica del residuo que nos dice si hay que cambiar el modelo (hay mucha dispersión). %%pdf regresión%%
+
+Si al cambiar el modelo a, por ejemplo, una ecuación de segundo grado, y el nuevo factor es significativo, significa que este nuevo modelo es más preciso que el anterior
