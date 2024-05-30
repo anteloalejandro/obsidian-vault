@@ -16,8 +16,6 @@ $$
 t = \frac{\overline{X}-\mu}{\sqrt{\frac{S^{2}}{n}}} \sim t_{n-1}
 $$
 
-^b7ec02
-
 Esto es reminiscente de una de las [[Distribuciones en el muestreo#Propiedades de la media muestral|propiedades de la media muestral de una población normal]], que dice que esta misma ecuación, tras cambiar $S^2$ por $\sigma^{2}$, se distribuye normalmente.
 
 # Función de distribución acumulativa 
