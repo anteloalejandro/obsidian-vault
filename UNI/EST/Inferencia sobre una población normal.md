@@ -81,9 +81,8 @@ $$
 
 ## Varianza poblacional
 
-
 $$
-IC_{\sigma^{2}}^{\alpha-1} = \left[ \frac{(n-1)S^{2}}{g_{2}}, \frac{(n-1)S^{2}}{g_{1}} \right]
+IC_{\sigma^{2}}^{1-\alpha} = \left[ \frac{(n-1)S^{2}}{g_{2}}, \frac{(n-1)S^{2}}{g_{1}} \right]
 $$
 
 Donde $g_{2}$ y $g_{1}$ son puntos en la distribución $\chi^{2}$ tales que:
