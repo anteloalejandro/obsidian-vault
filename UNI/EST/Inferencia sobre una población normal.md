@@ -32,9 +32,22 @@ $H_{0}$ no es cierta $\Leftrightarrow$ $H_{1}$ es cierta
 Para poder asegurar que $\overline{X}$ es suficientemente parecida (o no) a la hipótesis nula, es necesario relacionar la media muestral con la media poblacional usando una [[Distribución t Student]].
 
 Primero, sabemos que, si $X \sim N(\mu, \sigma)$:
-![[Distribución t Student#^b7ec02]]
+$$
+t = \frac{\overline{X}-\mu}{\sqrt{\frac{S^{2}}{n}}} \sim t_{n-1}
+$$
 
-Es decir, hay que comprobar si la $t$ calculada con el coeficiente anterior es igual al valor obtenido de una distribución t Student con $n-1$ grados de libertad, para un $\alpha$ concreto, al que también se le suele llamar *Riesgo de primera especie*. La probabilidad a calcular cambiará en función de la $H_{1}$: Si $\mu \neq 2000$ mide el área bajo las dos colas y si solo se comprueba si la $\mu$ es mayor o menor sólo se comprueba una cola, ajustándose $\alpha$ apropiadamente.
+Es decir, hay que comprobar si la $t$ calculada con el coeficiente anterior es igual al valor obtenido de una distribución t Student con $n-1$ grados de libertad, para un $\alpha$ concreto.
+
+La función de probabilidad a calcular cambiará según de la hipótesis alternativa: Si $H_{1}$ es $\mu \neq \mu_{0}$ mide el área bajo dos colas delimitadas por $\pm t_{n-1}$ y si $H_1$ es $\mu < \mu_0$ o $\mu > \mu_0$ es el área bajo una de las colas, que al ser t Student una distribución simétrica es igual en ambos casos al área de la cola delimitada por $t_{n-1}$. 
+$$
+\begin{align*}
+\text{Si } \mu \neq \mu_{0} \Rightarrow P(t^{\alpha}_{n-1} > |t|) &\leq \alpha \\
+P\left(t^{\alpha / 2}_{n-1} > t\right) &\leq \frac{\alpha}{2}\\\\
+\text{Si } \mu < \mu_{0} \text{ o } \mu > \mu_0 \Rightarrow P(t^{\alpha}_{n-1} > t) &\leq \alpha
+\end{align*}
+$$
+
+A $\alpha$ también se le llama *Riesgo de especie*, y representa el área bajo la curva de la o las colas, o lo que es lo mismo, el porcentaje de población para el que se cumple la función de probabilidad. A este área se le llama *Área de rechazo*, ya que si la $t$ calculada es superior de la $t_{n-1}$ y entra en este área, se rechaza la hipótesis nula. A lo contrario del riesgo de primera especie, $1-\alpha$, se le llama *Nivel de confianza*. Si no se especifica
 
 Tiene que comprobarse si el resultado obtenido encaja en la distribución t Student obtenida $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim t_{n-1}$, al que llamaremos $k$. Para ello, se calcula la probabilidad $P(t_{n-1} > |t|) \leq \alpha$, donde $\alpha$ es, por convenio, 0.05 (para tener una confianza del 95%).
 $$
