@@ -36,9 +36,9 @@ $$
 t = \frac{\overline{X}-\mu}{\sqrt{\frac{S^{2}}{n}}} \sim t_{n-1}
 $$
 
-Es decir, hay que comprobar si la $t$ calculada con el coeficiente anterior es igual al valor obtenido de una distribución t Student con $n-1$ grados de libertad, para un $\alpha$ concreto.
+Es decir, hay que comprobar si la $t$ calculada con el coeficiente anterior es igual al valor obtenido de una distribución t Student con $n-1$ grados de libertad, para un $\alpha$ concreto, también llamado *Riesgo de primera especie*.
 
-La función de probabilidad a calcular cambiará según de la hipótesis alternativa: Si $H_{1}$ es $\mu \neq \mu_{0}$ mide el área bajo dos colas delimitadas por $\pm t_{n-1}$ y si $H_1$ es $\mu < \mu_0$ o $\mu > \mu_0$ es el área bajo una de las colas, que al ser t Student una distribución simétrica es igual en ambos casos al área de la cola delimitada por $t_{n-1}$.  Por delimitar el área bajo la cola, a $t_{n-1}$ también se le denomina *Valor crítico*.
+La función de probabilidad a calcular cambiará según de la hipótesis alternativa: Si $H_{1}$ es $\mu \neq \mu_{0}$ mide el área bajo dos colas delimitadas por $\pm t$ y si $H_1$ es $\mu < \mu_0$ o $\mu > \mu_0$ es el área bajo una de las colas, que al ser t Student una distribución simétrica es igual en ambos casos al área de la cola delimitada por $t$. 
 $$
 \begin{align*}
 \text{Si } \mu \neq \mu_{0} \Rightarrow P(t^{\alpha}_{n-1} > |t|) &\leq \alpha \\
@@ -47,26 +47,17 @@ P\left(t^{\alpha / 2}_{n-1} > t\right) &\leq \frac{\alpha}{2}\\\\
 \end{align*}
 $$
 
-A $\alpha$ se le llama *Riesgo de especie*, y representa el área bajo la curva de la o las colas, o lo que es lo mismo, el porcentaje de población para el que se cumple la función de probabilidad. %%A este área se le llama *Área de rechazo*, ya que si la $t$ calculada es superior de la $t_{n-1}$ y entra en este área, se rechaza la hipótesis nula. A lo contrario del riesgo de primera especie, $1-\alpha$, se le llama *Nivel de confianza*. Si no se especifica un riesgo de primera especie, se dice que $\alpha = 0.05$, con el que tendríamos un nivel de confianza del 95%.
-%%
-Nótese probabilidad resultante de la función de probabilidad anterior es menor o igual que $a$ o $\frac{a}{2}$ cuando se rechaza la hipótesis nula. A esta probabilidad se le llama Valor P, o $\text{p-value}$. Tanto el Valor P como el riesgo de primera especie son áreas delimitadas por los puntos $t$ y $t_n-1$. Por tanto, como se rechaza la hipótesis nula cuando $\text{p-value} > \alpha$
-$$
-t > t^{\alpha}_{n-1} \Leftrightarrow H_{0} \text{ se rechaza.}
-$$
+El resultado de la función de probabilidad anterior se llama Valor P o $\text{p-value}$ y, como está indicado arriba, si se rechaza la hipótesis nula es menor que el riesgo de primera especie $\alpha$ o $\frac{\alpha}{2}$. Al igual que el $\text{p-value}$, $\alpha$ es un área bajo la cola, pero dónde el primero estaba delimitado por $t$, éste último lo está $t_{n-1}$, también llamado *Valor crítico*. 
 
 ![[t-student-critical.png]]
 
-Éste cálculo de probabilidad nos da un resultado, $p$. Si $k\in{[-p,p]}$, consideraremos que la hipótesis nula es aceptable.
+Como para que $H_{0}$ sea rechazada  $\text{p-value} \leq \alpha$ (asumamos que solo miramos el área bajo una cola no tener que mencionar todo el tiempo $\frac{\alpha}{2}$), y estas dos están delimitadas por los puntos en la recta $t$ y $t_{n-1}$ respectivamente, ya que estamos calculando $P(t_{n-1} > t)$, sólo será rechazada cuando la $t$ calculada sea superior a $t_{n-1}$, por lo que se puede obviar el cálculo de probabilidad y decir directamente que:
+$$
+t > t^{\alpha}_{n-1} \Leftrightarrow H_{0} \text{ se rechaza.}
+$$
+*Nótese que si se han de comprobar las dos colas es  $t > t^{\alpha / 2}_{n-1}$*
+![[p-value.webp]]
 
 # Intervalos de confianza
 
-Los intervalos de confianza son una forma alternativa de comprobar si se cumple o no la hipótesis nula. En vez de comprobar
-
-Consiste en calcular un intervalo que tenga una probabilidad elevada ($1-\alpha$) de contener el valor desconocido de $\mu$.
-
-$$
-\begin{align*}
-P(t_{n-1} < |\alpha|) = 1-\alpha \\
-P\left(-t_{n-1}·\left(\frac{\alpha}{2}\right) < t_{n-1} < t_{n-1}\right)
-\end{align*}
-$$
+Los intervalos de confianza son una forma alternativa de comprobar si un valor cae dentro de lo esperado en una distribución, que en vez de basarse en comprobar si la $t$ calculada cae en el área de rechazo, crea un intervalo a partir del *Nivel de confianza*, que es $1-\alpha$, para determinar
