@@ -39,7 +39,7 @@ Además, por el [[Distribución normal#Teorema central del límite|Teorema centr
 
 ### Ejemplo
 
-Por ejemplo, dada la población $\set{18, 20, 22, 24}$, que tendría de media poblacional $\mu = 21$ usando [[muestreo con reemplazo]] se obtiene la siguiente tabla de medias de la muestras de tamaño 2 permitiendo repeticiones:
+Por ejemplo, dada la población $\set{18, 20, 22, 24}$, que tendría de media poblacional $\mu = 21$ usando muestreo con reemplazo se obtiene la siguiente tabla de medias de la muestras de tamaño 2 permitiendo repeticiones:
 
 |        | 18  | 20  | 22  | 24  |
 | ------ | --- | --- | --- | --- |

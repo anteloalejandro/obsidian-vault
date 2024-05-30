@@ -8,7 +8,7 @@ Donde los miembros de $E$ son las variables aleatorias.
 
 A los eventos, al igual que al espacio muestral, los trataremos como conjuntos, y se podrán realizar las mismas operaciones con ellos: Unión, intersección, complementario, incluido en, etc.
 
-Existen fenómenos con **carácter determinista**, es decir, que bajo las mismas condiciones siempre sucede el mismo evento, pero en estadística estudiamos fenómenos aleatorios o que simplemente no son deterministas. Por tanto, asumimos que hay [[Variabilidad|variabilidad]], pero que hay cierta tendencia o regularidad que nos permite hacer afirmaciones respecto a los resultados, aunque no sean completamente ciertos.
+Existen fenómenos con **carácter determinista**, es decir, que bajo las mismas condiciones siempre sucede el mismo evento, pero en estadística estudiamos fenómenos aleatorios o que simplemente no son deterministas. Por tanto, asumimos que hay variabilidad, pero que hay cierta tendencia o regularidad que nos permite hacer afirmaciones respecto a los resultados, aunque no sean completamente ciertos.
 
 La [[#Probabilidad|probabilidad]] nos permite asociar grados de certeza a estas afirmaciones.
 
