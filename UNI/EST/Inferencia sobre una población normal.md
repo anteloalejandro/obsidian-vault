@@ -34,7 +34,7 @@ Para poder asegurar que $\overline{X}$ es suficientemente parecida (o no) a la h
 Primero, sabemos que, si $X \sim N(\mu, \sigma)$:
 ![[Distribución t Student#^b7ec02]]
 
-Es decir, hay qu
+Es decir, hay que comprobar si la $t$ calculada con el coeficiente anterior es igual al valor obtenido de una distribución t Student con $n-1$ grados de libertad, para un $\alpha$ concreto, al que también se le suele llamar *Riesgo de primera especie*. La probabilidad a calcular cambiará en función de la $H_{1}$: Si $\mu \neq 2000$ mide el área bajo las dos colas y si solo se comprueba si la $\mu$ es mayor o menor sólo se comprueba una cola, ajustándose $\alpha$ apropiadamente.
 
 Tiene que comprobarse si el resultado obtenido encaja en la distribución t Student obtenida $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim t_{n-1}$, al que llamaremos $k$. Para ello, se calcula la probabilidad $P(t_{n-1} > |t|) \leq \alpha$, donde $\alpha$ es, por convenio, 0.05 (para tener una confianza del 95%).
 $$
