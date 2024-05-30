@@ -43,4 +43,7 @@ $$
 
 Si el modelo elegido modelo adecuadamente los datos, pasa algo ¿? con la gráfica del residuo que nos dice si hay que cambiar el modelo (hay mucha dispersión). %%pdf regresión%%
 
-Si al cambiar el modelo a, por ejemplo, una ecuación de segundo grado, y el nuevo factor es significativo, significa que este nuevo modelo es más preciso que el anterior
+Si al cambiar el modelo a, por ejemplo, una ecuación de segundo grado, y el nuevo factor es significativo, significa que este nuevo modelo es más preciso que el anterior.
+
+Si hay un $\beta_{2}x^2$, $\beta_{2}$ indica que hay una curvatura. junto a $\beta_1$ da a entender si crece, decrece y demás 
+Si hay un $\beta_{3}x^3$, $\beta_{3}$ indica la curvatura de la función de regresión aumenta ($\beta_{3} > 0$) o disminuye ($\beta_{3}>0$) 
