@@ -55,7 +55,7 @@ A_inv = S(:,5:8)
 
 Una matriz $A$ es estrictamente dominante diagonalmente si todos los miembros de la diagonal tienen mayor magnitud que la suma de las magnitudes del resto de elementos de la misma columna.
 $$
-A\text{ es diagonal} \Leftrightarrow \forall{i \neq j} : |a_{i,i}| > |a_{i,j}|
+A\text{ es diagonal} \Leftrightarrow \forall{i \neq j} : |a_{i,i}| > \sum\limits|a_{i,j}|
 $$
 
 Es posible que una matriz no estrictamente dominante diagonalmente pueda serlo simplemente haciendo permutaciones.
