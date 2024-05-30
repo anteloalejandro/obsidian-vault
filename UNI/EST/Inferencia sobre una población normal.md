@@ -59,38 +59,16 @@ $$
 # Contraste de hipótesis (varianza)
 
 El contraste de hipótesis de la varianza se basa en que, dado [[Distribución Chi-Cuadrado#Cálculo de varianzas|cálculo de varianzas en la distribución Chi-cuadrado]], podemos relacionar la varianza muestral y poblacional con la distribución $\chi^2$ así:
-$$(n-1)\frac{S^{2}}{\sigma^{2}} \sim \chi^{2}_{n-1}$$
-Además, al ser asimétrica esta distribución, diferenciamos entre 3 casos en vez de 2:
+$$\chi^2_{c} = (n-1)\frac{S^{2}}{\sigma^{2}} \sim \chi^{2}_{n-1}$$
 
+Al ser asimétrica esta distribución, diferenciamos entre 3 casos en vez de 2:
 
-| Inferior                                                                          | Superior                                 | Dos colas |
-| --------------------------------------------------------------------------------- | ---------------------------------------- | --------- |
-| Cola con valor crítico anterior a $\mu$                                           | Cola con valor crítico posterior a $\mu$ |           |
-| $H_{0} = \sigma^{2} \geq \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} < \sigma^{2}_{0}$ |                                          |           |
-|                                                                                   |                                          |           |
+|               | Inferior                                                                          | Superior                                                                          | Dos colas                                                                                    |
+| ------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **Desc.**     | Valor crítico anterior a $\mu$                                                    | Valor crítico posterior a $\mu$                                                   |                                                                                              |
+| **Hipótesis** | $H_{0} = \sigma^{2} \geq \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} < \sigma^{2}_{0}$ | $H_{0} = \sigma^{2} \leq \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} > \sigma^{2}_{0}$ | $H_{0} = \sigma^{2} = \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} \neq \sigma^{2}_{0}$            |
+| **Rechazo**   | $\chi^{2}_c < \chi^{2}_{n-1,\ 1-\alpha}$                                         | $\chi^{2}_c > \chi^{2}_{n-1,\ \alpha}$                                           | $\chi^{2}_c > \chi^{2}_{n-1,\ \alpha / 2}$<br>$\chi^{2}_c < \chi^{2}_{n-1,\ 1-\alpha / 2}$ |
 
-
-**Inferior:** Cola con valor crítico anterior a $\mu$.
-$$
-\begin{align*}
-H_{0} &= \sigma^{2} \geq \sigma^{2}_{0} \\
-H_{1} &= \sigma^{2} < \sigma^{2}_{0}
-\end{align*}
-$$
-**Superior:** Cola con valor crítico posterior a $\mu$.
-$$
-\begin{align*}
-H_{0} &= \sigma^{2} \leq \sigma^{2}_{0} \\
-H_{1} &= \sigma^{2} > \sigma^{2}_{0}
-\end{align*}
-$$
-**Dos colas**
-$$
-\begin{align*}
-H_{0} &= \sigma^{2} = \sigma^{2}_{0} \\
-H_{1} &= \sigma^{2} \neq \sigma^{2}_{0}
-\end{align*}
-$$
 # Intervalos de confianza
 
 Los intervalos de confianza $IC$ son una forma alternativa de comprobar si un valor cae dentro de lo esperado en una distribución, que en vez de basarse en comprobar si la $t$ calculada cae en el área de rechazo, crea un intervalo a partir del *Nivel de confianza*, que es $1-\alpha$, en el que si está incluida la $t$, se da como válida la hipótesis nula. Sirve para calcular fácilmente tanto la media poblacional $\mu$ como la varianza poblacional $\sigma^{2}$, siempre y cuando la hipótesis alternativa abarque ambas colas.
