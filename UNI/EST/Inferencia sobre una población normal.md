@@ -1,6 +1,4 @@
----
-todo: true
----
+
 [[Distribuciones en el muestreo]]
 
 ![[Estadística inferencial]]
@@ -60,4 +58,26 @@ $$
 
 # Intervalos de confianza
 
-Los intervalos de confianza son una forma alternativa de comprobar si un valor cae dentro de lo esperado en una distribución, que en vez de basarse en comprobar si la $t$ calculada cae en el área de rechazo, crea un intervalo a partir del *Nivel de confianza*, que es $1-\alpha$, para determinar
+Los intervalos de confianza $IC$ son una forma alternativa de comprobar si un valor cae dentro de lo esperado en una distribución, que en vez de basarse en comprobar si la $t$ calculada cae en el área de rechazo, crea un intervalo a partir del *Nivel de confianza*, que es $1-\alpha$, en el que si está incluida la $t$, se da como válida la hipótesis nula. Sirve para calcular fácilmente tanto la media poblacional $\mu$ como la varianza poblacional $\sigma^{2}$, siempre y cuando la hipótesis alternativa abarque ambas colas.
+
+## Media poblacional
+
+$$
+IC_{\mu}^{1-\alpha} = \left[ \overline{X} - t^{\frac{\alpha}{2}}_{n-1}·\sqrt{\frac{S^{2}}{n}}\ ,\ \  \overline{X} + t^{\frac{\alpha}{2}}_{n-1}·\sqrt{\frac{S^{2}}{n}}\right]
+$$
+
+## Varianza poblacional
+
+*Sacada del [[Distribución Chi-Cuadrado#Cálculo de varianzas|cálculo de varianzas en la distribución Chi-cuadrado]]*
+
+$$
+IC_{\sigma^{2}}^{\alpha-1} = \left[ \frac{(n-1)S^{2}}{g_{2}}, \frac{(n-1)S^{2}}{g_{1}} \right]
+$$
+
+Donde $g_{2}$ y $g_{1}$ son puntos en la distribución $\chi^{2}$ tales que:
+$$
+\begin{align*}
+g_{1} &: P(\chi^{2}_{n-1} > g_{1}) = 1 - \frac{\alpha}{2}\\
+g_{2} &: P(\chi^{2}_{n-1} > g_{2}) = \frac{\alpha}{2}\\
+\end{align*}
+$$
