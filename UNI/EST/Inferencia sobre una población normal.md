@@ -7,7 +7,7 @@
 
 1. **[[#Análisis descriptivo]] de la muestra:** Estimar la media poblacional y desviación típica poblacional a partir de la muestra.
 2. **[[#Contraste de hipótesis]]:** Comprobar si los valores estimados se ajustan a lo esperado de la población.
-3. [[#Intervalos de confianza]]: Comprobar con una seguridad razonable los valores entre los que están la desviación típica y media poblacionales.
+3. **[[#Intervalos de confianza]]**: Comprobar con una seguridad razonable los valores entre los que están la desviación típica y media poblacionales.
 
 # Análisis descriptivo
 

@@ -30,7 +30,7 @@
 		{"id":"701c77c861c53c6f","type":"file","file":"UNI/EST/Distribución F de Fisher.md","x":3660,"y":2400,"width":400,"height":320},
 		{"id":"88920b712a57f724","type":"file","file":"UNI/EST/Distribuciones en el muestreo.md","x":720,"y":3920,"width":400,"height":400},
 		{"id":"f9d245b9f0d4387b","type":"file","file":"UNI/EST/Inferencia sobre una población normal.md","x":1420,"y":3440,"width":400,"height":400},
-		{"id":"cb70a62180a34e67","type":"file","file":"UNI/EST/Inferencia sobre dos poblaciones.md","x":2120,"y":3440,"width":400,"height":400},
+		{"id":"cb70a62180a34e67","type":"file","file":"UNI/EST/Inferencia sobre dos poblaciones normales.md","x":2120,"y":3440,"width":400,"height":400},
 		{"id":"02d1ff054e47b770","type":"file","file":"UNI/EST/Regresión.md","x":1420,"y":4520,"width":400,"height":400},
 		{"id":"8fa5a0a1e4ad4007","type":"text","text":"# DOS RAMAS DE ESTADÍSTICA","x":-1200,"y":420,"width":323,"height":120}
 	],
