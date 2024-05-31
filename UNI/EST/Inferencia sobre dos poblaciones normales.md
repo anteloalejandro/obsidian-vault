@@ -1,6 +1,3 @@
----
-todo: true
----
 
 ![[Inferencia sobre una población normal#Pasos]]
 
@@ -30,16 +27,24 @@ $$
 S^{2}_{p} = \frac{(n_{x} - 1)s^{2}_{x} + (n_{y} - 1)s^{2}_{y}}{n_{x} + n_{y} - 2}
 $$
 
-# Notas
+Es importante destacar que la $\alpha$ variara en función de si la hipótesis alternativa cubre una o dos colas al igual que en la [[Inferencia sobre una población normal]].
 
-- Dos muestras dependientes 
-- Volver a la misma muestra
-- Se usa t Student en vez de chi-cuadrado.
+# Comparación de varianzas de muestras independientes
 
-
-
-# Diferencia 
-
-**Comparación de medias, muestras dependientes.**
-
-$H_{0} : = \overline{X} - \overline{Y} = 0 \Rightarrow \overline{X} = \overline{Y}$
+Al igual que en la [[Inferencia sobre una población normal]], distinguimos entre tres hipótesis nulas diferentes:
+- $\sigma^{2}_{x} = \sigma^{2}_{y}$: Dos colas
+- $\sigma^{2}_{x} \leq \sigma^{2}_{y}$: Cola superior
+- $\sigma^{2}_{x} \geq \sigma^{2}_{y}$: Cola inferior
+Pero, en vez de usar distribuciones $\chi^2$, hace uso de la [[Distribución F de Fisher]], ya que el siguiente cociente sigue dicha distribución:
+$$
+F = \frac{S^{2}_{x}/\sigma^{2}_{x}}{S^{2}_{y}}{\sigma^{2}_{y}} \sim F_{v}
+$$
+Los grados de libertad $v$ de $F_v$ dependerán de las hipótesis:
+$$
+\begin{align*}
+H_{1}: \sigma^{2}_{x} > \sigma^{2}_{y} \Leftrightarrow & F > F_{n_{x}-1,\ n_{y}-1}^{\alpha}\\
+H_{1}: \sigma^{2}_{x} < \sigma^{2}_{y} \Leftrightarrow & F < F_{n_{x}-1,\ n_{y}-1}^{1-\alpha}\\
+H_{1}: \sigma^{2}_{x} \neq \sigma^{2}_{y} \Leftrightarrow & F > F_{n_{x}-1,\ n_{y}-1}^{\alpha/2} \text{ o } F < F_{n_{x}-1,\ n_{y}-1}^{1-\alpha/2}
+\end{align*}
+$$
+![[f-fisher-crit.png]]

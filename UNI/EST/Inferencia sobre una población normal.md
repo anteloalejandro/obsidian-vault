@@ -63,11 +63,11 @@ $$\chi^2_{c} = (n-1)\frac{S^{2}}{\sigma^{2}} \sim \chi^{2}_{n-1}$$
 
 Al ser asimétrica esta distribución, diferenciamos entre 3 casos en vez de 2:
 
-|               | Inferior                                                                          | Superior                                                                          | Dos colas                                                                                    |
-| ------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **Desc.**     | Valor crítico anterior a $\mu$                                                    | Valor crítico posterior a $\mu$                                                   |                                                                                              |
-| **Hipótesis** | $H_{0} = \sigma^{2} \geq \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} < \sigma^{2}_{0}$ | $H_{0} = \sigma^{2} \leq \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} > \sigma^{2}_{0}$ | $H_{0} = \sigma^{2} = \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} \neq \sigma^{2}_{0}$            |
-| **Rechazo**   | $\chi^{2}_c < \chi^{2}_{n-1,\ 1-\alpha}$                                         | $\chi^{2}_c > \chi^{2}_{n-1,\ \alpha}$                                           | $\chi^{2}_c > \chi^{2}_{n-1,\ \alpha / 2}$<br>$\chi^{2}_c < \chi^{2}_{n-1,\ 1-\alpha / 2}$ |
+|               | Inferior                                                                          | Superior                                                                          | Dos colas                                                                                  |
+| ------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Desc.**     | Valor crítico anterior a $\mu$                                                    | Valor crítico posterior a $\mu$                                                   |                                                                                            |
+| **Hipótesis** | $H_{0} = \sigma^{2} \geq \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} < \sigma^{2}_{0}$ | $H_{0} = \sigma^{2} \leq \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} > \sigma^{2}_{0}$ | $H_{0} = \sigma^{2} = \sigma^{2}_{0}$<br>$H_{1} = \sigma^{2} \neq \sigma^{2}_{0}$          |
+| **Rechazo**   | $\chi^{2}_c < \chi^{2}_{n-1,\ 1-\alpha}$                                          | $\chi^{2}_c > \chi^{2}_{n-1,\ \alpha}$                                            | $\chi^{2}_c > \chi^{2}_{n-1,\ \alpha / 2}$<br>$\chi^{2}_c < \chi^{2}_{n-1,\ 1-\alpha / 2}$ |
 
 # Intervalos de confianza
 
