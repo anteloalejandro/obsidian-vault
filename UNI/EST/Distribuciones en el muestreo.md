@@ -68,6 +68,7 @@ Al igual que con la distribución de la media muestral, cuanto mayor sea el núm
 
 
 ## Propiedades de la media muestral
+
 Cuando la población original se distribuye normalmente, $\overline{X}$ siempre se distribuirá normalmente, independientemente del tamaño de la muestra $n$.
 
 Al ser $\overline{X}$ una distribución normal, se puede transformar en una [[Distribución normal#Distribución normal estandarizada|distribución normal estandarizada]] del mismo modo que se haría con cualquier otra distribución normal.
