@@ -36,4 +36,6 @@ Aunque sepamos que el factor importa, no sabemos necesariamente cuál o cuáles 
 En el gráfico de interacción, cuanto más paralelas sean las líneas menos importa la interacción. En un caso ideal en la que la interacción no importe nada, serían, perfectamente paralelas, pero en el mundo real se pueden cruzas y seguir sin tener una interacción significativa.
 
 La regla de los *p-value* dice que si es mayor a $\alpha$, siendo $\alpha$ la probabilidad de error aceptada (noseque de especie), se acepta la hipótesis nula, y en caso contrario no. Esto da el mismo resultado que comparar la $F$ crítica y la $F$ observada, pero el *p-value* no se puede calcular a mano.
+
+MSR = Varianza de residuos
 %%
