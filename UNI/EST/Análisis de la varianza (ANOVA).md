@@ -1,7 +1,7 @@
 ---
 todo: true
 ---
-u# Conceptos
+# Conceptos
 
 - ANOVA: ANalysis Of VAriance, consiste en descomponer la variabilidad total observada entre las medias de uno o más factores y analizar su significación estadística.
 - Variable respuesta: La variable aleatoria de la que estamos buscando información. Es una relación entre la o las relaciones aleatorias que forman el análisis de la varianza. Por ejemplo, el rendimiento de un componente a lo largo del tiempo o el tiempo de acceso de un usuario conforme aumenta el nombre de usuarios.
