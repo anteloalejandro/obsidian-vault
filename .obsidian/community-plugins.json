@@ -1,9 +1,7 @@
 [
-  "obsidian-desmos",
   "obsidian-advanced-slides",
   "obsidian-excalidraw-plugin",
   "obsidian-excel-to-markdown-table",
-  "obsidian-kanban",
   "mathlive",
   "list-style",
   "dataview",
@@ -12,10 +10,8 @@
   "obsidian-git",
   "obsidian-minimal-settings",
   "obsidian-style-settings",
-  "obsidian-icons-plugin",
   "various-complements",
   "obsidian-gallery",
   "obsidian-circuitjs",
-  "obsidian-latex-suite",
-  "obsidian-tikzjax"
+  "obsidian-latex-suite"
 ]
