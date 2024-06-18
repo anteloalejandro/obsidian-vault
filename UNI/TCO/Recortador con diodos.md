@@ -1,9 +1,9 @@
 $$
-\begin{align}
-V_{\gamma} = 0.7 \\
-V_{in} = 5V \\
+\begin{matrix}
+V_{\gamma} \simeq 0.5V &
+V_{in} = 5V &
 R = 1k\Omega
-\end{align}
+\end{matrix}
 $$
 ```circuitjs
 $ 1 0.000005 10.20027730826997 50 5 50 5e-11
