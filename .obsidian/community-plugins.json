@@ -6,7 +6,6 @@
   "obsidian-kanban",
   "mathlive",
   "list-style",
-  "quick-latex",
   "dataview",
   "obsidian-charts",
   "vim-toggle",
@@ -16,5 +15,6 @@
   "obsidian-icons-plugin",
   "various-complements",
   "obsidian-gallery",
-  "obsidian-circuitjs"
+  "obsidian-circuitjs",
+  "obsidian-latex-suite"
 ]

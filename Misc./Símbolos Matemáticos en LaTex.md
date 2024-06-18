@@ -5,11 +5,10 @@ tags:
 *[Lista completa de símbolos matemáticos](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Negated_binary_relations)*
 
 # Operaciones básicas
-
 ## Fracciones
 `\frac{numerator}{denominator}`
  ``
-$$\frac{A+B}{C+D}$$
+$$\frac{A+B}{C+D}U$$
 $$q_{1} + \frac{1}{q_{2}+ \frac{1}{q_{3}+ \frac{1}{\dots}}}$$
 ## Sumatorios
 `\sum_{n=1}^{N} n`
@@ -58,8 +57,8 @@ $$
 - Negación: $\overline{P}$, $\neg P$
 - Conjunción: $P \land Q$
 - Disyunción: $P \lor Q$
-- Implicador: $P \Rightarrow Q$
-- Coimplicador: $P \Leftrightarrow Q$
+- Implicador: $P \Rightarrow Q$, $P \implies Q$
+- Coimplicador: $P \Leftrightarrow Q$, $P \iff Q$
 - Equivalencia: $P\equiv Q$
 - Para todo $x$: $\forall{x}$
 - Existe un $y$: $\exists{y}$
@@ -101,4 +100,3 @@ a\sim{b}
 \end{align*}
 $$
 Las negaciones añaden un caracter `n` tras la `\`
-
