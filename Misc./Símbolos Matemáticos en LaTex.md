@@ -5,10 +5,11 @@ tags:
 *[Lista completa de símbolos matemáticos](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Negated_binary_relations)*
 
 # Operaciones básicas
+
 ## Fracciones
 `\frac{numerator}{denominator}`
  ``
-$$\frac{A+B}{C+D}U$$
+$$\frac{A+B}{C+D}$$
 $$q_{1} + \frac{1}{q_{2}+ \frac{1}{q_{3}+ \frac{1}{\dots}}}$$
 ## Sumatorios
 `\sum_{n=1}^{N} n`
@@ -99,4 +100,8 @@ a\simeq{b}\\
 a\sim{b}
 \end{align*}
 $$
-Las negaciones añaden un caracter `n` tras la `\`
+Las negaciones añaden un caracter `n` tras la $\backslash$.
+
+```tikz
+\begin{document} \begin{tikzpicture}[domain=0:4] \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9); \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$}; \draw[->] (0,-1.2) -- (0,4.2) node[above] {$f(x)$}; \draw[color=red] plot (\x,\x) node[right] {$f(x) =x$}; \draw[color=blue] plot (\x,{sin(\x r)}) node[right] {$f(x) = \sin x$}; \draw[color=orange] plot (\x,{0.05*exp(\x)}) node[right] {$f(x) = \frac{1}{20} \mathrm e^x$}; \end{tikzpicture} \end{document}
+```
