@@ -9,6 +9,7 @@
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
+\definecolor{linecolor1}{HTML}{FBB76B}
 % set version (UP TO 1.16 as of 2024-06-19) %
 \pgfplotsset{compat=1.16, width=10cm}
 
@@ -18,16 +19,16 @@
 
 %% PLOTS BEGIN HERE %%
 % \addplot{x^2}; % default % %
-\addplot[color=red, dashed, label={$x^2$}]{x^2} node[below, pos=.25, anchor=east]{$y=x^2$}; % above, below, right, left %
+\addplot[color=linecolor1, dashed, label={$x^2$}]{x^2} node[below, pos=.25, anchor=east]{$y=x^2$}; % above, below, right, left %
 \addplot[color=blue, mark=*, domain=-3:3]{2*x}; % mark datapoints %
 \addplot+[color=green, samples=5]{x^2}; % set n of datapoints %
-
 
 \end{axis}
 \end{tikzpicture}
 
 \end{document}
 ```
+
 
 ## Propiedades de `axis`
 
@@ -70,8 +71,7 @@ legend entries={$y = x^2$},
 ]
 
 %% PLOTS BEGIN HERE %%
-\addplot[color=blue, mark=*]{2*x};
-
+\addplot+[color=blue]{2*x};
 
 \end{axis}
 \end{tikzpicture}
