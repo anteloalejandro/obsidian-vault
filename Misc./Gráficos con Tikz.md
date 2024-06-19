@@ -18,9 +18,9 @@
 
 %% PLOTS BEGIN HERE %%
 % \addplot{x^2}; % default % %
-\addplot[color=red, dashed, label={$x^2$}]{x^2} node[below, pos=.25, anchor=east]{$y=x^2$};
-\addplot[color=blue, mark=*]{2*x}; % mark datapoints %
-\addplot[color=green, samples=5]{x^2}; % set n of datapoints %
+\addplot[color=red, dashed, label={$x^2$}]{x^2} node[below, pos=.25, anchor=east]{$y=x^2$}; % above, below, right, left %
+\addplot[color=blue, mark=*, domain=-3:3]{2*x}; % mark datapoints %
+\addplot+[color=green, samples=5]{x^2}; % set n of datapoints %
 
 
 \end{axis}
@@ -40,14 +40,33 @@
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
-xmin=-5, xmax=5, 
-ymin=-10, ymax=10, 
+% LIMITES DE LA GRÁFICA %
+xmin=-10, xmax=10, 
+ymin=-20, ymax=20,
+domain=-10:10, % Valor mínimo y máximo para las gráficas %
+
+% LÍNEAS DE LA GRÁFICA %
+xtick={0,5,10},
+xticklabels={$A$, $B$, $C$},
+xticklabel style={anchor=south west},
+ytick={0,5,10,15,20},
+xmajorgrids=true,
+ymajorgrids=true,
+grid style=dashed,
+
+% CENTRADO DE LA GRÁFICA %
 axis lines=middle,
+
+% ETIQUETAS Y TÍTULO %
 xlabel = $x$,
 ylabel = $y$,
 title={Plot},
-legend style={at={(0,0)}, anchor=east},
-legend entries={$y = x^2$}
+
+% LEYENDAS. at={(x, y)}, dónde 1 es un extremo y 0 el otro %
+legend style={at={(1.1,0.5)}, anchor=west},
+legend entries={$y = x^2$},
+
+% clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
 
 %% PLOTS BEGIN HERE %%
