@@ -78,3 +78,4 @@ legend entries={$y = x^2$},
 
 \end{document}
 ```
+
