@@ -10,7 +10,7 @@
 \begin{tikzpicture}
 \begin{axis}[
 % CENTRADO DE LA GRÁFICA %
-axis lines=right,
+axis lines=middle,
 
 % ETIQUETAS Y TÍTULO %
 xlabel = $x$,
