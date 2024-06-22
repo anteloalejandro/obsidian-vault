@@ -14,5 +14,6 @@
   "obsidian-gallery",
   "obsidian-circuitjs",
   "obsidian-latex-suite",
-  "obsidian-tikzjax"
+  "obsidian-tikzjax",
+  "obsidian-hider"
 ]
