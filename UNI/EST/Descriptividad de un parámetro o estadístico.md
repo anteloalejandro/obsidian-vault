@@ -1,5 +1,5 @@
 ---
-todo: true
+todo: false
 ---
 
 Según las características de la distribución, unos [[Estadísticos descriptivos]] pueden representar mejor sus características que otros. Por norma general, los parámetros son más representativos cuanto menos varían respecto a la [[Distribución normal]].
