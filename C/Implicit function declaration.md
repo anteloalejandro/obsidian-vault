@@ -2,7 +2,6 @@
 alt: Defining a function inside another function
 ---
 
-
 For some god forsaken reason, this is valid code as long as `atof` is in another source file compiled beforehand.
 
 ```c
