@@ -1,5 +1,6 @@
 ---
-alt: Defining a function inside another function
+alt:
+  - Defining a function inside another function in C
 ---
 
 For some god forsaken reason, this is valid code as long as `atof` is in another source file compiled beforehand.
