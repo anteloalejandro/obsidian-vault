@@ -264,7 +264,7 @@ Los que se usan con `to[<componente>]` (dos extremos).
 \begin{circuitikz}
 
 \draw 
-  (0,0) node[pmos] {(0,4)}
+  (0,0) node[pmos]
   ;
 \end{circuitikz}
 \end{document}
