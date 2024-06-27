@@ -230,6 +230,28 @@ Alternativamente, se pueden usar `R`, `i` y `v` para anotar específicamente la 
 
 ```
 
+## Sets
+
+Para componentes con multiples entradas y/o múltiples salidas, es necesario usar `tikzset` o, en este caso `ctikzset`.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw (0,0) node[npn](Q) {};
+\path 
+  (Q.center) coordinate(center)
+  (Q.B) coordinate(B) node[pin={[red, overlay]45:B}]
+  (Q.C) coordinate(C)
+  (Q.E) coordinate(E)
+  ;
+
+\end{circuitikz}
+\end{document}
+```
+
+
 ## Listado de componentes
 
 ### Bipolares
