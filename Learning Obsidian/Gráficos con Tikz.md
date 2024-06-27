@@ -79,3 +79,55 @@ legend entries={$y = x^2$},
 \end{document}
 ```
 
+
+# `circuitikz`
+
+Los circuitos se definen en el bloque `circuitikz` con el comando `\draw`, tras el cual va una lista de parámetros  coordenada-enlace, separados por espacios. Las coordenadas tienen el formato `(0,1)` y los enlaces pueden ser una línea con `--` o un componente con `to[<nombre_componente>]`. Finalmente, el comando draw se termina con un `;` que, en caso de que se quiera hacer un circuito cerrado, se ha de preceder por la primera coordenada de la lista de parámetros.
+
+Por ejemplo, un circuito simple se puede definir como:
+
+```latex
+\draw 
+  (0,0) to[battery]
+  (0,4) to[ammeter]
+  (4,4) --
+  (4,0) to[lamp]
+  (0,0);
+```
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) to[battery]
+  (0,4) to[ammeter]
+  (4,4) --
+  (4,0) to[lamp]
+  (0,0);
+\end{circuitikz}
+\end{document}
+
+```
+
+## Circuitos en paralelo
+
+Para añadir una sección en paralelo al circuito anterior, simplemente se han de añadir nuevos parámetros de la siguiente forma
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) to[battery]
+  (0,4) to[ammeter]
+  (4,4) --
+  (4,0) to[lamp, *-*]
+  (0,0);
+
+\end{circuitikz}
+\end{document}
+
+```
