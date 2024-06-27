@@ -232,7 +232,7 @@ Alternativamente, se pueden usar `R`, `i` y `v` para anotar específicamente la 
 
 ## Componentes con varias entradas / salidas
 
-En estos componentes sobre todo, interesa usar coordenadas nombradas
+En estos componentes sobre todo, interesa usar coordenadas nombradas y relativas. 
 
 ```tikz
 \usepackage{circuitikz}
@@ -243,8 +243,17 @@ En estos componentes sobre todo, interesa usar coordenadas nombradas
   (0,0) node[ground] (GND) {}
   (GND) to[battery1, l=$V_{BB}$, invert] ++(2,0)
   ++(0,0) to[R=$R_B$] ++(1,0)
-  ++(0,0) -- ++(1,0) node[npn, anchor=west](Q) {}
+  ++(0,0) -- ++(1,0)
+  node[npn, anchor=west](Q) {}
+  (Q.C) -- ++(0,1)
+  ++(0,0) to[R=$R_C$] ++(0,1)
+  ++(0,0) to[battery1, l=$V_{CC}$] ++(0,2)
+  ++(0,0) -- ++(1,0) node[ground] {}
+  (Q.E) -- ++(0,-1) node[ground] {}
+  % salida inversor
+  (Q.C)++(0,0.5) -- ++(1,0) node[circ, text sep=10pt] {$V_0$}
   ;
+
 \path 
   % (Q.center) coordinate(center) node[anchor={center}] {Q}
   (Q.B) node[anchor=south] {\small B}
