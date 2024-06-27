@@ -144,6 +144,7 @@ En el segundo caso orden afecta el resultado, porque se dibujará desde el últi
 \end{document}
 
 ```
+En el caso de componentes como las baterías o pilas, se también se puede especificar `\to[battery, invert]` para invertir el sentido de la batería, pero sólo visualmente.
 
 ## Circuitos en paralelo
 
@@ -180,15 +181,41 @@ Para añadir una sección en paralelo al circuito anterior, simplemente se han d
 
 Para añadir etiquetas a los componentes, se debe usar `to[<componente>, label=<etiqueta>]`.
 
+```latex
+\draw 
+  (0,4) to[battery] (0,0)
+  (0,4) to[ammeter, label=$2mA$] (4,4)
+  (4,4) -- (4,0)
+  (4,0) to[lamp] (0,0);
+```
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
 \begin{circuitikz}
 
 \draw 
-  (0,4) to[battery, label={$5V$ and }] (0,0)
-  (0,4) to[ammeter] (4,4)
+  (0,4) to[battery] (0,0)
+  (0,4) to[ammeter, label=$2mA$] (4,4)
   (4,4) -- (4,0)
+  (4,0) to[lamp] (0,0)
+  ;
+\end{circuitikz}
+\end{document}
+
+```
+
+Alternativamente, se pueden usar `R`, `i` y `v` para anotar específicamente la resistencia, intensidad y tensión de un componente. Para lidiar con la diferencia entre carga eléctrica y corriente convencional, se puede usar `<=` para invertir el sentido de la flecha.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,4) to[battery, l=$V_0$, i<=$I_0$] (0,0)
+  (0,4) to[ammeter, label=$2mA$] (4,4)
+  (4,4) to[R=$R_1$] (4,0)
   (4,0) to[lamp] (0,0)
   ;
 \end{circuitikz}
