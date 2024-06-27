@@ -230,9 +230,9 @@ Alternativamente, se pueden usar `R`, `i` y `v` para anotar específicamente la 
 
 ```
 
-## Sets
+## Componentes con varias entradas / salidas
 
-Para componentes con multiples entradas y/o múltiples salidas, es necesario usar `tikzset` o, en este caso `ctikzset`.
+En estos componentes sobre todo, interesa usar coordenadas nombradas
 
 ```tikz
 \usepackage{circuitikz}
@@ -240,16 +240,18 @@ Para componentes con multiples entradas y/o múltiples salidas, es necesario usa
 \begin{circuitikz}
 
 \draw
-  (0,0) node[ground]{}
-  (2,0) to[battery1, l=$V_{BB}$] (0,0)
-  (2,0) -- (3,0) node[npn](Q) {Q};
+  (0,0) node[ground] (GND) {}
+  (GND) to[battery1, l=$V_{BB}$, invert] ++(2,0)
+  ++(0,0) to[R=$R_B$] ++(1,0)
+  ++(0,0) -- ++(1,0) node[npn, anchor=west](Q) {}
   ;
 \path 
-  (Q.center) coordinate(center)
-  (Q.B) coordinate(B) node[pin={[] 45:\small B}] {}
-  (Q.C) coordinate(C) node[anchor={west}] {\small C}
-  (Q.E) coordinate(E) node[anchor={west}] {\small E}
+  % (Q.center) coordinate(center) node[anchor={center}] {Q}
+  (Q.B) node[anchor=south] {\small B}
+  (Q.C) node[anchor={north west}] {\small C}
+  (Q.E) node[anchor={south west}] {\small E}
   ;
+
 \end{circuitikz}
 \end{document}
 ```
