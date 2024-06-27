@@ -82,10 +82,18 @@ legend entries={$y = x^2$},
 
 # `circuitikz`
 
-Los circuitos se definen en el bloque `circuitikz` con el comando `\draw`, tras el cual va una lista de parámetros  coordenada-enlace, separados por espacios. Las coordenadas tienen el formato `(0,1)` y los enlaces pueden ser una línea con `--` o un componente con `to[<nombre_componente>]`. Finalmente, el comando draw se termina con un `;` que, en caso de que se quiera hacer un circuito cerrado, se ha de preceder por la primera coordenada de la lista de parámetros.
+Los circuitos se definen en el bloque `circuitikz` con el comando `\draw`, tras el cual va una lista de parámetros  coordenada-enlace o coordenada-enlace-coordenada, separados por espacios. Las coordenadas tienen el formato `(0,1)` y los enlaces pueden ser una línea con `--` o un componente con `to[<nombre_componente>]`. Finalmente, el comando draw se termina con un `;` que, en caso de que se quiera hacer un circuito cerrado, se ha de preceder por la primera coordenada de la lista de parámetros.
 
-Por ejemplo, un circuito simple se puede definir como:
+Por ejemplo, un circuito simple se puede definir así:
+```latex
+\draw 
+  (0,0) to[battery] (0,4)
+  (0,4) to[ammeter] (4,4)
+  (4,4) -- (4,0)
+  (4,0) to[lamp] (0,0);
+```
 
+O, eliminando las coordenadas reduntantes, así:
 ```latex
 \draw 
   (0,0) to[battery]
@@ -101,19 +109,25 @@ Por ejemplo, un circuito simple se puede definir como:
 \begin{circuitikz}
 
 \draw 
-  (0,0) to[battery]
-  (0,4) to[ammeter]
-  (4,4) --
-  (4,0) to[lamp]
-  (0,0);
+  (0,0) to[battery] (0,4)
+  (0,4) to[ammeter] (4,4)
+  (4,4) -- (4,0)
+  (4,0) to[lamp] (0,0)
+  ;
 \end{circuitikz}
 \end{document}
 
 ```
 
-## Circuitos en paralelo
+En el segundo caso orden afecta el resultado, porque se dibujará desde el último punto hasta el siguiente. Tanto en el primer como en el segundo caso, el orden afecta a la orientación, de modo que un componente puede estar al revés. De hecho, en el circuito anterior se ha cometido este mismo error con la batería, cambiando el sentido de la corriente. Se puede arreglar así:
 
-Para añadir una sección en paralelo al circuito anterior, simplemente se han de añadir nuevos parámetros de la siguiente forma
+```latex
+\draw 
+  (0,4) to[battery] (0,0)
+  (0,4) to[ammeter] (4,4)
+  (4,4) -- (4,0)
+  (4,0) to[lamp] (0,0);
+```
 
 ```tikz
 \usepackage{circuitikz}
@@ -121,12 +135,62 @@ Para añadir una sección en paralelo al circuito anterior, simplemente se han d
 \begin{circuitikz}
 
 \draw 
-  (0,0) to[battery]
-  (0,4) to[ammeter]
-  (4,4) --
-  (4,0) to[lamp, *-*]
-  (0,0);
+  (0,4) to[battery] (0,0)
+  (0,4) to[ammeter] (4,4)
+  (4,4) -- (4,0)
+  (4,0) to[lamp] (0,0)
+  ;
+\end{circuitikz}
+\end{document}
 
+```
+
+## Circuitos en paralelo
+
+Para añadir una sección en paralelo al circuito anterior, simplemente se han de añadir nuevos parámetros de la siguiente forma, usando `to[*-*]` para destacar los puntos en los que se divide el circuito.
+
+```latex
+\draw 
+  (0,4) to[battery] (0,0)
+  (0,4) to[ammeter] (4,4)
+  (4,4) -- (4,0)
+  (4,0) -- (3.5, 0) to[lamp, *-*] (0.5, 0) -- (0,0)
+  (0.5, 0) -- (0.5, -2) to[voltmeter] (3.5, -2) -- (3.5, 0);
+```
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,4) to[battery] (0,0)
+  (0,4) to[ammeter] (4,4)
+  (4,4) -- (4,0)
+  (4,0) -- (3.5, 0) to[lamp, *-*] (0.5, 0) -- (0,0)
+  (0.5, 0) -- (0.5, -2) to[voltmeter] (3.5, -2) -- (3.5, 0)
+  ;
+
+\end{circuitikz}
+\end{document}
+
+```
+
+## Etiquetas
+
+Para añadir etiquetas a los componentes, se debe usar `to[<componente>, label=<etiqueta>]`.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,4) to[battery, label={$5V$ and }] (0,0)
+  (0,4) to[ammeter] (4,4)
+  (4,4) -- (4,0)
+  (4,0) to[lamp] (0,0)
+  ;
 \end{circuitikz}
 \end{document}
 
