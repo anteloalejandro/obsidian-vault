@@ -142,7 +142,6 @@ En el segundo caso orden afecta el resultado, porque se dibujará desde el últi
   ;
 \end{circuitikz}
 \end{document}
-
 ```
 En el caso de componentes como las baterías o pilas, se también se puede especificar `\to[battery, invert]` para invertir el sentido de la batería, pero sólo visualmente.
 
@@ -221,7 +220,7 @@ Alternativamente, se pueden usar `R`, `i` y `v` para anotar específicamente la 
 \begin{circuitikz}
 
 \draw 
-  (0,4) to[battery1, l=$V_0$, i<=$I_0$] (0,0)
+  (0,4) to[battery1, l=$V_0{=}5V$, i<=$I_0$] (0,0)
   (0,4) to[ammeter, label=$2mA$] (4,4)
   (4,4) to[R=$R_1$] (4,0)
   (4,0) to[lamp] (0,0)
@@ -229,4 +228,44 @@ Alternativamente, se pueden usar `R`, `i` y `v` para anotar específicamente la 
 \end{circuitikz}
 \end{document}
 
+```
+
+## Listado de componentes
+
+### Bipolares
+
+Los que se usan con `to[<componente>]` (dos extremos).
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw
+(0,0) to[R, o-o] (2,0)
+(4,0) to[vR, o-o] (6,0)
+(0,2) to[transmission line, o-o] (2,2)
+(4,2) to[closing switch, o-o] (6,2)
+(0,4) to[empty diode, o-o] (2,4)
+(4,4) to[full led, o-o] (6,4)
+(0,6) to[generic, o-o] (2,6)
+(4,6) to[sinusoidal voltage source, o-o] (6,6)
+;
+
+\end{circuitikz}
+\end{document}
+```
+
+### Tripolares
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[pmos] {(0,4)}
+  ;
+\end{circuitikz}
+\end{document}
 ```
