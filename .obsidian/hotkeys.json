@@ -8,5 +8,34 @@
       ],
       "key": "M"
     }
+  ],
+  "markdown:toggle-preview": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "R"
+    }
+  ],
+  "app:toggle-left-sidebar": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "E"
+    }
+  ],
+  "obsidian-advanced-slides:open-advanced-slides-preview": [],
+  "various-complements:reload-custom-dictionaries": [],
+  "obsidian-advanced-slides:reload-advanced-slides-preview": [],
+  "obsidian-excalidraw-plugin:toggle-lock": [],
+  "app:toggle-right-sidebar": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "E"
+    }
   ]
 }
