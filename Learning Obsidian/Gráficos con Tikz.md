@@ -239,14 +239,17 @@ Para componentes con multiples entradas y/o múltiples salidas, es necesario usa
 \begin{document}
 \begin{circuitikz}
 
-\draw (0,0) node[npn](Q) {};
+\draw
+  (0,0) node[ground]{}
+  (2,0) to[battery1, l=$V_{BB}$] (0,0)
+  (2,0) -- (3,0) node[npn](Q) {Q};
+  ;
 \path 
   (Q.center) coordinate(center)
-  (Q.B) coordinate(B) node[pin={[red, overlay]45:B}]
-  (Q.C) coordinate(C)
-  (Q.E) coordinate(E)
+  (Q.B) coordinate(B) node[pin={[] 45:\small B}] {}
+  (Q.C) coordinate(C) node[anchor={west}] {\small C}
+  (Q.E) coordinate(E) node[anchor={west}] {\small E}
   ;
-
 \end{circuitikz}
 \end{document}
 ```
