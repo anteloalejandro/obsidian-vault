@@ -232,7 +232,22 @@ Alternativamente, se pueden usar `R`, `i` y `v` para anotar específicamente la 
 
 ## Componentes con varias entradas / salidas
 
-En estos componentes sobre todo, interesa usar coordenadas nombradas y relativas. 
+Las coordenadas de en las que se crean un nodo se pueden nombrar con tal de poder reutilizar la misma posición multiples veces. Esto es especialmente importante en este caso porque permite acceder a los diferentes terminales de componente complejo a través de sus nombres. Por ejemplo, dado el siguiente transistor:
+
+```latex
+\draw (0,0) node[npn] (Q) {}
+```
+
+Se pueden anotar cada uno de los terminales de la siguiente manera:
+
+```latex
+\path
+  (Q.B) node[anchor=south] {\small B}
+  (Q.C) node[anchor={north west}] {\small C}
+  (Q.E) node[anchor={south west}] {\small E};
+```
+
+Si, además, se hacen uso de las coordenadas relativas con el operador `++`, precedidas o no por una coordenada nombrada o absoluta, se pueden crear circuitos con componentes complejos fácilmente, como este inversor:
 
 ```tikz
 \usepackage{circuitikz}
@@ -244,14 +259,13 @@ En estos componentes sobre todo, interesa usar coordenadas nombradas y relativas
   (GND) to[battery1, l=$V_{BB}$, invert] ++(2,0)
   ++(0,0) to[R=$R_B$] ++(1,0)
   ++(0,0) -- ++(1,0)
-  node[npn, anchor=west](Q) {}
-  (Q.C) -- ++(0,1)
-  ++(0,0) to[R=$R_C$] ++(0,1)
+  node[npn, anchor=B](Q) {}
+  (Q.C) -- ++(0,1) to[R=$R_C$] ++(0,1)
   ++(0,0) to[battery1, l=$V_{CC}$] ++(0,2)
   ++(0,0) -- ++(1,0) node[ground] {}
   (Q.E) -- ++(0,-1) node[ground] {}
   % salida inversor
-  (Q.C)++(0,0.5) -- ++(1,0) node[circ, text sep=10pt] {$V_0$}
+  (Q.C)++(0,0.5) -- ++(1,0) node[circ, label=$V_{out}$] {}
   ;
 
 \path 
