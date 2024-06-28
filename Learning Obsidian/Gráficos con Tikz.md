@@ -308,14 +308,82 @@ Los que se usan con `to[<componente>]` (dos extremos).
 
 ### Tripolares
 
+#### BJT
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
 \begin{circuitikz}
 
-\draw 
-  (0,0) node[pmos] {}
+\draw
+  (0,0) node[npn] (Q1) {}
+  (4,0) node[pnp, yscale=-1] (Q2) {};
+\path
+  (Q1.B) node[anchor=south] {B}
+  (Q1.C) node[anchor=west] {C}
+  (Q1.E) node[anchor=west] {E}
+  (Q2.B) node[anchor=south] {B}
+  (Q2.C) node[anchor=west] {C}
+  (Q2.E) node[anchor=west] {E}
   ;
+
+\end{circuitikz}
+\end{document}
+```
+
+#### PMOS
+
+Coordenadas:
+  - `Q.G`, `Q.gate`
+  - `Q.D`, `Q.drain`
+  - `Q.S`, `Q.source`
+  - `Q.B`, `Q.bulk`
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw (0,0) node[pmos, yscale=-1] (Q1) {};
+\path (Q1.G) node[anchor=south] {\small G}
+  (Q1.D) node[anchor={west}] {\small D}
+  (Q1.S) node[anchor={west}] {\small S};
+
+\draw (4,0) node[pfet] (Q2) {}
+(Q2.B) -- (Q2.S)
+;
+\path (Q2.G) node[anchor=south] {\small G}
+  (Q2.D) node[anchor={west}] {\small D}
+  (Q2.S) node[anchor={west}] {\small S};
+
+\end{circuitikz}
+\end{document}
+```
+
+#### NMOS
+
+Coordenadas:
+  - `Q.G`, `Q.gate`
+  - `Q.D`, `Q.drain`
+  - `Q.S`, `Q.source`
+  - `Q.B`, `Q.bulk`
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw (0,0) node[nmos] (Q1) {};
+\path (Q1.G) node[anchor=south] {\small G}
+  (Q1.D) node[anchor={west}] {\small D}
+  (Q1.S) node[anchor={west}] {\small S};
+
+\draw (4,0) node[nfet] (Q2) {}
+(Q2.B) -- (Q2.S)
+;
+\path (Q2.G) node[anchor=south] {\small G}
+  (Q2.D) node[anchor={west}] {\small D}
+  (Q2.S) node[anchor={west}] {\small S};
+
 \end{circuitikz}
 \end{document}
 ```
