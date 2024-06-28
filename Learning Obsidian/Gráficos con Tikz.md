@@ -310,6 +310,12 @@ Los que se usan con `to[<componente>]` (dos extremos).
 
 #### BJT
 
+Coordenadas:
+  - `Q.B`, `Q.base
+  - `Q.C`, `Q.collector
+  - `Q.E`, `Q.emitter
+  - `Q.center`
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
