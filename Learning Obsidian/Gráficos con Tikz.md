@@ -80,6 +80,15 @@ legend entries={$y = x^2$},
 ```
 
 
+## Curvas usando sólo puntos
+
+```tikz
+\begin{document}
+\begin{tikzpicture}
+\end{}
+\end{document}
+```
+
 # `circuitikz`
 
 Los circuitos se definen en el bloque `circuitikz` con el comando `\draw`, tras el cual va una lista de parámetros  coordenada-enlace o coordenada-enlace-coordenada, separados por espacios. Las coordenadas tienen el formato `(0,1)` y los enlaces pueden ser una línea con `--` o un componente con `to[<nombre_componente>]`. Finalmente, el comando draw se termina con un `;` que, en caso de que se quiera hacer un circuito cerrado, se ha de preceder por la primera coordenada de la lista de parámetros.

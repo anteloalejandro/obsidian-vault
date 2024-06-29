@@ -60,17 +60,18 @@ Esencialmente, actúa como una pequeña pila en oposición a la corriente cuando
 
 # Parámetros
 
-La **tensión lindar** $V_{\gamma}$ es una constante propia del diodo. Provoca una caída de tensión cuando el diodo conduce, e impide que haya corriente si la tensión en el ánodo es menor a ésta.
+La **tensión lindar** $V_{\gamma}$ es una constante propia del diodo. Provoca una caída de tensión cuando el diodo conduce.
 
-La **diferencia de tensión** del diodo $V_{D}$ es la diferencia entre la tensión en el ánodo $V_{A}$ y la tensión en el cátodo $V_{K}$. Cuando el diodo está conduciendo esa tensión es igual a la tensión lindar.
+La **diferencia de tensión** del diodo $V_{D}$ es la diferencia entre la tensión en el ánodo $V_{A}$ y la tensión en el cátodo $V_{K}$. Cuando el diodo está conduciendo esa tensión es igual a la tensión lindar, y cuando no conduce no significa que $V_D$ es menor a la tensión lindar.
 $$
 \begin{gather}
 V_{D} = V_{A} - V_{K}\\
-\text{El diodo conduce} \implies V_{D} = V_{\gamma}
+\text{El diodo conduce} \implies V_{D} = V_{\gamma}\\
+\text{El diodo no conduce} \iff V_{D} < V_{\gamma}
 \end{gather}
 $$
 
-La **corriente por el diodo** $I_{D}$ es, simplemente, la corriente que pasa por el diodo. Si la corriente que va de ánodo a cátodo, no sucede nada, pero si va de cátodo a ánodo, pasa a ser 0.
+La **corriente por el diodo** $I_{D}$ es, simplemente, la corriente que pasa por el diodo. Si la corriente que va de ánodo a cátodo no sucede nada con la corriente, pero si va de cátodo a ánodo pasa a ser 0.
 $$
 I_{D} = 
 \begin{cases}
@@ -80,6 +81,11 @@ I_{\tiny\overrightarrow{AK}} & \text{ si } I_{\tiny\overrightarrow{AK}} > 0\\
 \end{cases}
 $$
 
+# Curva característica y recta de carga
+
+En realidad, la relación la diferencia de tensión y la corriente por el diodo destacada en el apartado anterior hacen referencia a un modelo simplificado del diodo, no al funcionamiento real de este.
+
+El modelo se utiliza porque es una aproximación suficientemente buena del funcionamiento real en la gran mayoría de los casos, pero en ocasiones los fabricantes proveen también de la **curva característica** que modela con precisión la relación entre $V_D$ e $I_D$ en forma de gráfica.
 
 # Funcionamiento
 
