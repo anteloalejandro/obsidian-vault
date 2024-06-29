@@ -82,7 +82,7 @@ $$
 
 # Curva característica y recta de carga
 
-En realidad, la relación la diferencia de tensión y la corriente por el diodo destacada en el apartado anterior hacen referencia a un modelo simplificado del diodo, no al funcionamiento real de este.
+En realidad, la relación la diferencia de tensión y la corriente por el diodo destacada en el apartado anterior hacen referencia a un modelo simplificado del diodo, llamado **diodo ideal**, no al funcionamiento real de este.
 
 El modelo se utiliza porque es una aproximación suficientemente buena del funcionamiento real en la gran mayoría de los casos, pero en ocasiones los fabricantes proveen también de la **curva característica** que modela con precisión la relación entre $V_D$ e $I_D$ en forma de gráfica.
 
@@ -125,7 +125,7 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 
 \draw (2,6) node[anchor=west, color=linecolor1] {Curva característica};
 
-\addplot[color=linecolor2, domain=0:3.6] {-0.8*x + 3} 
+\addplot[color=linecolor2, domain=0:3.6] {-0.8*x + 3}
   node[color=linecolor2, right, pos=0, anchor=east]{Recta de carga};
 \addplot[mark=*] coordinates{(0.9, 2.2)}
   node[anchor=west, outer sep=3pt] {$Q{=}(V_{DQ}, I_{DQ})$};
@@ -134,6 +134,9 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 
 \addplot[mark=|, line width=0.2mm] coordinates{(0.7, 0)}
   node[anchor=north, outer sep=3pt] {$V_\gamma$};
+
+\draw[color=gray] plot[] coordinates{ (0.7, 0) (0.7, 12) }
+  node[color=gray, anchor={south west}]{Recta característica del diodo ideal};
 
 \end{axis}
 
@@ -172,3 +175,8 @@ Los diodos están formados por una [[Unión P-N]], en la que el Ánodo es el ter
 Para que la corriente convencional fluya solamente de ánodo a cátodo, el flujo de electrones ha de ir en dirección contraria, de cátodo a ánodo.
 
 Al conectar correctamente una pila al diodo, con el lado positivo de la pila conectado al ánodo y el lado negativo conectado al cátodo, el material Tipo-N recibirá más electrones y, en caso de que haya suficiente tensión como para superar la tensión lindar de la unión, esos electrones pasarán al material Tipo-P hasta que lo rebasen en salgan por el extremo del cátodo, hasta el lado positivo de la pila. En caso de que la tensión no supere a la tensión lindar, los electrones no podrán pasar de un lado a otro y no habrá ningún tipo de corriente.
+
+# Usos
+
+- [[Puertas lógicas con diodos]]
+- [[Recortadores de tensión con diodos]]
