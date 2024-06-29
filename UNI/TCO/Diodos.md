@@ -86,7 +86,9 @@ En realidad, la relación la diferencia de tensión y la corriente por el diodo 
 
 El modelo se utiliza porque es una aproximación suficientemente buena del funcionamiento real en la gran mayoría de los casos, pero en ocasiones los fabricantes proveen también de la **curva característica** que modela con precisión la relación entre $V_D$ e $I_D$ en forma de gráfica.
 
-Si, además, se calcula la **recta de carga** del diodo en el circuito actual usando los puntos de corte $V_D=0$ e $I_D = 0$, se obtiene el **punto de trabajo** $Q$, cuyas componentes corresponden a la tensión y corriente exactas del diodo en el circuito actual.
+En la recta de carga también puede verse a menudo $I_{s}$, que es la carga máxima que deja pasar el diodo cuando no conduce. En la mayoría de los diodos esta corriente es tan pequeña (se mide $\mu A$ o $\eta A$) que es despreciable.
+
+Si se calcula la **recta de carga** del diodo en el circuito actual usando los puntos de corte $V_D=0$ e $I_D = 0$ se obtiene el **punto de trabajo** $Q$, cuyas componentes corresponden a la tensión y corriente exactas del diodo en el circuito actual.
 
 ```tikz
 %% PREAMBLE %%
@@ -107,6 +109,7 @@ ymin=-2, ymax=15,
 ytick={0},
 xtick={0.7},
 xticklabels={$V_\gamma$},
+xticklabel style={thickness=2pt}
 xlabel = $V_D$,
 ylabel = $I_D$,
 
@@ -126,8 +129,12 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 
 \draw (2,6) node[anchor=west, color=linecolor1] {Curva característica};
 
-\addplot[color=linecolor2, domain=0:3.6] {-0.8*x + 3} node[color=linecolor2, right, pos=0, anchor=east]{Recta de carga};
-\addplot[mark=*] coordinates{(0.85, 2.3)} node[anchor=west, outer sep=3pt] {$Q{=}(V_{DQ}, I_{DQ})$};
+\addplot[color=linecolor2, domain=0:3.6] {-0.8*x + 3} 
+  node[color=linecolor2, right, pos=0, anchor=east]{Recta de carga};
+\addplot[mark=*] coordinates{(0.85, 2.3)}
+  node[anchor=west, outer sep=3pt] {$Q{=}(V_{DQ}, I_{DQ})$};
+\addplot[color=gray, dashed, domain={0:-6}]{-0.2}
+  node[color=gray, anchor=east, left, pos=1]{$-I_S$};
 
 \end{axis}
 
