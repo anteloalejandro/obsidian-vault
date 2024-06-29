@@ -87,11 +87,13 @@ En realidad, la relación la diferencia de tensión y la corriente por el diodo 
 
 El modelo se utiliza porque es una aproximación suficientemente buena del funcionamiento real en la gran mayoría de los casos, pero en ocasiones los fabricantes proveen también de la **curva característica** que modela con precisión la relación entre $V_D$ e $I_D$ en forma de gráfica.
 
+Si, además, se calcula la **recta de carga** del diodo en el circuito actual usando los puntos de corte $V_D=0$ e $I_D = 0$, se obtiene el **punto de trabajo** $Q$, cuyas componentes corresponden a la tensión y corriente exactas del diodo en el circuito actual.
+
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
-\definecolor{linecolor1}{HTML}{FF493C}
-\definecolor{linecolor2}{HTML}{00FF00}
+\definecolor{linecolor1}{HTML}{FF5C50}
+\definecolor{linecolor2}{HTML}{50C5FF}
 % set version (UP TO 1.16 as of 2024-06-19) %
 \pgfplotsset{compat=1.16, width=10cm}
 
@@ -108,10 +110,13 @@ xtick={0.7},
 xticklabels={$V_\gamma$},
 xlabel = $V_D$,
 ylabel = $I_D$,
+
+clip=false % No permitir que el texto sobrepase la gráfica % %
+
 ]
 
 \draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
-  (-12,-0.2) (-3, -0.2) (0,0)
+  (-6,-0.2) (-3, -0.2) (0,0)
 };
 \draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
   (0,0) (0.5, 1) (1,3)
@@ -120,11 +125,35 @@ ylabel = $I_D$,
   (1,3) (1.5, 6) (2, 12)
 };
 
+\draw (2,6) node[anchor=west, color=linecolor1] {Curva característica};
+
+\addplot[color=linecolor2, domain=0:3.6] {-0.8*x + 3} node[color=linecolor2, right, pos=0, anchor=east]{Recta de carga};
+\addplot[mark=*] coordinates{(0.85, 2.3)} node[anchor=west, outer sep=3pt] {$Q{=}(V_{DQ}, I_{DQ})$};
+
 \end{axis}
 
 \end{tikzpicture}
 \end{document}
 ```
+
+Si simplifica un circuito hasta que el resultado final sea una pila, una resistencia y un diodo, el cálculo de los puntos de corte se simplifica mucho.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ground] {}
+  (0,0) to [battery1, l=$V_0$, i=$I_D$, invert] (0,1)
+  (0,1) to[R=$R_1$] (1,1)
+  (1,1) to[empty diode, v^=$V_D$, i_=$I_D$] (1,0) node[ground] {}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+
 # Funcionamiento
 
 Los diodos están formados por una [[Unión P-N]], en la que el Ánodo es el terminal del material Tipo P y el Cátodo el terminal del material Tipo-N.
