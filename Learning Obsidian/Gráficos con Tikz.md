@@ -393,4 +393,4 @@ Coordenadas:
 \end{circuitikz}
 \end{document}
 ```
-
+ 
