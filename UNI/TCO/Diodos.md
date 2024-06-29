@@ -107,12 +107,9 @@ xmin=-6, xmax=6,
 ymin=-2, ymax=15,
 % ETIQUETAS Y TÍTULO %
 ytick={0},
-xtick={0.7},
-xticklabels={$V_\gamma$},
-xticklabel style={thickness=2pt}
+xtick={0},
 xlabel = $V_D$,
 ylabel = $I_D$,
-
 clip=false % No permitir que el texto sobrepase la gráfica % %
 
 ]
@@ -120,21 +117,23 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 \draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
   (-6,-0.2) (-3, -0.2) (0,0)
 };
-\draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
-  (0,0) (0.5, 1) (1,3)
+\draw[thick, color=linecolor1] plot[smooth, tension=1] coordinates{
+  (0,0) (0.2,0.1) (0.4,0.15) (0.5, 0.3) (0.6, 0.6) (0.7, 1)
+  (0.9,2) (1,3) (1.25, 6) (1.5, 12)
 };
-\draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
-  (1,3) (1.5, 6) (2, 12)
-};
+
 
 \draw (2,6) node[anchor=west, color=linecolor1] {Curva característica};
 
 \addplot[color=linecolor2, domain=0:3.6] {-0.8*x + 3} 
   node[color=linecolor2, right, pos=0, anchor=east]{Recta de carga};
-\addplot[mark=*] coordinates{(0.85, 2.3)}
+\addplot[mark=*] coordinates{(0.9, 2.2)}
   node[anchor=west, outer sep=3pt] {$Q{=}(V_{DQ}, I_{DQ})$};
 \addplot[color=gray, dashed, domain={0:-6}]{-0.2}
   node[color=gray, anchor=east, left, pos=1]{$-I_S$};
+
+\addplot[mark=|, line width=0.2mm] coordinates{(0.7, 0)}
+  node[anchor=north, outer sep=3pt] {$V_\gamma$};
 
 \end{axis}
 
