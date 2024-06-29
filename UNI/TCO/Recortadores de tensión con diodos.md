@@ -9,14 +9,42 @@ Los diodos pueden usarse en paralelo a un circuito para limitar la corriente má
 \draw 
   (0,0) node[ocirc, label=$V_{in}$] (vin) {}
   (vin) -- ++(1,0) to[R=R] ++(1,0) -- ++(1,0) node[circ] (junction) {}
-  (junction) -- ++(1,0) node[label=$V_{out}$] {}
+  (junction) -- ++(1.5,0) node[label=$V_{out}$] {}
   (junction) -- ++(0,-1) to[empty diode, label=D, v=$V_\gamma$] ++(0,-1)
-  ++(0,0) to[battery1, label=$V_1$] nod
+  ++(0,0) to[battery1, label=$V_1$] ++(0,-1) node[ground] {}
   ;
 \end{circuitikz}
 \end{document}
 ```
 
+La resistencia $R$ hace que la corriente fluya hacia $V_{out}$ y hacia el ánodo de $D$. En caso de que $V_{out}$ sea mayor que $V_1$ el diodo conduce electricidad y se puede modelar como un circuito idéntico con una pila en la dirección opuesta a la corriente de valor $V_\gamma$ .
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ocirc, label=$V_{in}$] (vin) {}
+  (vin) -- ++(1,0) to[R=R] ++(1,0) -- ++(1,0) node[circ, label=$V_{1} + V_\gamma$] (junction) {}
+  (junction) -- ++(1.5,0) node[label=$V_{out}$] (vout) {}
+  (junction) -- ++(0,-1) to[battery1, l=$V_\gamma$] ++(0,-1)
+  ++(0,0) to[battery1, label=$V_1$] ++(0,-1) node[ground] {}
+  (vin)++(0,-2) node[] {\Large Si $V_{in} > V_{i}$}
+
+  (vout)++(3,0) node[ocirc, label=$V_{in}$] (vin2) {}
+  (vin2) -- ++(1,0) to[R=R] ++(1,0) -- ++(1,0) node[circ, label=$\sim V_{in}$] (junction2) {}
+  (junction2) -- ++(1.5,0) node[label=$V_{out}$] (vout2) {}
+  (junction2) to[short, i=$I_{D}{=}0$] ++(0,-1) to[opening switch] ++(0,-1)
+  ++(0,0) to[battery1, label=$V_1$] ++(0,-1) node[ground] {}
+  (vin2)++(0,-2) node[] {\Large Si $V_{in} \leq V_{i}$}
+  
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+Por tanto, $V_{out}$ tiene como valor un
 
 ```tikz
 %% PREAMBLE %%
