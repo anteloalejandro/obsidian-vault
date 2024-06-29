@@ -1,4 +1,23 @@
 
+Los diodos pueden usarse en paralelo a un circuito para limitar la corriente máxima de esta forma:
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ocirc, label=$V_{in}$] (vin) {}
+  (vin) -- ++(1,0) to[R=R] ++(1,0) -- ++(1,0) node[circ] (junction) {}
+  (junction) -- ++(1,0) node[label=$V_{out}$] {}
+  (junction) -- ++(0,-1) to[empty diode, label=D, v=$V_\gamma$] ++(0,-1)
+  ++(0,0) to[battery1, label=$V_1$] nod
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
@@ -15,19 +34,23 @@ axis x line=center,
 axis y line=left,
 
 % ETIQUETAS Y TÍTULO %
-xlabel = $x$,
-ylabel = $y$,
-
-% LEYENDAS. at={(x, y)}, dónde 1 es un extremo y 0 el otro %
-legend style={at={(1.1,0.5)}, anchor=west},
-legend entries={$y = 2x$},
+xmin = 0,
+ymin = -10,
+ymax = 10,
+xlabel = t,
+ylabel = V,
+ytick={5},
+xtick={0},
+yticklabels={$V_1$},
+ymajorgrids=true
 
 % clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
 
 %% PLOTS BEGIN HERE %%
-\addplot+[color=linecolor1,mark=none]{sin(deg(x))} node[below, pos=.75, anchor=east]{$y=2x$};
-\addplot[mark=*] coordinates {(1,2)} node[above]{$(1,2)$};
+\addplot+[color=linecolor1,mark=none,samples=100, domain=0:10]{10*sin(deg(x))} node[below, pos=.75, anchor=east]{$V_{in}$};
+\addplot+[color=blue,mark=none,samples=100, domain=0:10]{10*sin(deg(x)) <= 4.5 ? 10*sin(deg(x)) : sin(deg(x))+4.5} node[below, pos=.75, anchor=east]{$V_{out}$};
+% \addplot[mark=*] coordinates {(1,2)} node[above]{$(1,2)$};
 
 \end{axis}
 \end{tikzpicture}
