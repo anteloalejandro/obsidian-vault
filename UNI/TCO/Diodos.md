@@ -87,6 +87,37 @@ En realidad, la relación la diferencia de tensión y la corriente por el diodo 
 
 El modelo se utiliza porque es una aproximación suficientemente buena del funcionamiento real en la gran mayoría de los casos, pero en ocasiones los fabricantes proveen también de la **curva característica** que modela con precisión la relación entre $V_D$ e $I_D$ en forma de gráfica.
 
+```tikz
+%% PREAMBLE %%
+\usepackage{pgfplots}
+\definecolor{linecolor1}{HTML}{00FF00}
+% set version (UP TO 1.16 as of 2024-06-19) %
+\pgfplotsset{compat=1.16, width=10cm}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+% CENTRADO DE LA GRÁFICA %
+axis lines=middle,
+xmin=-12, xmax=12, 
+ymin=-12, ymax=12,
+% ETIQUETAS Y TÍTULO %
+% ticks=none,
+xtick={-12,...,12},
+ytick={-12,...,12},
+xlabel = $V_D$,
+ylabel = $I_D$,
+]
+
+\draw[thick] plot[smooth, tension=1] coordinates{
+  (-12,-0.5) (-1, -0.5) (0,0)
+};
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+```
 # Funcionamiento
 
 Los diodos están formados por una [[Unión P-N]], en la que el Ánodo es el terminal del material Tipo P y el Cátodo el terminal del material Tipo-N.
