@@ -19,6 +19,8 @@ Los diodos pueden usarse en paralelo a un circuito para limitar la corriente má
 
 La resistencia $R$ hace que la corriente fluya hacia $V_{out}$ y hacia el ánodo de $D$. En caso de que $V_{out}$ sea mayor que $V_1$ el diodo conduce electricidad y se puede modelar como un circuito idéntico con una pila en la dirección opuesta a la corriente de valor $V_\gamma$ .
 
+En caso contrario, el diodo actúa como aislante, impidiendo que $V_1$ afecte al resultado. Si $V_{out}$ no está conectado a tierra, corriente también será 0 en el resto del circuito, por lo que $V_{out} = V_{in}$, pero si sí está conectado a tierra $R$ provocará una caída de tensión antes de llegar al punto $V_{out}$.
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -44,12 +46,14 @@ La resistencia $R$ hace que la corriente fluya hacia $V_{out}$ y hacia el ánodo
 \end{document}
 ```
 
-Por tanto, $V_{out}$ tiene como valor un
+Por tanto, si $V_{in}$ fuese una batería de corriente alterna, la interacción entre $V_{in}$ y $V_{1}$ se puede resumir en un gráfico de la siguiente forma:
 
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
-\definecolor{linecolor1}{HTML}{00FF00}
+\definecolor{linecolor1}{HTML}{FF5C50}
+\definecolor{linecolor2}{HTML}{50C5FF}
+
 % set version (UP TO 1.16 as of 2024-06-19) %
 \pgfplotsset{compat=1.16, width=10cm}
 
@@ -77,7 +81,7 @@ ymajorgrids=true
 
 %% PLOTS BEGIN HERE %%
 \addplot+[color=linecolor1,mark=none,samples=100, domain=0:10]{10*sin(deg(x))} node[below, pos=.75, anchor=east]{$V_{in}$};
-\addplot+[color=blue,mark=none,samples=100, domain=0:10]{10*sin(deg(x)) <= 4.5 ? 10*sin(deg(x)) : sin(deg(x))+4.5} node[below, pos=.75, anchor=east]{$V_{out}$};
+\addplot+[color=linecolor2,mark=none,samples=100, domain=0:10]{10*sin(deg(x)) <= 4.5 ? 10*sin(deg(x)) : sin(deg(x))+4.5} node[below, pos=.75, anchor=east]{$V_{out}$};
 % \addplot[mark=*] coordinates {(1,2)} node[above]{$(1,2)$};
 
 \end{axis}
@@ -86,6 +90,51 @@ ymajorgrids=true
 \end{document}
 ```
 
+
+Si se orienta el diodo al contrario, en vez de recortar superiormente por $V_{1}$, se recortaría inferiormente por $-V_{1}$ (o por $V_{1}$ si también se cambia la orientación de la pila).
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ocirc, label=$V_{in}$] (vin) {}
+  (vin) -- ++(1,0) to[R=R] ++(1,0) -- ++(1,0) node[circ] (junction) {}
+  (junction) -- ++(1.5,0) node[label=$V_{out}$] {}
+  (junction) -- ++(0,-1) to[empty diode, label=D, v<=$V_\gamma$, invert] ++(0,-1)
+  ++(0,0) to[battery1, label=$V_1$] ++(0,-1) node[ground] {}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+Ahora la para que $D$ conduzca es $V_{1}$ quien tiene que ser mayor que $V_{in}$, por lo que para valores suficientemente bajos de $V_{in}$ no se cumplirá que $V_{out} = V_{in}$. Aquí el detalle importante es que en este caso la corriente circula al contrario, de $V_{1}$ a $V_{in}$, por lo que en vez de cortar aproximadamente en $V_{1}$, cortamos en $-V_{1}$.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ocirc, label=$V_{in}$] (vin) {}
+  (vin) -- ++(1,0) to[R=R] ++(1.5,0) to[short, i<_=$I_D > 0$, invert] ++(1.5,0) node[circ, label=$-(V_{1} + V_\gamma$)] (junction) {}
+  (junction) -- ++(1.5,0) node[label=$V_{out}$] (vout) {}
+  (junction) -- ++(0,-1) to[battery1, l=$V_\gamma$] ++(0,-1)
+  ++(0,0) to[battery1, label=$V_1$] ++(0,-1) node[ground] {}
+  (vin)++(0,-2) node[] {\Large Si $V_{in} > V_{i}$}
+
+  (vout)++(3,0) node[ocirc, label=$V_{in}$] (vin2) {}
+  (vin2) -- ++(1,0) to[R=R] ++(1.5,0) -- ++(1.5,0) node[circ, label=$\sim V_{in}$] (junction2) {}
+  (junction2) -- ++(1.5,0) node[label=$V_{out}$] (vout2) {}
+  (junction2) to[short, i=$I_{D}{=}0$] ++(0,-1) to[opening switch] ++(0,-1)
+  ++(0,0) to[battery1, label=$V_1$] ++(0,-1) node[ground] {}
+  (vin2)++(0,-2) node[] {\Large Si $V_{in} \leq V_{i}$}
+  
+  ;
+\end{circuitikz}
+\end{document}
+```
 
 # Simulación de un recortador
 
