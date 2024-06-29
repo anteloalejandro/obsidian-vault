@@ -1,3 +1,6 @@
+---
+todo: true
+---
 
 La función de un diodo es permitir el paso de corriente en una sola dirección, de misma forma que lo hace una válvula con el agua.
 
@@ -58,4 +61,6 @@ Esencialmente, actúa como una pequeña pila en oposición a la corriente cuando
 
 # Funcionamiento
 
-Los diodos están formados por semiconductores (generalmente silicio) [[Dopaje de semiconductores|dopados]] de tipo P y tipo N.
+Los diodos están formados por una [[Unión P-N]], en la que el Ánodo es el terminal del material Tipo P y el Cátodo el terminal del material Tipo-N.
+
+Para que la corriente convencional fluya solamente de ánodo a cátodo, 
