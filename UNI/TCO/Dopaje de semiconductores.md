@@ -1,6 +1,5 @@
-# Dopaje
 
-El silicio puro, a pesar de ser un semiconductor, no tiene prácticamente electrones libres, por lo que se adultera o dopa con otros materiales para cambiar sus propiedades.
+El silicio puro, a pesar de ser un [[Semiconductores|semiconductor]], no tiene prácticamente electrones libres, por lo que se adultera o dopa con otros materiales para cambiar sus propiedades.
 
 Existen, principalmente, dos tipos de dopaje: Tipo-N y Tipo-P.
 

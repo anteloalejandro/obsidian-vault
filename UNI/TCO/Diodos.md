@@ -58,4 +58,4 @@ Esencialmente, actúa como una pequeña pila en oposición a la corriente cuando
 
 # Funcionamiento
 
-Los diodos están formados por semiconductores (generalmente silicio) [[Semiconductores#Dopaje|dopados]] de tipo P y tipo N.
+Los diodos están formados por semiconductores (generalmente silicio) [[Dopaje de semiconductores|dopados]] de tipo P y tipo N.
