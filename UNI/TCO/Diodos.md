@@ -1,7 +1,6 @@
 ---
 todo: true
 ---
-
 La función de un diodo es permitir el paso de corriente en una sola dirección, de misma forma que lo hace una válvula con el agua.
 
 Esencialmente, actúa como una pequeña pila en oposición a la corriente cuando la corriente fluye de ánodo a cátodo, y como un aislante si fluye de cátodo a ánodo.
@@ -136,7 +135,7 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 \end{document}
 ```
 
-Si simplifica un circuito hasta que el resultado final sea una pila, una resistencia y un diodo, el cálculo de los puntos de corte se simplifica mucho.
+Si simplifica un circuito hasta que el resultado final sea una pila, una resistencia y un diodo, el cálculo de los puntos de corte de la recta de carga se simplifica mucho:
 
 ```tikz
 \usepackage{circuitikz}
@@ -145,14 +144,20 @@ Si simplifica un circuito hasta que el resultado final sea una pila, una resiste
 
 \draw 
   (0,0) node[ground] {}
-  (0,0) to [battery1, l=$V_0$, i=$I_D$, invert] (0,1)
-  (0,1) to[R=$R_1$] (1,1)
-  (1,1) to[empty diode, v^=$V_D$, i_=$I_D$] (1,0) node[ground] {}
+  (1,0) to [battery1, l=$V_0$, i=$I_D$] (0,0)
+  (1,0) -- (2,0) to[R=$R_1$] (3,0) -- (4,0)
+  (4,0) to[empty diode, v^=$V_D$, i_=$I_D$] (6,0) -- (6.25,0) node[ground] {}
   ;
 \end{circuitikz}
 \end{document}
 ```
-
+$$
+\begin{gather}
+V_{0} - I_{D}·R_{1} - V_{D} = 0 \iff I_{D} = \frac{V_{0}-V_{D}}{R_{1}} \iff V_{D} = V_{0} - I_{D}·R_{1}\\
+I_{D} = 0 \iff V_{D} = V_{0}\\
+V_{D} = 0 \iff I_{D} = \frac{V_{0}}{R_{1}}
+\end{gather}
+$$
 
 # Funcionamiento
 
