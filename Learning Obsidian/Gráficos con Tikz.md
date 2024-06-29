@@ -1,3 +1,7 @@
+---
+tags:
+  - cheatsheet
+---
 
 
 *En Obdisian, requiere el plugin TikZJax*
@@ -329,7 +333,7 @@ Los que se usan con `to[<componente>]` (dos extremos).
 (0,0) to[R, o-o] (2,0)
 (4,0) to[vR, o-o] (6,0)
 (0,2) to[transmission line, o-o] (2,2)
-(4,2) to[closing switch, o-o] (6,2)
+(4,2) to[opening switch, o-o] (6,2)
 (0,4) to[empty diode, o-o] (2,4)
 (4,4) to[full led, o-o] (6,4)
 (0,6) to[generic, o-o] (2,6)

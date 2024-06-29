@@ -1,6 +1,6 @@
 ---
 tags:
-  - Math
+  - cheatsheet
 ---
 *[Lista completa de símbolos matemáticos](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Negated_binary_relations)*
 

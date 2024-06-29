@@ -199,6 +199,7 @@ Finalmente, se pueden combinar ambos recortadores para crear circuito que recort
 \end{document}
 ```
 
+
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
@@ -222,17 +223,17 @@ ymin = -10,
 ymax = 10,
 xlabel = t,
 ylabel = V,
-ytick={-5},
+ytick={5,-5},
 xtick={0},
-yticklabels={$-V_1$},
+yticklabels={$V_1$, $-V_2$},
 ymajorgrids=true
 
 % clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
 
 %% PLOTS BEGIN HERE %%
-\addplot+[color=linecolor1,mark=none,samples=100, domain=0:10]{10*sin(deg(x))} node[below, pos=.5, anchor=west]{$V_{in}$};
-\addplot+[color=linecolor2,mark=none,samples=100, domain=0:10]{10*sin(deg(x)) >= -4.5 ? { 10*sin(deg(x)) <=  } : sin(deg(x))-4.5} node[below, pos=.5, anchor=west]{$V_{out}$};
+\addplot+[color=linecolor1,mark=none,samples=100, domain=0:10]{10*sin(deg(x))} node[below, pos=.75, anchor=east]{$V_{in}$};
+\addplot+[color=linecolor2,mark=none,samples=100, domain=0:10]{10*sin(deg(x)) >= -4.5 ? ifthenelse(10*sin(deg(x)) <= 4.5, 10*sin(deg(x)), sin(deg(x))+4.5) : sin(deg(x))-4.5} node[below, pos=.5, anchor=west]{$V_{out}$};
 
 \end{axis}
 \end{tikzpicture}

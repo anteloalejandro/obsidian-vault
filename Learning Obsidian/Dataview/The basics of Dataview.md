@@ -4,6 +4,8 @@ links:
   - Whttps://publish.obsidian.md/hub/04+-+Guides%2C+Workflows%2C+%26+Courses/Community+Talks/YT+-+An+Introduction+to+Dataview"
   - https://blacksmithgu.github.io/obsidian-dataview/resources/examples/
 author: Alejandro Antelo
+tags:
+  - cheatsheet
 ---
 
 # Broad intro to Dataview

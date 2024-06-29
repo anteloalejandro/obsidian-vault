@@ -1,3 +1,8 @@
+---
+tags:
+  - cheatsheet
+---
+
 # Slides overview
 
 Take a look into some basic features of **Obsidian Advanced Sliders**

@@ -1,3 +1,7 @@
+---
+todo: true
+---
+
 Es una aproximación al coste de ejecución de una función en la que en vez de calcular el coste exacto se averigua como crece ese coste según los datos de entrada que se introduzcan. Está estrechamente relacionado con los [[Límites|límites]].
 
 
@@ -40,7 +44,7 @@ Para denotar los casos mejores y peores de una función se usa $T_{m}(n) \in \Om
 
 ## Complejidad promedio 
 
-Coger el mejor y peor caso no siempre es relevante al no ser casos representativos de cómo se usa la función en la vida real. Esto se soluciones calculando el coste promedio de la función, pero esto requiere de saber todos los casos que se van a comprobar ($I$), su complejidad ($T$) además de la probabilidad ($P$) de que sucedan.
+Coger el mejor y peor caso no siempre es relevante al no ser casos representativos de cómo se usa la función en la vida real. Esto se soluciona calculando el coste promedio de la función, pero esto requiere de saber todos los casos que se van a comprobar ($I$), su complejidad ($T$) además de la probabilidad ($P$) de que sucedan.
 
 $$
 T_{\mu}(n) = \sum\limits_{i\in{I}} P_{i}·T_{i}(n)
@@ -48,4 +52,7 @@ $$
 
 Para obtener estos datos a menudo es necesario hacer tests o estudios experimentales, por lo que no es útil al hacer un estudio más teórico.
 
-# 
+# Cálculo en algoritmos iterativos
+
+
+# Cálculo en algoritmos recursivos
