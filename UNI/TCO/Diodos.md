@@ -90,7 +90,8 @@ El modelo se utiliza porque es una aproximación suficientemente buena del funci
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
-\definecolor{linecolor1}{HTML}{00FF00}
+\definecolor{linecolor1}{HTML}{FF493C}
+\definecolor{linecolor2}{HTML}{00FF00}
 % set version (UP TO 1.16 as of 2024-06-19) %
 \pgfplotsset{compat=1.16, width=10cm}
 
@@ -99,18 +100,24 @@ El modelo se utiliza porque es una aproximación suficientemente buena del funci
 \begin{axis}[
 % CENTRADO DE LA GRÁFICA %
 axis lines=middle,
-xmin=-12, xmax=12, 
-ymin=-12, ymax=12,
+xmin=-6, xmax=6, 
+ymin=-2, ymax=15,
 % ETIQUETAS Y TÍTULO %
-% ticks=none,
-xtick={-12,...,12},
-ytick={-12,...,12},
+ytick={0},
+xtick={0.7},
+xticklabels={$V_\gamma$},
 xlabel = $V_D$,
 ylabel = $I_D$,
 ]
 
-\draw[thick] plot[smooth, tension=1] coordinates{
-  (-12,-0.5) (-1, -0.5) (0,0)
+\draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
+  (-12,-0.2) (-3, -0.2) (0,0)
+};
+\draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
+  (0,0) (0.5, 1) (1,3)
+};
+\draw[thick, color=linecolor1] plot[smooth, tension=0.75] coordinates{
+  (1,3) (1.5, 6) (2, 12)
 };
 
 \end{axis}
