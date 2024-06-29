@@ -49,12 +49,13 @@ Esencialmente, actúa como una pequeña pila en oposición a la corriente cuando
 \draw 
   (diode)++(7,0) node[](switch) {}
   (switch) -- ++(1,0) to[cute open switch] ++(1,0) -- ++(1,0)
-  (switch)++(0,-1) to[short, i<=I] ++(3, 0)
-  (switch)++(1.5,-1) node[cross] {}
+  (switch)++(0,-1) to[short, i<={I{=}0}] ++(3, 0)
   ;
 \end{circuitikz}
 \end{document}
 ```
 
-![[Diodo.excalidraw|100%]]
 
+# Funcionamiento
+
+Los diodos están formados por semiconductores (generalmente silicio) [[Semiconductores#Dopaje|dopados]] de tipo P y tipo N.
