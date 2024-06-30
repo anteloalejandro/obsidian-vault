@@ -188,7 +188,7 @@ Es el tipo más básico de unión, y está formado por una [[Unión P-N]]. Tiene
 \begin{circuitikz}
 
 \draw[scale=1.5]
-  (0,0) to[diode, *-*, l=Diodo Ideal, v=$\sim 0.7V$] (2,0)
+  (0,0) to[diode, *-*, l=Diodo de Unión, v=$\sim 0.7V$] (2,0)
   ;
 \end{circuitikz}
 \end{document}
@@ -210,7 +210,7 @@ Es un modelo simplificado del diodo que en vez de tener una curva característic
 \end{document}
 ```
 
-# Diodo Schottky
+## Diodo Schottky
 
 Estos diodos tienen la ventaja de que se conmutan (es decir, cambian de 1 lógico a 0 lógico y viceversa) muy rápidamente. Lo consiguen sustituyendo el [[Dopaje de semiconductores|semiconductor Tipo-P]] por un conductor, generalmente aluminio. Es por esto que su uso principal es en circuitos digitales de alta velocidad.
 
@@ -224,19 +224,52 @@ A pesar de que la corriente de fuga es muy superior al diodo de unión, midiénd
 \begin{circuitikz}
 
 \draw[scale=1.5]
-  (0,0) to[Schottky diode, *-*, l=Diodo Ideal, v=$\sim 0.4V$] (2,0)
+  (0,0) to[Schottky diode, *-*, l=Diodo Schottky, v=$\sim 0.4V$] (2,0)
   ;
 \end{circuitikz}
 \end{document}
 ```
 
-# Diodo LED
+## Diodo LED
 
 Los LED (*Light Emitting Diodes*) emiten luz en función de su composición química. En vez de usar silicio dopado sin más, usan semiconductores adecuados según la frecuencia de luz que se quiera obtener, como $GaAs$, $GaAsP$, o $SiC$, que generalmente están en la cuarta o quinta columna de la tabla periódica.
 
-La luminosidad del LED, que se mide en lúmenes, es directamente proporcional a la corriente que pasa por él ($I_{D}$). L
+La luminosidad del LED, que se mide en lúmenes, es directamente proporcional a la corriente que pasa por él ($I_{D}$). Los LED que emiten luz visible tienden a necesitar entre $10mA$ y $20mA$ para ser fácilmente visibles, pero la corriente exacta la indica el fabricante.
+ 
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=1.5]
+  (0,0) to[led, *-*] (2,0)
+  (1,0.75) node[] {Diodo LED}
+  ;
+
+\end{circuitikz}
+\end{document}
+
+```
+
+### Funcionamiento del LED
+
+Los electrones libres de un material están en la banda de conducción. Para que un electrón vuelva a la capa de valencias, que es menos energética, ha de perder energía.
+
+En los LED, para que los electrones bajen a la capa de valencia para rellenar los huecos en el Ánodo, es energía se pierde en forma de fotón.
+
+En este caso, los electrones habrán de perder más energía cuanto mayor sea el espacio entre ambas bandas, lo que cambiará lo energéticos que sean los fotones, que a su vez determinan el color de la luz emitida. También es por esto por lo que la luminosidad es proporcional a la corriente, pues al duplicar la corriente, pasan el doble de electrones y, por tanto, se producen el doble de fotones.
+
+Siendo $h$ la constante de Planck, $\nu$ la frecuencia, $c$ la velocidad de la luz y $\lambda$ la longitud de onda, la energía del un fotón es directamente proporcional a $h$ y a $\nu$, pero inversamente proporcional a $\lambda$. Ya que lambda es la única de estas incógnitas que no es constante, el color del fotón es una función de la longitud de onda.
+$$
+E_{G} = \frac{h\nu}{\lambda} \implies f(\lambda) \mapsto \text{color}
+$$
+
+## Fotodiodos
+
+Cumplen la función contraria al LED, pero internamente son muy similares. En vez de tener una sola curva característica, tiene una curva por cada nivel de intensidad, que convergen en $V_D \geq 0$, 
 
 # Usos
 
 - [[Puertas lógicas con diodos]]
 - [[Recortadores de tensión con diodos]]
+- [[Circuitos con LED]]
