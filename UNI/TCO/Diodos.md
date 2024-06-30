@@ -1,6 +1,4 @@
----
-todo: true
----
+
 La función de un diodo es permitir el paso de corriente en una sola dirección, de misma forma que lo hace una válvula con el agua.
 
 Esencialmente, actúa como una pequeña pila en oposición a la corriente cuando la corriente fluye de ánodo a cátodo, y como un aislante si fluye de cátodo a ánodo.
@@ -266,7 +264,25 @@ $$
 
 ## Fotodiodos
 
-Cumplen la función contraria al LED, pero internamente son muy similares. En vez de tener una sola curva característica, tiene una curva por cada nivel de intensidad, que convergen en $V_D \geq 0$, 
+Cumplen la función contraria al LED, pero internamente son muy similares.
+
+En vez de tener una sola curva característica, tiene una curva por cada nivel de intensidad, que convergen en $I_D \geq 0$. Por tanto, las diferencias entre un nivel de luz y otro están por debajo de $I_{D}$, así que lo que nos da información del nivel de luminosidad realmente es la corriente de fuga o, siendo más concretos, $-I_{S}$. 
+
+Como es necesario observar $-I_{S}$, hay que fijarse en aquellos $-I_{D} < -V_{D}$, o lo que es lo mismo, el tercer cuadrante del plano cartesiano, y se deduce además que el fotodiodo va a conducir al contrario que el resto de diodos, de cátodo a ánodo (corriente negativa).
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=1.5]
+  (0,0) to[photodiode, *-*] (2,0)
+  (1,0.75) node[] {Fotodiodo}
+  ;
+
+\end{circuitikz}
+\end{document}
+```
 
 # Usos
 
