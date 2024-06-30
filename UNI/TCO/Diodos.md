@@ -86,7 +86,7 @@ En realidad, la relación la diferencia de tensión y la corriente por el diodo 
 
 El modelo se utiliza porque es una aproximación suficientemente buena del funcionamiento real en la gran mayoría de los casos, pero en ocasiones los fabricantes proveen también de la **curva característica** que modela con precisión la relación entre $V_D$ e $I_D$ en forma de gráfica.
 
-En la recta de carga también puede verse a menudo $I_{s}$, que es la carga máxima que deja pasar el diodo cuando no conduce. En la mayoría de los diodos esta corriente es tan pequeña (se mide $\mu A$ o $\eta A$) que es despreciable.
+En la recta de carga también puede verse a menudo la **corriente de fuga** $I_{s}$, que es la carga máxima que deja pasar el diodo cuando no conduce. En la mayoría de los diodos esta corriente es tan pequeña (se mide $\mu A$ o $\eta A$) que es despreciable.
 
 Si se calcula la **recta de carga** del diodo en el circuito actual usando los puntos de corte $V_D=0$ e $I_D = 0$ se obtiene el **punto de trabajo** $Q$, cuyas componentes corresponden a la tensión y corriente exactas del diodo en el circuito actual.
 
@@ -175,6 +175,66 @@ Los diodos están formados por una [[Unión P-N]], en la que el Ánodo es el ter
 Para que la corriente convencional fluya solamente de ánodo a cátodo, el flujo de electrones ha de ir en dirección contraria, de cátodo a ánodo.
 
 Al conectar correctamente una pila al diodo, con el lado positivo de la pila conectado al ánodo y el lado negativo conectado al cátodo, el material Tipo-N recibirá más electrones y, en caso de que haya suficiente tensión como para superar la tensión lindar de la unión, esos electrones pasarán al material Tipo-P hasta que lo rebasen en salgan por el extremo del cátodo, hasta el lado positivo de la pila. En caso de que la tensión no supere a la tensión lindar, los electrones no podrán pasar de un lado a otro y no habrá ningún tipo de corriente.
+
+# Tipos de diodo
+
+## Diodo de unión
+
+Es el tipo más básico de unión, y está formado por una [[Unión P-N]]. Tiene una tensión lindar de alrededor de $0.7V$ y una corriente de fuga que se mide en $\eta A$
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=1.5]
+  (0,0) to[diode, *-*, l=Diodo Ideal, v=$\sim 0.7V$] (2,0)
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+## Diodo ideal
+
+Es un modelo simplificado del diodo que en vez de tener una curva característica tiene una recta de pendiente infinita en $V_{\gamma}$ , es decir, solo tiene dos valores de $I_{D}$: 0 y el máximo. En un esquema se diferencia visualmente del diodo normal pintando todo el interior del diodo. Cualquier diodo así, sin importar el tipo, está siendo explícitamente modelado como un diodo ideal.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=1.5]
+  (0,0) to[full diode, *-*, l=Diodo Ideal, v=$V_\gamma$] (2,0)
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+# Diodo Schottky
+
+Estos diodos tienen la ventaja de que se conmutan (es decir, cambian de 1 lógico a 0 lógico y viceversa) muy rápidamente. Lo consiguen sustituyendo el [[Dopaje de semiconductores|semiconductor Tipo-P]] por un conductor, generalmente aluminio. Es por esto que su uso principal es en circuitos digitales de alta velocidad.
+
+La tensión lindar de estos diodos ronda los $0.4V$, por lo que además de conmutar más rápido consume menos energía y necesita menores diferencias de tensión para conmutar.
+
+A pesar de que la corriente de fuga es muy superior al diodo de unión, midiéndose en $\mu A$ en vez de $\eta A$, sigue siendo despreciable.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=1.5]
+  (0,0) to[Schottky diode, *-*, l=Diodo Ideal, v=$\sim 0.4V$] (2,0)
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+# Diodo LED
+
+Los LED (*Light Emitting Diodes*) emiten luz en función de su composición química. En vez de usar silicio dopado sin más, usan semiconductores adecuados según la frecuencia de luz que se quiera obtener, como $GaAs$, $GaAsP$, o $SiC$, que generalmente están en la cuarta o quinta columna de la tabla periódica.
+
+La luminosidad del LED, que se mide en lúmenes, es directamente proporcional a la corriente que pasa por él ($I_{D}$). L
 
 # Usos
 

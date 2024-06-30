@@ -1,4 +1,4 @@
-gimp
+
 Si se toma como *1 lógico*  de alrededor de $5V$ y como *0 lógico* un valor de alrededor de $0V$, se pueden construir las puertas lógicas *OR* y *AND* haciendo uso de diodos y resistencias.
 
 # AND
