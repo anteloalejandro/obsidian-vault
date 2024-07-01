@@ -17,6 +17,8 @@ todo: true
 axis lines=middle,
 
 % ETIQUETAS Y TÍTULO %
+xmin = 0,
+ymin = 0,
 xlabel = $x$,
 ylabel = $y$,
 
@@ -24,8 +26,8 @@ ylabel = $y$,
 ]
 
 %% PLOTS BEGIN HERE %%
-\addplot+[color=linecolor1,mark=none] (x*x, x) node[below, pos=.75, anchor=east]{$f(x)$};
-
+%\addplot+[color=linecolor1,mark=none,domain=0:10](x^(2.5) - x,x/10) node[below, pos=.75, anchor=east]{$f^{-1}(x)$};
+\addplot+[color=blue,mark=none,domain=0:10]{-10*x^2 + 10*x} node[below, pos=.75, anchor=east]{$f(x)$};
 \end{axis}
 \end{tikzpicture}
 
