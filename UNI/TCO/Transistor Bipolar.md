@@ -6,6 +6,12 @@ Los [[Diodos]], resistencias y demás pueden crear diferencias de tensión, pero
 
 Otra diferencia con los diodos es que en vez de ser una [[Unión P-N]], están formados por una unión N-P-N o (P-N-P), cuyos terminales corresponden a los pines Emisor, Base y Colector, o E-B-C, respectivamente.
 
+En un BJT N-P-N, la base es el de tipo P y es la parte más fina y menos cargada de todas, el colector es algo más grande pero es el que más carga tiene y el emisor es el lado más grande, pero está menos cargado que el colector.
+
+![[diagrama unión n-p-n.excalidraw|100%]]
+
+Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado]] entre otros dos del otro tipo, se puede modelar un transistor BJT como un par de diodos en dirección opuesta:
+
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
@@ -15,11 +21,19 @@ Otra diferencia con los diodos es que en vez de ser una [[Unión P-N]], están f
   (0,0) node[npn] (Q1) {}
   (4,0) node[] (Q2) {}
 
-  (Q2) node[circ, label=]to[diode, invert] ++(1, 0) -- ++(1,0)
-  ++(0,0) node[circ] (junction) {}
-  ++(0,0) -- ++(1,0) to[diode] ++(1,0)
-  (junction) -- ++(0,-1)
+  (Q1.B) node[anchor=east] {\small B}
+  (Q1.C) node[anchor=west] {\small C}
+  (Q1.E) node[anchor=west] {\small E}
   ;
+\draw
+  (Q2) node[anchor=east] {C} to[diode, invert] ++(1, 0) -- ++(1,0)
+  ++(0,0) node[circ] (junction) {}
+  ++(0,0) -- ++(1,0) to[diode] ++(1,0) node[anchor=west] {E}
+  (junction) -- ++(0,-1) node[anchor=north] {B}
+  ;
+
+\draw[->, double] (Q1.center)++(1,0) -- ++(2,0);
+
 \end{circuitikz}
 \end{document}
 ```
@@ -73,3 +87,21 @@ ylabel = $I_C$,
 \end{document}
 ```
 
+
+# Funcionamiento
+
+En un transistor bipolar N-P-N, la base es tan estrecha que sólo una pequeña parte de los electrones puede llenar huecos, el resto viajan por el colector, que es el que menor carga negativa tiene, lo que acaba produciendo una corriente convencional positiva desde el emisor.
+
+La amplificación sucede al pasar una corriente por el colector, que lo hace más positivo y, por tanto, aumenta la diferencia con el emisor, aumentando la corriente que sale de éste.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node []
+  ;
+\end{circuitikz}
+\end{document}
+```
