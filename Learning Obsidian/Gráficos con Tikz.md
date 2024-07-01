@@ -118,6 +118,51 @@ ylabel = $y$,
 ```
 
 
+```tikz
+%% PREAMBLE %%
+\usepackage{pgfplots}
+\definecolor{linecolor1}{HTML}{00FF00}
+\definecolor{linecolor2}{HTML}{0000FF}
+% set version (UP TO 1.16 as of 2024-06-19) %
+\pgfplotsset{compat=1.16, width=10cm}
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+% CENTRADO DE LA GRÁFICA %
+axis lines=middle,
+xtick={0},
+ytick={0},
+
+% ETIQUETAS Y TÍTULO %
+xmin = 0, xmax=12,
+ymin = 0, ymax=12,
+xlabel = $V_{CE}$,
+ylabel = $I_C$,
+
+% clip=false % No permitir que el texto sobrepase la gráfica % %
+]
+
+%% PLOTS BEGIN HERE %%
+\draw[color=linecolor1]
+  (0,0) .. controls (0.25,0) and (1,0) .. (1,2)
+  (1,2) -- (1,8)
+
+  (1,8) .. controls (1, 9.5) and (2, 10) .. (10,10)
+  (1,6) .. controls (1, 7.5) and (2, 8) .. (10,8)
+  (1,4) .. controls (1, 5.5) and (2, 6) .. (10,6)
+  (1,2) .. controls (1, 3.5) and (2, 4) .. (10,4)
+  ;
+
+\addplot[color=linecolor2, domain=0:12] {-0.75*x + 7.5};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+```
+
 # `circuitikz`
 
 Los circuitos se definen en el bloque `circuitikz` con el comando `\draw`, tras el cual va una lista de parámetros  coordenada-enlace o coordenada-enlace-coordenada, separados por espacios. Las coordenadas tienen el formato `(0,1)` y los enlaces pueden ser una línea con `--` o un componente con `to[<nombre_componente>]`. Finalmente, el comando draw se termina con un `;` que, en caso de que se quiera hacer un circuito cerrado, se ha de preceder por la primera coordenada de la lista de parámetros.

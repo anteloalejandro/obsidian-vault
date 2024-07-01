@@ -39,7 +39,9 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 ```
 
 
-# Curvas características y recta de carga
+# Polarización del BJT
+
+## Curva característica de entrada y recta de entrada
 
 ```tikz
 %% PREAMBLE %%
@@ -78,9 +80,7 @@ ylabel = $I_C$,
   (1,2) .. controls (1, 3.5) and (2, 4) .. (10,4)
   ;
 
-\addplot[color=linecolor2, domain=0:12] {-0.75*x + 7};
-
-
+\addplot[color=linecolor2, domain=0:12] {-0.75*x + 7.5};
 
 \end{axis}
 \end{tikzpicture}
@@ -89,11 +89,57 @@ ylabel = $I_C$,
 ```
 
 
+[[Diodos#Curva característica y recta de carga]]
+
+## Zonas de funcionamiento
+
 La zona de saturación es la zona en la que $I_{B} \simeq 0$ para $V_{CE}$ bajos. Aquí es donde el $I_{C}$ del circuito actual, indicado por la recta de carga, alcanza su valor máximo.
 
 La zona activa es aquella en la que $I_C$ es básicamente una constante que depende únicamente de $I_{B}$, y es directamente proporcional a esta. Esto también implica que mientras $V_{CE}$ esté en esta zona, da igual su valor exacto.
 
 La zona de corte está más allá de la zona activa y es dónde la $I_C$ del circuito es 0 independientemente de la tensión.
+
+## Curva característica de entrada
+
+```tikz
+%% PREAMBLE %%
+\usepackage{pgfplots}
+\definecolor{linecolor1}{HTML}{00FF00}
+\definecolor{linecolor2}{HTML}{0000FF}
+% set version (UP TO 1.16 as of 2024-06-19) %
+\pgfplotsset{compat=1.16, width=10cm}
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+% CENTRADO DE LA GRÁFICA %
+axis lines=middle,
+xtick={0},
+ytick={0},
+
+% ETIQUETAS Y TÍTULO %
+xmin = 0, xmax=12,
+ymin = 0, ymax=12,
+xlabel = $V_{CE}$,
+ylabel = $I_C$,
+
+% clip=false % No permitir que el texto sobrepase la gráfica % %
+]
+
+%% PLOTS BEGIN HERE %%
+\draw[color=linecolor1]
+  (0,0) .. controls (7,0.5) and (9,1) .. (10, 10)
+  ;
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+```
+
+# Ganancia de corriente
+
 
 
 # Funcionamiento
