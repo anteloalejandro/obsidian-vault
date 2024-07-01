@@ -40,6 +40,7 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 
 
 # Curvas características y recta de carga
+
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
@@ -88,11 +89,20 @@ ylabel = $I_C$,
 ```
 
 
+La zona de saturación es la zona en la que $I_{B} \simeq 0$ para $V_{CE}$ bajos. Aquí es donde el $I_{C}$ del circuito actual, indicado por la recta de carga, alcanza su valor máximo.
+
+La zona activa es aquella en la que $I_C$ es básicamente una constante que depende únicamente de $I_{B}$, y es directamente proporcional a esta. Esto también implica que mientras $V_{CE}$ esté en esta zona, da igual su valor exacto.
+
+La zona de corte está más allá de la zona activa y es dónde la $I_C$ del circuito es 0 independientemente de la tensión.
+
+
 # Funcionamiento
 
 En un transistor bipolar N-P-N, la base es tan estrecha que sólo una pequeña parte de los electrones puede llenar huecos, el resto viajan por el colector, que es el que menor carga negativa tiene, lo que acaba produciendo una corriente convencional positiva desde el emisor.
 
 La amplificación sucede al pasar una corriente por el colector, que lo hace más positivo y, por tanto, aumenta la diferencia con el emisor, aumentando la corriente que sale de éste.
+
+Un poco de la corriente a amplificar ($I_{B}$) acaba recombinándose con los electrones que pasan de $E$ a $C$, pero al ser $B$ tan fino esa cantidad es cercana a 0.
 
 ```tikz
 \usepackage{circuitikz}
@@ -103,23 +113,29 @@ La amplificación sucede al pasar una corriente por el colector, que lo hace má
   (0,0) node[circ] (B) {}
   (B) node[anchor=north] {B}
   (B) to[short, i=$I_B$] ++(0,1) -- ++(0,1) node[circ] (junct-b) {}
-  (junct-b) -- ++(1,0) -- ++(0,1) to[short, i=$I_{B_1}$] ++(0,0)
+  (junct-b) -- ++(1,0) -- ++(0,1) to[short, i=$I_{B_1} \simeq 0$] ++(0,0) node[] (I_B1) {}
   (junct-b) -- ++(-1,0) to[short, i=$I_{B_2}$] ++(0,4)
-  ++(0,0) node[circ] (junct-ce) {}
+  ++(0,0) node[circ] (junct-ce) {} to[short, i=$I_C + I_{B_2}$] ++(-2,0) 
   
 
-  
-
-  (B) -- ++(1,0) to[battery1, invert, l_=$V_{BC}$] ++(4,0)
+  (B) to[battery1, invert, l_=$V_{BC}$] ++(4,0)
   ++(0,0) -- ++(0,6) to[short, i=$I_C$] ++(-1,0) -- ++(-0.5,0) node[circ, label=C] (C) {}
+  
   (C) to[short, i=$I_C$] (junct-ce)
+  ++(0,0) -- ++(-2,0) node[circ, label=E] (E) {}
+  ++(0,0) to[short, i=$I_E$] ++(-1,0) -- ++(0, -6)
+  ++(0,0) to[battery1, l_=$V_{BE}$, invert] (B)
   ;
 
 \draw[->]
   (C)++(-0.5,-0.5) node[] (C-offset) {}
   (junct-ce)++(0.5,-0.5) node[] (junct-ce-offset) {}
+  (I_B1)++(0,0.5) node[] (I_B1-offset) {}
   (junct-ce-offset) -- (C-offset) node[anchor=west] {$e^{-}$}
-  ()
+  ;
+\draw[->]
+  (junct-ce-offset)++(1.5, 0) -- (I_B1-offset)
+  node[anchor=west] {Recombinación}
   ;
 \end{circuitikz}
 \end{document}
