@@ -100,7 +100,11 @@ La amplificación sucede al pasar una corriente por el colector, que lo hace má
 \begin{circuitikz}
 
 \draw 
-  (0,0) node []
+  (0,0) node[circ] (B) {}
+  (B) node[anchor=north] {B}
+
+  (B) -- ++(1,0) to[battery1, invert, l_=$V_{BC}$] ++(4,0)
+  ++(0,0) -- ++(0,6) to[short, i=$I_C$] ++(-1,0) -- ++(-0.5,0) node[circ, label=C] {}
   ;
 \end{circuitikz}
 \end{document}
