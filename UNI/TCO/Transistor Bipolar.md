@@ -43,6 +43,8 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 
 ## Curva característica de entrada y recta de entrada
 
+El transistor bipolar, a diferencia del diodo, tiene múltiples curvas características en función del valor de la corriente que recorre la base, $I_{B}$.
+
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
@@ -65,8 +67,10 @@ xmin = 0, xmax=12,
 ymin = 0, ymax=12,
 xlabel = $V_{CE}$,
 ylabel = $I_C$,
+x label style={anchor=north},
+y label style={anchor=east},
 
-% clip=false % No permitir que el texto sobrepase la gráfica % %
+clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
 
 %% PLOTS BEGIN HERE %%
@@ -81,6 +85,14 @@ ylabel = $I_C$,
   ;
 
 \addplot[color=linecolor2, domain=0:12] {-0.75*x + 7.5};
+
+\draw[color=gray, dashed] (1,0) -- (1,12)
+  (1,13) node[anchor={south east}, rotate=90] {Zona de Saturación}
+  ;
+
+\draw[color=gray, dashed] (10,0) -- (10,12)
+  (1,13) node[anchor={south east}, rotate=90] {Zona de Saturación}
+  ;
 
 \end{axis}
 \end{tikzpicture}
