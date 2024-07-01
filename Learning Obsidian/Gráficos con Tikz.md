@@ -446,10 +446,8 @@ Las puertas en sí se dibujan en un comando `\draw` y tienen el formato `node[<p
 \draw 
   (0,0) node[nand port] (nand) {}
   (4,0) node[not port] (not) {}
-  ;
-\path
   (nand.in 1) node[anchor=east] {A}
-  (nand.in 2) node[anchor=east] {$B$}
+  (nand.in 2) node[anchor=east] {B}
   (nand.out) node[anchor=west] {$\overline{A·B}$}
   ;
 \end{circuitikz}
