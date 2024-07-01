@@ -102,9 +102,24 @@ La amplificación sucede al pasar una corriente por el colector, que lo hace má
 \draw 
   (0,0) node[circ] (B) {}
   (B) node[anchor=north] {B}
+  (B) to[short, i=$I_B$] ++(0,1) -- ++(0,1) node[circ] (junct-b) {}
+  (junct-b) -- ++(1,0) -- ++(0,1) to[short, i=$I_{B_1}$] ++(0,0)
+  (junct-b) -- ++(-1,0) to[short, i=$I_{B_2}$] ++(0,4)
+  ++(0,0) node[circ] (junct-ce) {}
+  
+
+  
 
   (B) -- ++(1,0) to[battery1, invert, l_=$V_{BC}$] ++(4,0)
-  ++(0,0) -- ++(0,6) to[short, i=$I_C$] ++(-1,0) -- ++(-0.5,0) node[circ, label=C] {}
+  ++(0,0) -- ++(0,6) to[short, i=$I_C$] ++(-1,0) -- ++(-0.5,0) node[circ, label=C] (C) {}
+  (C) to[short, i=$I_C$] (junct-ce)
+  ;
+
+\draw[->]
+  (C)++(-0.5,-0.5) node[] (C-offset) {}
+  (junct-ce)++(0.5,-0.5) node[] (junct-ce-offset) {}
+  (junct-ce-offset) -- (C-offset) node[anchor=west] {$e^{-}$}
+  ()
   ;
 \end{circuitikz}
 \end{document}
