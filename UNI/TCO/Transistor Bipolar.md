@@ -27,7 +27,7 @@ ylabel = $y$,
 
 %% PLOTS BEGIN HERE %%
 \addplot+[color=blue]{10^(x)};
-\addplot+[color=blue]{x*10^5 - 10^5};
+\addplot+[color=blue]{10^5 * ln(x)/ln(10)};
 
 \end{axis}
 \end{tikzpicture}
