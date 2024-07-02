@@ -279,11 +279,57 @@ Los transistores BJT se pueden modelar de diferentes formas según la zona de fu
   ++(0,0) -- ++(1,0) node[circ] (junct) {}
   
   (junct) -- ++(0,-1) node[anchor=north] (E) {E}
+  
+  (junct) -- ++(1,0) -- ++(0,1) to[short, i<=$I_C {=} \beta I_B$] ++(1,0)
+  node[anchor=west] (C) {C}
   ;
 \end{circuitikz}
 \end{document}
 ```
 
+Nótese que estando en zona activa la corriente en la base siempre será superior a 0, por lo que el diodo siempre conduce y produce una caída de tensión igual a $V_{BE(ON)}$.
+
+### Zona de saturación
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=2]
+  (0,0) node[anchor=east] (B) {B} to[short, i=$I_B$] ++(1,0)
+  ++(0,0) to[battery1, l_=$V_{BE(SAT)}$] ++(0,-1)
+  ++(0,0) -- ++(1,0) node[circ] (junct) {}
+  
+  (junct) -- ++(0,-1) node[anchor=north] (E) {E}
+  
+  (junct) -- ++(1,0) to[battery1, invert, l_=$V_{CE(SAT)}$] ++(0,1)
+  ++(0,0) to[short, i<=$I_C < \beta I_B$] ++(1,0) node[anchor=west] (C) {C}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+### Zona de corte
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=2]
+  (0,0) node[anchor=east] (B) {B} to[short, i=$I_B {=} 0$] ++(1,0)
+    node[circ] {}
+
+  (4,0) node[anchor=west] (C) {B} to[short, i_=$I_C {=} 0$] ++(-1,0)
+    node[circ] {}
+  
+  (2,-2) node[anchor=north] (E) {E} -- ++(0,1) node[circ] {}
+
+  ;
+\end{circuitikz}
+\end{document}
+```
 
 # Funcionamiento
 
