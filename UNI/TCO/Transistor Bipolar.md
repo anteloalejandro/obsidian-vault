@@ -41,9 +41,39 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 
 # Polarización del BJT
 
+## Circuito básico
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ground] (gnd) {} to[battery1, l=$V_{BB}$] ++(1,0)
+  ++(0,0) -- ++(1,0) to[R=$R_B$] ++(1,0) -- ++(1,0) node[npn, anchor=B] (Q) {}
+  (Q.B) node[anchor=south] {B}
+  (Q.C) node[anchor=west] {C}
+  (Q.E) node[anchor=west] {E}
+
+  (Q.C) -- ++(0,1) to[R=$R_C$] ++(0,1) -- ++(0,1) -- ++(1,0)
+  ++(0,0) to[battery1, l=$V_{CC}$] ++(1,0) node[ground] {}
+
+  (Q.E) node[ground]{}
+  ;
+
+\end{circuitikz}
+\end{document}
+```
+
+
 ## Curva característica de entrada y recta de carga
 
 El transistor bipolar, a diferencia del diodo, tiene múltiples curvas características en función del valor de la corriente que recorre la base, $I_{B}$.
+
+Dado que en el circuito básico anterior $V_{CC} = R_{C}I_{C} + V_{CE}$. Se puede aislar la $I_{C}$ con la siguiente ecuación:
+$$
+I_{C} = f(V_{CE}) = \frac{V_{CC}-V_{CE}}{R_{C}}
+$$
 
 ```tikz
 %% PREAMBLE %%
@@ -143,15 +173,15 @@ ymin = 0, ymax=12,
 xlabel = $V_{CE}$,
 ylabel = $I_C$,
 
-% clip=false % No permitir que el texto sobrepase la gráfica % %
+clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
 
 %% PLOTS BEGIN HERE %%
 \draw[color=linecolor1] (0,0) .. controls (7,0.5) and (9,1) .. (10, 10);
 \draw[color=gray, dashed] (7,0) -- (7,12);
-\draw[color=gray, ->]
-(7,6) -- ++(-2,0)
-(7,6)++(-1,0) node[anchor=south] {$I_B \simeq 0$};
+\draw[color=gray, ->] (7,6) -- ++(-2,0);
+\draw[color=gray] (7,6)++(-1,0) node[anchor=south] {$I_B \simeq 0$};
+\addplot[mark=*] coordinates{(7,0)} node[below] {$V_{BE(ON)}$};
 
 \end{axis}
 \end{tikzpicture}
