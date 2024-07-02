@@ -65,7 +65,7 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 ```
 
 
-## Curva característica de entrada y recta de carga
+## Curva característica de salida y recta de carga
 
 El transistor bipolar, a diferencia del diodo, tiene múltiples curvas características en función del valor de la corriente que recorre la base, $I_{B}$.
 
@@ -136,17 +136,9 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 
 \end{document}
 ```
-
+^c-caracteristica-salida
 
 [[Diodos#Curva característica y recta de carga]]
-
-## Zonas de funcionamiento
-
-La zona de saturación es la zona en la que $I_{B} \simeq 0$ para $V_{CE}$ bajos. Aquí es donde el $I_{C}$ del circuito actual, indicado por la recta de carga, alcanza su valor máximo.
-
-La zona activa es aquella en la que $I_C$ es básicamente una constante que depende únicamente de $I_{B}$, y es directamente proporcional a esta. Esto también implica que mientras $V_{CE}$ esté en esta zona, da igual su valor exacto.
-
-La zona de corte está más allá de la zona activa y es dónde la $I_C$ del circuito es 0 independientemente de la tensión.
 
 ## Curva característica de entrada
 
@@ -232,9 +224,67 @@ Al circuito básico anterior se le ha añadido un generador de tensión sinusoid
 
 Estas variaciones hacen que la corriente que llega a $R_B$ desde el generador $V_{BB}$ crezca o decrezca, lo que también hace que la $V_{B}$ crezca y decrezca a su vez.
 
-Al ser $I_B$ directamente proporcional a $V_{B}$, también se crea una diferencia de corriente $\Delta I_{B}$. Del mismo modo, al ser $I_{C}$ directamente proporcional a $I_{B}$ cuando $V_{CE}$ está en la zona activa, también resulta en una diferencia de corriente $\Delta I_{C}$. Además, siendo este el caso, se cumple que $I_{C} = \beta · I_{B}$, por lo que también se debe cumplir que $\Delta I_{C} = \beta · \Delta I_{B}$, es decir, la diferencia de la corriente de base también se ve multiplicada por la ganancia de corriente.
+Al ser $I_B$ directamente proporcional a $V_{B}$, también se crea una diferencia de corriente $\Delta I_{B}$. Del mismo modo, al ser $I_{C}$ directamente proporcional a $I_{B}$ cuando $V_{CE}$ está en la zona activa, también resulta en una diferencia de corriente $\Delta I_{C}$. Además, siendo este el caso, se cumple que $I_{C} = \beta · I_{B}$, por lo que también se debe cumplir que $\Delta I_{C} = \beta · \Delta I_{B}$, es decir, la diferencia de la corriente de base también se ve multiplicada por la ganancia de corriente, haciendo esta diferencia más exagerada.
 
-Finalmente, ya que $V_{CE} = V_{CC} - I_{C}·R_{C}$ y que $V_{CC}$ y $R_{C}$ son constantes, podemos calcular la variación de la tensión $V_{CE}$ así
+Finalmente, ya que $V_{CE} = V_{CC} - I_{C}·R_{C}$ y que $V_{CC}$ y $R_{C}$ son constantes, podemos calcular la variación de la tensión $V_{CE}$ así:
+
+$$
+\Delta V_{CE} = - \Delta I_{R}·R_{C} = -\beta\Delta I_{B} · R_{C}
+$$
+
+Por el signo negativo, $\Delta V_{CE}$ no solo se va a ver multiplicado también $\beta$, sino que va a estar en contrafase a $V_{CE}$.
+
+# Zonas de funcionamiento
+
+![[#^c-caracteristica-salida]]
+
+La zona de saturación es la zona en la que $I_{B} \simeq 0$ para $V_{CE}$ bajos. Aquí es donde el $I_{C}$ del circuito actual, indicado por la recta de carga, alcanza su valor máximo.
+
+La zona activa es aquella en la que $I_C$ es básicamente una constante que depende únicamente de $I_{B}$, y es directamente proporcional a esta. Esto también implica que mientras $V_{CE}$ esté en esta zona, da igual su valor exacto.
+
+La zona de corte está más allá de la zona activa y es dónde la $I_C$ del circuito es 0 independientemente de la tensión.
+
+## Modelos de las zonas
+
+Los transistores BJT se pueden modelar de diferentes formas según la zona de funcionamiento en la que se encuentre $V_{CE}$.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) to[short, i=$I_B$] ++(1,0) node[npn, anchor=B] (Q) {}
+  (Q.B) node[anchor=south] {\small B}
+  (Q.C) node[anchor=west] {\small C}
+  (Q.E) node[anchor=west] {\small E}
+
+  (Q.C) to[short, i<=$I_C$] ++(0,1)
+  (Q.E) to[short, i=$I_C$] ++(0,-1)
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+### Zona activa
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=2]
+  (0,0) node[anchor=east] (B) {B} to[short, i=$I_B$] ++(1,0)
+  ++(0,0) to[diode, v_=$V_\gamma {=} V_{BE(ON)}$] ++(0,-1)
+  ++(0,0) -- ++(1,0) node[circ] (junct) {}
+  
+  (junct) -- ++(0,-1) node[anchor=north] (E) {E}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+
 # Funcionamiento
 
 En un transistor bipolar N-P-N, la base es tan estrecha que sólo una pequeña parte de los electrones puede llenar huecos, el resto viajan por el colector, que es el que menor carga negativa tiene, lo que acaba produciendo una corriente convencional positiva desde el emisor.
