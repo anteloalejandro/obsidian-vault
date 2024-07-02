@@ -41,15 +41,15 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 
 # Polarización del BJT
 
-## Curva característica de entrada y recta de entrada
+## Curva característica de entrada y recta de carga
 
 El transistor bipolar, a diferencia del diodo, tiene múltiples curvas características en función del valor de la corriente que recorre la base, $I_{B}$.
 
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
-\definecolor{linecolor1}{HTML}{00FF00}
-\definecolor{linecolor2}{HTML}{0000FF}
+\definecolor{linecolor1}{HTML}{f9bc60}
+\definecolor{linecolor2}{HTML}{e16162}
 % set version (UP TO 1.16 as of 2024-06-19) %
 \pgfplotsset{compat=1.16, width=10cm}
 
@@ -67,8 +67,8 @@ xmin = 0, xmax=12,
 ymin = 0, ymax=12,
 xlabel = $V_{CE}$,
 ylabel = $I_C$,
-x label style={anchor=north},
-y label style={anchor=east},
+x label style={anchor=west},
+y label style={anchor=south},
 
 clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
@@ -82,16 +82,24 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
   (1,6) .. controls (1, 7.5) and (2, 8) .. (10,8)
   (1,4) .. controls (1, 5.5) and (2, 6) .. (10,6)
   (1,2) .. controls (1, 3.5) and (2, 4) .. (10,4)
+
+  (10, 10) node[anchor={south east}] {$I_{B_4}$}
+  (10, 8) node[anchor={south east}] {$I_{B_3}$}
+  (10, 6) node[anchor={south east}] {$I_{B_2}$}
+  (10, 4) node[anchor={south east}] {$I_{B_1}$}  
   ;
 
-\addplot[color=linecolor2, domain=0:12] {-0.75*x + 7.5};
+\addplot[color=linecolor2, domain=0:10] {-0.75*x + 7.5};
 
-\draw[color=gray, dashed] (1,0) -- (1,12)
-  (1,13) node[anchor={south east}, rotate=90] {Zona de Saturación}
-  ;
+\addplot[mark=*, color=linecolor2] coordinates {(10,0)} node[below, color=linecolor2]{$V_{CE(SAT)}$};
+  
 
-\draw[color=gray, dashed] (10,0) -- (10,12)
-  (1,13) node[anchor={south east}, rotate=90] {Zona de Saturación}
+\draw[color=gray, dashed]
+  (1,0) -- (1,12)
+  (1,6) node[anchor={south}, rotate=90] {Zona de Saturación}
+  (10,0) -- (10,12)
+  (10,6) node[anchor={north}, rotate=90] {Zona de corte}
+  (5.5, 12) node[] {Zona activa}
   ;
 
 \end{axis}
@@ -116,8 +124,7 @@ La zona de corte está más allá de la zona activa y es dónde la $I_C$ del cir
 ```tikz
 %% PREAMBLE %%
 \usepackage{pgfplots}
-\definecolor{linecolor1}{HTML}{00FF00}
-\definecolor{linecolor2}{HTML}{0000FF}
+\definecolor{linecolor1}{HTML}{f9bc60}
 % set version (UP TO 1.16 as of 2024-06-19) %
 \pgfplotsset{compat=1.16, width=10cm}
 
@@ -140,9 +147,11 @@ ylabel = $I_C$,
 ]
 
 %% PLOTS BEGIN HERE %%
-\draw[color=linecolor1]
-  (0,0) .. controls (7,0.5) and (9,1) .. (10, 10)
-  ;
+\draw[color=linecolor1] (0,0) .. controls (7,0.5) and (9,1) .. (10, 10);
+\draw[color=gray, dashed] (7,0) -- (7,12);
+\draw[color=gray, ->]
+(7,6) -- ++(-2,0)
+(7,6)++(-1,0) node[anchor=south] {$I_B \simeq 0$};
 
 \end{axis}
 \end{tikzpicture}
