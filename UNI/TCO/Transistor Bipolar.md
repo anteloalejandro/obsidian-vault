@@ -1,7 +1,6 @@
 ---
 todo: true
 ---
-
 Los [[Diodos]], resistencias y demás pueden crear diferencias de tensión, pero no añadir más tensión al circuito. A diferencia de estos, los transistores son activos, es decir, se tienen que alimentar, por lo que si que pueden añadir tensión al circuito, por lo que se suelen usar para amplificar señales ya existentes.
 
 Otra diferencia con los diodos es que en vez de ser una [[Unión P-N]], están formados por una unión N-P-N o (P-N-P), cuyos terminales corresponden a los pines Emisor, Base y Colector, o E-B-C, respectivamente.
@@ -49,7 +48,7 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 \begin{circuitikz}
 
 \draw 
-  (0,0) node[ground] (gnd) {} to[battery1, l=$V_{BB}$] ++(1,0)
+  (0,0) node[ground] (gnd) {} to[battery1, l=$V_{BB}$, invert] ++(1,0)
   ++(0,0) -- ++(1,0) to[R=$R_B$] ++(1,0) -- ++(1,0) node[npn, anchor=B] (Q) {}
   (Q.B) node[anchor=south] {B}
   (Q.C) node[anchor=west] {C}
@@ -170,8 +169,8 @@ ytick={0},
 % ETIQUETAS Y TÍTULO %
 xmin = 0, xmax=12,
 ymin = 0, ymax=12,
-xlabel = $V_{CE}$,
-ylabel = $I_C$,
+xlabel = $V_{BE}$,
+ylabel = $I_B$,
 
 clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
@@ -189,10 +188,53 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 \end{document}
 ```
 
-# Ganancia de corriente
+## Ganancia de corriente
 
+La ganancia de corriente o coeficiente de ampliación es una constante generalmente indicada por el fabricante del transistor BJT que indica la relación entre $I_{C}$, también llamada **corriente de excitación**, e $I_{B}$ cuando $V_{CE}$ está en la zona activa.
 
+$$
+\beta = \frac{I_{C}}{I_{B}} \iff I_{C} = \beta·I_{B} \iff I_{B} = \frac{I_{C}}{\beta}
+$$
 
+A partir de $\beta$ se observa que $I_{C}$ e $I_{B}$ son directamente proporcionales. Como se busca amplificar, es decir, que $I_{C} > I_{B}$, $\beta$ tendrá un valor superior a 1.
+
+También se puede observar que en caso de que una de las corrientes sea igual a 0, ambas lo serán (y si ambas lo son, también lo es $I_{E}$, que es la suma de las otras dos). 
+
+Dado que $I_{C} = \frac{V_{CC} - V_{CE}}{R_{C}}$, $I_C = 0 \iff V_{CC} = V_{CE}$, por lo que si $V_{CC}$ y $V_{CE}$ son iguales, la corriente en todos los puntos del transistor es 0.
+
+# Amplificación de la corriente
+
+Al circuito básico anterior se le ha añadido un generador de tensión sinusoidal $\Delta V_{BB}$ al que representará variaciones en $V_{BB}$:
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ground] (gnd) {} to[battery1, l=$V_{BB}$, invert] ++(0,1)
+  ++(0,0) to[sinusoidal voltage source, l=$\Delta V_{BB}$] ++(0,1)
+  ++(0,0) -- ++(0,1) node[circ, label=$V_{BB} - \Delta V_{BB}$] {}
+  ++(0,0) -- ++(2,0) to[R=$R_B$] ++(1,0) -- ++(1,0) node[npn, anchor=B] (Q) {}
+  (Q.B) node[anchor=south] {B}
+  (Q.C) node[anchor=west] {C}
+  (Q.E) node[anchor=west] {E}
+
+  (Q.C) -- ++(0,1) to[R=$R_C$] ++(0,1) -- ++(0,1) -- ++(1,0)
+  ++(0,0) to[battery1, l=$V_{CC}$] ++(1,0) node[ground] {}
+
+  (Q.E) node[ground]{}
+  ;
+
+\end{circuitikz}
+\end{document}
+```
+
+Estas variaciones hacen que la corriente que llega a $R_B$ desde el generador $V_{BB}$ crezca o decrezca, lo que también hace que la $V_{B}$ crezca y decrezca a su vez.
+
+Al ser $I_B$ directamente proporcional a $V_{B}$, también se crea una diferencia de corriente $\Delta I_{B}$. Del mismo modo, al ser $I_{C}$ directamente proporcional a $I_{B}$ cuando $V_{CE}$ está en la zona activa, también resulta en una diferencia de corriente $\Delta I_{C}$. Además, siendo este el caso, se cumple que $I_{C} = \beta · I_{B}$, por lo que también se debe cumplir que $\Delta I_{C} = \beta · \Delta I_{B}$, es decir, la diferencia de la corriente de base también se ve multiplicada por la ganancia de corriente.
+
+Finalmente, ya que $V_{CE} = V_{CC} - I_{C}·R_{C}$ y que $V_{CC}$ y $R_{C}$ son constantes, podemos calcular la variación de la tensión $V_{CE}$ así
 # Funcionamiento
 
 En un transistor bipolar N-P-N, la base es tan estrecha que sólo una pequeña parte de los electrones puede llenar huecos, el resto viajan por el colector, que es el que menor carga negativa tiene, lo que acaba produciendo una corriente convencional positiva desde el emisor.
