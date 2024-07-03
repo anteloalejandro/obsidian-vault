@@ -74,23 +74,47 @@ A diferencia de la NOR, la puerta NAND está hecha con transistores en serie (au
 
 Si $A = B = 0V$, ambos transistores están en la zona de corte, por lo que es como si no formasen parte del circuito, así que $V_{out} = V_{in}$.
 
-Si $A = B = V_{in}$ , $V_{out}$ es igual a la diferencia entre $A$ y $V_{in}$, que es 0.
+Si $A = B = V_{in} \implies V_{out} = 0$.
 
 ```tikz
 \usepackage{circuitikz}
 \begin{document}
 \begin{circuitikz}
 
-\draw 
-  (0,0) node[ocirc, label=$V_{in}$] to[R=R] ++(2,0)
-    node[circ, label=$V_{out}$]
-  ++(0,0) -- ++(0,-1) -- (0.5) node[circ] (junct1) {}
-  (junct1) node[ground] {}
-  (junct1) -- ++(0.5,0) to[battery1, invert, l=$V_{BE(ON)}$] ++(0,1)
-  ++(0,0) node[ocirc, label=A]
+\draw[scale=2]
+  (0,0) node[ocirc, label=$V_{in}$] {} to[R=R] ++(2,0)
+    node[circ, label=$V_{out}$] {}
+  ++(0,0) -- ++(0,-1) -- ++(0.5,0) node[circ] (junct1) {}
+  (junct1) node[anchor={north east}] {$V_{out} {=} 0V$}
+  (junct1) -- ++(0.5,0) to[battery1, invert, l_=$V_{BE(ON)}$] ++(0,1)
+  ++(0,0) node[ocirc, label=A] {}
 
   (junct1) -- ++(0,-0.5) -- ++(1,0) node[circ] {} node[ground] {}
-  
+  ++(0,0) -- ++(1,0) -- ++(0,0.5)
+  ++(0,0) to[battery1, invert, l_=$V_{BE(ON)}$] ++(0,1)
+  ++(0,0) node[ocirc, label=B] {}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+Si $A = 0$, el circuito se corta por el transistor $A$, por lo que $V_{out} = V_{in}$.
+
+Si $B = 0$, el circuito se corta por el transistor B, por lo que, usando el modelo de funcionamiento del transistor A en zona activa, se concluye que $V_{out} = V_{in}$.
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw[scale=2]
+  (0,0) node[ocirc, label=$V_{in}$] {} to[R=R] ++(2,0)
+    node[circ, label=$V_{out}$] {}
+  ++(0,0) -- ++(0,-1) -- ++(0.5,0) node[circ] (junct1) {}
+  (junct1) node[anchor={north east}] {$V_{out} {=} V_{in}$}
+  (junct1) -- ++(0.5,0) to[battery1, invert, l_=$V_{BE(ON)}$] ++(0,1)
+  ++(0,0) node[ocirc, label=A] {}
+
+  (junct1) -- ++(0,-0.5) node[anchor=north] {No hay tierra}
   ;
 \end{circuitikz}
 \end{document}

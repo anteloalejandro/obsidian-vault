@@ -1,6 +1,4 @@
----
-todo: true
----
+
 Los [[Diodos]], resistencias y demás pueden crear diferencias de tensión, pero no añadir más tensión al circuito. A diferencia de estos, los transistores son activos, es decir, se tienen que alimentar, por lo que si que pueden añadir tensión al circuito, por lo que se suelen usar para amplificar señales ya existentes.
 
 Otra diferencia con los diodos es que en vez de ser una [[Unión P-N]], están formados por una unión N-P-N o (P-N-P), cuyos terminales corresponden a los pines Emisor, Base y Colector, o E-B-C, respectivamente.
