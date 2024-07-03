@@ -120,7 +120,7 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 
 \addplot[color=linecolor2, domain=0:10] {-0.75*x + 7.5};
 
-\addplot[mark=*, color=linecolor2] coordinates {(10,0)} node[below, color=linecolor2]{$V_{CE(SAT)}$};
+\addplot[mark=*] coordinates {(1,0)} node[below]{$V_{CE(SAT)}$};
   
 
 \draw[color=gray, dashed]
@@ -330,6 +330,30 @@ Nótese que estando en zona activa la corriente en la base siempre será superio
 \end{circuitikz}
 \end{document}
 ```
+
+# Conmutación
+
+Los transistores BJT permiten cambiar rápidamente entre valores en la zona de saturación, que consideraremos 0 lógico y la zona de corte, que consideraremos 1 lógico. Además, a diferencia de los diodos, los transistores si que pueden formar puertas lógicas NOT. En resumen, son ideales para la conmutación.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ocirc, label=$V_{in}$] (vin) {}
+  (vin) -- ++(1,0) to[R=$R_B$] ++(1,0) -- ++(1,0)
+    node[npn, anchor=B] (Q) {}
+
+  (Q.E) node[ground] {}
+  (Q.C) node[circ] {} -- ++(1,0) node[anchor=west] {$V_{out} {=} V_{CE}$}
+  (Q.C) -- ++(0,1) to[R=$R_C$] ++(0,1) -- ++(0,1)
+    node[ocirc, label=$V_{CC}$] {}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
 
 # Funcionamiento
 
