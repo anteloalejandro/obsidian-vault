@@ -354,7 +354,12 @@ Los transistores BJT permiten cambiar rápidamente entre valores en la zona de s
 \end{document}
 ```
 
-
+$$
+\begin{gather}
+V_{in} = 0 \implies I_{B} = 0 \implies I_{C} = 0 \implies V_{out} = V_{CC}\\
+V_{in} = V_{CC} \implies V_{CE} = V_{CC} - I_{C}R_{C} \simeq 0 \implies V_{out} \simeq 0
+\end{gather}
+$$
 # Funcionamiento
 
 En un transistor bipolar N-P-N, la base es tan estrecha que sólo una pequeña parte de los electrones puede llenar huecos, el resto viajan por el colector, que es el que menor carga negativa tiene, lo que acaba produciendo una corriente convencional positiva desde el emisor.
@@ -399,3 +404,6 @@ Un poco de la corriente a amplificar ($I_{B}$) acaba recombinándose con los ele
 \end{circuitikz}
 \end{document}
 ```
+# Usos
+
+- [[Puertas lógicas con transistores]]
