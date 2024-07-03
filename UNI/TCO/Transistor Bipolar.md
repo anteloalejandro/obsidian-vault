@@ -35,6 +35,51 @@ Por estar formado de un tipo de [[Dopaje de semiconductores|semiconductor dopado
 \end{document}
 ```
 
+# Funcionamiento
+
+En un transistor bipolar N-P-N, la base es tan estrecha que sólo una pequeña parte de los electrones puede llenar huecos, el resto viajan por el colector, que es el que menor carga negativa tiene, lo que acaba produciendo una corriente convencional positiva desde el emisor.
+
+La amplificación sucede al pasar una corriente por el colector, que lo hace más positivo y, por tanto, aumenta la diferencia con el emisor, aumentando la corriente que sale de éste.
+
+Un poco de la corriente a amplificar ($I_{B}$) acaba recombinándose con los electrones que pasan de $E$ a $C$, pero al ser $B$ tan fino esa cantidad es cercana a 0.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[circ] (B) {}
+  (B) node[anchor=north] {B}
+  (B) to[short, i=$I_B$] ++(0,1) -- ++(0,1) node[circ] (junct-b) {}
+  (junct-b) -- ++(1,0) -- ++(0,1) to[short, i=$I_{B_1} \simeq 0$] ++(0,0) node[] (I_B1) {}
+  (junct-b) -- ++(-1,0) to[short, i=$I_{B_2}$] ++(0,4)
+  ++(0,0) node[circ] (junct-ce) {} to[short, i=$I_C + I_{B_2}$] ++(-2,0) 
+  
+
+  (B) to[battery1, invert, l_=$V_{BC}$] ++(4,0)
+  ++(0,0) -- ++(0,6) to[short, i=$I_C$] ++(-1,0) -- ++(-0.5,0) node[circ, label=C] (C) {}
+  
+  (C) to[short, i=$I_C$] (junct-ce)
+  ++(0,0) -- ++(-2,0) node[circ, label=E] (E) {}
+  ++(0,0) to[short, i=$I_E$] ++(-1,0) -- ++(0, -6)
+  ++(0,0) to[battery1, l_=$V_{BE}$, invert] (B)
+  ;
+
+\draw[->]
+  (C)++(-0.5,-0.5) node[] (C-offset) {}
+  (junct-ce)++(0.5,-0.5) node[] (junct-ce-offset) {}
+  (I_B1)++(0,0.5) node[] (I_B1-offset) {}
+  (junct-ce-offset) -- (C-offset) node[anchor=west] {$e^{-}$}
+  ;
+\draw[->]
+  (junct-ce-offset)++(1.5, 0) -- (I_B1-offset)
+  node[anchor=west] {Recombinación}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
 
 # Polarización del BJT
 
@@ -358,50 +403,7 @@ V_{in} = 0 \implies I_{B} = 0 \implies I_{C} = 0 \implies V_{out} = V_{CC}\\
 V_{in} = V_{CC} \implies V_{CE} = V_{CC} - I_{C}R_{C} \simeq 0 \implies V_{out} \simeq 0
 \end{gather}
 $$
-# Funcionamiento
 
-En un transistor bipolar N-P-N, la base es tan estrecha que sólo una pequeña parte de los electrones puede llenar huecos, el resto viajan por el colector, que es el que menor carga negativa tiene, lo que acaba produciendo una corriente convencional positiva desde el emisor.
-
-La amplificación sucede al pasar una corriente por el colector, que lo hace más positivo y, por tanto, aumenta la diferencia con el emisor, aumentando la corriente que sale de éste.
-
-Un poco de la corriente a amplificar ($I_{B}$) acaba recombinándose con los electrones que pasan de $E$ a $C$, pero al ser $B$ tan fino esa cantidad es cercana a 0.
-
-```tikz
-\usepackage{circuitikz}
-\begin{document}
-\begin{circuitikz}
-
-\draw 
-  (0,0) node[circ] (B) {}
-  (B) node[anchor=north] {B}
-  (B) to[short, i=$I_B$] ++(0,1) -- ++(0,1) node[circ] (junct-b) {}
-  (junct-b) -- ++(1,0) -- ++(0,1) to[short, i=$I_{B_1} \simeq 0$] ++(0,0) node[] (I_B1) {}
-  (junct-b) -- ++(-1,0) to[short, i=$I_{B_2}$] ++(0,4)
-  ++(0,0) node[circ] (junct-ce) {} to[short, i=$I_C + I_{B_2}$] ++(-2,0) 
-  
-
-  (B) to[battery1, invert, l_=$V_{BC}$] ++(4,0)
-  ++(0,0) -- ++(0,6) to[short, i=$I_C$] ++(-1,0) -- ++(-0.5,0) node[circ, label=C] (C) {}
-  
-  (C) to[short, i=$I_C$] (junct-ce)
-  ++(0,0) -- ++(-2,0) node[circ, label=E] (E) {}
-  ++(0,0) to[short, i=$I_E$] ++(-1,0) -- ++(0, -6)
-  ++(0,0) to[battery1, l_=$V_{BE}$, invert] (B)
-  ;
-
-\draw[->]
-  (C)++(-0.5,-0.5) node[] (C-offset) {}
-  (junct-ce)++(0.5,-0.5) node[] (junct-ce-offset) {}
-  (I_B1)++(0,0.5) node[] (I_B1-offset) {}
-  (junct-ce-offset) -- (C-offset) node[anchor=west] {$e^{-}$}
-  ;
-\draw[->]
-  (junct-ce-offset)++(1.5, 0) -- (I_B1-offset)
-  node[anchor=west] {Recombinación}
-  ;
-\end{circuitikz}
-\end{document}
-```
 # Usos
 
 - [[Puertas lógicas con transistores]]
