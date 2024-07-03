@@ -407,3 +407,4 @@ Un poco de la corriente a amplificar ($I_{B}$) acaba recombinándose con los ele
 # Usos
 
 - [[Puertas lógicas con transistores]]
+- Amplificación de señales
