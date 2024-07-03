@@ -78,6 +78,14 @@ I_{\tiny\overrightarrow{AK}} & \text{ si } I_{\tiny\overrightarrow{AK}} > 0\\
 \end{cases}
 $$
 
+# Funcionamiento
+
+Los diodos están formados por una [[Unión P-N]], en la que el Ánodo es el terminal del material Tipo P y el Cátodo el terminal del material Tipo-N.
+
+Para que la corriente convencional fluya solamente de ánodo a cátodo, el flujo de electrones ha de ir en dirección contraria, de cátodo a ánodo.
+
+Al conectar correctamente una pila al diodo, con el lado positivo de la pila conectado al ánodo y el lado negativo conectado al cátodo, el material Tipo-N recibirá más electrones y, en caso de que haya suficiente tensión como para superar la tensión lindar de la unión, esos electrones pasarán al material Tipo-P hasta que lo rebasen en salgan por el extremo del cátodo, hasta el lado positivo de la pila. En caso de que la tensión no supere a la tensión lindar, los electrones no podrán pasar de un lado a otro y no habrá ningún tipo de corriente.
+
 # Curva característica y recta de carga
 
 En realidad, la relación la diferencia de tensión y la corriente por el diodo destacada en el apartado anterior hacen referencia a un modelo simplificado del diodo, llamado **diodo ideal**, no al funcionamiento real de este.
@@ -165,14 +173,6 @@ I_{D} = 0 \iff V_{D} = V_{0}\\
 V_{D} = 0 \iff I_{D} = \frac{V_{0}}{R_{1}}
 \end{gather}
 $$
-
-# Funcionamiento
-
-Los diodos están formados por una [[Unión P-N]], en la que el Ánodo es el terminal del material Tipo P y el Cátodo el terminal del material Tipo-N.
-
-Para que la corriente convencional fluya solamente de ánodo a cátodo, el flujo de electrones ha de ir en dirección contraria, de cátodo a ánodo.
-
-Al conectar correctamente una pila al diodo, con el lado positivo de la pila conectado al ánodo y el lado negativo conectado al cátodo, el material Tipo-N recibirá más electrones y, en caso de que haya suficiente tensión como para superar la tensión lindar de la unión, esos electrones pasarán al material Tipo-P hasta que lo rebasen en salgan por el extremo del cátodo, hasta el lado positivo de la pila. En caso de que la tensión no supere a la tensión lindar, los electrones no podrán pasar de un lado a otro y no habrá ningún tipo de corriente.
 
 # Tipos de diodo
 
