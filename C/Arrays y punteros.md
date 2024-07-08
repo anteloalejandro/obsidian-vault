@@ -51,3 +51,5 @@ int main() {
   fun(str);
 }
 ```
+
+Los punteros que apuntan a miembros de un mismo array se pueden comparar de forma intuitiva igual que se haría con `int`, `char` o `double`, de modo que si `p < q` es cierto, el puntero `p` apunta a una posición del array anterior a la que apunta `q`. En caso de que los punteros no apunten a miembros de un mismo array, el comportamiento no está definido, con la excepción del elemento siguiente al último.
