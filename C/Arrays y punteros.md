@@ -41,14 +41,15 @@ printf("%s\n", slice); // --> world
 Sin embargo, al pasar arrays a una función, independientemente de si el parámetro correspondiente en la función se ha definido como puntero o array, lo que se copia es el puntero al primer elemento, por lo que se pueden usar exactamente igual que un puntero. Por ello los parámetros se suelen definir como punteros para evitar ambigüedades.
 
 ```c
-void fun(char str[]) {
+void fun1(char str[]) {
   // es legal, pero modifica una copia del puntero,
   // así que no tiene ningún efecto
   str++;
 }
+void fun2(char *str) { /*...*/ } // idéntico a fun1
 int main() {
   char str[] = "hello world";
-  fun(str);
+  fun1(str);
 }
 ```
 
