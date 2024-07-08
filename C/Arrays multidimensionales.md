@@ -26,7 +26,7 @@ int main() {
 }
 ```
 
-De forma un poco contraintuitiva, al derreferenciar `table_p` no se obtiene un array de 100 enteros, sino el primero de 100 punteros a enteros. En resumidas cuentas, `int *table_p[100]` se puede leer como "un array de tamaño 100 que contiene punteros a enteros", mientras que `int (*table_p)[100]` se leería como "un puntero a un array con 100 enteros"
+De forma un poco contraintuitiva, al derreferenciar `table_p` no se obtiene un array de 100 enteros, sino el primero de 100 punteros a enteros (sin inicializar, es decir, *aún* no apuntan a ningún entero). En resumidas cuentas, `int *table_p[100]` se puede leer como "un array de tamaño 100 que contiene punteros a enteros", mientras que `int (*table_p)[100]` se leería como "un puntero a un array con 100 enteros"
 
 ```c
 int a = 5;
