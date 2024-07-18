@@ -73,3 +73,46 @@ Sin embargo, el MOSFET también trae consigo una serie de desventajas comparado 
 
 # Zonas de funcionamiento
 
+$I_G$ siempre es 0 porque Gate tiene una capa aislante pero, como el MOSFET se excita por tensión, siendo $V_T$ la tensión lindar (tensión mínima para conducir) y $V_{GS}$ la diferencia de tensión entre la puerta y la fuente, $V_{GS} > V_{T} \iff \text{Conduce}$ y $V_{GS} < V_{T} \iff \text{No conduce} \iff I_{D} = 0$.
+
+# Curvas características del NMOS
+
+```tikz
+%% PREAMBLE %%
+\usepackage{pgfplots}
+\definecolor{linecolor1}{HTML}{f9bc60}
+% set version (UP TO 1.16 as of 2024-06-19) %
+\pgfplotsset{compat=1.16, width=10cm}
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+% CENTRADO DE LA GRÁFICA %
+axis lines=middle,
+xtick={0},
+ytick={0},
+
+% ETIQUETAS Y TÍTULO %
+xmin = 0, xmax=12,
+ymin = 0, ymax=12,
+xlabel = $V_{BE}$,
+ylabel = $I_B$,
+
+clip=false % No permitir que el texto sobrepase la gráfica % %
+]
+
+%% PLOTS BEGIN HERE %%
+\draw[color=green] (0,0) .. 
+
+\draw[color=linecolor1] (0,0) .. controls (7,0.5) and (9,1) .. (10, 10);
+\draw[color=gray, dashed] (7,0) -- (7,12);
+\draw[color=gray, ->] (7,6) -- ++(-2,0);
+\draw[color=gray] (7,6)++(-1,0) node[anchor=south] {$I_B \simeq 0$};
+\addplot[mark=*] coordinates{(7,0)} node[below] {$V_{BE(ON)}$};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+```
