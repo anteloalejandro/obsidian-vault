@@ -5,5 +5,8 @@
   "interfaceFontFamily": "Ubuntu,Open Sans",
   "textFontFamily": "Ubuntu,Open Sans",
   "monospaceFontFamily": "Ubuntu Mono,JetBrains Mono",
-  "baseFontSize": 19
+  "baseFontSize": 19,
+  "enabledCssSnippets": [
+    "hide"
+  ]
 }
