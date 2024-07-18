@@ -49,7 +49,7 @@ Hay MOSFET de dos tipos principales: NMOS y PMOS, pero en circuitos digitales ge
 
 # Funcionamiento
 
-![[mosfet-nmos.excalidraw]]
+![[mosfet-nmos.excalidraw|100%]]
 
 El transistor MOSFET funciona abriendo un canal por el que pueden pasar los electrones entre Source y Drain cuando hay suficiente diferencia de tensión entre Gate y Source.
 

@@ -38,5 +38,5 @@ Por lo que se concluye que esta clase de test médicos son mucho más útiles pa
 Finalmente, se puede comprobar que la suma de estas dos probabilidades, que debería ser igual a la probabilidad de acierto del test, es aproximadamente igual a lo esperado, 90%.
 
 <small>
-Basado en este vídeo de <a href="https://www.youtube.com/watch?v=lG4VkPoG3ko">3blue1brown</a>
+Basado en un vídeo de <a href="https://www.youtube.com/watch?v=lG4VkPoG3ko">3blue1brown</a>
 </small>
