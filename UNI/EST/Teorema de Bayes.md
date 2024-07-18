@@ -29,10 +29,12 @@ Si, por otro lado, se comprueba el caso contrario, es decir, la probabilidad de 
 $$
 \begin{align}
 P(\neg A_{i}|\neg B) &= P(i \text{ no tiene cáncer} | \text{ test negativo}) \\
-&= \frac{\frac{900}{1000} · \frac{901}{990}}{\frac{902}{1000}} = \frac{0.9 · 0.9\overline{10}}{0.902} \simeq 0.908 
+&= \frac{\frac{900}{1000} · \frac{901}{990}}{\frac{902}{1000}} = \frac{0.9 · 0.9\overline{10}}{0.902} \simeq 0.908 \simeq \frac{10}{11}
 \end{align}
 $$
 
 Por lo que se concluye que esta clase de test médicos son mucho más útiles para confirmar que *no se tiene* la patología comprobada, que para comprobar que *sí se tiene*.
 
-[[https://www.youtube.com/shorts/xIMlJUwB1m8]]
+<small>
+Basado en este vídeo de <a href="https://www.youtube.com/watch?v=lG4VkPoG3ko">3blue1brown</a>
+</small>
