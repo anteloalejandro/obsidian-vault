@@ -81,6 +81,7 @@ $I_G$ siempre es 0 porque Gate tiene una capa aislante pero, como el MOSFET se e
 %% PREAMBLE %%
 \usepackage{pgfplots}
 \definecolor{linecolor1}{HTML}{f9bc60}
+\definecolor{linecolor2}{HTML}{e16162}
 % set version (UP TO 1.16 as of 2024-06-19) %
 \pgfplotsset{compat=1.16, width=10cm}
 
@@ -96,19 +97,26 @@ ytick={0},
 % ETIQUETAS Y TÍTULO %
 xmin = 0, xmax=12,
 ymin = 0, ymax=12,
-xlabel = $V_{BE}$,
-ylabel = $I_B$,
+xlabel = $V_{DS}$,
+ylabel = $I_{DS}$,
 
 clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
 
 %% PLOTS BEGIN HERE %%
-\draw[color=green] (0,0) .. 
+\draw[color=linecolor1] (0,0) .. controls (2.5,10) .. (10,10)
+  node[right] {$V_{GS_3}$};
+\draw[color=linecolor1] (0,0) .. controls (2,5) .. (10,5)
+  node[right] {$V_{GS_2}$};
+\draw[color=linecolor1] (0,0) .. controls (1,2) .. (10,2)
+  node[right] {$V_{GS_1}$};
 
-\draw[color=linecolor1] (0,0) .. controls (7,0.5) and (9,1) .. (10, 10);
-\draw[color=gray, dashed] (7,0) -- (7,12);
-\draw[color=gray, ->] (7,6) -- ++(-2,0);
-\draw[color=gray] (7,6)++(-1,0) node[anchor=south] {$I_B \simeq 0$};
+\draw[color=linecolor2] (0,0) .. controls (2,1) and (5,7) .. (5.5,12)
+  node[right, pos=1] {$$
+  $$};
+
+
+
 \addplot[mark=*] coordinates{(7,0)} node[below] {$V_{BE(ON)}$};
 
 \end{axis}
