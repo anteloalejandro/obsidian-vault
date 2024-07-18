@@ -104,7 +104,7 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 ]
 
 %% PLOTS BEGIN HERE %%
-\draw[color=linecolor1] (0,0) .. controls (2.5,10) .. (10,10)
+\draw[color=linecolor1] (0,0) .. controls (3,10) .. (10,10)
   node[right] {$V_{GS_3}$};
 \draw[color=linecolor1] (0,0) .. controls (2,5) .. (10,5)
   node[right] {$V_{GS_2}$};
@@ -112,15 +112,35 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
   node[right] {$V_{GS_1}$};
 
 \draw[color=linecolor2] (0,0) .. controls (2,1) and (5,7) .. (5.5,12)
-  node[right, pos=1] {$$
-  $$};
+  node[right, pos=1] {$V_{CE} = V_{GS}-V_T$}
+  node[pos=0.7,left, color=gray] {Lineal}
+  node[pos=0.75,right, color=gray] {Saturación}
+  ;
 
 
 
-\addplot[mark=*] coordinates{(7,0)} node[below] {$V_{BE(ON)}$};
+\addplot[mark=*] coordinates{(0,0)} node[below] {$V_{T}$};
 
 \end{axis}
 \end{tikzpicture}
 
 \end{document}
 ```
+
+La parábola de saturación, indicada en rojo, pasa por todos los puntos por los que la $I_{D}$ para cada $V_{GS}$ empieza a ser constante. El punto de origen de la gráfica es $(V_{T},0)$, y todo lo que hay antes de $V_{T}$ es la zona de corte, donde $I_{D} \simeq 0$.
+
+El área a la izquierda de la parábola es la zona lineal y el área a la derecha es la zona de saturación (no tiene relación con la zona de saturación del BJT). En la zona lineal, $I_D$ aumenta linealmente al aumentar $V_{GS}$, pero más allá de la parábola aumenta de forma cuadrática.
+
+$$
+\begin{gather}
+V_{DS} \leq V_{GS} - V_{T} \iff I_{D} = 2K(V_{GS} - V_{T})V_{DS}-KV_{DS}^2 \iff \text{Lineal}\\
+V_{DS} \leq V_{GS} - V_{T} \land V_{DS} \simeq 0 \iff I_{D} \simeq 2K(V_{GS} - V_{T})V_{DS} \iff \text{Lineal} \\
+V_{DS} > V_{GS} - V_{T} \iff I_{D} = k(V_{GS} - V_{T})^2 \iff \text{Saturación}
+
+\end{gather}
+$$
+
+A partir de esto también se puede concluir que la resistencia equivalente que pasa entre la fuente y el drenaje  cuando está en la zona lineal (incluido justo en la parábola de saturación) es:
+$$
+R_{DS(ON)} = R_{ON} \simeq \frac{1}{2K(V_{GS}-V_{T})}
+$$
