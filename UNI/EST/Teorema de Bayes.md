@@ -16,8 +16,23 @@ En este caso, aunque es correcto decir que el test acierta en un ~90% de los cas
 $$
 \begin{align}
 P(A_{i} | B) &= P( i\text{ tiene cáncer } | \text{ test positivo}) \\ \\
-&= \frac{9}{}
+&= \frac{\frac{10}{1000} · \frac{9}{10}}{\frac{9+89}{1000}} = \frac{10 · 0.9}{9+89} = \frac{9}{98} \simeq 0.091 \simeq \frac{1}{11}
 \end{align}
 $$
+
+Por tanto, a pesar de que el test acierta en un ~90% de las mujeres, si todo lo que sabes de una mujer es que el test ha dado positivo, la probabilidad de que dicha mujer tenga realmente cáncer es muy baja.
+
+El principal culpable de esto es la probabilidad de que una mujer tenga cáncer independientemente de si el test acierto o no, $P(A_i)$, que al ser de un 1% baja mucho la probabilidad de acierto en caso de el test sea cierto.
+
+Si, por otro lado, se comprueba el caso contrario, es decir, la probabilidad de que una mujer no tenga cáncer sabiendo que el test ha dado negativo, obtenemos...
+
+$$
+\begin{align}
+P(\neg A_{i}|\neg B) &= P(i \text{ no tiene cáncer} | \text{ test negativo}) \\
+&= \frac{\frac{900}{1000} · \frac{901}{990}}{\frac{902}{1000}} = \frac{0.9 · 0.9\overline{10}}{0.902} \simeq 0.908 
+\end{align}
+$$
+
+Por lo que se concluye que esta clase de test médicos son mucho más útiles para confirmar que *no se tiene* la patología comprobada, que para comprobar que *sí se tiene*.
 
 [[https://www.youtube.com/shorts/xIMlJUwB1m8]]
