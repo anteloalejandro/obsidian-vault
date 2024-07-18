@@ -209,4 +209,10 @@ V_{D} \geq V_{GS} + V_{T} \iff I_{SD} = 2K(V_{GS}+ V_{T})V_{DS} - K{V_{DS}}^2 \i
 V_{D} \geq V_{GS} + V_{T} \land V_{DS} \simeq 0 \iff I_{SD} = 2K(V_{GS}+ V_{T})V_{DS}
 \end{gather}
 $$
-Por lo que también concluimos que $R_{ON} \simeq \left|\frac{1}{2K(V_{GS} + V_{T})}\right|$, donde usamos el valor absoluto para ignorar la dirección en la qu e
+Por lo que también concluimos que $R_{ON} \simeq \left|\frac{1}{2K(V_{GS} + V_{T})}\right|$, donde usamos el valor absoluto para ignorar la dirección en la que viaja la corriente.
+
+# Pseudo-NMOS
+
+El problema de las puertas lógicas hechas con sólo NMOS es que requieren de una resistencia $R_D$ que ocupa mucho más espacio que el transistor, por lo que el tamaño mínimo del circuito se ve muy limitado.
+
+Para solucionar este problema, se puede usar un PMOS con la puerta conectada a tierra, por lo que siempre estará en la zona activa y actuará como una pequeña resistencia $R_{ON}$.
