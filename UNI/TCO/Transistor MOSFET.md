@@ -129,11 +129,11 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 
 La parábola de saturación, indicada en rojo, pasa por todos los puntos por los que la $I_{D}$ para cada $V_{GS}$ empieza a ser constante. El punto de origen de la gráfica es $(V_{T},0)$, y todo lo que hay antes de $V_{T}$ es la zona de corte, donde $I_{D} \simeq 0$.
 
-El área a la izquierda de la parábola es la zona lineal y el área a la derecha es la zona de saturación (no tiene relación con la zona de saturación del BJT). En la zona lineal, $I_D$ aumenta linealmente al aumentar $V_{GS}$, pero más allá de la parábola aumenta de forma cuadrática.
+El área a la izquierda de la parábola es la zona lineal y el área a la derecha es la zona de saturación (no tiene relación con la zona de saturación del BJT). En la zona lineal, $I_D$ aumenta **casi** linealmente al aumentar $V_{GS}$, pero más allá de la parábola aumenta de forma cuadrática.
 
 $$
 \begin{gather}
-V_{DS} \leq V_{GS} - V_{T} \iff I_{D} = 2K(V_{GS} - V_{T})V_{DS}-KV_{DS}^2 \iff \text{Lineal}\\
+V_{DS} \leq V_{GS} - V_{T} \iff I_{D} = 2K(V_{GS} - V_{T})V_{DS}-K{V_{DS}}^2 \iff \text{Lineal}\\
 V_{DS} \leq V_{GS} - V_{T} \land V_{DS} \simeq 0 \iff I_{D} \simeq 2K(V_{GS} - V_{T})V_{DS} \iff \text{Lineal} \\
 V_{DS} > V_{GS} - V_{T} \iff I_{D} = k(V_{GS} - V_{T})^2 \iff \text{Saturación}
 
@@ -144,3 +144,69 @@ A partir de esto también se puede concluir que la resistencia equivalente que p
 $$
 R_{DS(ON)} = R_{ON} \simeq \frac{1}{2K(V_{GS}-V_{T})}
 $$
+
+# Curvas características del PMOS
+
+Los transistores PMOS son esencialmente idénticos a los NMOS, cambiando los semiconductores Tipo-P por los Tipo-N y viceversa. El resultado es, esencialmente, un NMOS invertido. Las curvas características, por tanto, son una inversión de lo que encontraríamos en un NMOS, estando localizadas en el tercer cuadrante del plano cartesiano.
+
+```tikz
+%% PREAMBLE %%
+\usepackage{pgfplots}
+\definecolor{linecolor1}{HTML}{f9bc60}
+\definecolor{linecolor2}{HTML}{e16162}
+% set version (UP TO 1.16 as of 2024-06-19) %
+\pgfplotsset{compat=1.16, width=10cm}
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+% CENTRADO DE LA GRÁFICA %
+axis lines=middle,
+xtick={0},
+ytick={0},
+
+% ETIQUETAS Y TÍTULO %
+xmin = -12, xmax=0,
+ymin = -12, ymax=0,
+xlabel = $-V_{DS}$,
+ylabel = $-I_{DS}$,
+x label style = {anchor=east, at={(axis description cs:0,1)}},
+y label style = {anchor=north, at={(axis description cs:1,0)}},
+
+clip=false % No permitir que el texto sobrepase la gráfica % %
+]
+
+%% PLOTS BEGIN HERE %%
+\draw[color=linecolor1] (0,0) .. controls (-3,-10) .. (-10,-10)
+  node[right] {$V_{GS_3}$};
+\draw[color=linecolor1] (0,0) .. controls (-2,-5) .. (-10,-5)
+  node[right] {$V_{GS_2}$};
+\draw[color=linecolor1] (0,0) .. controls (-1,-2) .. (-10,-2)
+  node[right] {$V_{GS_1}$};
+
+\draw[color=linecolor2] (0,0) .. controls (-2,-1) and (-5,-7) .. (-5.5,-12)
+  node[right, pos=1] {$V_{CE} = V_{GS}-V_T$}
+  node[pos=0.7,right, color=gray] {Lineal}
+  node[pos=0.75,left, color=gray] {Saturación}
+  ;
+
+
+
+\addplot[mark=*] coordinates{(0,0)} node[anchor={south west}] {$-V_{T}$};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+```
+
+$$
+\begin{gather}
+I_{SD} = -I_{DS}\\ \\
+V_{D} < V_{GS} + V_{T}  \iff -I_{DS} = K(V_{GS} - V_{T})^2 \iff \text{Saturación} \\
+V_{D} \geq V_{GS} + V_{T} \iff I_{SD} = 2K(V_{GS}+ V_{T})V_{DS} - K{V_{DS}}^2 \iff Lineal \\
+V_{D} \geq V_{GS} + V_{T} \land V_{DS} \simeq 0 \iff I_{SD} = 2K(V_{GS}+ V_{T})V_{DS}
+\end{gather}
+$$
+Por lo que también concluimos que $R_{ON} \simeq \left|\frac{1}{2K(V_{GS} + V_{T})}\right|$, donde usamos el valor absoluto para ignorar la dirección en la qu e
