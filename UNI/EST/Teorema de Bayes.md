@@ -29,7 +29,7 @@ Si, por otro lado, se comprueba el caso contrario, es decir, la probabilidad de 
 $$
 \begin{align}
 P(\neg A_{i}|\neg B) &= P(i \text{ no tiene cáncer} | \text{ test negativo}) \\
-&= \frac{\frac{900}{1000} · \frac{901}{990}}{\frac{902}{1000}} = \frac{0.9 · 0.9\overline{10}}{0.902} \simeq 0.908 \simeq \frac{10}{11}
+&= \frac{\frac{990}{1000} · \frac{901}{990}}{\frac{902}{1000}} = \frac{0.99 · 0.9\overline{10}}{0.902} \simeq 0.81 \simeq \frac{10}{11}
 \end{align}
 $$
 
