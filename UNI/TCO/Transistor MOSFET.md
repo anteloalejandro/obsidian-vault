@@ -247,3 +247,28 @@ Esto se debe principalmente a la capa aislante de la puerta, que al ser tan fina
 Para proteger de sobretensiones se usan [[Recortadores de tensión con diodos]] y se ajusta la resistencia para evitar sobrecorrientes.
 
 # Inversor CMOS
+
+El inversor CMOS (*Complementary MOSFET*) es muy similar al inversor Pseudo-NMOS, pero el $V_{G}$ del PMOS va a $V_{IN}$ en vez de a tierra y que la fuente y el drenaje están orientados al revés, indicado por la dirección de la flecha en el sustrato.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ocirc, label=$V_{IN}$] {} -- ++(1,0) node[circ] (in_junct) {}
+  ++(0,0) -- ++(0,-1.25) -- ++(0.5, 0)
+    node[nfet, anchor=G] (nmos) {$T_N$}
+  (nmos.S) node[ground] {}
+  (nmos.D) -- ++(0,0.5) node[circ] (junct) {} -- ++(0,0.5)
+    node[pfet, anchor=D] (pmos) {$T_P$}
+  (junct) -- ++(1,0) node[anchor=west] {$V_{OUT}$}
+  (pmos.G) -- ++(-0.5,0) -- (in_junct)
+  (pmos.S) node[ocirc, label=$V_{DD}$] {}
+
+  (pmos.B) -- (pmos.S) node[anchor={north west}] {S}
+  (nmos.B) -- (nmos.S) node[anchor={south west}] {S}
+  ;
+\end{circuitikz}
+\end{document}
+```
