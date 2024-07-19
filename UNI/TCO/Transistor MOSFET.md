@@ -272,3 +272,9 @@ El inversor CMOS (*Complementary MOSFET*) es muy similar al inversor Pseudo-NMOS
 \end{circuitikz}
 \end{document}
 ```
+
+Si $V_{IN} = V_{DD}$ el transistor PMOS estará aislando, pero el NMOS conducirá por estar conectado a tierra, y por eso mismo $V_{OUT} = 0$.
+
+Por otro lado, si $V_{IN} = 0V$ es el NMOS el que hace de aislante, mientras el PMOS conduce y da como resultado $V_{OUT} = V_{DD}$.
+
+Como en este inversor siempre hay un transistor haciendo de aislante, la corriente que pasa por el circuito en cualquier punto es prácticamente 0, por lo que el consumo energético es muy bajo, permitiendo así poner muchos de ellos muy juntos sin generar demasiado calor. Dicho esto, $I_{DS} > 0$ en la transición entre el 1 y 0 lógicos, y viceversa.
