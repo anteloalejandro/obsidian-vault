@@ -179,14 +179,14 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
 
 %% PLOTS BEGIN HERE %%
 \draw[color=linecolor1] (0,0) .. controls (-3,-10) .. (-10,-10)
-  node[right] {$V_{GS_3}$};
+  node[left] {$V_{GS_3}$};
 \draw[color=linecolor1] (0,0) .. controls (-2,-5) .. (-10,-5)
-  node[right] {$V_{GS_2}$};
+  node[left] {$V_{GS_2}$};
 \draw[color=linecolor1] (0,0) .. controls (-1,-2) .. (-10,-2)
-  node[right] {$V_{GS_1}$};
+  node[left] {$V_{GS_1}$};
 
 \draw[color=linecolor2] (0,0) .. controls (-2,-1) and (-5,-7) .. (-5.5,-12)
-  node[right, pos=1] {$V_{CE} = V_{GS}-V_T$}
+  node[right, pos=1] {$V_{CE} = V_{GS}+V_T$}
   node[pos=0.7,right, color=gray] {Lineal}
   node[pos=0.75,left, color=gray] {Saturación}
   ;
@@ -216,3 +216,34 @@ Por lo que también concluimos que $R_{ON} \simeq \left|\frac{1}{2K(V_{GS} + V_{
 El problema de las puertas lógicas hechas con sólo NMOS es que requieren de una resistencia $R_D$ que ocupa mucho más espacio que el transistor, por lo que el tamaño mínimo del circuito se ve muy limitado.
 
 Para solucionar este problema, se puede usar un PMOS con la puerta conectada a tierra, por lo que siempre estará en la zona activa y actuará como una pequeña resistencia $R_{ON}$.
+
+```tikz
+\usepackage{circuitikz}
+\begin{document}
+\begin{circuitikz}
+
+\draw 
+  (0,0) node[ocirc, label=$V_{IN}$] {} -- ++(1,0)
+    node[nmos, anchor=G] (nmos) {}
+  (nmos.S) node[ground] {}
+  (nmos.D) -- ++(0,0.5) node[circ] (junct) {} -- ++(0,0.5)
+    node[pmos, anchor=D] (pmos) {}
+  (junct) -- ++(1,0) node[anchor=west] {$V_{OUT}$}
+  (pmos.G) -- ++(-0.5,0) node[ground] {}
+  (pmos.S) node[ocirc, label=$V_{DD}$] {}
+  ;
+\end{circuitikz}
+\end{document}
+```
+
+En el PMOS, si $V_{G} = 0$,  $V_{GS}$ será negativa, y mientras sea suficientemente negativa como para que $V_{GS} < -V_{T}$ siempre estará conduciendo y se puede modelar como $R_{ON}$. Para que este inversor funcione, por norma general, $K_{PMOS} < K_{NMOS}$ .
+
+# Protección de los MOSFET
+
+Los MOSFET son muy sensibles a las sobretensiones ($V_{G} \uparrow$), sobrecorrientes ($I_{DS} \uparrow$), potenciales electroestáticos altos e incluso a la radiación.
+
+Esto se debe principalmente a la capa aislante de la puerta, que al ser tan fina se degrada y rompe con facilidad, haciendo que deje de funcionar correctamente.
+
+Para proteger de sobretensiones se usan [[Recortadores de tensión con diodos]] y se ajusta la resistencia para evitar sobrecorrientes.
+
+# Inversor CMOS
