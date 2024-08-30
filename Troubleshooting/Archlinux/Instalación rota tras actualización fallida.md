@@ -1,5 +1,6 @@
 
 # Descripción del problema
+
 Se apagó el ordenador solo mientras se ejecutaba `pacman -Syu`, probablemente durante la instalación de `linux` o `linux-lts`.
 
 Al encenderse de nuevo, `systemd-boot` solo mostraba la opción de iniciar desde el Firmware y, a pesar de que aparecen la partición de Linux y de Boot, no se podía iniciar con ninguna de ellas.
@@ -28,10 +29,6 @@ mkinitcpio -P
 bootctl update path=/boot
 ```
 
-### Recursos
-
-https://bbs.archlinux.org/viewtopic.php?id=284632
-
 ## Arreglar problemas con `systemd`/`dbus`
 
 Tras el paso anterior, se podía iniciar el SO, pero no se podía iniciar ningún entorno de escritorio o WM, ni funcionaban muchos otros servicios como `NetworkManager` o `bluetoothctl`. Si se podía, sin embargo, iniciar el shell, acceder a archivos y usar comandos normalmente.
@@ -40,8 +37,22 @@ Al no poder acceder a internet, se volvió a iniciar desde el Live ISO como se d
 
 ```bash
 pacman -Qk 2>/dev/null | grep -v '0 missing files' # 0 resultados
-pacman -Qkk 2>/de
+pacman -Qkk 2>/dev/null | grep 'altered file' | grep -v '0 altered'
 ```
+
+Sólo segundo comando dio resultados, y se reinstalaron todos los archivos que listaba, pero tras reiniciar al SO seguía habiendo exactamente el mismo problema (`pacman` no trató de volver a descargarlos ni siquiera tras borrar la caché, a sí que las checksum debían coincidir).
+
+Tras volver a iniciar desde el Live ISO, se volvió a hacer una búsqueda con el siguiente comando:
+
+```bash
+pacman -Qkk 2>/dev/null | grep 'mtree'
+```
+
+Después, se instalaron todos los paquetes que tenían un mtree faltante o malformado en dos pasos con `pacman -S --dbonly <paquetes>` y `pacman -S --only <paquetes>` y, tras un reinicio, todo funcionaba perfectamente.
+
+La mayoría de paquetes no tenían nada de importante, había algunos como `maven` o `java-nosequé` que probablemente no afectasen al funcionamiento del sistema en general, pero aún así merece la pena arreglarlos.
+
+Sin embargo, había dos paquetes especialmente importantes que se reinstalaron con este proceso: `linux-lts` y `systemd`. Dado que el `systemd-boot` tiene como opción por defecto `linux` y no `linux-lts`, lo más probable es que el paquete que causaba problemas fuese `systemd`.
 
 ### Log de errores
 
@@ -157,6 +168,10 @@ Aug 30 19:03:54 archlinux ly-dm[1086]: pam_systemd_home(ly:session): Failed to c
 Aug 30 19:03:54 archlinux ly-dm[1086]: pam_systemd(ly:session): Failed to connect to system bus: Connection refused
 ```
 
-### Recursos
 
+# Recursos
+
+https://bbs.archlinux.org/viewtopic.php?id=284632
+
+https://unix.stackexchange.com/questions/659756/arch-linux-reinstall-all-broken-packages-after-poweroff-during-system-upgrade
 https://bbs.archlinux.org/viewtopic.php?id=293335
