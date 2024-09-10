@@ -1,3 +1,11 @@
 .inline-title {
   text-align: center;
 }
+
+.media-embed {
+  text-align: center
+}
+.media-embed img,
+.media-embed .excalidraw-svg {
+  width: 100%;
+}
