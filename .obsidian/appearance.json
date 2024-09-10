@@ -7,6 +7,7 @@
   "monospaceFontFamily": "Ubuntu Mono,JetBrains Mono",
   "baseFontSize": 19,
   "enabledCssSnippets": [
-    "hide"
+    "hide",
+    "notes"
   ]
 }
