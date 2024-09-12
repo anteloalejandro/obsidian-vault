@@ -31,8 +31,12 @@ La **Zona de Código**, que empieza en el `0x00400000` y termina donde empieza l
 
 La **Zona de Datos** y la **Zona de Pila** comparten el espacio entre las direcciones `0x10000000` y `0x80000000`, sin que haya un límite bien definido entre ellas. En su lugar, en la zona de datos las palabras se empiezan a almacenar en la menor dirección de memoria, siguiendo un orden creciente para las palabras sucesivas, mientras que en la pila se empieza por la más grande y sigue un orden decreciente. Típicamente se usa la zona de datos para la memoria que se reserva antes de ejecutar el programa, que no varía y la zona de pila para la memoria que se tiene que reservar mientras se ejecuta el programa, ya que puede variar.
 
+![[MIPS user memory.svg]]
+
+# Registros
+
+La arquitectura MIPS32, al tener un ancho de palabra de 32, tiene un total de 32 registros, que van del `$0` al `$31`. Además, cuenta con una unidad aritmético-lógica para hacer cálculos que cuenta con otros dos registros, LO y HI, que son utilizados por instrucciones como la división o la multiplicación. Todos estos registros pueden almacenar un sólo número de 32 bits, exceptuando el `$0`, que siempre contiene un 0.
+
 # Arquitectura de carga/almacenamiento
 
-Las instrucciones aritméticas son las únicas que pueden acceder a la memoria, lo que simplifica el diseño e interpretación del lenguaje ensamblador.
-
-# FPU
+Las instrucciones aritméticas no pueden acceder a la memoria, solo a los registros, lo que simplifica el diseño e interpretación del lenguaje ensamblador.
