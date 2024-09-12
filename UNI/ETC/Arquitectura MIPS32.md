@@ -1,10 +1,9 @@
 
-
 Es una arquitectura RISC desarrollada en el MIT, que hoy en día se sigue utilizando en sistemas empotrados. Es una arquitectura con pocas instrucciones pero, al ser sencilla, es ideal para la enseñanza. Sus instrucciones siguen un diseño fragmentado en el que se basarían el resto de procesadores RISC posteriores.
 
 # Tamaños de datos
 
-Todos los tipos de datos tienen que empezar en una posición tal que quepa todo sin pasar a la siguiente fila. Cada fila tiene 32 bits (4 bytes).
+Todos los tipos de datos tienen que empezar en una posición tal que quepa todo sin pasar a la siguiente fila. Cada fila tiene 32 bits (4 bytes). Cada fila utiliza el formato [[Endianness#Little Endian|Little Endian]].
 
 Los tipos de datos principales de esta arquitectura son 3: `byte`, `half` y `word`, de 1, 2 y 4 bytes de tamaño respectivamente. Están representados en Complemento a 2.
 
@@ -14,13 +13,26 @@ Además, también tiene soporte para números reales en formato IEEE 754 en form
 
 # Memoria
 
-Para la memoria, el byte es la unidad mínima direccionable, por lo que los accesos a memoria de hacen de byte a byte. Cada byte tiene un índice numérico de 32 bits, generalmente expresado en formato hexadecimal, que lo identifica. Es decir, a cada posición de memoria le corresponde un byte.
+Para la memoria, el byte es la unidad mínima direccionable, por lo que los accesos a memoria de hacen de byte a byte. Las **direcciones de memoria**, números de 32 bits que hacen las veces de índice, apuntan al inicio de estos bytes. Es decir, cada dirección de memoria apunta a un byte.
 
-![[MIPS memory.png|100px]]
+![[MIPS memory.svg]]
+
+Ya que las direcciones de memoria son de 32 bits, y que a cada dirección le corresponde un byte, la máxima memoria que se puede tener es $2^{32} \text{ bytes} = 4294967296 \text{ bytes} \simeq 4.3 \text{GB}$.
+
+Estos 4 gigabytes se dividen por la mitad en dos espacios:
+- **Espacio de usuario**, del `0x00000000` al `0x7FFFFFFF`, es la región de memoria reservada para los programas que ejecuta el usuario.
+- **Espacio de sistema**, del `0x80000000` al `0xFFFFFFFF`, es la región de memoria reservada para el sistema operativo y sus componentes
+
+## Espacio de usuario
+
+En los 2GB a los que tiene acceso el usuario en la arquitectura MIPS de 32 bits, la memoria se subdivide además en 3 zonas más.
+
+La **Zona de Código**, que empieza en el `0x00400000` y termina donde empieza la zona de datos, es donde se almacenan las instrucciones de los programas que ejecuta el usuario.
+
+La **Zona de Datos** y la **Zona de Pila** comparten el espacio entre las direcciones `0x10000000` y `0x80000000`, sin que haya un límite bien definido entre ellas. En su lugar, en la zona de datos las palabras se empiezan a almacenar en la menor dirección de memoria, siguiendo un orden creciente para las palabras sucesivas, mientras que en la pila se empieza por la más grande y sigue un orden decreciente. Típicamente se usa la zona de datos para la memoria que se reserva antes de ejecutar el programa, que no varía y la zona de pila para la memoria que se tiene que reservar mientras se ejecuta el programa, ya que puede variar.
 
 # Arquitectura de carga/almacenamiento
 
 Las instrucciones aritméticas son las únicas que pueden acceder a la memoria, lo que simplifica el diseño e interpretación del lenguaje ensamblador.
-
 
 # FPU
