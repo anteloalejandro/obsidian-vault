@@ -11,3 +11,4 @@ Portable Operating System Interface
 
 Acceso a E/S -> Suspendido
 Tabla de recursos creada **pero no cargada en memoria** -> Nuevo
+
