@@ -1,3 +1,6 @@
+---
+todo: true
+---
 
 Es una arquitectura RISC desarrollada en el MIT, que hoy en día se sigue utilizando en sistemas empotrados. Es una arquitectura con pocas instrucciones pero, al ser sencilla, es ideal para la enseñanza. Sus instrucciones siguen un diseño fragmentado en el que se basarían el resto de procesadores RISC posteriores.
 

@@ -1,3 +1,6 @@
+---
+todo: true
+---
 
 # Arquitectura de Von Neumann
 
