@@ -48,3 +48,4 @@ Hay dos grandes tipos, limitados por CPU y limitados por E/S.
   - Round Robin, planificación circular: A cada proceso se le asigna un tiempo de CPU, llamado *quantum*. Cuando el tiempo de CPU supere el quantum, se manda a la cola de preparados. Cuando no hay nadie en ejecución se coge otro proceso de la cola de preparados. Esto puede aumentar el tiempo medio de espera, pero permite repartir equitativamente el tiempo de CPU de todos los procesos, lo que resulta en una mejor experiencia de usuario.
 
 Hay diferentes colas para diferentes tipos de proceso, y cada una de ellas puede utilizar un algoritmo diferente.
+
