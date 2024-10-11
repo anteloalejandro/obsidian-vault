@@ -13,5 +13,9 @@
   "newFileLocation": "current",
   "promptDelete": false,
   "useTab": false,
-  "tabSize": 2
+  "tabSize": 2,
+  "userIgnoreFilters": [
+    "Assets/"
+  ],
+  "showRibbon": false
 }

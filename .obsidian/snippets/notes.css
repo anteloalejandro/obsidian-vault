@@ -8,4 +8,5 @@
 .media-embed img,
 .media-embed .excalidraw-svg {
   width: 100%;
+  max-height: 500px;
 }
