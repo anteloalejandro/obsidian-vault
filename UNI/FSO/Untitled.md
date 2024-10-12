@@ -49,3 +49,13 @@ Hay dos grandes tipos, limitados por CPU y limitados por E/S.
 
 Hay diferentes colas para diferentes tipos de proceso, y cada una de ellas puede utilizar un algoritmo diferente.
 
+# Hilos
+
+Los hilos de ejecución cumplen una función similar a los procesos hijos, pero son más ergonómicos. En lugar de ser padres e hijos, todos son más bien como hermanos, están en igualdad de condiciones. También se les denominan procesos ligeros y si el sistema operativo no tiene soporte multihilo se les trata como procesos.
+
+Tienen la función adicional de poder sincronizar sus datos, y comparten las variables globales a diferencia de los procesos hijos.
+
+## El problema del productor/consumidor
+
+
+- Wikipedia https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem
