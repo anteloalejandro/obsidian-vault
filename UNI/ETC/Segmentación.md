@@ -80,7 +80,7 @@ En MIPS32 esto siempre sucede en las dos instrucciones anteriores a la consumido
 
 También se puede cambiar el bit de escritura y lectura en banco de registros para que se active por nivel en vez de por flanco, pero hay que ajustar los tiempos de ciclo para poder asegurar que las lecturas y escrituras se hacen correctamente (esto no lo hacemos).
 
-También se pueden añadir circuitos para detectar cuando sucede esto para repetir la etapa DI (insertar ciclos de espera), que sería similar a poner instrucciones NOP ya que la fase LI de la siguiente instrucción no sucede hasta la última DI.
+En casos en los que hay dependencia de datos se pueden añadir circuitos para detectar cuando sucede esto para repetir la etapa DI (insertar ciclos de espera), que sería similar a poner instrucciones NOP ya que la fase LI de la siguiente instrucción no sucede hasta la última DI. Para la dependencia de control se hace lo mismo con la etapa LI.
 
 El CPI también cambia.
 $$
@@ -90,3 +90,5 @@ CPI = \frac{{ciclos-4}}{n} = \frac{{(n + 4 + P)-4}}{n} = \frac{{n+P}}{n}
 \end{gather}
 $$
 Con NOPs simplemente nos olvidamos de las paradas y añadimos los ciclos NOP a la fórmula
+
+## Conflicto de control (flujo)
