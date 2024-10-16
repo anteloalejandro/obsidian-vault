@@ -15,7 +15,7 @@ Tabla de recursos creada **pero no cargada en memoria** -> Nuevo
 # Procesos
 
 Fork copia la imagen de memoria de un proceso a otro proceso nuevo.
-Exec carga la imagen de memoria de un programa del disco.
+Exec carga la imagen de memoria de un programa del disco, por lo que todo lo que haya después de él no se ejecutará (a no ser que falle), por lo que habrá de usarse junto a procesos hijos.
 
 ~~Si el padre acaba antes que el hijo sin hacer wait, el hijo es zombie.~~
 ~~Si el padre acaba antes que el hijo por un error, se queda huérfano.~~
