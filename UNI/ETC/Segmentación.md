@@ -92,3 +92,15 @@ $$
 Con NOPs simplemente nos olvidamos de las paradas y añadimos los ciclos NOP a la fórmula
 
 ## Conflicto de control (flujo)
+
+### Predicción de ramas
+
+Hay dos tipos de predicciones relevantes para los conflictos de control.
+- *Predict Taken*. Supondremos que se va a dar el salto, cargando la dirección de memoria del salto en el PC preventivamente. Por tanto, si tenemos un bucle que se ejecuta $n$ veces, acertaremos $n-1$ veces. Cuando se salta, no hay que hacer paradas por conflictos de control, pero sí que hay que hacerlos cuando no se salta, porque hay que volver a cargar la dirección de la siguiente instrucción en el PC.
+- *Predict not Taken*. Es lo contrario del *Predict Taken*, por lo que siempre se cargará en el PC la dirección de la siguiente instrucción, en lugar de la del salto. Por tanto, en un bucle, solo acertará 1 vez, pero es más fácil de implementar.
+
+## Detección de conflictos
+
+Sabemos que hay conflictos de datos cuando se están leyendo registros en una instrucción que ha sido leída hace un par de instrucciones.
+
+Por tanto, para la detección de conflictos es necesario mirar las señales de Escritura en registro y lectura en memoria en la fase DI. Además si, por ejemplo, en la fase DI el registro RD es igual al registro RS durante la fase LI (siendo DI el estado de la instrucción anterior), sabemos que hay conflicto porque se intentaría escribir el valor de RS en RD en la fase de ejecución. 
