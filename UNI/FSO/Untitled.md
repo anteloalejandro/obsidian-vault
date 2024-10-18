@@ -60,3 +60,82 @@ Tienen la función adicional de poder sincronizar sus datos, y comparten las var
 
 - Wikipedia https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem
 
+
+
+# Gestión de procesos
+
+## Acceso a sección crítica
+
+Los protocolos de acceso a secciones críticas, es decir, las secciones que pueden causar condiciones carrera, deben cumplir 3 cosas:
+
+- Exclusión mutua: Sólo puede haber un proceso cada vez en la sección crítica.
+- Progreso: Si ningún proceso está en sección crítica y hay otros que quieren entrar, la decisión de qué proceso debe entrar ha de ser **finita** y **depender sólo de los procesos que quieren entrar**.
+- Espera limitada: El tiempo de espera de un proceso a la hora de entrar debe ser finito, es decir, todos los procesos que lo requieran deben poder entrar eventualmente.
+
+A través de software, se puede solucionar el problema con código a nivel de usuario a través del Algoritmo de Dekker.
+
+### Soluciones software
+
+```c
+void *hilo(void *p) {
+  while (1) {
+    while (llave == 1)
+      ;
+    llave = 1;
+    /*SECCIÓN CRÍTICA*/
+    llave = 0;
+    /*SECCIÓN RESTANTE*/
+  }
+}
+```
+
+| t   | A                                                             | B                                   |
+| --- | ------------------------------------------------------------- | ----------------------------------- |
+| i   | termina SECCIÓN CRÍTICA, llave = 0                            | llave = 1 → espera a que A acabe    |
+| i+2 | ejecuta SECCIÓN RESTANTE                                      | llave = 0 → empieza SECCIÓN CRÍTICA |
+| i+3 | A vuelve a entrar, llave = 0, así que empieza SECCIÓN CRÍTICA | sigue en SECCIÓN CRÍTICA            |
+Se da el caso de que puede haber dos hilos en la sección crítica a la vez
+
+*Algoritmo de dekker*
+```c
+void *hilo_I(void *p) {
+  while (1) {
+    while (llave != I)
+      ;
+    llave = I;
+    /*SECCIÓN CRÍTICA*/
+    llave = J;
+    /*SECCIÓN RESTANTE*/
+  }
+}
+void *hilo_J(void *p) {
+  while (1) {
+    while (llave != J)
+      ;
+    llave = J;
+    /*SECCIÓN CRÍTICA*/
+    llave = I;
+    /*SECCIÓN RESTANTE*/
+  }
+}
+```
+
+En esta solución, cada hilo tiene su código própio, lo que arregla el problema anterior, pero no cumple la regla de progreso porque la entrada del resto de hilos depende del hilo que está ejecutando la sección crítica, no de los hilos que quieren entrar.
+
+### Soluciones hardware
+
+Si se tiene acceso a ellas, que generalmente solo se tiene en modo privilegiado, se puede hacer uso de las instrucciones DI (disable interrupts) y EI (disable interrupts) para excluir al resto de hilos de ejecutar ciertas secciones de código. Sin embargo, está solución es muy poco eficiente.
+
+Se puede usar, en caso de estar disponible, la instrucción atómica del procesador`test_and_set` para asignar variables en una sola instrucción sin interrupciones, pero sigue estando limitado a asignaciones individuales. Gracias a la instrucción `test_and_set` se puede usar la solución de la llave sin que haya problemas, pero no cumple la regla de espera limitada porque nadie puede quitarle acceso al proceso que está en posesión de la llave.
+
+### Espera activa y pasiva (polling)
+
+Las instrucciones tipo `test-and-set` son de **espera activa**: El protocolo de entrada impide que el proceso entre en su sección crítica, pero al hacer uso de un bucle vacío, consume tiempo de CPU. Además, el planificador no puede saber si ese tiempo de CPU va a ser aprovechado por un proceso en espera o por el proceso que está en marcha, y todos los turnos que le de al proceso en espera están desaprovechados.
+
+Una solución es el abandono voluntario de la CPU por parte del hilo en espera, a través de funciones como `usleep` o `pthread_yield`, pues su implementación no hace uso de espera activa.
+
+Otra solución es el de las colas gestionadas por eventos. El sistema operativo ofrece objetos en los que un proceso se puede suspender hasta que otro despierte: los semáforos y los *mutex*.
+
+### Productor consumidor
+
+En el problema del productor-consumidor, si el array está lleno y el planificador le da el turno al productor antes que al consumidor, el productor cogerá la llave y se quedará en un bucle infinito sin devolverla. <small>¿Qué regla se incumple aquí?</small>

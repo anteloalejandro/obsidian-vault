@@ -28,8 +28,3 @@ En todo AFD válido **existe alguna palabra aceptada**, y para cada palabra hay 
 ![[AFD-crear.png]]
 ![[AFD-crear.png]]
 
-$$
-\begin{document}
-\usetikzlibrary{graphs, rf}
-\end{document}
-$$

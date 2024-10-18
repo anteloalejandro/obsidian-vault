@@ -1,6 +1,6 @@
 [
   // Code block
-  { trigger: "ci", replacement: "`$0`", options: "t" },
+  { trigger: "ci", replacement: "`$0`$1", options: "t" },
   { trigger: "cc", replacement: "```$0\n$1\n```", options: "tw" },
   // Math mode
   { trigger: "mi", replacement: "$$0$", options: "t" },
