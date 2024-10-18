@@ -44,6 +44,8 @@
   { trigger: "eplon", replacement: "\\epsilon", options: "mA" },
   { trigger: "Eplon", replacement: "\\varepsilon", options: "mA" },
 
+  { trigger: "([^\\\\])(${GREEK})", replacement: "[[0]]\$\\[[1]]\$", options: "rt", description: "Add backslash before Greek letters" },
+
   // Text environment
   { trigger: "text", replacement: "\\text{$0}$1", options: "mA" },
   { trigger: "\"", replacement: "\\text{$0}$1", options: "mA" },
@@ -52,7 +54,6 @@
   { trigger: "sr", replacement: "^{2}", options: "mA" },
   { trigger: "cb", replacement: "^{3}", options: "mA" },
   { trigger: "rd", replacement: "^{$0}$1", options: "mA" },
-  { trigger: "^", replacement: "^{$0}$1", options: "mA" },
   { trigger: "_", replacement: "_{$0}$1", options: "mA" },
   { trigger: "sts", replacement: "_\\text{$0}", options: "mA" },
   { trigger: "sq", replacement: "\\sqrt{ $0 }$1", options: "mA" },
@@ -131,6 +132,7 @@
   { trigger: "<->", replacement: "\\leftrightarrow ", options: "mA" },
   { trigger: "->", replacement: "\\to", options: "mA" },
   { trigger: "!>", replacement: "\\mapsto", options: "mA" },
+  { trigger: "mapsto", replacement: "\\mapsto", options: "mA" },
   { trigger: "=>", replacement: "\\implies", options: "mA" },
   { trigger: "=<", replacement: "\\impliedby", options: "mA" },
 
@@ -257,6 +259,7 @@
 
   { trigger: "cases", replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "mA" },
   { trigger: "align", replacement: "\\begin{align}\n$0\n\\end{align}", options: "mA" },
+  { trigger: "gather", replacement: "\\begin{gather}\n$0\n\\end{gather}", options: "mA" },
   { trigger: "array", replacement: "\\begin{array}\n$0\n\\end{array}", options: "mA" },
 
 
@@ -276,8 +279,9 @@
   { trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA" },
   { trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA" },
   { trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA" },
-  { trigger: "lr|", replacement: "\\left| $0 \\right| $1", options: "mA" },
+  { trigger: "lr|", replacement: "\\left| $0 \\right|$1", options: "mA" },
   { trigger: "lra", replacement: "\\left< $0 \\right> $1", options: "mA" },
+  { trigger: "lrm", replacement: "\\left| $0 \\right|$1", options: "mA" },
 
 
   // Misc
@@ -295,25 +299,63 @@
 
 
   // Snippet replacements can have placeholders.
-  { trigger: "tayl", replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "mA", description: "Taylor expansion" },
+  { trigger: "tayl", replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "m", description: "Taylor expansion" },
+  {trigger: "seried", replacement: "${0:x}_{1} ${1:+} ${0:x}_{2} ${1:+} \\dots ${1:+} ${0:x}_{n}", options: "m"},
 
   // Snippet replacements can also be JavaScript functions.
   // See the documentation for more information.
+  { trigger: /series_\{(\d+)\}/, replacement: (match) => {
+    const n = match[1];
+    const arr = [];
+    for (let i = 1; i <= n; i++) {
+      arr.push(i);
+    }
+
+    const output = arr.map(el => "${0:x}_{" + el + "}").join("${1:+}");
+    return output;
+  }, options: "m", description: "Series starting from 1" },
+  { trigger: /seriez_\{(\d+)\}/, replacement: (match) => {
+    const n = match[1];
+    const arr = [];
+    for (let i = 0; i < n; i++) {
+      arr.push(i);
+    }
+
+    const output = arr.map(el => "${0:x}_{" + el + "}").join("${1:+}");
+    return output;
+  }, options: "m", description: "Series starting from 1" },
   {
-    trigger: /iden(\d)/, replacement: (match) => {
+    trigger: /iden_\{(\d+)\}/, replacement: (match) => {
       const n = match[1];
 
       let arr = [];
       for (let j = 0; j < n; j++) {
         arr[j] = [];
         for (let i = 0; i < n; i++) {
-          arr[j][i] = (i === j) ? 1 : 0;
+          arr[j][i] = (i === j) ? "${1:n}" : 0;
         }
       }
 
       let output = arr.map(el => el.join(" & ")).join(" \\\\\n");
       output = `\\begin{pmatrix}\n${output}\n\\end{pmatrix}`;
       return output;
-    }, options: "mA", description: "N x N identity matrix"
+    }, options: "m", description: "N x N identity matrix"
+  },
+  {
+    trigger: /table_(\d+)_(\d+)/, replacement: (match) => {
+      const rows = match[1];
+      const cols = match[2];
+
+      let arr = [];
+      for (let i = 0; i <= rows; i++) {
+        arr[i] = [];
+        for (let j = 0; j <= cols; j++) {
+          arr[i][j] = i == 1 ? " --- " : "     ";
+        }
+      }
+
+      return arr.map(r => '|' + r.join('|')).join('|\n') + '|';
+
+    }, options: "t", description: "N x N markdown table"
   },
 ]

@@ -60,19 +60,3 @@ Tienen la función adicional de poder sincronizar sus datos, y comparten las var
 
 - Wikipedia https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem
 
-```tikz
-\begin{document}
-
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-
-\draw [color={rgb, 255:red, 138; green, 210; blue, 97 }  ,draw opacity=1 ][line width=1.5]    (296,240) .. controls (352.3,236.64) and (320,149.5) .. (417,137.5) .. controls (514,125.5) and (533.79,131.5) .. (557,131.5) ;
-
-\end{tikzpicture}
-
-
-\end{document}
-```
