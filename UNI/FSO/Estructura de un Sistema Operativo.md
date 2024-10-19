@@ -20,4 +20,4 @@ Un kernel puede tener una de múltiples arquitecturas:
 
 Son el conjunto de herramientas básicas que son necesarias para llevar a cabo tareas comunes y básicas, que simplifican la interacción entre el sistema operativo y los usuarios. Hay utilidades que corren en modo usuario, al igual que el resto de aplicaciones del sistema, así que no siempre hay una distinción clara entre lo que es una utilidad del sistema y una simple aplicación.
 
-En Linux, comúnmente, se utilizan las utilidades GNU.
+En Linux, comúnmente, se utilizan las utilidades GNU, que implementa el estándar POSIX. Este estándar cubre desde las [[Llamadas al sistema]] (como `fork`, `exec` y `wait`) hasta simples comandos como `ls`, `awk` o `echo`.
