@@ -112,8 +112,6 @@
   { trigger: "+-", replacement: "\\pm", options: "mA" },
   { trigger: "-+", replacement: "\\mp", options: "mA" },
   { trigger: "...", replacement: "\\dots", options: "mA" },
-  { trigger: "iDel", replacement: "\\nabla", options: "mA" },
-  { trigger: "Del", replacement: "\\Delta", options: "mA" },
   { trigger: "xx", replacement: "\\times", options: "mA" },
   { trigger: "**", replacement: "\\cdot", options: "mA" },
   { trigger: "para", replacement: "\\parallel", options: "mA" },
@@ -235,12 +233,8 @@
   { trigger: "outer", replacement: "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1", options: "mA" },
 
   // Chemistry
-  { trigger: "pu", replacement: "\\pu{ $0 }", options: "mA" },
+  { trigger: "puu", replacement: "\\pu{ $0 }", options: "mA" },
   { trigger: "cee", replacement: "\\ce{ $0 }", options: "mA" },
-  { trigger: "he4", replacement: "{}^{4}_{2}He ", options: "mA" },
-  { trigger: "he3", replacement: "{}^{3}_{2}He ", options: "mA" },
-  { trigger: "iso", replacement: "{}^{${0:4}}_{${1:2}}${2:He}", options: "mA" },
-
 
   // Environments
   { trigger: "pmat", replacement: "\\begin{pmatrix}\n$0\n\\end{pmatrix}", options: "MA" },
