@@ -21,6 +21,8 @@ Cuando se da una señal de interrupción, el sistema operativo toma el control y
 - Ejecuta la rutina del servicio.
 - Al finalizar, restaura el contexto y vuelve al programa interrumpido.
 
+Nótese que antes de que el sistema operativo tome el control, el [[Llamadas al sistema#Cambio de modo|bit de modo]] del procesador se pone automáticamente en modo kernel.
+
 # Modos de ejecución del procesador
 
 Los procesos pueden ejecutarse en la CPU en uno de dos modos de ejecución: **modo núcleo** y **modo usuario**. Estos modos indican diferentes niveles de privilegios en la **ejecución de instrucciones máquina**.
