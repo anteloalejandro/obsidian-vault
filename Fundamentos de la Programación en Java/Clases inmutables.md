@@ -29,7 +29,7 @@ final class Person {
   public long getId() { return id; }
   public String getName() { return name; }
   public String lastName() { return lastName; }
-  public List<String> getAddresses {
+  public List<String> getAddresses() {
     // Copy list using the ArrayList(List) constructor.
     return new ArrayList<String>(this.addresses);
   }
