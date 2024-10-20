@@ -15,7 +15,7 @@ Sea cual sea el caso, el sistema operativo se activa para gestionar el evento.
 
 Cuando se da una señal de interrupción, el sistema operativo toma el control y lleva a cabo las siguientes acciones:
 - Termina la ejecución de la instrucción actual.
-- Guarda los valores de los registros y el contador de programa, también llamados **contexto del procesador**.
+- Guarda los valores de los registros y el contador de programa, también llamados [[Procesos#Process Context Block|contexto del procesador]].
 - Inhabilita la llegada de nuevas instrucciones.
 - Salta a la dirección de las instrucciones del servicio de interrupción, que están alojadas en el espacio reservado para el sistema operativo.
 - Ejecuta la rutina del servicio.
