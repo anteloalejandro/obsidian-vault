@@ -3,7 +3,6 @@
   "obsidian-excalidraw-plugin",
   "obsidian-excel-to-markdown-table",
   "mathlive",
-  "list-style",
   "dataview",
   "obsidian-charts",
   "vim-toggle",
@@ -17,5 +16,6 @@
   "obsidian-footnotes",
   "obsidian-paste-image-rename",
   "obsidian-tikzjax",
-  "execute-code"
+  "execute-code",
+  "math-in-callout"
 ]
