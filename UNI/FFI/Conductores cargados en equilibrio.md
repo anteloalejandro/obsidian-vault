@@ -35,10 +35,10 @@ Sean dos esferas conductoras con cargas iniciales $2Q$ y $2Q$, y radios $R$ y $3
 
 Nótese que la esfera más pequeña tiene menor carga, pero mayor densidad y campo.
 
-  Inicialmente (o sea, antes de unirla) ambas esferas tienen la misma carga, pero en la de radio $R$ la misma carga está más "apelotonada", de ahí que el campo sea mayor. También se puede simplemente razonar que el campo es inversamente proporcional al radio, ergo a menor radio, más campo.
+Inicialmente (o sea, antes de unirla) ambas esferas tienen la misma carga, pero en la de radio $R$ la misma carga está más "apelotonada", de ahí que el campo sea mayor. También se puede simplemente razonar que el campo es inversamente proporcional al radio, ergo a menor radio, más campo.
   ![[Untitled 2024-10-22 18.11.59.excalidraw|100%]]
 
-  Como el campo es mayor, al unirlas, pasará carga de la esfera menor a la mayor. Además, al unirlas, actuarán como un solo conductor, así que el campo durante todo este "nuevo conductor" será 0 y el potencial $V$ será constante. Como se consideran un sólo conductor, el potencial será además igual en ambas esferas.
+Como el campo es mayor, al unirlas, pasará carga de la esfera menor a la mayor. Además, al unirlas, actuarán como un solo conductor, así que el campo durante todo este "nuevo conductor" será 0 y el potencial $V$ será constante. Como se consideran un sólo conductor, el potencial será además igual en ambas esferas.
 
 $$
 \begin{gather}
@@ -179,7 +179,7 @@ $$
 El potencial es constante en $r \in (R_{2},R_{3})$, así que no hace falta calcularlo, será una línea horizontal igual a $E_{\text{ext}}$ cuando $r \simeq R_{3}$.
 
 Del mismo modo, en $r \in (0,R_{1})$ el potencial es constante y está a la altura de $E_{\text{int}}$ cuando $r \simeq R_{1}$. Podemos ayudarnos de la diferencia entre los potenciales antes y después de la bajada en
-$r \in (R_{1}, R_{2})$. En realidad, ya conocemos $V_{R_{2}}$, pues $V_{R_{2}} = V_{R_{3}} = E_{\text{ext}} · R_{3}$. Por tanto, calculamos la diferencia de potencial de $V_{R_{2}}$ hasta $V_{r}$ (**principio de superposición**) , y de ahí calculamos $V_{R_{1}}$.
+$r \in (R_{1}, R_{2})$. En realidad, ya conocemos $V_{R_{2}}$, pues $V_{R_{2}} = V_{R_{3}} = E_{\text{ext}} · R_{3}$. Por tanto, calculamos la diferencia de potencial de $V_{R_{2}}$ hasta $V_{r}$ (**teorema de superposición**) , y de ahí calculamos $V_{R_{1}}$.
 $$
 \begin{align}
 \Delta V_{R_{2},r} &= V_{R_{2}} - V_{r} = - \int_{R_{2}}^{r} \vec{E} \, d\vec{r}  \\
@@ -204,7 +204,85 @@ Con esta información, se puede estimar también la forma que tendrían las dife
 > Además, en una figura como en la anterior, el potencial en conductor interior y exterior son, respectivamente:
 > $$
 > \begin{align}
-> V_{\text{int}} &= \frac{1}{4\pi\varepsilon_{0}} \left( \frac{Q_{1}+Q_{2}}{R_{3}} - \frac{Q_{1}}{R_{2}} + \frac{Q_{1}}{R_{1}} \right) \\ \\
+> V_{\text{int}} &= \frac{1}{4\pi\varepsilon_{0}} \left( \frac{Q_{1}+Q_{2}}{R_{3}} + \frac{-Q_{1}}{R_{2}} + \frac{Q_{1}}{R_{1}} \right) \\ \\
 > V_{\text{ext}} &= \frac{Q_{1} + Q_{2}}{4\pi\varepsilon_{0}R_{3}}
 > \end{align}
 > $$
+
+## Apantallamiento
+
+Decimos que la Tierra tiene siempre $V = 0$ porque es un conductor tan grande que a escalas normales cualquier carga genera un campo eléctrico despreciable.
+
+Al ser la tierra un conductor que siempre tiene $V=0$, cualquier conector que conectaremos a él tendrá $V=0$, ya que el potencial ha de ser constante.
+
+$$
+V = 0 \implies E = 0\implies q=0
+$$
+
+Si aplicamos esto a las esferas concéntricas anteriores, al conectar la esfera exterior a tierra, sin importar lo que haya en la esfera interior, el potencial en la superficie de la esfera interior será 0, por lo que también lo serán el campo eléctrico y la carga.
+
+![[apantallamiento dentro fuera.png]]
+
+Dicho de otro modo, **nada de lo que pase en la esfera interior escapará de la exterior**, y esta última siempre tendrá una carga de 0 en la superficie. Esto es lo que se conoce como **Apantallamiento eléctrico de dentro a fuera**.
+
+También es posible apantallar de fuera a dentro, donde en vez de aislar al exterior de una carga interior, aislamos el interior de una carga exterior.
+
+![[apantallamiento fuera dentro.png]]
+
+En este caso el exterior de la esfera hueca también está cargado, al igual que lo estaba el interior en el ejemplo anterior. Sin embargo, como la influencia electroestática es menor, la carga en la superficie también será menor.
+
+# Capacidad
+
+Sabemos que el potencial depende de la carga, la forma y el material. En concreto, el potencial es directamente proporcional a la carga, por lo que si reescribimos el potencial de una esfera para que para que $V_{\text{esfera}} = \frac{Q}{C}$...
+$$
+\begin{align}
+V_{\text{esfera}} &= \frac{Q}{4\pi\varepsilon_{0}r} \\
+\frac{V_{\text{esfera}}}{Q} &= \frac{1}{4\pi\varepsilon_{0}r} \\
+\frac{Q}{V_{\text{esfera}}} &= 4\pi e_{0}r = C
+\end{align}
+$$
+
+Por lo que, generalizando para cualquier otra forma, obtenemos...
+$$
+V = \frac{Q}{C} \iff C = \frac{Q}{V} \iff Q = V·C
+$$
+
+Usar $C$ como constante es una forma de abstraer la forma y material del conductor en el cálculo de la carga y el potencial. Por ejemplo, una conductor más grande tendría una $C$ más grande, pero si te la dan como constante, no necesitas saber que forma o tamaño tiene.
+
+También podemos deducir que un dispositivo que pueda acumular una carga alta teniendo un potencial bajo tendrá una capacidad muy alta.
+
+La unidad de $C$ es el Faradio, o $\pu{ F }$, y se suele medir en $\mu F$ o $mF$.
+
+$$
+[C] = \left[ \frac{Q}{V} \right] = \pu{ C/V } = \pu{ A/Vs } = \pu{ F }
+$$
+
+## Condensador
+
+El condensador es el sistema formado por dos conductores con influencia electroestática total, aunque en la práctica no sea completamente total.
+
+Por ejemplo, dos superficies cargadas positiva y negativamente serían condensadores perfectos si fuesen infinitas porque al no haber extremos las líneas de campo no se pueden curvas en los extremos, pero como en la práctica eso es imposible, siempre va a haber alguna línea de campo que se curve.
+
+![[esquema condensador.png]]
+
+La capacidad de este condensador teórico sería $C = \frac{Q}{\Delta V}$, o simplemente $C = \frac{Q}{V}$.
+
+Por Gauss, también podemos sacar el campo eléctrico y la carga encerrada:
+$$
+\begin{gather}
+E = \frac{\sigma}{2\varepsilon_{0}} + \frac{\sigma}{2\varepsilon_{0}} = \frac{\sigma}{\varepsilon_{0}}
+ \\
+Q = \sigma·S
+\end{gather}
+$$
+
+Y de ahí podemos sacar el potencial:
+$$
+\Delta V = -\int E\,dd = \frac{\sigma}{\varepsilon }d
+$$
+
+Y de ahí la capacidad:
+
+$$
+C = \Delta V^{-1} · Q = \frac{\varepsilon_{0}}{\sigma d}·\sigma S = \frac{\varepsilon_{0}S}{d}
+$$Por tanto, todas las capacidades son de la forma superficie por $\varepsilon_{0}$ entre distancia.
