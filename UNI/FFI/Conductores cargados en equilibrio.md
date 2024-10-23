@@ -15,7 +15,7 @@ Como el potencial es cte., toda la superficie es equipotencial. Además, se pued
 
 Es decir, en el conductor las cargas positivas y negativas estarán en extremos diferentes, de forma que crean un campo eléctrico opuesto que anula el campo eléctrico aplicado sobre el conductor. **El campo es 0 porque estamos en equilibrio**.
 
-## Teorema de coulomb
+# Teorema de coulomb
 
 En las proximidades de cualquier conductor, se da que, siendo $\sigma_{1}$ y $\sigma_{2}$ las cargas en lados opuestos que se han movido a la superficie por la acción del campo eléctrico externo $\vec{E}$, $\vec{E}$ se puede calcular como:
 $$
@@ -24,7 +24,7 @@ $$
 ![[teorema coulomb.png]]
 
 
-### Carga en curvaturas asimétricas
+## Carga en curvaturas asimétricas
 
 Sean dos esferas conductoras con cargas iniciales $2Q$ y $2Q$, y radios $R$ y $3R$ que se conectan mediante un largo hilo de capacidad despreciable. Determínese una vez llegado al equilibrio:
 
@@ -82,7 +82,7 @@ Estos resultados se pueden extrapolar a cuerpos con curvaturas asimétricas a lo
 ![[Pasted image 20241022123716.png]]
 
 
-## Influencia electroestática
+# Influencia electroestática
 
 Si tenemos dos conductores, uno inicialmente cargado y otro inicialmente descargado, como el primero genera un campo eléctrico, las cargas opuestas del segundo se moverán con una fuerza en dirección opuesta.
 
@@ -105,7 +105,7 @@ La **influencia total** es toda línea del primer conductor que acaba en el segu
 
 Si en vez el caso anterior tenemos un dos esferas concéntricas, como todas las líneas de campo llegan de uno al otro, las cargas totales son iguales y por tanto la influencia total es igual a $Q$.
 
-### Principio de superposición
+## Principio de superposición
 
   Cargamos inicialmente con $Q_{1}$ y $Q_{2}$ dos conductores concéntricos de radios $R_{1}$ y $R_{3}$ respectivamente. Desde el centro del conductor interior hasta la superficie interior del conductor exterior, hay un radio de $R_{2}$. Obtén el reparto de cargas en cada superficie.
   
@@ -209,7 +209,7 @@ Con esta información, se puede estimar también la forma que tendrían las dife
 > \end{align}
 > $$
 
-## Apantallamiento
+# Apantallamiento
 
 Decimos que la Tierra tiene siempre $V = 0$ porque es un conductor tan grande que a escalas normales cualquier carga genera un campo eléctrico despreciable.
 
@@ -231,58 +231,3 @@ También es posible apantallar de fuera a dentro, donde en vez de aislar al exte
 
 En este caso el exterior de la esfera hueca también está cargado, al igual que lo estaba el interior en el ejemplo anterior. Sin embargo, como la influencia electroestática es menor, la carga en la superficie también será menor.
 
-# Capacidad
-
-Sabemos que el potencial depende de la carga, la forma y el material. En concreto, el potencial es directamente proporcional a la carga, por lo que si reescribimos el potencial de una esfera para que para que $V_{\text{esfera}} = \frac{Q}{C}$...
-$$
-\begin{align}
-V_{\text{esfera}} &= \frac{Q}{4\pi\varepsilon_{0}r} \\
-\frac{V_{\text{esfera}}}{Q} &= \frac{1}{4\pi\varepsilon_{0}r} \\
-\frac{Q}{V_{\text{esfera}}} &= 4\pi e_{0}r = C
-\end{align}
-$$
-
-Por lo que, generalizando para cualquier otra forma, obtenemos...
-$$
-V = \frac{Q}{C} \iff C = \frac{Q}{V} \iff Q = V·C
-$$
-
-Usar $C$ como constante es una forma de abstraer la forma y material del conductor en el cálculo de la carga y el potencial. Por ejemplo, una conductor más grande tendría una $C$ más grande, pero si te la dan como constante, no necesitas saber que forma o tamaño tiene.
-
-También podemos deducir que un dispositivo que pueda acumular una carga alta teniendo un potencial bajo tendrá una capacidad muy alta.
-
-La unidad de $C$ es el Faradio, o $\pu{ F }$, y se suele medir en $\mu F$ o $mF$.
-
-$$
-[C] = \left[ \frac{Q}{V} \right] = \pu{ C/V } = \pu{ A/Vs } = \pu{ F }
-$$
-
-## Condensador
-
-El condensador es el sistema formado por dos conductores con influencia electroestática total, aunque en la práctica no sea completamente total.
-
-Por ejemplo, dos superficies cargadas positiva y negativamente serían condensadores perfectos si fuesen infinitas porque al no haber extremos las líneas de campo no se pueden curvas en los extremos, pero como en la práctica eso es imposible, siempre va a haber alguna línea de campo que se curve.
-
-![[esquema condensador.png]]
-
-La capacidad de este condensador teórico sería $C = \frac{Q}{\Delta V}$, o simplemente $C = \frac{Q}{V}$.
-
-Por Gauss, también podemos sacar el campo eléctrico y la carga encerrada:
-$$
-\begin{gather}
-E = \frac{\sigma}{2\varepsilon_{0}} + \frac{\sigma}{2\varepsilon_{0}} = \frac{\sigma}{\varepsilon_{0}}
- \\
-Q = \sigma·S
-\end{gather}
-$$
-
-Y de ahí podemos sacar el potencial:
-$$
-\Delta V = -\int E\,dd = \frac{\sigma}{\varepsilon }d
-$$
-
-Y de ahí la capacidad:
-
-$$
-C = \Delta V^{-1} · Q = \frac{\varepsilon_{0}}{\sigma d}·\sigma S = \frac{\varepsilon_{0}S}{d}
-$$Por tanto, todas las capacidades son de la forma superficie por $\varepsilon_{0}$ entre distancia.
