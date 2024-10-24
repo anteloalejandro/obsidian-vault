@@ -133,6 +133,10 @@
   { trigger: "mapsto", replacement: "\\mapsto", options: "mA" },
   { trigger: "=>", replacement: "\\implies", options: "mA" },
   { trigger: "=<", replacement: "\\impliedby", options: "mA" },
+  { trigger: "darr", replacement: "\\Downarrow", options: "mA" },
+  { trigger: "larr", replacement: "\\Leftarrow", options: "mA" },
+  { trigger: "uarr", replacement: "\\Uparrow", options: "mA" },
+  { trigger: "rarr", replacement: "\\Rightarrow", options: "mA" },
 
   { trigger: "and", replacement: "\\cap", options: "mA" },
   { trigger: "And", replacement: "\\bigcap", options: "mA" },

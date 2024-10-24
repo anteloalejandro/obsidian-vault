@@ -1,5 +1,5 @@
 ---
-todo: true
+todo: false
 ---
 
 # Capacidad
@@ -120,3 +120,57 @@ V_{C_{\text{eq}}} = V_{A} - V_{B} = \sum_{i}V_{C_{i}} \\
 $$
 
 Por lo que poner condensadores en paralelo es equivalente a tener un sólo condensador con la superficie combinada de los 3 en la fórmula del condensador ideal, y ponerlos en serie es equivalente a tener un sólo condensador cuya distancia es igual a la suma de las distancias entre todos ellos.
+
+# Energía potencial de un condensador
+
+Teniendo en cuenta que $\Delta E_{p} = \Delta U = q\Delta V$, si aplicamos un $dq$ (un sólo electrón, cantidad infinitesimal de carga) sobre un condensador éste último no ejerce fuerza en contra, pero conforme se van añadiendo cargas se va acumulando también un diferencial de potencial $dV$, lo que resultará en un diferencial de energía potencial $dU$.
+
+$$
+\begin{gather}
+\Delta U = q\Delta V \\
+\Downarrow \\
+dU = dq·dV = \frac{q}{C} dq\\
+\Downarrow \\
+\int_{0}^{U} dU = \int_{0}^{Q} \frac{q}{C} dq \iff U = \frac{Q^{2}}{2C} \\
+
+\text{U y Q son el trabajo y carga finales} \\
+
+\end{gather}
+$$
+Sabiendo que $Q = C·V$, se pueden sacar unas cuantas relaciones:
+
+$$
+U = \frac{Q^{2}}{2C} = \frac{1}{2} C·V^{2} = \frac{1}{2}Q·V
+$$
+
+Estas diferentes relaciones pueden ser útiles en diferentes circunstancias. Si sabes que el potencial es constante (conectado a la fuente, por ejemplo), interesa más utilizar una de las dos últimas expresiones.
+
+Que las fórmulas de $\Delta U$ y $U$ idénticas menos por el $\frac{1}{2}$ no es coincidencia; como la relación entre $Q$ y $U$ es linear, al integrar estamos sacando el **área de un triángulo de base $Q$ y altura $V$.**
+
+# Densidad energética del condensador (trabajo)
+
+$$
+W_{E} = \frac{\varepsilon_{0}E^{2}}{2}
+$$
+
+La densidad energética de cualquier cosa que actúe como una onda tiene una forma similar: el producto de unos parámetros ($\varepsilon_{0}$) y el cuadrado de la energía ($E^{2}$) dividido entre 2.
+
+La densidad energética es, como su nombre indica, la relación entre **energía y volumen**.
+$$
+W_{E} = \frac{d\mathrm{Energía}}{d\mathrm{Volumen}} \implies [W_{E}] = \pu{ J/m3 }.
+$$
+
+De nuevo, al modelar el condensador como dos superficies infinitas, las líneas de campo de ninguna de las dos superficies escapan hacia fuera, por lo que solo tenemos campo eléctrico entre las dos superficies interiores del condensador $S$, a lo largo de la distancia entre ellos $d$. 
+
+$$
+\begin{gather}
+U = \frac{CV^{2}}{2} \quad V = |E|·d \quad C = \frac{\varepsilon_{0}S}{d} \\
+U = \frac{1}{2} \frac{\varepsilon_{0}S}{d} |E|^{2}d^{2}  = \frac{1}{2} \varepsilon_{0}E^{2}·\underbrace{ S·d }_{ \text{Volumen} } \\
+\Downarrow \\
+\frac{U}{\text{Volumen}} = \frac{U}{S·d} = \frac{1}{2}\varepsilon_{0}E^{2} \\
+\Downarrow \\
+\frac{dU}{d(Sd)} = W_{E} = \frac{\varepsilon_{0}E^{2}}{2}
+\end{gather}
+$$
+
+Evidentemente $Sd$ es el volumen en este caso, según la forma del condensador será un valor u otro, pero la solución general se da para todas las formas.
