@@ -137,6 +137,7 @@
   { trigger: "larr", replacement: "\\Leftarrow", options: "mA" },
   { trigger: "uarr", replacement: "\\Uparrow", options: "mA" },
   { trigger: "rarr", replacement: "\\Rightarrow", options: "mA" },
+  { trigger: "dash", replacement: "\\textendash", options: "mA" },
 
   { trigger: "and", replacement: "\\cap", options: "mA" },
   { trigger: "And", replacement: "\\bigcap", options: "mA" },
