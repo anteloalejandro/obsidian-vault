@@ -16,5 +16,6 @@
   "obsidian-footnotes",
   "obsidian-paste-image-rename",
   "obsidian-tikzjax",
-  "execute-code"
+  "execute-code",
+  "find-unlinked-files"
 ]
