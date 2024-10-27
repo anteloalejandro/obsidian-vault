@@ -1,8 +1,5 @@
 
-Es importante recordar que la derivada del coseno es la inversa del cuadrado del coseno.
-$$
-\frac{d}{d\theta}(\tan \theta) = \frac {1}{\cos ^{2}\theta}
-$$
+
 # Carga eléctrica
 
 Es una propiedad fundamental de la materia, igual que lo son la masa y el volumen, cuya unidad mínima es la carga del electrón. Se mide en Culombios, $\mathrm{C}$.
@@ -100,6 +97,86 @@ Cuando se trabaja con superficies paralelas en vez de con cargas puntuales, la t
 ![[línea de campo superficie.png]]
 
 Sin embargo, si las modelamos como superficies infinitas, al no tener extremos, las líneas de campo siempre serán perpendiculares a las superficies.
+
+# Campos generados por distribuciones continuas
+
+Según el tipo de distribución de cuerpo, se usa un valor diferente para el diferencial de $q$. 
+
+$$
+\begin{align}
+dq &= \lambda dl & [\lambda] &= \pu{ C/m } \\
+dq &= \sigma ds  & [\sigma] &= \pu{ C/m2 } \\
+dq &= \rho dV  & [\rho] &= \pu{ C/m3 }
+\end{align}
+$$
+
+Además, el diferencial del campo eléctrico es la fuerza electrostática por el diferencial de carga.
+
+$$
+d\vec{E} = dq\vec{F}
+$$
+
+## Cálculo del campo eléctrico de varilla con $\lambda$ cte.
+
+Dada una varilla cargada, calcularemos el campo eléctrico en un punto de la varilla, que está a una distancia (dibujando una línea ortogonal) $R$.
+
+El diferencial de carga $dq$ será la carga de una sección infinitesimal de dicha varilla. Como tal, se puede tratar como un punto, y se puede dibujar una línea desde $dq$ al punto en $R$, que nos informará de en que dirección irá el $d\vec{E}$ producido por $dq$ desde el punto de vista del punto. 
+
+![[Pasted image 20241027020033.png]]
+
+Dado que $dq$ la carga de una sección infinitesimal arbitraria de la varilla, no bastará con calcular el $d\vec{E}$ para un sólo valor de $dq$ para obtener el campo eléctrico sobre el punto, sino que habrá que hacer la suma de todos los posibles $d\vec{E}$. Es decir, integraremos $d\vec{E}$ para obtener $\vec{E}$.
+
+$$
+\vec{E} = \int d\vec{E}
+$$
+De momento, cojamos sólo la componente $x$ de $\vec{E} = (E_{x}, E_{y})$
+
+$$
+E_{x} = \int |d\vec{E}| \cos \theta = \int dE \cos \theta
+$$
+![[Pasted image 20241027021127.png]]
+
+Al ser la varilla ortogonal a $E_{x}$, sabemos que $dq = \lambda dl = \lambda dy$, que no es lo mismo que $dr$ o $d\vec{E}$ porque estas podrían no ser ortogonales.
+
+$$
+\begin{align}
+E_{x} &= \int \frac{1}{4\pi\varepsilon_{0}r^{2}} ·\cos \theta· dq = \int \frac{\lambda dy}{4\pi\varepsilon_{0}r^{2}} · \cos \theta
+\end{align}
+$$
+
+El problema es que en principio ahora hay tres variables que importan a la hora de integrar: $y,r,\theta$ (nótese que $R$ es cte). Por suerte, las tres variables son dependientes; modificar una modifica todas las demás.
+
+Por convenio, vamos a escoger siempre usar el ángulo $\theta$ como punto de referencia. Es importante recordar que la derivada del coseno es la inversa del cuadrado del coseno.
+$$
+\frac{d}{d\theta}(\tan \theta) = \frac {1}{\cos ^{2}\theta} d\theta
+$$
+
+Siendo $r$ la distancia del punto $(0, y)$ hasta el punto $(R, 0)$, por lo que $r$ es la hipotenusa del triángulo que tiene como catetos a $y$ y $R$.
+
+$$
+\begin{align}
+R = r·\cos \theta \iff r &= \frac{R}{\cos \theta} \\
+y = r · \sin \theta = R· \frac{\cos \theta}{\sin \theta} = R · \tan \theta \iff dy &= \frac{R}{\cos ^{2}\theta} d\theta
+\end{align}
+$$
+
+Ahora que ya tenemos todas las variables en términos de $\theta$, se puede calcular la componente $x$ del campo eléctrico.
+
+$$
+\begin{align}
+E_{x} &= \int_{\theta_{min}}^{\theta_{max}} \frac{\lambda}{4\pi\varepsilon_{0}}· \left(\frac{R}{\cos \theta}\right)^{-2} · \frac{R}{\cos ^{2}\theta} · \cos \theta · d\theta \\
+&= \frac{\lambda}{4 \pi \varepsilon_{0}} \int_{\theta_{min}}^{\theta_{max}} \frac{1}{R} ·\cos \theta \, d\theta = \frac{\lambda}{4\pi\varepsilon_{0}R} \int_{\theta_{min}}^{\theta_{max}} \cos \theta \, \theta \\
+E_{x} &= \frac{\lambda}{4\pi\varepsilon_{0}R} \left[\sin \theta \right]^{\theta_{max}}_{\theta_{min}} = \frac{\lambda}{4\pi\varepsilon_{0}R} (\sin \theta_{max} - \sin \theta_{min})
+\end{align}
+$$
+
+Si modelamos la varilla como una varilla de longitud infinita, los ángulos máximos y mínimos serían infinitamente cercanos a $\theta_{max} = 90º$ y $\theta_{min} = -90º$, así que los senos darían $1-(-1) = 2$.
+
+$$
+E_{x} = \frac{\lambda}{2\pi\varepsilon_{0}R}
+$$
+
+Se aquí se puede extrapolar $E_{y}$ cambiando los senos por cosenos y a partir de ahí se puede sacar $E_{x}$.
 
 # Pie de página
 

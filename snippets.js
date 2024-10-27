@@ -41,8 +41,6 @@
 
   { trigger: "ups", replacement: "\\upsilon", options: "mA" },
   { trigger: "Ups", replacement: "\\Upsilon", options: "mA" },
-  { trigger: "eplon", replacement: "\\epsilon", options: "mA" },
-  { trigger: "Eplon", replacement: "\\varepsilon", options: "mA" },
 
   { trigger: "([^\\\\])(${GREEK})", replacement: "[[0]]\$\\[[1]]\$", options: "rt", description: "Add backslash before Greek letters" },
 
@@ -101,6 +99,9 @@
   { trigger: /\\hat{([A-Za-z])}(\d)/, replacement: "\\hat{[[0]]}_{[[1]]}", options: "rmA" },
   { trigger: /\\vec{([A-Za-z])}(\d)/, replacement: "\\vec{[[0]]}_{[[1]]}", options: "rmA" },
   { trigger: /\\mathbf{([A-Za-z])}(\d)/, replacement: "\\mathbf{[[0]]}_{[[1]]}", options: "rmA" },
+  { trigger: /([A-Za-z])ii/, replacement: "[[0]]_{i}", options: "rmA" },
+  { trigger: /([A-Za-z])jj /, replacement: "[[0]]_{j}", options: "rmA" },
+  { trigger: /([A-Za-z])kk /, replacement: "[[0]]_{k}", options: "rmA" },
 
   // Symbols
   { trigger: "ooo", replacement: "\\infty", options: "mA" },
@@ -140,9 +141,11 @@
   { trigger: "dash", replacement: "\\textendash", options: "mA" },
 
   { trigger: "and", replacement: "\\cap", options: "mA" },
+  { trigger: "cap", replacement: "\\cap", options: "mA" },
   { trigger: "And", replacement: "\\bigcap", options: "mA" },
   { trigger: "\\bigcap", replacement: "\\bigcap_{${0:i}=${1:1}}^{${2:N}}", options: "m" },
   { trigger: "orr", replacement: "\\cup", options: "mA" },
+  { trigger: "cup", replacement: "\\cup", options: "mA" },
   { trigger: "Orr", replacement: "\\bigcup", options: "mA" },
   { trigger: "\\bigcup", replacement: "\\bigcup_{${0:i}=${1:1}}^{${2:N}}", options: "m" },
   { trigger: "inn", replacement: "\\in", options: "mA" },
@@ -189,7 +192,7 @@
   { trigger: "par", replacement: "\\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2", options: "m" },
   { trigger: /pa([A-Za-z])([A-Za-z])/, replacement: "\\frac{ \\partial [[0]] }{ \\partial [[1]] } ", options: "rm" },
   { trigger: /dd([A-Za-z])([A-Za-z])/, replacement: "\\frac{ d[[0]] }{ d[[1]] } ", options: "rm" },
-  { trigger: "ddt", replacement: "\\frac{d}{dt} ", options: "mA" },
+  { trigger: /dd([A-Za-z])/, replacement: "\\frac{ d }{ d[[0]] } ", options: "rm" },
 
   { trigger: /([^\\])int/, replacement: "[[0]]\\int", options: "mA", priority: -1 },
   { trigger: "\\int", replacement: "\\int $0 \\, d${1:x} $2", options: "m" },
