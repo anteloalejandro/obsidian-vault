@@ -100,7 +100,7 @@ Sin embargo, si las modelamos como superficies infinitas, al no tener extremos, 
 
 # Campos generados por distribuciones continuas
 
-Según el tipo de distribución de cuerpo, se usa un valor diferente para el diferencial de $q$. 
+Según el tipo de distribución de cuerpo, se usa un valor diferente para el diferencial de la carga puntual $q$, donde $\lambda$, $\sigma$ y $\rho$ son la carga uniforme por todo el cuerpo según si es una figura en una, dos o tres dimensiones.
 
 $$
 \begin{align}
