@@ -230,14 +230,45 @@ Como es inversamente proporcional a la distancia, a la energía potencial electr
 $$
 U_{r=\infty} = \frac{qQ}{4\pi\varepsilon_{0}r} = 0
 $$
-Por lo que la energía potencial en un punto, también conocido como la **energía potencial desde la carga generadora** representa el trabajo que hace falta para llevar una carga desde ese punto hasta el infinito o viceversa:
+Por lo que la energía potencial en un punto, también conocido como la **energía potencial desde la carga generadora** representa el trabajo que hace falta para llevar una carga desde ese punto hasta el infinito.
 $$
-W = \frac{qQ}{4\pi\varepsilon_{0}}\int_{r}^{\infty} \frac{1}{r^{2}} \, dr = -\frac{qQ}{4\pi\varepsilon_{0}} · \left( 0 - \frac{1}{r} \right)  = \frac{qQ}{4\pi\varepsilon_{0}r}
+W = \frac{qQ}{4\pi\varepsilon_{0}}\int_{r}^{\infty} \frac{1}{r^{2}} \, dr = -\frac{qQ}{4\pi\varepsilon_{0}} · \left( 0 - \frac{1}{r} \right)  = \frac{qQ}{4\pi\varepsilon_{0}r} = U_{r}
 $$
 
 ## Potencial eléctrico
 
-El potencial eléctrico es una función que no depende de la carga generadora.
+El potencial eléctrico es una magnitud escalar que representa el nivel energético de un **punto** (y no de una carga, eso es la energía potencial) del espacio. Su análogo en campos gravitatorios es la altura.
+
+No depende de la carga sobre la que se ejerce el trabajo, sólo del campo eléctrico al que da lugar la carga generadora.
+
+$$
+V = \frac{U_{r}}{q} = \frac{Q}{4\pi\varepsilon_{0}r} = E·r
+$$
+En caso de haber múltiples cargas puntuales, el potencial en cualquier punto no es más que la suma de cada uno de los potenciales por separado, por el principio de superposición.
+
+$$
+V = \sum_i \frac{Q_{i}}{4\pi\varepsilon_{0}r_{i}} = \frac{1}{4\pi\varepsilon_{0}}\sum_{i} \frac{Q_{i}}{r_{i}}
+$$
+
+Podemos sacar el potencial eléctrico a partir de la definición del trabajo y la energía potencial:
+
+$$
+\begin{align}
+dW &= \vec{F}\,d\vec{l} = q\vec{E}\,d\vec{l} = dU_{r}\\
+dV_{r} &= \frac{dU_{r}}{q} = \vec{E}\,d\vec{l} \\
+V_{r} &= \int_{r}^{\infty} \vec{E}\,d\vec{l} = \int_{r}^{\infty} E\,dl
+\end{align}
+$$
+
+Y, además, la diferencia de potencial entre $A$ y $B$, siendo el primero el punto inicial y el segundo el final, se define de forma muy similar al trabajo entre dos puntos.
+$$
+\begin{align}
+\Delta V = V_{A} - V_{B} = \int_{A}^{B} \vec{E} \, d\vec{l} = \int_{A}^{B} E \, dl 
+\end{align}
+$$
+
+Es importante destacar que dada la relación entre el potencial y el trabajo, si el potencial es el mismo en dos puntos el trabajo necesario para mover una carga cualquiera de un punto a otro es 0.
+
 
 # Pie de página
 
