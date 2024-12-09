@@ -178,6 +178,67 @@ $$
 
 Se aquí se puede extrapolar $E_{y}$ cambiando los senos por cosenos y a partir de ahí se puede sacar $E_{x}$.
 
+# Trabajo
+
+El trabajo es la energía transferida a o desde un objeto, que está formada por la fuerza aplicada a dicho objecto y un vector de dirección que indica hacia donde se hace el trabajo.
+
+Dada una carga puntual $Q$, el campo eléctrico generado en un punto $P$ cualquiera será igual a $\vec{E} = \frac{Q}{4\pi\varepsilon_{0}r^{2}}\vec{u}_{r}$, donde $\vec{u}_{r}$ es un vector unitario de $Q$ a $P$. Si colocamos una carga $q$ en $P$ y aplicamos un desplazamiento infinitesimal $d\vec{l}$, el trabajo que hace la carga $Q$ sobre $q$ para llevar a cabo dicho desplazamiento será igual a $dW = \vec{F} · d\vec{l}$. Además, el desplazamiento está formado por dos componentes $d\vec{l} = (dr, dt) = dr·\vec{u}_{r} + dt·\vec{u}_{t}$, donde $\vec{u}_{t}$ es perpendicular a $\vec{u}_{r}$, y $dt$ a $dr$. Por tanto, el trabajo ejercido para llevar a cabo un desplazamiento infinitesimal es:
+
+$$
+\begin{align}
+dW &= \vec{F}·d\vec{l} = q \frac{Q}{4\pi\varepsilon_{0} r^{2}}\vec{u}_{r} · (dr · \vec{u}_{r} + dt · \vec{u}_{t}) = q \frac{Q}{4\pi\varepsilon_{0}r^{2}}·(dr · \cancelto{ 1 }{ \vec{u}_{r} · \vec{u}_{r} } + dt · \cancelto{ 0 }{ \vec{u}_{t} · \vec{u}_{r} })\\
+ dW &= \frac{qQ}{4\pi\varepsilon_{0}r^{2}}dr = F·dr
+\end{align}
+$$
+
+![[Trabajo del campo eléctrico.png]]
+
+Para calcular el trabajo que ejerce una carga $Q$ para llevar la carga $q$ del punto $A$ al punto $B$ siguiendo una línea (no necesariamente recta) $L$,  siendo $\vec{r}_{B}$ el vector de $Q$ a $B$ y $\vec{r}_{A}$ el vector de $Q$ a $A$, hay que sumar todas las secciones infinitesimales que forman $L$, que son las $d\vec{l}$.
+
+$$
+\begin{align}
+W^{L}_{AB} &= W_{AB} = \int_{A}^{B} \vec{F}\, d\vec{l} = \int_{r_{A}}^{r_{B}} \frac{qQ}{4\pi\varepsilon_{0}r^{2}}\, dr = \frac{qQ}{4\pi\varepsilon_{0}} \int_{r_{A}}^{r_{B}} \frac{1}{r^{2}}\,dr = - \frac{qQ}{4\pi\varepsilon_{0}} · \left( \frac{1}{r_{B} } - \frac{1}{r_{A}} \right) \\
+W_{AB} &= \frac{qQ}{4\pi\varepsilon_{0}r_{A}} - \frac{qQ}{4\pi\varepsilon_{0}r_{B}}
+\end{align}
+$$
+
+*Nótese que el trabajo sólo depende de las cargas y las distancias entre ellas, por lo que cualquier camino, sea directo o dando vueltas, requerirá exactamente el mismo trabajo, así que $L$ no importa.*
+
+![[Trabajo del campo eléctrico sobre una línea.png]]
+
+El trabajo sólo es una magnitud, pero en función de si es positivo o negativo se puede extrapolar algo más de información. Cuando el trabajo es positivo, significa que el propio campo eléctrico es el que ejerce el trabajo, pero si es negativo, significa que hay una fuerza externa ejerciendo el trabajo, que vence al campo eléctrico.
+
+Si ambas cargas son del mismo signo, la fuerza que actúa entre ellas es repulsiva, y en caso contrario atractiva. En caso de que que sea repulsiva y $B$ esté más alejado de $Q$ que $A$, la fuerza además es positiva, y en caso contrario negativa. Del mismo modo, si la fuerza es atractiva y $B$ está más cerca de $Q$ que $A$, es positiva y, en caso contrario, negativa.
+
+Así, aparecen de forma natural las siguientes propiedades del trabajo:
+$$
+\begin{matrix}
+W^{L}_{AB} = W^{L'}_{AB} = W_{AB} &&& W_{AB} = -W_{BA} &&& W_{AA} = 0
+\end{matrix}
+$$
+
+A los campos que cumplen estas propiedades se les llama **campos conservativos**, que son aquellos en los que aplicar un trabajo (o, análogamente, un desplazamiento) implica que la energía empleada para llevarlo a cabo se transforma en energía potencial que puede ser devuelta.
+
+## Energía potencial electrostática
+
+En el campo eléctrico, el trabajo para llevar una carga de A a B se puede escribir como **la diferencia de energía potencial** de la carga en dos puntos diferentes. A la energía potencial en cada punto, la llamamos $U$.
+$$
+W_{AB} = \frac{qQ}{4\pi\varepsilon_{0}r_{A}} - \frac{qQ}{4\pi\varepsilon_{0}r_{B}} = U_{A} - U_{B}
+$$
+
+Como es inversamente proporcional a la distancia, a la energía potencial electrostática de cualquier carga en el infinito se la define así:
+$$
+U_{r=\infty} = \frac{qQ}{4\pi\varepsilon_{0}r} = 0
+$$
+Por lo que la energía potencial en un punto, también conocido como la **energía potencial desde la carga generadora** representa el trabajo que hace falta para llevar una carga desde ese punto hasta el infinito o viceversa:
+$$
+W = \frac{qQ}{4\pi\varepsilon_{0}}\int_{r}^{\infty} \frac{1}{r^{2}} \, dr = -\frac{qQ}{4\pi\varepsilon_{0}} · \left( 0 - \frac{1}{r} \right)  = \frac{qQ}{4\pi\varepsilon_{0}r}
+$$
+
+## Potencial eléctrico
+
+El potencial eléctrico es una función que no depende de la carga generadora.
+
 # Pie de página
 
 [^1]: [[Condensadores#Capacidad]]
