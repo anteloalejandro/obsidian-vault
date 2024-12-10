@@ -94,6 +94,14 @@
   { trigger: "over", replacement: "\\overline{$0}$1", options: "mA" },
   { trigger: "vec", replacement: "\\vec{$0}$1", options: "mA" },
 
+  // pretty i and j
+  { trigger: "ihat", replacement: "\\hat{\\imath}$0", options: "mA", priority: 1 },
+  { trigger: "jhat", replacement: "\\hat{\\jmath}$0", options: "mA", priority: 1 },
+  { trigger: "ivec", replacement: "\\vec{\\imath}$0", options: "mA", priority: 1 },
+  { trigger: "jvec", replacement: "\\vec{\\jmath}$0", options: "mA", priority: 1 },
+  { trigger: "ibar", replacement: "\\bar{\\imath}$0", options: "mA", priority: 1 },
+  { trigger: "jbar", replacement: "\\bar{\\jmath}$0", options: "mA", priority: 1 },
+
   // More auto letter subscript
   { trigger: /([A-Za-z])_(\d\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA" },
   { trigger: /\\hat{([A-Za-z])}(\d)/, replacement: "\\hat{[[0]]}_{[[1]]}", options: "rmA" },
