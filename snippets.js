@@ -7,8 +7,10 @@
   { trigger: "mm", replacement: "$$\n$0\n$$", options: "tw" },
   { trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA" },
 
+  // spaces
   { trigger: "   ", replacement: " \\quad ", options: "mA" },
   { trigger: ",  ", replacement: ", \\quad ", options: "mA" },
+  { trigger: ",,", replacement: "\\,", options: "mA" },
 
   // Dashes
   // {trigger: "--", replacement: "–", options: "tA"},
@@ -197,7 +199,8 @@
 
 
   // Derivatives and integrals
-  { trigger: "par", replacement: "\\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2", options: "m" },
+  { trigger: "pa", replacement: "\\frac{ \\partial ${0:y} }{ \\partial ${1:x} } $2", options: "m" },
+  { trigger: "dd", replacement: "\\frac{ d ${0:y} }{ d ${1:x} } $2", options: "m" },
   { trigger: /pa([A-Za-z])([A-Za-z])/, replacement: "\\frac{ \\partial [[0]] }{ \\partial [[1]] } ", options: "rm" },
   { trigger: /dd([A-Za-z])([A-Za-z])/, replacement: "\\frac{ d[[0]] }{ d[[1]] } ", options: "rm" },
   { trigger: /dd([A-Za-z])/, replacement: "\\frac{ d }{ d[[0]] } ", options: "rm" },
