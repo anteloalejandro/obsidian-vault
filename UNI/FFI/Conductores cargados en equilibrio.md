@@ -1,6 +1,6 @@
 
 
- Cuando se le aplica un campo eléctrico a un conductor, las cargas (si el campo es positivo, las cargas negativas) se mueven en dirección al campo (generando una fuerza) hasta alcanzar el equilibrio, es decir, cuando las cargas anulen la fuerza ejercida por el campo.
+ Cuando se le aplica un campo eléctrico a un conductor, las cargas (si el campo es positivo, las cargas negativas) se mueven en dirección al campo (generando una fuerza) hasta alcanzar el equilibrio, es decir, cuando las cargas anulen la fuerza ejercida por el campo. Por tanto, una vez alcanzado el equilibrio, la suma de las fuerzas será nula.
 
  ![[equilibrio campo.png]]
 
@@ -95,8 +95,8 @@ Además, como no todas las líneas de campo de dirigirán segundo conductor, la 
 Entonces, si $Q_{i}$ es la carga en la superficie delimitada por las dos líneas, y $Q_{i}$ la carga total de cada esfera, se puede resumir lo anterior así:
 $$
 \begin{gather}
-Q_{1} = -Q_{2} \\
-Q_{1} > |Q_{2}|
+Q_{1} > 0 \iff Q_{2} < 0 \\
+|Q_{1}| > |Q_{2}|
 \end{gather}
 $$
 Además, al ser $V$ constante, la carga en toda la superficie de los conductores será igual a la carga en esa parte.
@@ -107,7 +107,7 @@ Si en vez el caso anterior tenemos un dos esferas concéntricas, como todas las 
 
 ## Principio de superposición
 
-  Cargamos inicialmente con $Q_{1}$ y $Q_{2}$ dos conductores concéntricos de radios $R_{1}$ y $R_{3}$ respectivamente. Desde el centro del conductor interior hasta la superficie interior del conductor exterior, hay un radio de $R_{2}$. Obtén el reparto de cargas en cada superficie.
+  Cargamos inicialmente con $Q_{1}$ y $Q_{2}$ dos conductores concéntricos de radios $R_{1}$ y $R_{3}$ respectivamente. Desde el centro del conductor interior hasta la superficie interior del conductor exterior, hay un radio de $R_{2}$.
   
 ![[Pasted image 20241022162004.png]]
 
@@ -117,6 +117,8 @@ Si se aplica el teorema de Gauss en el conductor exterior modelando esfera gauss
 $$
 Q_{\text{enc}} = Q_{1} + Q_{2\text{ int}} = 0 \implies Q_{2\text{ int}} = -Q_{1}
 $$
+Nótese que si la $Q_{1} = 0$, **no habría carga en la superficie interior** del conductor exterior, a pesar de que el propio conductor si que tiene una carga $Q_{2}$. Obviamente, lo mismo sucedería si no hubiese un conductor interior.
+
 Resumiendo los resultados hasta el momento: 
 > [!info]
 > $$
@@ -127,7 +129,7 @@ Resumiendo los resultados hasta el momento:
 > \end{align}
 > $$
 
-Para calcular el campo eléctrico $\vec{E}$, se saca primero el flujo eléctrico $\phi$. Si modelamos una nueva esfera gaussiana por fuera del conductor exterior, ahora si que hay un flujo que se puede calcular porque no estamos dentro de un conductor. Dado que $\phi = \frac{Q_{\text{enc}}}{\varepsilon_{0}}$, como en este caso $Q_{\text{enc}} = Q_{2\text{ ext}}$...
+Para calcular el campo eléctrico $\vec{E}$, se saca primero el flujo eléctrico $\phi$. Si modelamos una nueva esfera gaussiana por fuera del conductor exterior, ahora sí que hay un flujo que se puede calcular porque no estamos dentro de un conductor. Dado que $\phi = \frac{Q_{\text{enc}}}{\varepsilon_{0}}$, como en este caso $Q_{\text{enc}} = Q_{2\text{ ext}}$...
 $$
 \phi = \frac{Q_{\text{enc}}}{\varepsilon_{0}} = \frac{Q_{1}+Q_{2}}{\varepsilon_{0}}
 $$
