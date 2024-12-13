@@ -211,6 +211,39 @@ Con esta información, se puede estimar también la forma que tendrían las dife
 > \end{align}
 > $$
 
+# Conexión a Tierra
+
+Tenemos dos esferas conductoras de radios $R_{1}$ y $R_{2}$ conectadas mediante un hilo conductor de capacidad despreciable, y se reparte una $Q$ desde la primera hasta la segunda hasta que se alcanza el equilibrio.
+
+Dado que tenemos conectadas dos esferas conductoras en equilibrio, cada una de estas se reparte la carga $Q$ en función de sus radios y el potencial en ambas es idéntico al potencial en la figura entera.
+
+$$
+\begin{rcases}
+&Q = Q_{1} + Q_{2} \\
+&V = \frac{Q_{1}}{4\pi\varepsilon_{0}R_{1}} = \frac{Q_{2}}{4\pi\varepsilon_{0}R_{2}} = \frac{Q}{4\pi\varepsilon_{0}(R_{1}+R_{2})}
+\end{rcases}
+\, Q_{1} = \frac{QR_{1}}{R_{1}+R_{2}} , \,Q_{2} = \frac{QR_{2}}{R_{1}+R_{2}}
+$$
+
+Si tomamos a $R_{2}$ como la Tierra y $R_{2} \gg R_{1}$, podemos sacar el límite cuando el tamaño de la Tierra es $\infty$ para sacar una aproximación cruda de cuales serían las cargas de la tierra y una esfera conductora conectada a esta de radio $R_{1}$.
+
+$$
+\begin{align}
+\lim_{ R_{2} \to \infty } Q_{1} &= \lim_{ R_{2} \to \infty } \frac{QR_{1}}{R_{1}+R_{2}} = 0 \\
+\lim_{ R_{2} \to \infty } Q_{2} &= \lim_{ R_{2} \to \infty } \frac{QR_{2}}{R_{1}+R_{2}} = Q
+\end{align}
+$$
+
+Es decir, la Tierra se lleva toda la carga, y la esfera conductora se queda completamente descargada. Además, el potencial eléctrico se anula en ambas esferas.
+
+$$
+\begin{align}
+\lim_{ R_{2} \to \infty } V = \lim_{ R_{2} \to \infty }  \frac{Q_{1}}{4\pi\varepsilon_{0}R_{1}} = \lim_{ R_{2} \to \infty }  \frac{0}{4\pi\varepsilon_{0}R_{1}} = 0 \\
+\lim_{ R_{2} \to \infty } V = \lim_{ R_{2} \to \infty } \frac{Q_{2}}{4\pi\varepsilon_{0}R_{2}} = 0 \\
+\lim_{ R_{2} \to \infty } V = \lim_{ R_{2} \to \infty } \frac{Q}{4\pi\varepsilon_{0}(R_{1}+R_{2})} = 0
+\end{align}
+$$
+
 # Apantallamiento
 
 Decimos que la Tierra tiene siempre $V = 0$ porque es un conductor tan grande que a escalas normales cualquier carga genera un campo eléctrico despreciable.
