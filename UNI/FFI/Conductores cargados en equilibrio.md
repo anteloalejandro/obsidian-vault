@@ -50,7 +50,7 @@ Q_{2} = 3Q
 \end{gather}
 $$
 
-Como $\sigma$ es igual a $\frac{Q}{S}$, se pueden calcular los valores de sigma así:
+Como $\sigma$ es igual a $\frac{Q}{S}$, se pueden calcular los valores de $\sigma$ así:
 
 $$
 \begin{gather}
