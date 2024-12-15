@@ -174,3 +174,16 @@ U = \frac{1}{2} \frac{\varepsilon_{0}S}{d} |E|^{2}d^{2}  = \frac{1}{2} \varepsil
 $$
 
 Evidentemente $Sd$ es el volumen en este caso, según la forma del condensador será un valor u otro, pero la solución general se da para todas las formas.
+
+# Simplificaciones
+
+En la práctica se usan simplificaciones de los diferentes conceptos físicos.
+
+Dada la permitividad relativa del medio $\varepsilon_{r} \in [1,\infty)$, la capacidad $C$ pasa a calcularse así.
+$$
+\begin{gather}
+C = \frac{\varepsilon S}{d} \\
+\varepsilon = \varepsilon_{r} \varepsilon_{0}
+\end{gather}
+$$
+
