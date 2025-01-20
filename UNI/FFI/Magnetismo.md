@@ -28,4 +28,50 @@ Por tanto, aparece un campo eléctrico *entre* estas dos caras que produce una f
 
 ![[Magnetismo - Efecto Hall 2.png]]
 
-Para las cargas que siguen la trayectoria marcada por $\vec{v}$, se cumple necesariamente que $\vec{F}_{e}$ anula a $\vec{F}_{m}$, es decir, que $F_{e} - F_{m} = 0 \iff F_{e} = F_{m}$. Además, al ser $\vec{v}$ y $\vec{B}$ perpendiculares, $|\vec{v} \times \vec{B}| = \vec{v} · \vec{B} · \sin 90º$
+Para las cargas que siguen la trayectoria marcada por $\vec{v}$, se cumple necesariamente que $\vec{F}_{e}$ anula a $\vec{F}_{m}$, es decir, que $F_{e} - F_{m} = 0 \iff F_{e} = F_{m}$. Además, al ser $\vec{v}$ y $\vec{B}$ perpendiculares, $|\vec{v} \times \vec{B}| = \vec{v} · \vec{B} · \cancelto{ 1 }{ \sin 90º } = v·B$. Por tanto...
+
+$$
+\begin{align}
+\vec{F}_{m} = \vec{F}_{e} &= q·v·B \\
+E &= v·B \\
+\end{align}
+$$
+
+Además, la diferencia potencial entre estas dos caras $V_{H}$, llamada *voltaje de Hall* es igual directamente proporcional a la velocidad de los electrones, la magnitud del campo magnético y la distancia entre las dos caras cargadas.
+
+$$
+V_{H} = E·d = v·B·d = \frac{I}{n·q·S} ·B·d
+$$
+
+Este es la base del funcionamiento de los teslámetros, medidores de campo magnético.
+
+# Fuerza en un conductor con corriente dentro de un campo magnético
+
+En un trozo de conductor de longitud infinitesimal $dl$, el número de cargas es $n · S · dl$, siendo $n$ el la densidad de portadores de carga y $S$ la superficie de las caras de los extremos de la figura.
+
+$$
+d\vec{F} = (q\vec{v} \times \vec{B}) ·nS\, dl
+$$
+
+Al ser la corriente $I = J·S = n·q·v·S$, también se puede expresar $d\vec{F}$ en términos de la corriente.
+
+$$
+d\vec{F} = I\,d\vec{l} \times \vec{B}
+$$
+![[Magnetismo - Fuerza en un conductor.png]]
+
+Por tanto, en cualquier cable conductor, la fuerza magnética es...
+
+$$
+\vec{F} = \int_{a}^{b} I \, d\vec{l}\times \vec{B} = I\int_{a}^{b} d\vec{l}\times \vec{B}
+$$
+
+Además, si el campo magnético es uniforme, se puede simplificar más aún, ya que podemos ignorar la forma del cable.
+
+$$
+\vec{F} = I\int_{a}^{b} d\vec{l} \times \vec{B} = I \, \left( \int_{a}^{b} d\vec{l} \right) \times \vec{B} = I \vec{\ell}_{ab} \times \vec{B}
+$$
+
+![[Magnetismo - Fuerza en conductor uniforme.png]]
+
+Como podemos ignorar la forma del cable conductor, cualquier cable que empiece y acabe en el mismo punto tendrá la misma $\vec{F}$.
