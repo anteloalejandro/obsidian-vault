@@ -17,3 +17,15 @@ Por tanto, si $\vec{v}$ y $\vec{B}$ son paralelos, $\vec{F} = 0$. Además, si la
 La idea principal aquí es que se puede encontrar la dirección del campo magnético buscando la dirección de $\vec{v}$ para la que $F = 0$.
 
 # Efecto Hall
+
+Ocurre cuando una corriente $I$ circula por un conductor dentro de un campo magnético perpendicular a $I$.
+
+Supongamos un cuerpo tridimensional a través del cual pasa una corriente $I$ y un campo magnético $\vec{B}$ perpendicular a esta. Esto implica que los electrones se mueven con una velocidad $\vec{v}$ que va en sentido contrario a $I$, por lo que $\vec{B}$ también es perpendicular a $\vec{v}$. Por tanto, se producirá una fuerza $\vec{F}_{m}$ hacia abajo que desviará a los electrones hacia la dirección indicada por $\vec{v} \times \vec{B}$, que será necesariamente una cara diferente a la que atraviesa $I$ y a la que atraviesa $\vec{B}$. Como resultado, se produce una diferencia de carga eléctrica entre las caras que solo atraviesa el producto vectorial, en vez de entre las caras que atraviesa la corriente o el campo magnético.
+
+![[Magnetismo - Efecto Hall 1.png]]
+
+Por tanto, aparece un campo eléctrico *entre* estas dos caras que produce una fuerza eléctrica $\vec{F}_{e}$ en dirección contraria a $\vec{F}_{m}$, por lo que también aparece una diferencia potencial.
+
+![[Magnetismo - Efecto Hall 2.png]]
+
+Para las cargas que siguen la trayectoria marcada por $\vec{v}$, se cumple necesariamente que $\vec{F}_{e}$ anula a $\vec{F}_{m}$, es decir, que $F_{e} - F_{m} = 0 \iff F_{e} = F_{m}$. Además, al ser $\vec{v}$ y $\vec{B}$ perpendiculares, $|\vec{v} \times \vec{B}| = \vec{v} · \vec{B} · \sin 90º$
