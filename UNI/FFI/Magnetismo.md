@@ -75,3 +75,40 @@ $$
 ![[Magnetismo - Fuerza en conductor uniforme.png]]
 
 Como podemos ignorar la forma del cable conductor, cualquier cable que empiece y acabe en el mismo punto tendrá la misma $\vec{F}$.
+
+# Momento magnético
+
+Dada una espira plana rectangular de lados $a$ y $b$ dentro de un campo magnético uniforme $\vec{B}$, por la que pasa una corriente $I$ por su perímetro (es decir, por el cable), podemos entender la espira como un conjunto de 4 conductores (uno por cada lado) sobre los que actúa una fuerza diferente en cada lado.
+
+![[Magnetismo - Momento magnético 1.png]]
+
+*Nótese que los vectores correspondientes a cada lado tienen que seguir el sentido de la intensidad.*
+
+La fuerza total que actúa sobre la espira es la suma de todas las fuerzas, que acaban anulándose. También se puede entender la espira como una línea que empieza y acaba en el mismo sitio, por lo que $\ell_{AB} = 0 \implies \vec{F} = 0$, de modo que este resultado se va a aplicar para cualquier tipo de curva, **siempre y cuando $\vec{B}$ sea uniforme**.
+
+Esto lo que nos dice es que la espira **no se va a desplazar**, pero no significa que no haya ningún tipo de movimiento. De hecho, los pares de fuerzas en direcciones opuestas generan un **movimiento rotatorio**, o **momento**.
+
+El momento $\vec{M}$ será la suma de las fuerzas de todas las fuerzas que lo forman, $\vec{\tau}_{i}$, que a su vez serán el resultado del producto vectorial entre un vector desde el centro de la espira hasta el centro del vector que forma cada lado y el vector de la fuerza correspondiente a cada lado.
+
+![[Magnetismo - Momento mangético 2.png]]
+
+En este rectángulo el momento $\vec{M}$ es, teniendo en cuenta que $\vec{F}_{i} = I\ell_{i} \times \vec{B}$ y que cuando $\ell_{i}$ tiene $\vec{a}$ entonces $F_{i}$ tiene $\vec{b}$ y viceversa...
+$$
+\vec{M} = \sum \vec{\tau}_{i} = I(\vec{b}\times \vec{a})\times \vec{B}
+$$
+$(\vec{b}\times \vec{a}) = \vec{S}$ y $\vec{b} \perp \vec{a}$, por lo que $|\vec{a} \times \vec{b}| = a·b·\cancelto{ 1 }{ \sin \alpha } = a·b = S$. Nótese que $S$ es la superficie formada por la espira y $\vec{S}$ es el vector normal de la superficie. Además, al producto de la intensidad y el vector de la superficie formada por la espira se le denomina **momento magnético**, o $\vec{\mu}$, medido en $\text{A m}^{2}$, y $\vec{M} = \vec{\mu} \times \vec{B}$.
+
+$$
+\begin{gather}
+\vec{S} = \vec{b} \times \vec{a} \implies S= b·a \\
+\vec{\mu} = I·\vec{S} \implies \mu = I·S \\
+ \\
+\vec{M} = \vec{\tau}  = \vec{\mu} \times \vec{B}
+\end{gather}
+$$
+
+Teniendo en cuenta que, al ser $\vec{\mu}$ el producto $I·\vec{S}$, $\vec{\mu}$ sigue la misma dirección que y comparten un origen $\vec{S}$. Es decir, $\vec{\mu}$ es perpendicular a la superficie. El único caso en el que la espira deja de girar, es decir, el único caso en el que $\vec{\tau} = 0$, es cuando $\vec{\mu}$ y $\vec{B}$ son paralelos.
+
+Dicho de otro modo, la espira, una vez expuesta a un campo magnético uniforme, girará hasta orientarse de modo que su cara apunte hacia la dirección del campo magnético.
+
+También cabe destacar que si hay un conjunto de espiras idénticas (lo que se conoce como una **bobina**), $\vec{\mu} = n·I\vec{S}$.
