@@ -30,3 +30,12 @@ Para resolver un circuito usando nudos, mallas y las leyes de Kirchoff, se deben
 ![[Redes eléctricas - Cálculo Kirchoff.png]]
 
 En caso de que haya receptores y la dirección elegida para la intensidad no sea correcta no basta invertir su dirección, ya que el valor absoluto tampoco será correcto. Por tanto, hay que volver a calcular dicha malla con la dirección correcta.
+
+# Principio de superposición
+
+Si hay un circuito con varios generadores, la solución del circuito es la suma algebraica de las soluciones de cada generador ideal actuando en solitario.
+
+![[Redes eléctricas - Principio de superposición.png]]
+
+# Teorema de Thevenin
+
