@@ -39,3 +39,4 @@ Si hay un circuito con varios generadores, la solución del circuito es la suma 
 
 # Teorema de Thevenin
 
+El teorema de Thevenin dice que cualquier circuito cerrado o conjunto de mallas en el que todos los componentes tienen una relación lineal entre tensión, corriente y resistencia se puede modelar como un circuito más simple con una sola fuente de tensión ideal $\varepsilon_{T}$ y una sola resistencia $R_{T}$.
