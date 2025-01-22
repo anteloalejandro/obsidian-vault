@@ -56,3 +56,23 @@ El coeficiente de inducción mutua en la primera espira producida por la segunda
 $$
 M_{21} = \frac{\phi_{21}}{I_{1}} = \frac{\phi_{12}}{I_{2}} = M_{12} = M
 $$
+El flujo de por sí es directamente proporcional a la intensidad, así que en realidad $M$ acaba anulando la $I$, por lo que sólo depende de la geometría.
+Por ejemplo, dada una varilla de longitud infinita:
+$$
+M = \frac{\phi}{I} = \frac{B·S}{I} = \frac{\mu_{0}I·S}{2\pi d·I} = \frac{\mu_{0}S}{2\pi d}
+$$
+
+Además, por su relación con el flujo, se puede usar $M$ para calcular la fuerza electromotriz, y como es constante, se saca de la derivada.
+
+$$
+|\varepsilon| = \frac{d\phi}{dt} = \frac{d(MI)}{dt} = M \frac{dI}{dt}
+$$
+
+# Autoinducción
+
+Las bovinas, al estar formadas de múltiples espiras o poder ser modelada como un conjunto de espiras, experimenta la inducción mutua con diferentes secciones de ella misma. El coeficiente de autoinducción $L$ es simplemente...
+
+$$
+L = \frac{\phi}{I} \implies \phi = L·I = n·B·S
+$$
+![[Inducción electromagnética - Autoinducción.png]]
