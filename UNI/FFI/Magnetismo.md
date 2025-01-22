@@ -88,22 +88,22 @@ La fuerza total que actúa sobre la espira es la suma de todas las fuerzas, que 
 
 Esto lo que nos dice es que la espira **no se va a desplazar**, pero no significa que no haya ningún tipo de movimiento. De hecho, los pares de fuerzas en direcciones opuestas generan un **movimiento rotatorio**, o **momento**.
 
-El momento $\vec{M}$ será la suma de las fuerzas de todas las fuerzas que lo forman, $\vec{\tau}_{i}$, que a su vez serán el resultado del producto vectorial entre un vector desde el centro de la espira hasta el centro del vector que forma cada lado y el vector de la fuerza correspondiente a cada lado.
+El momento $\vec{\tau}$ será la suma de las fuerzas de todas las fuerzas que lo forman, $\vec{\tau}_{i}$, que a su vez serán el resultado del producto vectorial entre un vector desde el centro de la espira hasta el centro del vector que forma cada lado y el vector de la fuerza correspondiente a cada lado.
 
 ![[Magnetismo - Momento mangético 2.png]]
 
-En este rectángulo el momento $\vec{M}$ es, teniendo en cuenta que $\vec{F}_{i} = I\ell_{i} \times \vec{B}$ y que cuando $\ell_{i}$ tiene $\vec{a}$ entonces $F_{i}$ tiene $\vec{b}$ y viceversa...
+En este rectángulo el momento $\vec{\tau}$ es, teniendo en cuenta que $\vec{F}_{i} = I\ell_{i} \times \vec{B}$ y que cuando $\ell_{i}$ tiene $\vec{a}$ entonces $F_{i}$ tiene $\vec{b}$ y viceversa...
 $$
-\vec{M} = \sum \vec{\tau}_{i} = I(\vec{b}\times \vec{a})\times \vec{B}
+\vec{\tau} = \sum \vec{\tau}_{i} = I(\vec{b}\times \vec{a})\times \vec{B}
 $$
-$(\vec{b}\times \vec{a}) = \vec{S}$ y $\vec{b} \perp \vec{a}$, por lo que $|\vec{a} \times \vec{b}| = a·b·\cancelto{ 1 }{ \sin \alpha } = a·b = S$. Nótese que $S$ es la superficie formada por la espira y $\vec{S}$ es el vector normal de la superficie. Además, al producto de la intensidad y el vector de la superficie formada por la espira se le denomina **momento magnético**, o $\vec{\mu}$, medido en $\text{A m}^{2}$, y $\vec{M} = \vec{\mu} \times \vec{B}$.
+$(\vec{b}\times \vec{a}) = \vec{S}$ y $\vec{b} \perp \vec{a}$, por lo que $|\vec{a} \times \vec{b}| = a·b·\cancelto{ 1 }{ \sin \alpha } = a·b = S$. Nótese que $S$ es la superficie formada por la espira y $\vec{S}$ es el vector normal de la superficie. Además, al producto de la intensidad y el vector de la superficie formada por la espira se le denomina **momento magnético**, o $\vec{\mu}$, medido en $\text{A m}^{2}$, y $\vec{\tau} = \vec{\mu} \times \vec{B}$.
 
 $$
 \begin{gather}
 \vec{S} = \vec{b} \times \vec{a} \implies S= b·a \\
 \vec{\mu} = I·\vec{S} \implies \mu = I·S \\
  \\
-\vec{M} = \vec{\tau}  = \vec{\mu} \times \vec{B}
+\vec{\tau}  = \vec{\mu} \times \vec{B}
 \end{gather}
 $$
 
