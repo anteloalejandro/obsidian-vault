@@ -14,7 +14,7 @@ Si $\vec{B}$ no es uniforme, calcular $d\phi$ se complica, y a menudo habrá que
 $$
 \begin{align}
 d\phi &= B·dS = \frac{\mu_{0}}{2\pi d}I·dS = \frac{\mu_{0}}{2\pi x}I·b\,dx \\
-\phi &= \int_{d}^{a-d} \frac{\mu_{0}}{2\pi x}I·b\,dx = \frac{\mu_{0}}{2\pi}I·b·\int_{d}^{a-d} \frac{1}{x} \, dx = \frac{\mu_{0}}{2\pi}I·b·[\ln x]_{d}^{a-d}
+\phi &= \int_{d}^{a+d} \frac{\mu_{0}}{2\pi x}I·b\,dx = \frac{\mu_{0}}{2\pi}I·b·\int_{d}^{a+d} \frac{1}{x} \, dx = \frac{\mu_{0}}{2\pi}I·b·[\ln x]_{d}^{a+d}
 \end{align}
 $$
 
@@ -40,4 +40,4 @@ Dado que $\phi = \int B·dS·\cos \alpha$, los cambios en la magnitud del flujo 
 
 La ley de Lenz propone que las polaridades de la fuerza electromotriz $\varepsilon$ y la dirección de la intensidad de corriente inducidas por campo magnético siempre son opuestas a la dirección de cambio. En el ejemplo del imán anterior, meter el imán produce una corriente hacia fuera, y sacarlo produce una corriente hacia dentro. Nótese que **no se opone al flujo, sino a la dirección de las variaciones**.
 
-La corriente inducida por el campo magnético siempre intenta mantener o compensar el flujo actual.
+La corriente inducida por el campo magnético siempre intenta mantener o compensar el flujo actual; si el campo disminuye, la corriente inducida tiene que dar como resultado un campo en la dirección del campo, y si el campo aumenta, tiene que dar un campo en dirección contraria.
