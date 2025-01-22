@@ -41,3 +41,18 @@ Dado que $\phi = \int B·dS·\cos \alpha$, los cambios en la magnitud del flujo 
 La ley de Lenz propone que las polaridades de la fuerza electromotriz $\varepsilon$ y la dirección de la intensidad de corriente inducidas por campo magnético siempre son opuestas a la dirección de cambio. En el ejemplo del imán anterior, meter el imán produce una corriente hacia fuera, y sacarlo produce una corriente hacia dentro. Nótese que **no se opone al flujo, sino a la dirección de las variaciones**.
 
 La corriente inducida por el campo magnético siempre intenta mantener o compensar el flujo actual; si el campo disminuye, la corriente inducida tiene que dar como resultado un campo en la dirección del campo, y si el campo aumenta, tiene que dar un campo en dirección contraria.
+
+# Inducción mutua
+
+Si tenemos dos espiras con corrientes $I_{1}$ e $I_{2}$ y la primera crea un campo y flujo magnético a través de la segunda $\phi_{21}$ causado por dicho campo, el coeficiente de inducción mutua entre ambos circuitos $M_{21}$, medidos en Henrios, es igual a:
+
+$$
+M_{21}=\frac{\phi_{21}}{I_{1}} \implies \phi_{21} = M_{21}I_{1}
+$$
+![[Inducción electromagnética - inducción mutua 1.png]]
+
+El coeficiente de inducción mutua en la primera espira producida por la segunda corriente debe ser igual al anteriormente mentado.
+
+$$
+M_{21} = \frac{\phi_{21}}{I_{1}} = \frac{\phi_{12}}{I_{2}} = M_{12} = M
+$$
