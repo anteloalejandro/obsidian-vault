@@ -76,3 +76,30 @@ $$
 L = \frac{\phi}{I} \implies \phi = L·I = n·B·S
 $$
 ![[Inducción electromagnética - Autoinducción.png]]
+
+## Energía almacenada en una autoinducción
+
+Al encender una fuente en un circuito cerrado en el que hay una bobina, la intensidad de un circuito no cambia al instante porque la bobina va haciendo una fuerza contraria hasta que se alcanza un equilibrio.
+
+Siendo $\varepsilon_{g}$ la potencia generada por la fuente (es decir, la que consume el circuito) y $R$ la resistencia equivalente del resto del circuito...
+$$
+\varepsilon_{g} = L \frac{dI}{dt} + IR
+$$
+
+Y que la corriente alcance un estado estacionario significa que la $I$ no cambia con el tiempo, es decir, $\frac{dI}{dt} = 0$. En este caso, la intensidad sólo depende de la resistencia equivalente.
+
+Si multiplicamos $\varepsilon_{g}$ por $I$ para obtener la potencia, tenemos:
+
+$$
+\begin{matrix}
+\varepsilon_{g}I &=& LI \frac{dI}{dt} &+&I^{2}R \\
+P_{g} &=& P_{L} &+& P_{R}
+\end{matrix}
+$$
+
+Sin embargo, la energía almacenada en la bobina hasta alcanzar el equilibrio (medida en Julios) es...
+
+$$
+W_{L} = \frac{1}{2}LI^{2}
+$$
+Al apagarse la fuente, esta energía almacenada se libera. Es decir, la energía que va "absorbiendo" la bobina desde que se enciende la fuente hasta que se alcanza el equilibrio se libera en el momento en el que se apaga la fuente.
