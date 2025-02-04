@@ -9,5 +9,6 @@
   "enabledCssSnippets": [
     "hide",
     "notes"
-  ]
+  ],
+  "showRibbon": false
 }
