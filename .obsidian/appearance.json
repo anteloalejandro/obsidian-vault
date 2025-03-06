@@ -10,5 +10,7 @@
     "hide",
     "notes"
   ],
-  "showRibbon": false
+  "showRibbon": false,
+  "showViewHeader": true,
+  "nativeMenus": false
 }
