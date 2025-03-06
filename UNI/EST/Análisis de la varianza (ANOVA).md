@@ -8,7 +8,6 @@ todo: true
 - Tratamiento: ¿Lo mismo que observaciones? Todas las posibles combinaciones de los múltiples factores, multiplicado por el número de veces que se ha hecho cada una.
 - Interesa la variabilidad intragrupo y entregrupo.
 
-%%
 Un test de hipótesis usualmente usado para múltiples poblaciones. A pesar de llamarse análisis de la varianza, lo que se analiza es la media.
 
 Hay dos tipos: ANOVA simple (un factor) y ANOVA compuesta (dos factores).
@@ -37,5 +36,4 @@ En el gráfico de interacción, cuanto más paralelas sean las líneas menos imp
 
 La regla de los *p-value* dice que si es mayor a $\alpha$, siendo $\alpha$ la probabilidad de error aceptada (noseque de especie), se acepta la hipótesis nula, y en caso contrario no. Esto da el mismo resultado que comparar la $F$ crítica y la $F$ observada, pero el *p-value* no se puede calcular a mano.
 
-MSR = Varianza de residuos
-%%
+MSR = Varianza del cuadrado de los residuos

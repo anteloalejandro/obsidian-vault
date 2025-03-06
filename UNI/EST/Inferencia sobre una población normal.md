@@ -58,7 +58,7 @@ $$
 
 # Contraste de hipótesis (varianza)
 
-El contraste de hipótesis de la varianza se basa en que, dado [[Distribución Chi-Cuadrado#Cálculo de varianzas|cálculo de varianzas en la distribución Chi-cuadrado]], podemos relacionar la varianza muestral y poblacional con la distribución $\chi^2$ así:
+El contraste de hipótesis de la varianza se basa en que, dado el [[Distribución Chi-Cuadrado#Cálculo de varianzas|cálculo de varianzas en la distribución Chi-cuadrado]], podemos relacionar la varianza muestral y poblacional con la distribución $\chi^2$ así:
 $$\chi^2_{c} = (n-1)\frac{S^{2}}{\sigma^{2}} \sim \chi^{2}_{n-1}$$
 
 Al ser asimétrica esta distribución, diferenciamos entre 3 casos en vez de 2:

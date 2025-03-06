@@ -1,9 +1,7 @@
 [
-  "obsidian-advanced-slides",
   "obsidian-excalidraw-plugin",
   "obsidian-excel-to-markdown-table",
   "mathlive",
-  "dataview",
   "obsidian-charts",
   "vim-toggle",
   "obsidian-git",
@@ -16,6 +14,6 @@
   "obsidian-footnotes",
   "obsidian-paste-image-rename",
   "obsidian-tikzjax",
-  "execute-code",
-  "find-unlinked-files"
+  "find-unlinked-files",
+  "dataview"
 ]

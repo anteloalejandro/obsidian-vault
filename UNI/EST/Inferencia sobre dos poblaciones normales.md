@@ -18,7 +18,7 @@ Se usa en poblaciones diferentes no relacionadas.
 
 Hay que diferenciar entre dos casos. Si se conocen $\sigma^{2}_{x}$ y $\sigma^{2}_{y}$, no hace falta calcular un valor de $t$, ya que se usa la [[Distribución normal#Distribución normal estandarizada|distribución normal estandarizada]] $Z$ en su lugar.
 
-Pero, en caso contrario, la $t$ calculada es igual al siguiente cociente que se sigue una distribución t Student con $n_{x} + n_{y} - 2$ grados de libertad:
+Pero, en caso contrario, la $t$ calculada es igual al siguiente cociente que se sigue una [[Distribución t Student]] con $n_{x} + n_{y} - 2$ grados de libertad:
 $$
 t = \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{S^{2}_{p}}{n_{x}} + \frac{S^{2}_{p}}{n_{y}}}} \sim t_{n_{x} + n_{y} - 2}
 $$
