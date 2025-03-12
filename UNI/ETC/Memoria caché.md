@@ -93,7 +93,9 @@ Se toma una línea al azar. No es necesario añadir ningún bit más en la memor
 
 ## FIFO
 
-Es necesario añadir un contador a la memoria de control. Cada vez que se acceda a un bloque del conjunto, se incrementan los contadores de todas las líneas. Con $2^{l}$ vías, harán falta $l$ bits parar el contador.
+Es necesario añadir un contador a la memoria de control. Cada vez que se acceda a un bloque del conjunto, se incrementan los contadores de todas sus vías.
+
+Con $2^{l}$ vías, harán falta $l$ bits para cada contador. Al tener cada vía un contador propio, esto se traduce en $2^{l} · l$ bits necesarios para los contadores de un conjunto. Esto no significa que los bits de contador del directorio tengan esa magnitud, pues al haber una entrada por cada línea, habrá $2^{l}$ entradas con $l$ bits de contador cada una.
 
 Cuando las vías estén llenas, el bloque con mayor contador será el sustituido.
 ## LRU
@@ -106,6 +108,6 @@ En el peor de los casos, LRU es idéntico al FIFO.
 
 Los tipos de fallo de la caché son mutuamente excluyentes.
 
-- Fallos de arranque solo suceden la primera vez que se referencia un bloque.
-- Fallos de capacidad solo suceden si toda la caché está llena
-- Fallos de conflicto o colisión sucede cuando el conjunto está lleno pero la caché no. Por tanto, se produce solo en las directas y asociativas, ya que en las completamente asociativas se daría un fallo de capacidad.
+- **Fallos de arranque:** solo suceden la primera vez que se referencia un bloque.
+- **Fallos de capacidad:** solo suceden si toda la caché está llena
+- **Fallos de conflicto o colisión:** suceden cuando el conjunto está lleno pero la caché no. Por tanto, se produce solo en las directas y asociativas, ya que en las completamente asociativas se daría un fallo de capacidad.
