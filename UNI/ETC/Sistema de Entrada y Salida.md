@@ -69,3 +69,5 @@ El ejemplo de la figura anterior podría perfectamente corresponder con un dispo
 Para solucionar este problema, las instrucciones tienen valores predefinidos para las señales de control $\mathrm{\overline{BE}}_{0}$, $\mathrm{\overline{BE}}_{1}$, $\mathrm{\overline{BE}}_{2}$ y $\mathrm{\overline{BE}}_{3}$, las llamadas *Byte Enable*, que indican un rango de bytes del registro que se va a leer. Estas, combinadas con la señal de selección del registro usando una puerta NOR con entradas a nivel bajo en los bits que corresponden a las *Byte Enable* que **no** deben estar habilitadas, permiten indicar a cuántos y cuáles bytes del registro se va a acceder.
 
 ![[Sistema de Entrada y Salida - Byte enable.png]]
+
+Como los registros tienen tamaño variable y no en todos se debe poder usar todo tipo de instrucciones, se puede modificar el hecho de que una entrada vaya a nivel alto o nivel bajo para forzar un estado irrepresentable para un tipo de instrucciones (o incluso desplazamientos) y no otros. Por ejemplo, si tenemos un registro de lectura del que sólo la primera mitad es información válida, podríamos impedir las $lw$ y las $lh$ con desplazamiento de 2.
