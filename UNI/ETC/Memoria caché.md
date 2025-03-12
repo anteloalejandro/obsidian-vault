@@ -77,13 +77,13 @@ En caso de acierto:
 
 - Escritura directa (*write through*): Se escribe en MC y MP. Arregla el problema de la congruencia, la información entre ambas siempre será igual. Sin embargo, es un método más lento.
 
-- Escritura posterior (*write back*): Escribe sólo en MC y marca el bit de modificado o *dirty bit*, que tendría que estar presente en la memoria de control. Escribirá en MP sólo cuando se vaya a sobreescribir el bloque de MC. Reduce mucho el tráfico de instrucciones de escritura, pero hay cierta incongruencia entre MP y MC.
+- Escritura posterior (*write back*): Escribe sólo en MC y marca el bit de modificado o *dirty bit*, que tendría que estar presente en la memoria de control. Escribirá en MP sólo cuando se vaya a sobrescribir el bloque de MC por un bloque diferente. Reduce mucho el tráfico de instrucciones de escritura, pero hay cierta incongruencia entre MP y MC.
 
 En caso de fallo:
 
-- Con ubicación (*write allocate*): Similar al fallo de lectura; si no existe el bloque, trae el bloque de MP a MC y escribe el dato.
+- Con ubicación (*write allocate*): Similar al fallo de lectura; si no existe el bloque, trae el bloque de MP a MC y escribe el dato en MC.
 
-- Sin ubicación (*write no allocate*): Sólo escribe en MP, y no escribe en MC. Es decir, los fallos no harán cambios en MC. Se usa en conjunto con la escritura directa.
+- Sin ubicación (*write no allocate*): Sólo escribe en MP, y no escribe en MC. Es decir, los fallos no harán cambios en MC, por lo que sólo se modifican los valores en caché que ya hayan sido leídos previamente. Se usa en conjunto con la escritura directa.
 
 # Algoritmos de reemplazo
 
