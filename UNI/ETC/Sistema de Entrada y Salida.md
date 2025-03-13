@@ -62,6 +62,7 @@ De los $p$ bits restantes, que siempre deberán ser más de 3 con tal de que las
 
 ![[Sistema de Entrada y Salida - selección de interfaz con comparador.png]]
 
+Dos registros pueden estar en la misma dirección si uno es de lectura y otro de escritura, y no compartirán registro, sino que según la señal de lectura y de escritura se operará sobre un registro diferente.
 ### Señales *Byte Enable*
 
 El ejemplo de la figura anterior podría perfectamente corresponder con un dispositivo en MIPS, salvo una pequeña diferencia: Al no gastar $A_{1}$ ni $A_{0}$, sólo se puede trabajar con el tamaño de registro entero, es decir, **se pueden usar words, pero no halves o bytes**, por lo que todos los accesos al adaptador deberán ser a través de $sw$ o $lw$, incluso si se quiere leer un sólo byte.
@@ -71,3 +72,5 @@ Para solucionar este problema, las instrucciones tienen valores predefinidos par
 ![[Sistema de Entrada y Salida - Byte enable.png]]
 
 Como los registros tienen tamaño variable y no en todos se debe poder usar todo tipo de instrucciones, se puede modificar el hecho de que una entrada vaya a nivel alto o nivel bajo para forzar un estado irrepresentable para un tipo de instrucciones (o incluso desplazamientos) y no otros. Por ejemplo, si tenemos un registro de lectura del que sólo la primera mitad es información válida, podríamos impedir las $lw$ y las $lh$ con desplazamiento de 2.
+
+Por este motivo, a los registros de, por ejemplo, 32 bits, hay que acceder siempre con lw y sw, porque **no sabemos cómo está cableada**, de modo que aunque solo se quieran leer 8 bits, el propio registro podría no permitir el acceso con instrucciones de 8bits. Lo mismo pasa con los desplazamientos, un registro de 32 que permite lh o lb puede no permitir desplaz
