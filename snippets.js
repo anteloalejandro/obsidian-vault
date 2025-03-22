@@ -3,9 +3,13 @@
   { trigger: "ci", replacement: "`$0`$1", options: "t" },
   { trigger: "cc", replacement: "```$0\n$1\n```", options: "tw" },
   // Math mode
-  { trigger: "mi", replacement: "$$0$", options: "t" },
+  { trigger: "mi", replacement: "$$0$$1", options: "t" },
   { trigger: "mm", replacement: "$$\n$0\n$$", options: "tw" },
   { trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA" },
+  // HTML tags
+  { trigger: "sm", replacement: "<small>$0</small>$1", options: "t" },
+  { trigger: "big", replacement: "<big>$0</big>$1", options: "t" },
+  { trigger: "u", replacement: "<u>$0</u>$1", options: "t" },
 
   // spaces
   { trigger: "   ", replacement: " \\quad ", options: "mA" },
