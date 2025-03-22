@@ -1,6 +1,6 @@
 
   La unidad más pequeña con la que se trabaja en la memoria son los bytes. *Endianness*  se refiere a las formas de organizar los bytes en memoria en cada bloque de memoria de tamaño igual al tamaño de palabra del procesador. Estos bloques de memoria tienen el mismo orden independientemente del *Endianness*, que es generalmente de menor a mayor dirección de memoria.
-
+  
 Es comparable al lenguaje, habiendo algunos que se escriben de derecha a izquierda y otros de izquierda a derecha, pero por mucho que cambie el orden de las letras dentro de una línea, las lineas se siguen leyendo de arriba hacia abajo.
 
 # MSByte y LSByte

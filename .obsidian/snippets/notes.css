@@ -1,3 +1,4 @@
+
 body {
   --image-muted: 1;
 }
@@ -19,4 +20,33 @@ body {
 
 .table-wrapper {
   margin: auto;
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  &.border .note-grid-row .note-grid-col {
+    border: 2px solid rgba(100, 100, 100, 0.8);
+    border-radius: 5px;
+  }
+  &.pad .note-grid-row .note-grid-col {
+    padding: 1rem;
+  }
+
+  .note-grid-row {
+    display: grid;
+    gap: inherit;
+    grid-template-columns: repeat(12, 1fr);
+    .note-grid-col.note-grid-col-md  {
+      grid-column: span 6;
+    }
+    .note-grid-col.note-grid-col-xl  {
+      grid-column: span 8;
+    }
+    .note-grid-col.note-grid-col-sm  {
+      grid-column: span 4;
+    }
+  }
 }

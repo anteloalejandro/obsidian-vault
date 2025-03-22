@@ -7,7 +7,6 @@
   "obsidian-git",
   "obsidian-minimal-settings",
   "obsidian-style-settings",
-  "obsidian-gallery",
   "obsidian-circuitjs",
   "obsidian-latex-suite",
   "various-complements",
@@ -15,7 +14,6 @@
   "obsidian-tikzjax",
   "find-unlinked-files",
   "settings-search",
-  "obsidian-mindmap-nextgen",
   "code-styler",
-  "obsidian-html-tags-autocomplete"
+  "obsidian-image-toolkit"
 ]

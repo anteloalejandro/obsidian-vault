@@ -1,22 +1,20 @@
 # Creación
 
 **Usando Registros**
-```java
-// Employee.class
+```java title:Employee.class
 package records;
 
 public record Employee(
-  long id,
-  String firstName,
-  String lastName,
-  int age,
-  String email
+    long id,
+    String firstName,
+    String lastName,
+    int age,
+    String email
 ) { }
 ```
 
 **Usando Clases**
-```java
-// Employee.class
+```java title:Employee.class
 package classes;
 
 public class Employee {
@@ -96,15 +94,15 @@ Los Registros no están limitados a la implementación que da por defecto el com
 ```java
 public record Point(int x, int y) {
     static boolean isOutsideGraph;
-
+    
     public Point {
         isOutsideGraph = y < 0 || x < 0;
     }
-
+    
     public Point(int x) {
         this(x, x);
     }
-
+    
     public int distanceFrom(Point p) {
         final int xDistance = Math.abs(this.x - p.x);
         final int yDistance = Math.abs(this.y - p.y);
@@ -115,5 +113,5 @@ public record Point(int x, int y) {
 
 Observaciones:
 1. Los atributos normales se ponen entre los paréntesis, pero los estáticos se ponen en el cuerpo del Registro.
-2. Se puede sobreescribir el constructor canónico con `public Point(int x, int y) {/*do smth*/}`, pero se puede usar un **constructor compacto** en el que se omiten los argumentos que inserta lo que haya entre claves al principio del constructor canónico compilado. No se pueden modificar propiedades normales en este constructor.
+2. Se puede sobreescribir el constructor canónico con `{java} public Point(int x, int y) {/*do smth*/}`, pero se puede usar un **constructor compacto** en el que se omiten los argumentos que inserta lo que haya entre claves al principio del constructor canónico compilado. No se pueden modificar propiedades normales en este constructor.
 3. Se pueden añadir atributos estáticos y métodos, pero el compilador no los tendrá en cuenta a la hora de implementar Getters, `toString()` , `equals()` o cualquier otro método.

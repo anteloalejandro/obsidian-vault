@@ -1,15 +1,29 @@
 [
   // Code block
   { trigger: "ci", replacement: "`$0`$1", options: "t" },
+  { trigger: /ci-(\w*?)/, replacement: "`{[[0]]} $0`$1", options: "rt" },
   { trigger: "cc", replacement: "```$0\n$1\n```", options: "tw" },
   // Math mode
   { trigger: "mi", replacement: "$$0$$1", options: "t" },
   { trigger: "mm", replacement: "$$\n$0\n$$", options: "tw" },
   { trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA" },
   // HTML tags
-  { trigger: "sm", replacement: "<small>$0</small>$1", options: "t" },
+  { trigger: "small", replacement: "<small>$0</small>$1", options: "t" },
   { trigger: "big", replacement: "<big>$0</big>$1", options: "t" },
   { trigger: "u", replacement: "<u>$0</u>$1", options: "t" },
+  { trigger: "em", replacement: "<em>$0</em>$1", options: "t" },
+  { trigger: "strong", replacement: "<strong>$0</strong>$1", options: "t" },
+  { trigger: "ul", replacement: "<ul>\n$0\n</ul>", options: "tw" },
+  { trigger: "ol", replacement: "<ol>\n$0\n</ol>", options: "tw" },
+  { trigger: "li", replacement: "<li>$0</li>$1", options: "t" },
+  { trigger: "grid", replacement: "<div class='note-grid'>\n<div class='note-grid-row'>\n$0\n</div>\n</div>", options: "tw" },
+  { trigger: "row", replacement: "<div class='note-grid-row'>\n$0\n</div>", options: "tw" },
+  { trigger: /col-(\w*?)/, replacement: "<div class='note-grid-col note-grid-col-[[0]]'>$0</div>$1", options: "rt" },
+  { trigger: /col/, replacement: "<div class='note-grid-col note-grid-col-md'>$0</div>$1", options: "rt" },
+  { trigger: "left", replacement: "<p style='text-align: left'>\n$0\n</p>$1", options: "tw" },
+  { trigger: "right", replacement: "<p style='text-align: right'>\n$0\n</p>$1", options: "tw" },
+  { trigger: "center", replacement: "<p style='text-align: center'>\n$0\n</p>$1", options: "tw" },
+  { trigger: "div", replacement: "<div>$0</div>$1", options: "t" },
 
   // spaces
   { trigger: "   ", replacement: " \\quad ", options: "mA" },

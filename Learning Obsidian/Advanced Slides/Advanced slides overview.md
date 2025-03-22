@@ -5,7 +5,7 @@ tags:
 
 # Slides overview
 
-Take a look into some basic features of **Obsidian Advanced Sliders**
+Take a look into some basic features of **Obsidian Advanced Slides**
 
 ---
 
@@ -169,14 +169,26 @@ Layouts allow you to display information however you want
 
 ## Splits
 
-%% Split %%
-<split left="2" right="1" gap="2">
-
+<div class='note-grid'>
+<div class='note-grid-row'>
+<div class='note-grid-col note-grid-col-md'>
+<p style='text-align: left'>
 **Lorem Ipsum** is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+</p>
+</div>
+<div class='note-grid-col note-grid-col-md'>
+<p style='text-align: left'>
 when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-	
+</p>
+</div>
+<div class='note-grid-col note-grid-col-md'>
+<p style='text-align: left'>
 into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-</split>
+</p>
+</div>
+</div>
+</div>
+
 
 ---
 ## Splits w/ wrapping
