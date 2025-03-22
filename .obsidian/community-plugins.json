@@ -11,11 +11,10 @@
   "obsidian-circuitjs",
   "obsidian-latex-suite",
   "various-complements",
-  "obsidian-footnotes",
   "obsidian-paste-image-rename",
   "obsidian-tikzjax",
   "find-unlinked-files",
-  "dataview",
   "settings-search",
-  "obsidian-mindmap-nextgen"
+  "obsidian-mindmap-nextgen",
+  "code-styler"
 ]

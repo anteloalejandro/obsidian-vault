@@ -5,7 +5,7 @@ alt:
 
 For some god forsaken reason, this is valid code as long as `atof` is in another source file compiled beforehand.
 
-```c
+```c ignore
 int main() {
   double atof(char s[]); // function definition
   double sum = 0;

@@ -1,3 +1,7 @@
+body {
+  --image-muted: 1;
+}
+
 .inline-title {
   text-align: center;
 }
