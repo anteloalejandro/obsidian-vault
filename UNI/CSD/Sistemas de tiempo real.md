@@ -7,7 +7,7 @@ Según la firmeza de la *deadline*, se divide en tres tipos:
 - Firm: La repuesta fuera de plazo es inútil (procesado de vídeo o audio)
 - Soft: La respuesta fuera de plazo tiene utilidad, aunque sea reducida.
 
-![[Sistemas de tiempo real 2025-03-14 17.44.02.excalidraw]]
+![[Sistemas de tiempo real 2025-03-14 17.44.02.excalidraw|100%]]
 
 # Soporte
 
@@ -41,10 +41,15 @@ Puede invalidar la planificación anterior.
 Sucede cuando una tarea de prioridad alta comparte semáforo con una tarea de prioridad baja. Si la de prioridad baja cierra el semáforo y es interrumpida por tareas de prioridad media, la tarea de prioridad alta también se retrasará, aunque tenga una prioridad superior a todas las demás.
 
 Se suele dar cuando no hay instante crítico.
+
 # Protocolo de techo de prioridad inmediato
 
 A los semáforos se les asigna una prioridad, igual a la prioridad más alta de entre los procesos que lo utilizan. Este es el techo de prioridad.
 
 Cuando una tarea cierra el semáforo, la tarea adquiere la prioridad del techo del semáforo, a no ser que dicha prioridad sea más baja (sólo pasa al combinar semáforos). Al abrir el semáforo, recupera su prioridad.
 
-Con este protocolo se consigue que si una tarea (entre las que comparten el mismo semáforo)  se puede quedar bloqueada a mitad de ejecución por no tener suficiente prioridad,  sólo pasa al principio. No deja de haber inversión de prioridad, pero se acota cuanto se bloquean las tareas prioritarias.
+Con este protocolo se consigue que si una tarea se puede quedar bloqueada a pesar de tener más prioridad, sólo pasa al principio. No deja de haber inversión de prioridad, pero se acota cuanto se bloquean las tareas prioritarias, de modo que las tareas prioritarias tienden a acabar antes que las no prioritarias (sólo hay inversión de prioridad al principio). La tarea menos prioritaria tarda exactamente lo mismo en finalizar.
+
+Como la inversión de prioridad no se da cuando empiezan en punto crítico, el bloqueo máximo que se puede dar es que todos los procesos de mayor prioridad entren a ejecución justo cuando una tarea de menor prioridad que ya estaba en ejecución entre en su sección crítica. En este caso, el bloqueo sería igual a el número de procesos bloqueados por la duración de la sección crítica. El factor de bloqueo de cada una de las tareas es igual a la sección crítica de la tarea de menor prioridad. En caso de que haya varias tareas de menor prioridad que causen bloqueo, nos quedamos con el bloqueo máximo entre las dos.
+
+En resumen, el factor de bloqueo de una tarea es el tiempo máximo que se va a quedar sin ejecutarse por culpa de una tarea menos prioritaria. En este protocolo, es igual al tiempo que están las tareas menos prioritarias en una sección crítica que comparten con la tarea actual.
