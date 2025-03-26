@@ -101,3 +101,25 @@ $$
 
 # Rendimiento del disco duro
 
+## Temporización
+
+Los discos modernos giran a una velocidad constante que ronda entre las 4500 y 15000 revoluciones por minuto ($\mathrm{rpm}$). Las operaciones de disco se llevan a cabo cuando recibe comandos de su adaptador, que siempre deben indicar a que sector hacen referencia. La temporización de estos accesos depende de varias partes:
+
+- El brazo de las cabeceras debe estar posicionado de forma que éstas estén en el cilindro (conjunto de pistas) adecuado. El tiempo que se tarda llevar a cabo esta acción se llama tiempo de búsqueda o *seek time*, y se mide en milisegundos. Este tiempo no es constante, sino que depende de lo lejos que resulten estar las cabeceras de la posición en la que deben estar, por lo que los fabricantes dan un tiempo de espera medio y un tiempo de espera a su vecino inmediato, *track-to-track seek time*.
+- Una vez está la cabecera en el lugar correcto, también debe esperar a que la rotación del disco mueva al sector hasta donde está la cabecera. A este tiempo, también medido en milisegundos, se le conoce como latencia rotacional, o *rotational latency*. A mayor velocidad rotacional, o *swindle speed*, menor latencia. El tiempo medio es el tiempo que tarda en hacer media rotación.
+- Finalmente, el tiempo de transferencia es lo que se tarda en modificar la información del sector, que dependerá de la velocidad de rotación del disco y la longitud del sector (que vendrá dada por la densidad de la pista).
+
+### Cálculo de Tiempos
+
+![[Discos Duros Magnéticos - tiempos.png]]
+
+## Almacenamiento óptimo de ficheros
+
+Las operaciones sobre ficheros involucran a conjuntos sectores, y si estos estuviesen repartidos aleatoriamente por todo el disco, habría mucha latencia rotacional y tiempo de búsqueda para operar sobre cada uno de los sectores. Para minimizar el impacto de estos dos tipos de retraso, tanto los adaptadores de entrada y salida como los propios sistemas operativos llevan a cabo optimizaciones a la hora de asignar sectores a los ficheros:
+
+- Un archivo que cabe entero en una pista trata de guardarse secuencialmente, eliminando los retrasos después de encontrar el primer sector.
+- Si no cabe en una sola pista se intenta guardar en el mismo cilindro, por lo que tampoco hay retrasos más allá del primer bloque, ya que el cambio de cabeceras está ajustado para que no tome tiempo adicional.
+- Si no cabe en un cilindro, se tratará de guardar en cilindros adyacentes. En este caso, el único retraso más allá de la búsqueda del bloque inicial será *track-to-track seek time* cada vez que se cambie de cilindro.
+- En cualquier otro caso, el almacenamiento no puede ser óptimo, pero el sistema operativo elegirá lo más parecido al caso óptimo (generalmente, algo similar al punto anterior).
+
+Otro aspecto a tener en cuenta es la interfaz por la que viajan los datos del bus al disco y viceversa, que pondrá limites a la velocidad máxima que se puede alcanzar en un disco duro. Sin embargo, el cuello en los discos duros magnéticos prácticamente nunca es la interfaz.
