@@ -116,8 +116,8 @@ Nótese que por mucho que se pueda acceder y modificar estas variables con exclu
 El semáforo se "cierra" con `acquire` y se "abre" con `release`, pero no hace falta cerrarlo antes de abrirlo.
 
 Se establece un valor inicial que servirá para...
-- > 0, limitar cuantos hilos puede haber en ejecución en una sección crítica.
-- <= 0, forzar a que un hilo vaya después que otro/s.
+- `> 0`, limitar cuantos hilos puede haber en ejecución en una sección crítica.
+- `<= 0`, forzar a que un hilo vaya después que otro/s.
 
 Nótese que, a diferencia de C, en Java los semáforos **si pueden tener valores negativos**. Otra diferencia con C los métodos `acquire` y `release` pueden recibir el número de llamadas a las que equivale, de modo que `acquire(2)` es igual a `acquire(); acquire();`.
 
