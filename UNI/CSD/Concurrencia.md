@@ -41,6 +41,10 @@ Si hay espera circular, hay que buscar un proceso que no esté esperando a ning�
 
 Romper la simetría impide que se se de una espera circular. Si hay uno o varios que no sigan el mismo orden, se queda bloqueado antes de recibir un recurso que quiere otro, impidiendo interbloqueos.
 
+## Evitación
+
+Consiste en detectar si una tarea va a producir un interbloqueo justo antes de lanzarla, y gestionar la excepción en caso de que lo haga.
+
 # Inconvenientes de las primitivas de sincronización de java
 
 - Hay una única variable condición (ergo, una única cola en la que esperan los procesos del monitor).
