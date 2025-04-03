@@ -31,4 +31,16 @@ Las reclamaciones ante la AEPD van, cuando no los datos no están inscritos en l
 Si están inscritos, sin embargo, se sigue el siguiente procedimiento:
 - Se reclama acceso. Hasta 1 mes
 - Se obliga a la rectificación o cancelación. Hasta 10 días
-- Se de
+- Se denuncia ante la AEPD
+
+# Tratamiento de datos
+
+## Partes implicadas
+
+- Responsable: entidad que decide qué datos se recaban, con que fines y como se tratan.
+- Encargado: implementa lo que pide el responsable. Por ejemplo, la empresa decide y el desarrollador de la página web lo hace. Lo que debe hacer el encargado se define en un contrato.
+- Delegado de protección de datos (DPD): Para dentro de las organizaciones. Se encarga de informar a los trabajadores de que datos va a recabar la empresa sobre ellos y de vigilar que no se hagan malas prácticas. Hace de intermediario entre la empresa y la AEPD.
+- Destinatario. Son los terceros que van a recibir los datos
+
+# Evaluación del impacto
+
