@@ -109,7 +109,7 @@ Las personas físicas, por norma general, **no están obligadas a comunicarse di
 
 ## Documentos electrónicos
 
-Para ser válidos, deben:
+Para que los documentos electrónicos administrativos sean válidos, deben:
 - Ser accesibles sin que sea necesario software privativo u obsoleto
 - Tener datos de identificación que permitan diferenciarlos del resto de documentos del mismo registro
 - Tener una fecha y hora de emisión
@@ -119,3 +119,16 @@ Para ser válidos, deben:
 Además, toda *copia auténtica* digitalizada tendrá la misma validez que el documento original. Las copias se consideran auténticas si sus metadatos así lo indican y son válidos.
 
 Salvo que sea posible, la administración pública hace copia física y digital de los documentos para sí misma, y al usuario se le devuelve el documento original.
+
+También existen los documentos públicos, que son firmados por notario.
+
+# Delito informático
+
+Ataques contra la confidencialidad, integridad y disponibilidad de sistemas informáticos y datos, así como el abuso de estos.
+
+Hay 5 tipos de delito informático
+- De intrusión
+- Patrimoniales (estafas y engaños)
+- Relativas al contenido (pornografía infantil)
+- Contra la propiedad intelectual
+- Racismo y xenofobia
