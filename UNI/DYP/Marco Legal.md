@@ -64,7 +64,7 @@ La definición de estos servicios, así como las leyes que los regulan vienen da
 
 ## Comunicaciones comerciales (publicidad)
 
-Debe venir claramente indicada como tal. En caso contrario, se puede considerar *spam*.
+Debe venir claramente indicada como tal. En caso contrario, es ilegal se puede hasta considerar *spam*.
 
 ## Contrataciones electrónicas
 
