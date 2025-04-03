@@ -75,7 +75,7 @@ Los métodos no se llaman igual a los que se heredan de `Object` con tal de dar 
 
 Para crear objetos `Condition` se usa `lock.newCondition()`, donde `lock` es una instancia de una clase que implemente la interfaz `Lock`.
 
-Con estos objetos ya no es necesario despertar a todos los hilos con `signalAll`, ya que podemos tener una cola para cada caso y despertar sólo a los de la cola adecuada, lo que además es más eficiente que usar `notifyAll`, como se debía hacer con las primitivas en Java.
+Con estos objetos ya no es necesario despertar a todos los hilos con `signalAll`, ya que podemos tener una cola para cada caso y despertar sólo a los de la cola adecuada, lo que además es más eficiente que usar `notifyAll`, como se debía hacer con las primitivas en Java. Sigue haciendo falta comprobar con un `while` porque sigue usando Lampson-Redell, por lo que en lo que llega a ejecutarse el hilo despertado con `signal()` el valor de la condición puede haber cambiado.
 
 ## ReentrantLock
 
