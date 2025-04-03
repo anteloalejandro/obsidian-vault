@@ -42,5 +42,27 @@ Si están inscritos, sin embargo, se sigue el siguiente procedimiento:
 - Delegado de protección de datos (DPD): Para dentro de las organizaciones. Se encarga de informar a los trabajadores de que datos va a recabar la empresa sobre ellos y de vigilar que no se hagan malas prácticas. Hace de intermediario entre la empresa y la AEPD.
 - Destinatario. Son los terceros que van a recibir los datos
 
-# Evaluación del impacto
+# Evaluación del impacto de la protección de datos
 
+## Análisis previo
+
+Siempre conviene hacer una EIPD, pero sólo es necesario si...
+- Se recogen datos de una persona física de forma exhaustiva y automatizada sobre los cuales se toman decisiones que afectan a la persona. No tienen por que ser datos sensibles.
+- Hay un tratamiento a gran escala de datos personales o sensibles.
+- Se recoge información a gran escala de una zona de acceso público
+
+La mayoría de empresas de pequeña y gran escala no tienen que hacerlo.
+
+Según los resultados del análisis previo, aún si no es obligatorio, se recomienda hacer un EIPD. El análisis previo mira los posibles riesgos en 4 fases:
+- Naturaleza de los datos
+- Alcance de los datos
+- Contexto del tratamiento
+- Finalidades
+
+## Análisis de riesgos
+
+El análisis de riesgos se hace para cada una de las etapas del ciclo de vida de los datos:
+- Captura
+- Almacenamiento
+- Tratamiento
+- Destrucción
