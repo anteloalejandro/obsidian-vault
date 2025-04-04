@@ -95,13 +95,13 @@ $$
 
 # Inversión de prioridad
 
-Puede invalidar la planificación anterior.
+Se da en sistemas con tareas que si son dependientes unas de otras (es decir, secciones de unas tareas tienen que esperar a que terminen secciones de otras).
 
-Sucede cuando una tarea de prioridad alta comparte semáforo con una tarea de prioridad baja. Si la de prioridad baja cierra el semáforo y es interrumpida por tareas de prioridad media, la tarea de prioridad alta también se retrasará, aunque tenga una prioridad superior a todas las demás.
+Sucede cuando una tarea de prioridad alta comparte semáforo con una tarea de prioridad baja. Si la de prioridad baja cierra el semáforo y es interrumpida por tareas de prioridad media, la tarea de prioridad alta también se retrasará, aunque tenga una prioridad superior a todas las demás. Por tanto, **la planificación normal no es suficiente**.
 
 Se suele dar cuando no hay instante crítico.
 
-# Protocolo de techo de prioridad inmediato
+## Protocolo de techo de prioridad inmediato
 
 A los semáforos se les asigna una prioridad, igual a la prioridad más alta de entre los procesos que lo utilizan. Este es el techo de prioridad.
 
