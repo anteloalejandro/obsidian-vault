@@ -1,0 +1,1 @@
+Usa un servidor de nombres para registrar y localizar objetos remotos. A éste puede acceder cualquier nodo a través de la interfaz `Registry`
