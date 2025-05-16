@@ -60,20 +60,77 @@ Todo sistema, distribuido o no, requiere mantenimiento, pero los usuarios deben 
 
 Todo sistema distribuido es objeto potencial de ataques maliciosos, por lo que se debe poder impedir que sucedan en medida de la posible, detectar cuando han sucedido y corregirse si ha sucedido.
 
-# Teorema CAP
+## Escalabilidad
 
-El teorema CAP (*Consistency, Availability, Partitions*) propone que es imposible conseguir un sistema que tenga al mismo tiempo mucha consistencia, mucha disponibilidad y mucha tolerancia a particiones, pero que sacrificando una de las tres componentes se pueden obtener las otras dos.
+Para hacer un sistema escalable se aplican las siguientes técnicas:
+- **Distribuir la carga**.
+- **Distribuir los datos.**
+- **Replicación.**
+- ***Caching.***
 
-Las combinaciones más populares que tienen en cuenta este teorema son **CP, CA y AP**.
+Nótese que cuando más escalable es un sistema distribuido, más necesario es sacrificar la consistencia, ya que es más probable que ocurran particiones.
+
+Cuando es absolutamente necesario que haya una consistencia fuerte, se opta por el particionado cuidadoso de los datos. Por ejemplo, se pueden distribuir las entradas de las tablas de las bases de datos que usa el sistema distribuido en varias zonas, en las que cada una es consistente.
+
+## Seguridad
+
+La seguridad de un sistema distribuido implica ofrecer un servicio disponible y correcto sólo a los usuarios legítimos del sistema. Para ello se debe garantizar...
+- **Autenticación**
+- **Integridad**
+- **Confidencialidad**
+- **Disponibiliidad**
 
 # Mecanismos para la tolerancia a fallos
 
 ## Detectores de fallos
 
+La detección de fallos se lleva a cabo en cada nodo, que se encargará de monitorizar a uno o varios nodos y emitir **sospechas de fallo** al servicio de pertenencia a grupo.
+
 ## Servicios de pertenencia a grupo
+
+Este servicio se encarga de decidir qué nodos han fallado en base a la información proporcionada por los nodos vivos. Ante una o varias sospechas de fallo se inicia una **fase de acuerdo** para determinar qué nodos han fallado, y si se determina que alguno ha fallado este servicio lo expulsará y notificará al resto de nodos del fallo, que procederán a ignorar todos los mensajes de dichos nodos.
+
+Nótese que es posible que esté fallando el nodo que emite la sospecha, y también será expulsado si los demás nodos están de acuerdo que ese es el caso.
+
+Gracias a este sistema, cualquier fallo simple detectable **pasa a ser un fallo de parada**.
 
 ## Replicación
 
+Cada servicio se configura con múltiples réplicas y, ante los fallos, éstas se ignoran a las que fallan y continúan dando servicio.
+
+### Replicación pasiva
+
+De entre todas las réplicas, sólo una será la **primaria**, siendo el resto **secundarias**. Sólo la réplica primaria está activa, y el resto no procesan peticiones (aka, son pasivas).
+
+La réplica primaria, además, manda un mensaje a todas las secundarias con el nuevo estado cada vez que éste cambia, llamado *checkpoint*. Si el checkpoint se envía y la primaria espera las respuestas antes de contestar al cliente, el sistema tendrá **consistencia fuerte**, y si el checkpoint se envía más tarde, **consistencia débil**.
+
+La reconfiguración es diferente para primarias y secundarias. Cuando falla una secundaria, todo lo que tiene que pasar es que la primaria deje de enviar checkpoints a esa secundaria. Sin embargo, en caso de fallo de réplica primaria, se tiene que elegir qué secundaria va a tomar el rol de primaria, parar lo que se tiene que comprobar cual tiene el estado más reciente y todas las réplicas deben estar de acuerdo. Durante este proceso, el sistema dejará de estar disponible al no haber una réplica primaria. También hay que dar a conocer el cambio réplica principal al cliente.
+
+La principal ventaja es que no requiere de gestionar la exclusión mutua entre varias máquinas y que se puede usar en servicios que se comporten de forma no determinista, que en los servicios en red son la mayoría.
+
+### Replicación activa
+
+En este modelo, también conocido como replicación mediante **máquina de estados**, todas las réplicas son iguales; todas procesan peticiones y contestan al cliente.
+
+Todas las máquinas deben actuar por su cuenta de forma determinista, por lo que el modelo de ejecución es muy restrictivo, impidiendo incluso que cada réplica use concurrencia internamente.
+
+También requiere de **algoritmos de difusión** que proporcionen la misma secuencia de mensajes en el mismo orden en todas las réplicas para que todas mantengan el mismo estado, lo que conlleva un coste elevado.
+
+La reconfiguración es sencilla, pues al tener todas las réplicas el mismo estado todo lo que hay que hacer es excluir a la que falle.
+
+# Disponibilidad a gran escala
+
+En sistemas en gran escala, se asume que las particiones van a ocurrir, por lo que los sistemas se diseñan teniendo en cuenta este hecho.
+
+Por esto, siguiendo el [[#Teorema CAP]], toca elegir entre sacrificar disponibilidad o consistencia.
+
+Hoy en día premia más la disponibilidad, así que los sistemas de diseñan no sólo de forma que puedan funcionar estando particionados, sino que esas particiones acaben convergiendo y volviéndose consistentes de nuevo con el tiempo, lo que se denomina **consistencia eventual**.
+
+# Teorema CAP
+
+El teorema CAP (*Consistency, Availability, Partitions*) propone que es imposible conseguir un sistema que tenga al mismo tiempo mucha consistencia, mucha disponibilidad y mucha tolerancia a particiones, pero que sacrificando una de las tres componentes se pueden obtener las otras dos.
+
+Las combinaciones más populares que tienen en cuenta este teorema son **CP, CA y AP**.
 
 # Middleware
 
@@ -91,11 +148,11 @@ Existen diferentes tipos de middleware, que utilizan abstracciones diferentes pa
 
 ### Orientados a Objetos
 
-Utilizados por lenguajes orientados a objetos, como [[Java RMI|Java con su RMI]]. Permite invocar a métodos de objetos como si todos fuesen locales, haciendo uso de los **Objetos Remotos**, que residen en otros nodos. A menudo abstrae el hecho de si el objeto es remoto o no.
+Utilizados por lenguajes orientados a objetos, como [[Mecanismos de comunicación|Java con su RMI]]. Permite invocar a métodos de objetos como si todos fuesen locales, haciendo uso de los **Objetos Remotos**, que residen en otros nodos. A menudo abstrae el hecho de si el objeto es remoto o no.
 
 ### Orientados a Comunicaciones
 
-Tienen elementos de comunicación intermedios ¿?
+Tienen elementos de comunicación intermedios.
 
 ### Orientados a Eventos
 
