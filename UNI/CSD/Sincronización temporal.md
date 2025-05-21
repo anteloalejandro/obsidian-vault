@@ -43,3 +43,19 @@ El estado global está formado por el estado de cada nodo y por los mensajes env
 Esto se puede usar en el un recolector de objetos remotos no utilizados, con el que dejaríamos de compartir un recurso si ningún nodo lo está utilizando y **no se le está enviando a ninguno**.
 
 Para obtener una instantánea del estado global, lo ideal sería que fuese perfectamente precisa, pero como en el mundo real las instantáneas se obtienen a través de mensajes, no pueden serlo. Lo que buscamos es que sea consistente, es decir, que corte de forma que todos los mensajes que están en tránsito en un punto del corte estén en tránsito en todos los puntos de corte.
+
+# Problemas algorítmicos en Sistemas Distruibuidos
+
+## Exclusión mutua distribuida
+
+Consiste en limitar el acceso a la sección crítica a los nodos de un algoritmo distribuido.
+
+En una de las soluciones, el **algoritmo centralizado** (Lamport), se designa un nodo como coordinador (o líder) al que se le pasarán mensajes que harán de peticiones de acceso a la sección crítica. El mensaje contendrá su reloj lógico y según su valor se escogerá a uno u otro nodo. Si dos nodos tienen el mismo reloj lógico, se escoge según el subíndice del reloj, que corresponde al índice del nodo.
+
+En el **algoritmo distribuido** (Ricart-Agrawala), en lugar de haber un coordinador, se le envía el mensaje a todos los nodos del sistema. Sólo se podrá entrar a la sección crítica si todos los nodos del sistema distribuido le dan el OK. Si un nodo no quiere entrar en la sección crítica lo dará automáticamente, pero si sí quiere sólo le dará el OK si su reloj lógico en mayor.
+
+En las **topologías en anillo** (Le Lann) se utiliza un *token* o **testigo** que se va pasando al siguiente nodo de la red. Sólo se podrá acceder a la sección crítica si el nodo tiene el testigo en ese momento, y mientras tanto no lo pasará.
+
+## Elección de líder
+
+Para elegir un líder, se puede elegir a uno que tenga el mayor (o menor) identificador al inicio del sistema distribuido. Si se diese el caso de que el líder deja de estar operativo, los nodos mandan mensajes ELECCIÓN a los que mayor identificador tengan, y si están activos responderán con un OK.
