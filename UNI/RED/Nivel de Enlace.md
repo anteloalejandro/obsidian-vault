@@ -62,9 +62,11 @@ Los bits de dirección serán para uno de 5 posibles valores, en función de qu�
 
 Según los bits de control, se diferencian las siguientes situaciones:
 - `00`: Transmisión en la que no intervienen puntos de acceso.
-- `01`: El punto de acceso envía una trama a un nodo. En este caso el punto de acceso es un RA, ya que el paquete debe haberlo recibido de un BSS diferente, y el nodo es el DA.
-- `10`: Un nodo envía una trama de a un punto de acceso. Aquí el nodo sería el SA y el punto de acceso el TA.
-- `11`: Indica que es una trasmisión entre puntos de acceso, por lo que el emisor es el TA y el receptor el RA.
+- `10`: El punto de acceso envía una trama a un nodo. En este caso el punto de acceso es un RA, ya que el paquete debe haberlo recibido de un BSS diferente, y el nodo es el DA.
+- `01`: Un nodo envía una trama a un punto de acceso. Aquí el nodo sería el SA y el punto de acceso el TA.
+- `11`: Indica que es una trasmisión entre puntos de acceso, por lo que el emisor es el TA y el receptor el RA
+
+<small>Nótese que en la tabla de arriba los bits ToDS y FromDS están al revés</small>
 
 Las direcciones siempre están estructuradas de forma que cumplen las siguientes reglas:
 - **Siempre** están presentes los extremos de la transmisión: DA y SA.
