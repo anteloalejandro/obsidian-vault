@@ -64,3 +64,13 @@ La ley de propiedad intelectual **no ampara los contenidos** de las BBDD, pero s
 Ahora bien, esto no cubriría a muchas las bases de datos que derivan de otras, por lo que se ha añadido en una Directiva europea un derecho *"sui generis"* que da **derechos exclusivos de extracción y reutilización de los datos** al fabricante de la base de datos en caso de que hubiese una inversión sustancial, sin requisito de originalidad.
 
 En definitiva, las BBDD cuentan con dos protecciones por parte de la LPI, la de derechos de autor, que protege la creatividad, y la de derecho *sui generis*, que protege la inversión e impide que cualquiera saque y use los datos de la BBDD.
+
+# Propiedad Industrial
+
+Mientras que propiedad intelectual es un conjunto de derechos morales y patrimoniales sobre una obra existente atribuidos al autor de ésta, la propiedad industrial son derechos exclusivos sobre ideas o creaciones inmateriales para beneficiar económicamente al inventor.
+
+Se incluyen:
+- Marcas y nombres comerciales
+- Patentes y modelos de utilidad
+- Topografías de semiconductores
+- Diseños industriales en general
