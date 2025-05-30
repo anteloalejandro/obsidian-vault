@@ -47,3 +47,20 @@ También surgen problemas a la hora de definir quién tiene qué derechos cuando
 
 # Protección jurídica del software
 
+La ley de propiedad intelectual también considera al software como obras protegidas, a no ser que sea software cuyo propósito expreso es provocar efectos nocivos, como el malware. Además, un algoritmo puede ser protegido con la ley de patentes en ciertos casos.
+
+Para proteger un programa y la titularidad del mismo, se debe añadir al **registro de la propiedad intelectual** el código fuente del mismo y, adicionalmente, hacer un **depósito ante notario**, que permite además añadir cualquier material además de código fuente que se puedan utilizar para comprobar si otro programa se ha plagiado.
+
+## Licencias (EULA) y Términos de Servicio
+
+Las EULA son contratos entre el titular de los derechos y el usuario, y se usan para limitar las libertades que tiene éste último sobre la copia del programa instalada en su ordenador.
+
+Los ToS, por otro lado, son avisos o contratos que se usan para dar a conocer y (a veces) elegir cómo se van a tratar los datos recopilados en un servidor remoto sobre el uso del programa.
+
+# Protección jurídica de las BBDD
+
+La ley de propiedad intelectual **no ampara los contenidos** de las BBDD, pero sí la **estructura** de las colecciones y bases de datos siempre y cuando ésta o la selección curada de contenidos se consideren "originales", como sucede con cualquier obra independientemente de su naturaleza.
+
+Ahora bien, esto no cubriría a muchas las bases de datos que derivan de otras, por lo que se ha añadido en una Directiva europea un derecho *"sui generis"* que da **derechos exclusivos de extracción y reutilización de los datos** al fabricante de la base de datos en caso de que hubiese una inversión sustancial, sin requisito de originalidad.
+
+En definitiva, las BBDD cuentan con dos protecciones por parte de la LPI, la de derechos de autor, que protege la creatividad, y la de derecho *sui generis*, que protege la inversión e impide que cualquiera saque y use los datos de la BBDD.
