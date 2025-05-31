@@ -51,6 +51,15 @@ Los **beneficiarios de la ética empresarial** pueden ser internos o externos. L
 
 El **balance social** de una empresa es el sistema que usan para proporcionar información de las aportaciones que hace a la sociedad. 
 
+## Ética en la IA
+
+La UE define 5 principios a seguir:
+- Transparencia. IA explicable, operada de modo transparente y susceptible a rendición de cuentas.
+- Beneficencia. Hacer el bien y que se desarrolle para el beneficio de la humanidad.
+- No maleficencia. No hacer el daño al medio ambiente, a la salud psicológica de la gente, etc.
+- Autonomía humana. Respeto por las elecciones de los individuos.
+- Justicia. Trato justo y equitativo para todos.
+
 # Dimensiones morales de la sociedad de la información
 
 - **Derechos y obligaciones de información**. Para con los datos de las personas.
