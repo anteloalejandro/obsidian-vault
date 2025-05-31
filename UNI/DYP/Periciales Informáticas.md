@@ -91,4 +91,7 @@ Si bien no tienen una forma bien definida más allá de incluir los mínimos que
 - **Limitaciones:** Se plasman todas las cosas que no se han podido hacer y los datos que no se han podido obtener.
 - **Alegaciones y consideraciones:** Se harán alegaciones de carácter técnico en base a la información presentada en los puntos anteriores, basadas tanto en la experiencia del propio perito como en otras fuentes.
 - **Conclusiones:** Se resumen los resultados del informe de forma que todo el que tenga que leer el documento lo entienda, aunque no tenga ningún conocimiento en la materia.
-- **Observaciones:** Aquí el perito plasma 
+- **Observaciones:** Aquí el perito plasma sus opiniones personales sobre el caso y sobre qué se puede aprender de él a futuro.
+- **Firma**
+
+También se suele añadir una sección dedicada a explicar términos que aparezcan a lo largo del documento de forma sencilla.
