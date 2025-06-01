@@ -6,6 +6,10 @@
 - **Responsabilidad social:** Obligación de la dirección de empresas de tomar aquellas decisiones que favorezcan el bienestar del entorno social para un mejor futuro.
     - Empresarial: Actitud frente a los negocios.
     - Corporativa: Transparencia frente a agencias gubernamentales y otras organizaciones.
+- **Justicia**
+    - General: Las leyes que deben cumplirse para beneficio de la sociedad.
+    - Conmutativa: Va más allá de lo jurídico, como los contratos de buena fe. Es un toma y daca.
+    - Distributiva: Cumplir con tu parte de un deber repartido entre varias personas.
 
 # Ética
 
@@ -35,7 +39,6 @@ Además, las responsabilidades se dividen en 3 estratos según como de humanitar
 
 ![[Deontología - responsabilidades sociales.png]]
 
-
 ## Ética empresarial
 
 La ética de la empresa también se divide en una pirámide con estratos, pero los estratos esta vez están en orden invertido; en la base están las razones más humanitarias, mientras que en la base las más utilitarias:
@@ -43,13 +46,15 @@ La ética de la empresa también se divide en una pirámide con estratos, pero l
 2. Razones de segundo orden, Psico-sociales: Entender a la gente que te rodea como grupos de personas. Por ejemplo "mis amigos", "mis compañeros", "mis jefes", etc.
 3. Razones de 3er orden, Técnico-económicas: Tratar a las personas como fuentes de ventaja competitiva. A pesar de no ser un planteamiento muy ético, puede llevar a las empresas a buscar buenas condiciones para la gente. Por ejemplo, ayudar a desarrollar un país para tener mejores ventas en él.
 
-Los **beneficiarios de la ética empresarial** pueden ser internos o externos. Los externos son grupos indefinidos no relacionados directamente con la actividad empresarial, como la sociedad en general, futuras generaciones, etc. Más útil es definir a los beneficiarios internos, ya que todos los que no lo sean serán externos.
+Según las capas con las que cumpla una empresa podrá ser considerada **moral, amoral o inmoral**, respectivamente. Una empresa inmoral no va a ser necesariamente vil con los trabajadores, pero lo será si les beneficia.
+
+Los **beneficiarios de la ética empresarial** pueden ser internos o externos. Los externos son grupos indefinidos no relacionados directamente con la actividad empresarial, como la sociedad en general, futuras generaciones, grupos marginados, etc. Más útil es definir a los beneficiarios internos, ya que todos los que no lo sean serán externos.
 - Clientes y consumidores
 - Empleados
 - Accionistas
 - Proveedores
 
-El **balance social** de una empresa es el sistema que usan para proporcionar información de las aportaciones que hace a la sociedad. 
+El **balance social** de una empresa es el sistema que usan para proporcionar información de las aportaciones que hace a la sociedad.
 
 ## Ética en la IA
 
