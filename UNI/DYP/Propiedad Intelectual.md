@@ -5,13 +5,17 @@ La propiedad intelectual protege la obra desde que se **crea**, mientras que el 
 
 El objetivo de la ley de propiedad intelectual es proteger el derecho de autor de todas las creaciones originales para así incentivar la creatividad.
 
+# *Copyright* vs Derecho de autor
+
+El derecho de autor es un conjunto de reglas que contienen los derechos morales (divulgación, modificación, atribución...) y patrimoniales (explotación), y se aplica desde la creación de la obra.
+
+El *copyright*, sin embargo, es el derecho a copia y explotación de una obra publicada.
+
 # Cambios importantes
 
 ## Copia privada
 
 La copia privada se permite siempre y cuando se lleve a cabo por una persona física y sea para uso privado no profesional ni comercial. Además, el material del que se va a hacer la copia debe haber sido obtenido de forma lícita.
-
-
 
 ## Mecanismos de reacción
 
@@ -42,7 +46,7 @@ Sin embargo, en casos expresamente previstos por la ley, se le pueden dar estos 
 
 También surgen problemas a la hora de definir quién tiene qué derechos cuando hay múltiples personas implicadas en el desarrollo.
 - Para las **obras en colaboración**, en las que todos trabajan en calidad de equipo, los derechos son exclusivos y se reparte la autoría conforme decidan entre ellos.
-- En las **obras colectivas**, que son aquellas en las que se crean, editan y publican por iniciativa de una persona natural o jurídica pero otras personas pueden contribuir al programa, el autor es la persona que la crea.
+- En las **obras colectivas**, que son aquellas en las que se crean, editan y publican por iniciativa de una persona natural o jurídica pero otras personas pueden contribuir al programa, el autor es la persona que la crea. Un ejemplo serían los asalariados de una empresa; la empresa es el titular de los derechos.
 - Las **obras compuestas**, en las que se incluye una obra preexistente de un autor diferente, el autor es el que ha creado la nueva obra, asumiendo que el uso de obras preexistentes ha sido lícito.
 
 # Protección jurídica del software
@@ -74,3 +78,11 @@ Se incluyen:
 - Patentes y modelos de utilidad
 - Topografías de semiconductores
 - Diseños industriales en general
+
+## Patentabilidad del software
+
+En EEUU la oficina de Patentes y Marcas declara que los algoritmos y secuencias de instrucciones ejecutadas por un ordenador pueden ser patentables siempre y cuando sean nuevas y no triviales.
+
+La UE, sin embargo, requiere que las patentes tengan un carácter técnico, lo que se traduce en que sólo se podrán asignar patentes al software cuando éste gestione, a través de un ordenador, un proceso técnico o el funcionamiento de una máquina, siempre el cuando se patente junto a dicho proceso técnico o máquina.
+
+El interés en patentas software en vez de recurrir al derecho de autor o las licencias es que estas últimas sólo protegen a la implementación final de la idea (o sea, el código que está escrito), no al funcionamiento, los conceptos matemáticos o la idea del algoritmo en general. Es decir, las patentes protegen ideas, mientras que los derechos de autor protegen el resultado de la ejecución de un idea.

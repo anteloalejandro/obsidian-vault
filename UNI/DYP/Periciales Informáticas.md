@@ -20,7 +20,7 @@ El arbitraje formal es aquel que cumple la Ley de Arbitraje. Hay dos tipos, y la
 - **Arbitraje de Derecho**: Los árbitros deben decidir sobre la cuestión conforme al derecho (es decir, siguiendo las leyes), como si fuesen jueces. Los árbitros **deben ser abogados**. Es una especie de "juicio de mentira".
 - **Arbitraje de Equidad:** Los árbitros resuelven el caso según su entendimiento y ética, y actúan sin estar sometidos al imperio de la Ley, como los jueces ordinarios. Si las las partes implicadas no están de acuerdo en que tipo de arbitraje usar, este es el modo **por defecto**.
 
-## Arbitraje judicial
+# Peritaje judicial
 
 Un perito debe ser nombrado para trabajar en un caso por el juez o el Tribunal, a propuesta de éstos o de las partes interesadas. El perito podrá ser recusado por conflictos de interés como parentesco próximo con alguna de las partes implicadas.
 
@@ -77,8 +77,7 @@ Es el tribunal quien decide que interpretación y conclusiones sacar del informe
 ## Trabajo previo al informe
 
 - Recuperación de datos
-- Recolección de evidencias
-- Confiscación de datos con ayuda de la policía
+- Recolección de evidencias y confiscación de datos con ayuda de la policía
 - Copia de seguridad de la evidencia digital
 - Verificación y autenticación de las copias.
 - Y más...
