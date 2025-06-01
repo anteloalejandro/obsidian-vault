@@ -12,7 +12,7 @@ Las características principales son:
 
 # Desarrollo sostenible
 
-Desarrollo capaz de satisfacer las necesidades actuales sin sacrificar las posibilidades y necesidades de las futuras generaciones. Dependen de un triple balance entre las personas, el planeta y el provecho para estas dos.
+Desarrollo capaz de satisfacer las necesidades actuales sin sacrificar las posibilidades y necesidades de las futuras generaciones. Las empresas deben mantener un **triple balance** entre personas, planeta y provecho para llevarlo a cabo.
 
 # Ciclo de vida del producto
 
