@@ -53,6 +53,3 @@ EPEAT (*Electronic Product Environmental Assessment Tool*), a diferencia de otro
 El objetivo es reducir el impacto medioambiental del aparato **mientras está en uso**, ya que por norma general no podemos hacer demasiado respecto a lo que se hace durante la creación, envío y desguace del mismo. Precisamente para esto está [[#Energy Star]].
 
 Otra forma de reducir el consumo es minimizar el uso de consumibles, como el papel, tinta y baterías. No significa necesariamente dejar de usarlos por completo (tienen su uso), pero si que hay que tratar de malgastarlos y reciclarlos.
-
-# Fin de la vida útil
-
