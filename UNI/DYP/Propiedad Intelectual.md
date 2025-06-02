@@ -21,7 +21,7 @@ La copia privada se permite siempre y cuando se lleve a cabo por una persona fí
 
 Los mecanismos de reacción frente a vulneraciones de los derechos de propiedad intelectual se han fortalecido.
 
-- Se ha endurecido el control sobre sitios web con enlaces de descarga y streaming de contenido protegido.
+- Se ha endurecido el control sobre sitios web con enlaces de descarga y streaming de contenido protegido (Ley Sinde).
 - Se amplían los podres de la [[#comisión de propiedad intelectual]].
 
 # Comisión de propiedad intelectual

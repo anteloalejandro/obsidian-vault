@@ -1,6 +1,6 @@
 # Definiciones
 
-- **Perito**: es un experto en un tema que determina las causas de un problema relacionado con ese tema, ya sea en el ámbito judicial o en el empresarial (hace de árbitro).
+- **Perito**: es un experto en un tema que determina las causas de un problema relacionado con ese tema, ya sea en el ámbito judicial o en el empresarial (donde hace de árbitro).
 - **Arbitraje:** procedimiento en el que personas o empresas pueden, estando acordado de antemano, dejar que un árbitro decida el resultado de un litigio sin pasar por un tribunal.
 
 # Arbitraje
@@ -59,7 +59,7 @@ Se puede categorizar de diferentes formas las pruebas (incluida la e-evidencia) 
 
 El dictamen es el informe final de todo el trabajo que ha hecho el perito. Debe ser claro, conciso y bien justificado, ya que se entregará para ser evaluado como una prueba que el propio perito habrá de deponer (exponer), además de responder a las preguntas que le hagan al respecto el juez y abogados.
 
-Los hay por vía civil, que se aportan junto a las demandas y por decisión del tribunal, y por vía penal, que se aportan junto a una demanda por un delito.
+Los hay por vía civil, que se aportan junto a las demandas o por decisión del tribunal, y por vía penal, que se aportan junto a una demanda por un delito.
 
 Según el artículo 478 de la LECr:
 > El informe pericial comprenderá, si fuere posible:

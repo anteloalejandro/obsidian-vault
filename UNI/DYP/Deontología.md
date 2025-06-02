@@ -19,8 +19,6 @@
 - Ética minimalista: No hacer el mal, y cooperar o hacer el bien.
 - Ética maximalista: Hacer el mayor bien posible.
 
-## Ética de la convicción
-
 ## Ética de la responsabilidad
 
 Intentamos atender a las consecuencias finales y no se trata de articular casos concretos de antemano, pues las decisiones finales quedan en manos de quienes las llevan a cabo.
@@ -41,7 +39,7 @@ Además, las responsabilidades se dividen en 3 estratos según como de humanitar
 
 ## Ética empresarial
 
-La ética de la empresa también se divide en una pirámide con estratos, pero los estratos esta vez están en orden invertido; en la base están las razones más humanitarias, mientras que en la base las más utilitarias:
+La ética de la empresa también se divide en una pirámide con estratos, pero los estratos esta vez están en orden invertido; en la cima están las razones más humanitarias, mientras que en la base las más utilitarias:
 1. Razones de primer orden, Humanas: Tratar a las personas como individuos dentro de la organización.
 2. Razones de segundo orden, Psico-sociales: Entender a la gente que te rodea como grupos de personas. Por ejemplo "mis amigos", "mis compañeros", "mis jefes", etc.
 3. Razones de 3er orden, Técnico-económicas: Tratar a las personas como fuentes de ventaja competitiva. A pesar de no ser un planteamiento muy ético, puede llevar a las empresas a buscar buenas condiciones para la gente. Por ejemplo, ayudar a desarrollar un país para tener mejores ventas en él.
