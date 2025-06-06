@@ -24,7 +24,7 @@ La transferencia de caracteres, sin embargo, sí que difiere.
 
 ## Transferencia de bloques
 
-Los periféricos hacen uso de buffers internos en vez de un sólo registro, a los que el procesador puede acceder mediante registros de datos o como memoria del sistema (si es *Memory-mapped IO*).
+Los periféricos hacen uso de buffers internos en vez de un sólo registro, a los que el procesador puede acceder mediante registros de datos o como memoria del sistema.
 
 La transferencia se hace entre el buffer interno del dispositivo y un buffer de memoria principal con capacidad para uno o más bloques, que generalmente estará reservado de antemano. Cada buffer tiene una dirección base y un puntero o contador que indica el punto actual de la transferencia, y sólo se dará por terminada la operación una vez el puntero llegue al final del espacio reservado.
 
