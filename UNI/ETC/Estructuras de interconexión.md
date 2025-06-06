@@ -36,6 +36,8 @@ Se conectan mediante adaptadores al bus del sistema, cada uno de los cuales pued
 
 Cada canal de audio, de los que hay múltiples tanto para entrada como para salida, transmite $f_{m}$ (frecuencia de muestreo) muestras por segundo, que está representada con $q$ bits (usualmente 16 o 24 bits). Por lo tanto, el ancho de banda se calcula como $B = n · f_{m} · q · \frac{1}{8} \pu{ B/s }$.
 
+Los canales se expresan como estéreo (2 canales) o `n.1`, (n+1 canales). 
+
 En el caso del audio comprimido, que es como suele estar almacenado, tiene una tasa de bits fija, como 128Kbps.
 
 # Gráficos
