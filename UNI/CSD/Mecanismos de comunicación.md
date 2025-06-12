@@ -25,7 +25,7 @@ Por defecto, sólo las colas de mensajes usan comunicación persistente, pues so
 
 # Java RMI
 
-Los objetos remotos pueden ser usado desde ordenadores en los que no están físicamente almacenados en memoria. Los objetos remotos se instancian en un servidor y se usan desde clientes locales y remotos.
+Los objetos remotos pueden ser usados desde ordenadores en los que no están físicamente almacenados en memoria. Los objetos remotos se instancian en un servidor y se usan desde clientes locales y remotos.
 
 Este modelo facilita la transparencia de **ubicación** y la escalabilidad, además de permitir usar el paradigma orientado a objetos.
 
@@ -129,15 +129,15 @@ abstract class Client {
 
 # Java JMS
 
-Es una API de java que permite enviar y recibir mensajes. Los mensajes se envían a un destino que hace de intermediario, y este destino lo enviara al receptor. El emisor y el receptor no tienen por qué conocerse entre sí, solo estar de acuerdo en el formato de los mensajes y en el destino. Al implementar una cola de mensajes, es persistente.
+Es una API de java que permite enviar y recibir mensajes. Los mensajes se envían a un destino que hace de intermediario, y este destino lo enviara al receptor. El emisor y el receptor no tienen por qué conocerse entre sí, solo estar de acuerdo en el formato de los mensajes y en el destino. Dado que implementa una cola de mensajes, es persistente.
 
 Se prefiere el uso frente a RMI cuando la comunicación es inmediata o cuando no queremos que sea necesario conocer las interfaces de los destinatarios. 
 
 ## Componentes
 
 - **Proveedor:** Implementa un sistema de mensajería, que proporciona herramientas administrativas.
-- **Cliente:** Produce o envía mensajes.
-- **Mensajes:** Tienen un formato predefinido, con cabecera, propiedades y cuerpo.
+- **Cliente:** Produce o consume mensajes.
+- **Mensajes:** Tienen un formato acordado de antemano, con cabecera, propiedades y cuerpo.
 - **Factorías de conexiones:** Se crean con las herramientas del proveedor. Las usan los clientes para crear conexiones con el sistema de mensajería.
 - **Destinos:** También se crean con las herramientas del proveedor. Es a donde van a parar los mensajes, y a donde se deben ir a buscar.
     - Cola de mensajes. Para comunicación entre un cliente y otro. Modelo Emisor-Receptor.

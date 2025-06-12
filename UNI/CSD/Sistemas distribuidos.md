@@ -32,7 +32,7 @@ Hay 3 factores que afectan a la disponibilidad, y los sistemas distribuidos se d
 
 ### Fallos
 
-Pueden fallar tanto nodos como redes, y los sistemas deben es tolerantes a fallos, es decir, poder funcionar aun habiendo cierta cantidad de fallos.
+Pueden fallar tanto nodos como redes, y los sistemas deben ser tolerantes a fallos, es decir, poder funcionar aun habiendo cierta cantidad de fallos.
 
 El mecanismo básico para conseguir tolerancia a fallos es la **replicación**, por el cual los nodos del servicio se consideran réplicas que llevan a cabo la misma tarea en conjunto, por lo que un fallo en uno o varios nodos, si bien puede afectar al rendimiento, no implica que el servicio deje de funcionar completamente.
 
@@ -46,7 +46,7 @@ Hay dos ejes en los que categorizar los tipos de fallos: **Simples** o **compues
     - *Fallo de parada:* Un nodo se detiene. Se puede detectar mediante pings periódicos.
     - *Fallo de temporización:* Un nodo tarda demasiado en responder. Se puede detectar mediante pings periódicos o, preferiblemente, mediante temporizadores asociados a cada petición.
     - *Fallo de respuesta detectable:* Un nodo proporciona una respuesta incorrecta, pero detectable. Otro nodo puede detectarlo usando rangos válidos de respuesta.
-- **Simples indetectables.** También conocidos como fallos bizantinos. Un sólo nodo falla de forma arbitraria o con una respuesta incorrecta que no se puede identificar como tal. Pueden ser causado por errores en el software o hardware, o por ataques maliciosos. Para evitar este tipo de fallos en los sistemas ultra-disponibles, se emplea la replicación junto con **algoritmos de quorum**, en los que todas las réplicas contestan pero sólo se elige la respuesta mayoritaria.
+- **Simples indetectables.** También conocidos como fallos bizantinos. Un solo nodo falla de forma arbitraria o con una respuesta incorrecta que no se puede identificar como tal. Pueden ser causado por errores en el software o hardware, o por ataques maliciosos. Para evitar este tipo de fallos en los sistemas ultra-disponibles, se emplea la replicación junto con **algoritmos de quorum**, en los que todas las réplicas contestan pero sólo se elige la respuesta mayoritaria.
 - **Fallos compuestos.** Normalmente se tratan igual que una sucesión de fallos simples, ya sean detectables o indetectables.
     - *Detectables:* Se tratan uno a uno de forma independiente.
     - *Indetectables:* Se asume que la mayoría de nodos no estarán afectados y por tanto estos podrán seguir ofreciendo el servicio.
