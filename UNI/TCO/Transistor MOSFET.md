@@ -112,7 +112,7 @@ clip=false % No permitir que el texto sobrepase la gráfica % %
   node[right] {$V_{GS_1}$};
 
 \draw[color=linecolor2] (0,0) .. controls (2,1) and (5,7) .. (5.5,12)
-  node[right, pos=1] {$V_{CE} = V_{GS}-V_T$}
+  node[right, pos=1] {$V_{DS} = V_{GS}-V_T$}
   node[pos=0.7,left, color=gray] {Lineal}
   node[pos=0.75,right, color=gray] {Saturación}
   ;
@@ -133,18 +133,28 @@ El área a la izquierda de la parábola es la zona lineal y el área a la derech
 
 $$
 \begin{gather}
-V_{DS} \leq V_{GS} - V_{T} \iff I_{D} = 2K(V_{GS} - V_{T})V_{DS}-K{V_{DS}}^2 \iff \text{Lineal}\\
-V_{DS} \leq V_{GS} - V_{T} \land V_{DS} \simeq 0 \iff I_{D} \simeq 2K(V_{GS} - V_{T})V_{DS} \iff \text{Lineal} \\
-V_{DS} > V_{GS} - V_{T} \iff I_{D} = k(V_{GS} - V_{T})^2 \iff \text{Saturación}
+0 < V_{DS} \leq V_{GS} - V_{T} \iff I_{D} = 2K(V_{GS} - V_{T})V_{DS}-K{V_{DS}}^2 \iff \text{Lineal}\\
+V_{DS} \leq V_{GS} - V_{T} \land V_{DS} \sim 0 \iff I_{D} \simeq 2K(V_{GS} - V_{T})V_{DS} \iff \text{Lineal} \\
+V_{DS} \geq V_{GS} - V_{T} \iff I_{D} = K(V_{GS} - V_{T})^2 \iff \text{Saturación}
 
 \end{gather}
 $$
 
-A partir de esto también se puede concluir que la resistencia equivalente que pasa entre la fuente y el drenaje  cuando está en la zona lineal (incluido justo en la parábola de saturación) es:
+A partir de esto también se puede concluir que la resistencia equivalente que pasa entre la fuente y el drenaje cuando está en la zona lineal (incluido justo en la parábola de saturación) es:
 $$
-R_{DS(ON)} = R_{ON} \simeq \frac{1}{2K(V_{GS}-V_{T})}
+R_{DS(ON)} = R_{ON} \simeq
+\begin{cases}
+\frac{1}{2K(V_{GS}-V_{T})-KV_{DS}} & \text{ Si } V_{DS} > 0 \\
+\frac{1}{2K(V_{GS}-V_{T})} &\text{ Si } V_{DS} \sim 0
+\end{cases}
 $$
+Es decir, cuando la diferencia de voltaje de Drain a Source es baja (que es lo normal porque buscamos un consumo bajo) y está en la zona lineal, el MOSFET actúa como una resistencia $R_{ON}$ que sólo depende de $V_{GS}$.
 
+También se observa que cuando está en la zona de saturación la corriente también sólo depende de $V_{GS}$, aunque en esta ocasión la dependencia es cuadrática.
+
+Cabe destacar que justo para $V_{DS} = V_{GS} - V_{T}$, es decir, cuando está justamente en la parábola de saturación ambas ecuaciones para sacar la $I_{DS}$ son correctas.
+
+Por la gráfica también se observa que si $V_{GS} \leq V_{T}$ o $V_{DS} \geq V_{T}$ el transistor estará en corte u OFF, por lo que $I_{DS} = 0$.
 # Curvas características del PMOS
 
 Los transistores PMOS son esencialmente idénticos a los NMOS, cambiando los semiconductores Tipo-P por los Tipo-N y viceversa. El resultado es, esencialmente, un NMOS invertido. Las curvas características, por tanto, son una inversión de lo que encontraríamos en un NMOS, estando localizadas en el tercer cuadrante del plano cartesiano.
