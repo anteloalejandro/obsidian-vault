@@ -155,6 +155,7 @@ También se observa que cuando está en la zona de saturación la corriente tamb
 Cabe destacar que justo para $V_{DS} = V_{GS} - V_{T}$, es decir, cuando está justamente en la parábola de saturación ambas ecuaciones para sacar la $I_{DS}$ son correctas.
 
 Por la gráfica también se observa que si $V_{GS} \leq V_{T}$ o $V_{DS} \geq V_{T}$ el transistor estará en corte u OFF, por lo que $I_{DS} = 0$.
+
 # Curvas características del PMOS
 
 Los transistores PMOS son esencialmente idénticos a los NMOS, cambiando los semiconductores Tipo-P por los Tipo-N y viceversa. El resultado es, esencialmente, un NMOS invertido. Las curvas características, por tanto, son una inversión de lo que encontraríamos en un NMOS, estando localizadas en el tercer cuadrante del plano cartesiano.
