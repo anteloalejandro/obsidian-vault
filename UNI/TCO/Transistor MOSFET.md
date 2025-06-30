@@ -148,7 +148,7 @@ R_{DS(ON)} = R_{ON} \simeq
 \frac{1}{2K(V_{GS}-V_{T})} &\text{ Si } V_{DS} \sim 0
 \end{cases}
 $$
-Es decir, cuando la diferencia de voltaje de Drain a Source es baja (que es lo normal porque buscamos un consumo bajo) y está en la zona lineal, el MOSFET actúa como una resistencia $R_{ON}$ que sólo depende de $V_{GS}$.
+Es decir, cuando la diferencia de voltaje de Drain a Source es baja (que es el caso en los circuitos digitales) y está en la zona lineal, el MOSFET actúa como una resistencia $R_{ON}$ que sólo depende de $V_{GS}$.
 
 También se observa que cuando está en la zona de saturación la corriente también sólo depende de $V_{GS}$, aunque en esta ocasión la dependencia es cuadrática.
 
