@@ -16,5 +16,6 @@
   "tabSize": 2,
   "userIgnoreFilters": [
     "Assets/"
-  ]
+  ],
+  "showInlineTitle": true
 }
