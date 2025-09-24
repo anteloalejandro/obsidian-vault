@@ -2,7 +2,7 @@
 titles:
   - Búsqueda heurística
 ---
-Consiste en mejorar la búsqueda con una **heurística**, es decir, con información extra que no forma parte del problema pero que se puede inferir o encontrar por otros medios. Es decir, las búsquedas informadas son menos generales que las informadas.
+- [ ] Consiste en mejorar la búsqueda con una **heurística**, es decir, con información extra que no forma parte del problema pero que se puede inferir o encontrar por otros medios. Es decir, las búsquedas informadas son menos generales que las informadas.
 
 La heurística no está necesariamente para encontrar la solución más óptima, sino la más rápida.
 
