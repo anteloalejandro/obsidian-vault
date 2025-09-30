@@ -85,3 +85,19 @@ Que una heurística domine no la hace necesariamente mejor. Puede dominar pero s
 ## Factor de ramificación
 
 Dos heurísticas pueden ser igual de dominantes pero tener factores de ramificación $b^{*}$ diferentes, resultando en menor coste espacial. Cuanto menor sea $b*$, mejor es la heurística. De hecho, el caso ideal es $b^{*} = 1$, caso en el que iríamos de cabeza a la solución siempre.
+
+# Algoritmo de búsqueda IDA*
+
+El objetivo es reducir el altísimo coste en memoria del algoritmo A\*. Es una versión híbrida del de [[Búsqueda No Informada#Profundización iterativa|profundidad iterativa]] (ID) y el A\*.
+
+Al "olvidar" nodos (dejan de estar en OPEN y PATH una vez de hace backtracking, en vez de mantenerse siempre en CLOSED), el consumo de memoria es menor.
+
+Además, se calcula un valor límite de f, y todos los nodos cuya f(n) sea superior a ese valor no se meten en la lista OPEN. El valor límite se establece como el valor de f para el mejor de los nodos descartados (el valor más bajo en la lista OPEN al sacar el nodo). Esto es similar a cuando en ID no se cogen valores superiores al límite de g(n) establecido.
+
+Al ser un híbrido, los nodos en la lista OPEN están ordenados en base al nivel (g(n)), y NO la función de evaluación f. **La función f solo se usa para calcular el valor límite**.
+
+Al acabar la iteración, se escoge como límite el menor f(n) de los nodos que se han ignorado por tener un f(n) demasiado alto. Es decir, aparte de OPEN, PATH y el valor límite de f, hay que guardar el **siguiente** valor límite de f.
+
+El resultado es un algoritmo que da el mismo resultado que el A* haciendo más iteraciones, pero con muchos menos nodos en memoria simultáneamente.
+
+Un defecto del algoritmo es que si hay mucha disparidad entre valores de f(n) acaba generando pocos nodos cada vez, por lo que hace más iteraciones y acaba siendo lento. Por tanto, generalmente es útil para algoritmos para los que el coste de todas las acciones es el mismo (costes uniformes/unitarios), como el n-puzzle.
