@@ -46,7 +46,3 @@ En su lugar está disponible, como muy pronto, en el registro MEM/WB. Al cortoci
 ![[Ruta de datos - cortocircuito MEM ID.png]]
 
 Nótese que la misma solución se aplica también a las instrucciones store que van tras una load.
-
-## Instrucciones de salto
-
-Por culpa
