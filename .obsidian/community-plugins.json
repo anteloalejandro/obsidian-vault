@@ -6,13 +6,13 @@
   "obsidian-git",
   "obsidian-minimal-settings",
   "obsidian-style-settings",
-  "obsidian-circuitjs",
-  "obsidian-latex-suite",
   "obsidian-paste-image-rename",
-  "obsidian-tikzjax",
   "find-unlinked-files",
   "settings-search",
-  "code-styler",
+  "obsidian-latex-suite",
+  "obsidian-tikzjax",
   "obsidian-mindmap-nextgen",
-  "various-complements"
+  "code-styler",
+  "various-complements",
+  "obsidian-circuitjs"
 ]

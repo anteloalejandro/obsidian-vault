@@ -46,7 +46,7 @@ $$
 
 Una función de correspondencia sirve para separar una dirección de memoria en campos con tal de poder usarla para poder ubicarla.
 
-PEn las direcciones de una memoria principal de $2^{n}B$ con tamaño de bloque de $2^{m}B$ se distinguen dos secciones: El número de bloque o página y el desplazamiento dentro de dicha página.
+En las direcciones de una memoria principal de $2^{n}B$ con tamaño de bloque de $2^{m}B$ se distinguen dos secciones: El número de bloque o página y el desplazamiento dentro de dicha página.
 
 ![[Direcciones memoria principal.excalidraw|100%]]
 
