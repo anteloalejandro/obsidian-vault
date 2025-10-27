@@ -18,7 +18,7 @@ Según el tipo de predictor, intentaremos...
 
 # *Branch Prediction Buffers*
 
-Los BPB, también llamados *Branch History Table* o BHT, intentan predecir **la condición** a partir de **algunos bits** de la dirección de salto, usando correspondencia **directa**.
+Los BPB, también llamados *Branch History Table* o BHT, intentan predecir **la condición** a partir de **algunos bits** de la dirección de la instrucción de salto, usando correspondencia **directa**.
 
 Está formado por una tabla indexada de un tamaño determinado con los bits de menor peso (menos los dos primeros, porque las direcciones siempre son múltiples de 4) de la instrucción de salto, donde cada entrada (que habrán de ser inicializadas) de ésta contiene la predicción de la condición: *taken* o *not-taken*.
 
@@ -67,4 +67,26 @@ Simplemente saca las entradas de dos predictores diferentes a un multiplexor y c
 Normalmente el selector llevará un conteo de cual de los dos predictores acierta más, y seleccionará ese.
 
 # *Branch Target Buffers*
+
+Los BTB predicen la **condición y dirección** a partir de la **dirección completa** de la instrucción de salto con correspondencia **totalmente asociativa** (aunque puede serlo de otro tipo).
+
+Están formados por una tabla con 3 campos diferentes:
+- Dirección de la instrucción de salto
+- Precondición
+- Dirección de destino
+
+Al calcular también la dirección de destino, la predicción se debe hacer durante la fase IF, si no tendría que haber ciclos de parada en ID para esperar a la predicción, anulando las ganancias de rendimiento.
+
+El funcionamiento es el siguiente:
+- En la fase IF:
+    - Si existe la dirección de la instrucción en la BTB, sabemos que es un salto sin decodificar. Si, además, la precondición en esa misma entrada es "salta", busca la dirección de destino de la BTB y las instrucciones siguientes a esta.
+    - Si no, busca las instrucciones siguientes a la actual.
+- En la fase ID:
+    - Calcula la condición y dirección del salto, y actualiza la BTB.
+        - Si existe la dirección de la instrucción en la BTB, actualiza los bits de la precondición.
+        - Si no, añade la entrada completa a la BTB.
+    - Comprueba la predicción de IF.
+        - Si la predicción **no** ha acertado, cancelar instrucciones lanzadas, buscar instrucciones a partir de la dirección correcta.
+
+Dan lugar a básicamente el mismo número de ciclos de parada medios que un *predict-not-taken* a costa de maquinaría más compleja, pero sólo si todas las instrucciones tienen el mismo coste (uniciclo). Cuando hay instrucciones que pueden estar más de un ciclo en la fase de ejecución, las ganancias del BTB son muy significativas.
 
