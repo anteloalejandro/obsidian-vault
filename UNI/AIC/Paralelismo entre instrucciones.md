@@ -64,10 +64,90 @@ En la gestión estática, junto al renombrado de variables, destacan el *Loop-Un
 
 ## *Loop Unrolling*
 
+Consiste en convertir $n$ iteraciones de un bucle en $n / k$ iteraciones, donde $k$ es una constante. Esto aumenta en $k$ el tamaño de un bloque básico y reduce a $n / k$ el número de saltos.
 
+Al tener más instrucciones en un sólo bloque, hay más oportunidades para reorganizar las instrucciones y encontrar combinaciones de instrucciones que eliminen o limiten los ciclos de paradas producidos por riesgos estructurales y de datos.
 
-%%
-Por tanto, también se presta atención al ILP que hay en un sólo bloque básico.
+![[Paralelismo entre instrucciones - loop unrolling.png]]
 
-Si asumimos que estadísticamente el 15% de las instrucciones son saltos, tendríamos que en cada bloque básico hay unas 6 o 7 instrucciones, que normalmente tendrán dependencias.
-%%
+Por ejemplo, dado el siguiente código de ejemplo tipo DAXPY:
+
+```
+start:
+        addi t1, gp, y # t1 = direcci´on de y
+        addi t2, gp, z # t2 = direcci´on de z
+        fld f0, a(gp) # f0 = a
+        addi t3, t1, 512 # 64 elementos son 512 bytes
+loop:
+        fld f2, 0(t1) # L
+        fadd.d f4, f0, f2 # A
+        fsd f4,0(t2) # S
+        addi t1, t1, 8
+        addi t2, t2, 8
+        sub t4, t3, t1
+        bnez t4, loop
+```
+
+El bucle se podría desenrollar así, produciendo código equivalente (excepto que sería ligeramente más rápido por ejecutar menos instrucciones de datos).
+
+```
+start:
+        addi t1, gp, y # t1 = direcci´on de y
+        addi t2, gp, z # t2 = direcci´on de z
+        fld f0, a(gp) # f0 = a
+        addi t3, t1, 512 # 64 elem. son 512 bytes
+loop:
+        fld f2, 0(t1)       # (1.1)
+        fadd.d f4, f0, f2   # (1.2)
+        fsd f4,0(t2)        # (1.3)
+        fld f2, 8(t1)       # (2.1)
+        fadd.d f4, f0, f2   # (2.2)
+        fsd f4,8(t2)        # (2.3)
+        fld f2, 16(t1)      # (3.1)
+        fadd.d f4, f0, f2   # (3.2)
+        fsd f4,16(t2)       # (3.3)
+        fld f2, 24(t1)      # (4.1)
+        fadd.d f4, f0, f2   # (4.2)
+        fsd f4,24(t2)       # (4.3)
+        addi t1, t1, 32     # 4 veces 8 = 32
+        addi t2, t2, 32
+        sub t4, t3, t1
+        bnez t4, loop
+```
+
+Y los riesgos de control se resolverían reordenando instrucciones y renombrando registros.
+
+```
+start:
+        addi t1, gp, y # t1 = direcci´on de y
+        addi t2, gp, z # t2 = direcci´on de z
+        fld f0, a(gp) # f0 = a
+        addi t3, t1, 512 # 64 elem. son 512 bytes
+loop:
+        fld f2, 0(t1)         # (1.1)
+        fld f6, 8(t1)         # (2.1)
+        fld f10, 16(t1)       # (3.1)
+        fld f14, 24(t1)       # (4.1)
+        fadd.d f4, f0, f2     # (1.2)
+        fadd.d f8, f0, f6     # (2.2)
+        fadd.d f12, f0, f10   # (3.2)
+        fadd.d f16, f0, f14   # (4.2)
+        fsd f4,0(t2)          # (1.3)
+        fsd f8,8(t2)          # (2.3)
+        fsd f12,16(t2)        # (3.3)
+        fsd f16,24(t2)        # (4.3)
+        addi t1, t1, 32
+        addi t2, t2, 32
+        sub t4, t3, t1
+        bnez t4, loop
+```
+
+## Software Pipelining
+
+La idea es a grandes rasgos la misma que con el Loop Unrolling, pero en este caso se transforma un bucle cuyas iteraciones son independientes pero las iteraciones dentro de cada una son dependientes en un bucle con iteraciones dependientes pero instrucciones independientes, de forma similar a la segmentación de las fases de un procesador.
+
+![[Paralelismo entre instrucciones - software pipelining.png]]
+
+Las diferentes operaciones actúan de fases, y las fases en la misma columna see ejecutan simultáneamente.
+
+![[Paralelismo entre instrucciones - software pipelining ejemplo.png]]
