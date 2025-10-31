@@ -46,3 +46,7 @@ En su lugar está disponible, como muy pronto, en el registro MEM/WB. Al cortoci
 ![[Ruta de datos - cortocircuito MEM ID.png]]
 
 Nótese que la misma solución se aplica también a las instrucciones store que van tras una load.
+
+# A salto
+
+Si el PC se calcula en EX, funciona igual que una aritmética, pero si lo calcula en ID, la fase anterior, se produce un ciclo de parada extra cuando haya dependencias por riesgo de datos, ya que el valor del registro calculado en EX/MEM o MEM/WB hace falta en IF/ID en vez de en ID/EX.
