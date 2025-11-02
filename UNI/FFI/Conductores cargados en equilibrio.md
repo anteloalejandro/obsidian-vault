@@ -1,4 +1,3 @@
-- [ ] 
 
  Cuando se le aplica un campo eléctrico a un conductor, las cargas (si el campo es positivo, las cargas negativas) se mueven en dirección al campo (generando una fuerza) hasta alcanzar el equilibrio, es decir, cuando las cargas anulen la fuerza ejercida por el campo. Por tanto, una vez alcanzado el equilibrio, la suma de las fuerzas será nula.
 
