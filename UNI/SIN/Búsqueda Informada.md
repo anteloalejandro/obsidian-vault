@@ -64,7 +64,7 @@ Supongamos que tenemos una solución no óptima $G_{2}$ y un nodo $n$ que llevar
 
 ### Sin expansión
 
-Para que A* sea óptima sin reexpansión en Graph Search, además de admisible tiene que ser **consistente** (o monotona). Para serlo, si para cada nodo $n$ y cada sucesor $n'$ de $n$ generado con una acción $a$, se cumple que $h(n) \leq h(n') + \mathrm{Action Cost}(n, a, n')$. Si en solo caso no se cumple, no es consistente.
+Para que A* sea óptima sin rexpansión en Graph Search, además de admisible tiene que ser **consistente** (o monótona). Para serlo, si para cada nodo $n$ y cada sucesor $n'$ de $n$ generado con una acción $a$, se cumple que $h(n) \leq h(n') + \mathrm{Action Cost}(n, a, n')$. Si en un solo caso no se cumple, no es consistente.
 
 # Generación de heurísticas
 
