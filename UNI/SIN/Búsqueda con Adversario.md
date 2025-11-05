@@ -53,6 +53,6 @@ En este algoritmo los valores para los MIN pasan a llamarse $\beta$ y los valore
 
 Las $\alpha$ son cotas inferiores del valor de la jugada, y las $\beta$ son cotas superiores. Esto es porque el valor del padre directo de las hojas se va propagando para arriba, independientemente de que su padre sea MIN o MAX.
 
-Gracias a esto, mientras estamos generando nodos ( se calculan $\alpha$ o $\beta$ provisionales), si detectamos que la cota inferior de un nodo es mayor que la cota superior de uno de sus antecesores ($\alpha > \beta$), se pueden obviar el resto de hijos del árbol sin generar.
+Gracias a esto, mientras estamos generando nodos (se calculan $\alpha$ o $\beta$ provisionales), si detectamos que la cota inferior de un nodo es mayor que la cota superior de uno de sus antecesores ($\alpha > \beta$), se pueden obviar el resto de hijos del árbol sin generar.
 
 Además, si las hojas están adecuadamente ordenadas, las probabilidades de poda aumentan.
