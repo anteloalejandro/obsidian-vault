@@ -10,9 +10,8 @@
   "find-unlinked-files",
   "settings-search",
   "obsidian-latex-suite",
-  "obsidian-tikzjax",
-  "obsidian-mindmap-nextgen",
-  "code-styler",
   "various-complements",
-  "obsidian-circuitjs"
+  "code-styler",
+  "obsidian-mindmap-nextgen",
+  "obsidian-tikzjax"
 ]
