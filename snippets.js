@@ -117,10 +117,13 @@
   // pretty i and j
   { trigger: "ihat", replacement: "\\hat{\\imath}$0", options: "mA", priority: 1 },
   { trigger: "jhat", replacement: "\\hat{\\jmath}$0", options: "mA", priority: 1 },
+  { trigger: "khat", replacement: "\\hat{\\kmath}$0", options: "mA", priority: 1 },
   { trigger: "ivec", replacement: "\\vec{\\imath}$0", options: "mA", priority: 1 },
   { trigger: "jvec", replacement: "\\vec{\\jmath}$0", options: "mA", priority: 1 },
+  { trigger: "kvec", replacement: "\\vec{\\kmath}$0", options: "mA", priority: 1 },
   { trigger: "ibar", replacement: "\\bar{\\imath}$0", options: "mA", priority: 1 },
   { trigger: "jbar", replacement: "\\bar{\\jmath}$0", options: "mA", priority: 1 },
+  { trigger: "kbar", replacement: "\\bar{\\kmath}$0", options: "mA", priority: 1 },
 
   // More auto letter subscript
   { trigger: /([A-Za-z])_(\d\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA" },
@@ -185,12 +188,15 @@
   { trigger: "set", replacement: "\\{ $0 \\}$1", options: "mA" },
   { trigger: "e\\xi sts", replacement: "\\exists", options: "mA", priority: 1 },
 
+  { trigger: "mid", replacement: "\\mid", options: "mA" },
+
   { trigger: "LL", replacement: "\\mathcal{L}", options: "mA" },
   { trigger: "HH", replacement: "\\mathcal{H}", options: "mA" },
   { trigger: "CC", replacement: "\\mathbb{C}", options: "mA" },
   { trigger: "RR", replacement: "\\mathbb{R}", options: "mA" },
   { trigger: "ZZ", replacement: "\\mathbb{Z}", options: "mA" },
   { trigger: "NN", replacement: "\\mathbb{N}", options: "mA" },
+
 
   // Handle spaces and backslashes
 
