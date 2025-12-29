@@ -68,6 +68,10 @@
   { trigger: "text", replacement: "\\text{$0}$1", options: "mA" },
   { trigger: "\"", replacement: "\\text{$0}$1", options: "mA" },
 
+  // Stack
+  { trigger: "oset", replacement: "\\overset{$0}{$1}$2", options: "mA" },
+  { trigger: "uset", replacement: "\\underset{$0}{$1}$2", options: "mA" },
+
   // Basic operations
   { trigger: "sr", replacement: "^{2}", options: "mA" },
   { trigger: "cb", replacement: "^{3}", options: "mA" },
@@ -84,8 +88,10 @@
   { trigger: "conj", replacement: "^{*}", options: "mA" },
   { trigger: "Re", replacement: "\\mathrm{Re}", options: "mA" },
   { trigger: "Im", replacement: "\\mathrm{Im}", options: "mA" },
-  { trigger: "bf", replacement: "\\mathbf{$0}", options: "mA" },
+  { trigger: "bf", replacement: "\\mathbf{$0}$1", options: "mA" },
+  { trigger: "bb", replacement: "\\mathbb{$0}$1", options: "mA" },
   { trigger: "rm", replacement: "\\mathrm{$0}$1", options: "mA" },
+  { trigger: "cal", replacement: "\\mathcal{$0}$1", options: "mA" },
 
   // Linear algebra
   { trigger: /([^\\])(det)/, replacement: "[[0]]\\[[1]]", options: "rmA" },

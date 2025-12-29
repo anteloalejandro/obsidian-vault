@@ -1,3 +1,34 @@
+# Notación
+
+Sea $\Omega$ un conjunto, denominado **espacio muestral**. Un elemento $\omega \in \Omega$ se denomina **evento atómico**, punto muestral, punto o muestra.
+
+Un **espacio de probabilidad** una función de la forma $P : \Omega \to \mathbb{R}$ que asigna a cada $\omega \in \Omega$ un número real que se usa como parámetro de la función  P, cumpliéndose que:
+$$
+\begin{align}
+\tag{1} 0 \leq P(\omega) \leq 1 \\
+\tag{2} \sum_{\omega}P(\omega) = 1
+\end{align}
+$$
+
+Un **evento** $\mathcal{A}$ es cualquier subconjunto de $\Omega$, cuya probabilidad es:
+$$
+\omega \in \mathcal{A} , \quad P(\mathcal{A}) = \sum_{\omega} P(\omega) \leq 1
+$$
+
+Las **variables aleatorias** son una función del espacio muestral en algún rango $B$ (a menudo es dominio de los booleanos $\mathbb{B}$) de la forma $X : \Omega \to B$.
+
+Usualmente los eventos se denotan como $(X = x)$, que equivale al evento $\{ \omega \in \Omega : X(\omega) = x \}$ o "todas las muestras del espacio de probabilidades para los que la variable aleatoria $X$ da $x$".
+
+Al aplicar $P$ a una variable aleatoria $X$, se induce una **distribución de probabilidad**:
+$$
+\omega \in (X = x) , \quad  P(X = x) \overset{def}{=} \sum_{\omega} P(\omega)
+$$
+
+La **probabilidad a priori** o incondicional de $X$  se denota como $P(X = x) \equiv P(x) : \sum_{x} P(x) = 1$.
+
+La **probabilidad conjunta** de $X,Y$, que se define como la probabilidad de que se den los eventos simultáneamente, se denota como $P(X = x, Y = y) \equiv P(x, y) : \sum_{x} \sum_{y} P(x, y) = 1$.
+
+La **probabilidad condicional** de $X$ sabiendo que se da el evento $(Y = y)$ es $P(x \mid y) : \sum_{x} P(x \mid y) = 1 \quad \forall y$.
 
 # Teoría de la probabilidad
 
@@ -72,3 +103,21 @@ x\text{ e }y\text{ son independientes}
 \end{align}
 $$
 Si no tenemos las probabilidades de todas las permutaciones necesarias para calcular si son independientes, se debe hacer una suposición informada sobre si lo son o no. Por ejemplo, en el caso de las caries y los huecos, sabemos que ambos sucesos están relacionados aunque no tengamos los datos, y también sabemos que el tiempo meteorológico en el momento en el que asisten a la consulta es independiente a ambos.
+
+# Teoría de la probabilidad
+
+Sea $y \in \mathcal{Y}$ un **hecho** o dato y $d \in \mathcal{D}$ una **decisión** que se toma para $y$. 
+
+Una decisión solo puede considerarse *correcta* o *errónea* sin ambigüedades si sus costes son $0$ o $1$, respectivamente. Lamentablemente, estos valores ideales rara vez se dan en la práctica.
+
+> [!NOTE] Probabilidad de error
+> $$
+> P_{d}(\text{error} \mid y) = 1 - P(d \mid y)
+> $$
+> > [!NOTE] Mínima probabilidad de error
+> > La probabilidad de error se minimiza si se toma la decisión con mayor probabilidad a priori.
+> > $$
+> > \forall y \in \mathcal{Y} : P_{*}(\text{error} \mid y) =
+> > \min_{d \in \mathcal{D}} P_{d}(\text{error} \mid y) =
+> > 1 - \max_{d\in D}P(d \mid y)
+> > $$
