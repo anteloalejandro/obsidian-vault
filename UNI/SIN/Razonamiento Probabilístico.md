@@ -121,3 +121,17 @@ Una decisión solo puede considerarse *correcta* o *errónea* sin ambigüedades 
 > > \min_{d \in \mathcal{D}} P_{d}(\text{error} \mid y) =
 > > 1 - \max_{d\in D}P(d \mid y)
 > > $$
+> 
+> > [!NOTE] Mínimo riesgo global
+> > $$
+> > P_{*}(\text{error}) = \sum_{y\in \mathcal{Y}}P_{*}(\text{error} \mid y)\,P(y)
+> > $$
+> 
+> > [!NOTE] Regla de decisión de Bayes
+> > $$
+> > \forall y \in Y :
+> > d^{*}(y) = \underset{d\in \mathcal{D}}{\arg\max}\, P(d \mid y)
+> > $$
+> > Donde $\arg\max$ devuelve el que mayor probabilidad tiene para todos los posibles valores de $\mathcal{Y}$.
+
+
