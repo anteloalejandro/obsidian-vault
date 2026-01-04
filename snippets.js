@@ -27,8 +27,8 @@
 
   // spaces
   { trigger: "   ", replacement: " \\quad ", options: "mA" },
-  { trigger: ",  ", replacement: ", \\quad ", options: "mA" },
-  { trigger: ",,", replacement: "\\,", options: "mA" },
+  // { trigger: ",  ", replacement: ", \\quad ", options: "mA" },
+  { trigger: ",,", replacement: ",\\, ", options: "mA" },
 
   // Dashes
   // {trigger: "--", replacement: "–", options: "tA"},
