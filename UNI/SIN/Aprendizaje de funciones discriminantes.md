@@ -80,15 +80,14 @@ Por tanto, si $f: \mathbb{R} \to \mathbb{R}$ es una función monótona creciente
 
 La notación homogénea es una forma de representar los vectores, generalmente la representación $y \in E \equiv \mathbb{R}^{D}$ de un objeto $x \in U$, además del vector de pesos $a$.
 
-Se denota usando `mathrm`, por ejemplo, $y \underset{\text{pasa a}}{\to} \mathrm{y}$, del mismo modo que $a \underset{\text{pasa a}}{\to} \mathrm{a}$. Se definen de la siguiente forma:
+Se denota usando `mathrm`, por ejemplo $y \underset{\text{pasa a}}{\to} \mathrm{y}$, del mismo modo que $a \underset{\text{pasa a}}{\to} \mathrm{a}$. Se definen de la siguiente forma:
 
 $$
 \mathrm{y} =
 (1, y_{1}, \dots, y_{D})^{t}, \quad \mathrm{a}_{c} = (a_{c 0}, a_{c 1}, \dots, a_{c D})^{t}
 $$
 
-> [!info]
-> Nótese que $\mathbf{y}$ **empieza con un** $1$ en la primera posición (digamos, la posición cero), del mismo modo que $\mathbf{a}$ **empieza con** $a_{0}$.
+> [!important] Nótese que $\mathbf{y}$ **empieza con un** $1$ en la primera posición, del mismo modo que $\mathbf{a}$ **empieza con** $a_{0}$.
 
 La función discriminatoria pasa de ser $g_{c}(y) = a_{c}^{t}y + a_{c 0}$ a ser $g_{c}(y) = \mathrm{a}_{c}^{t} \mathrm{y}$. Las funciones dan el mismo resultado, pero con esta notación incorporamos el escalar $a_{0}$ dentro del propio vector para solo operar con vectores.
 
@@ -99,3 +98,37 @@ $$
 
 > [!info]
 > Nótese que la $y$ usada como argumento de $g_{c}$ y $G$ y la $\mathrm{y}$ como resultado de $g_{c}$ **son diferentes**. Es decir, tanto la función de discriminación lineal como el generalizador reciben el vector $y \in E$, pero devuelven el producto de escalar de los vectores $\mathrm{a}_{c} · \mathrm{y}$.
+
+# Probabilidad empírica del error de decisión
+
+Siendo $p$ la probabilidad *verdadera* (y por tanto, teórica) de que se de un error de decisión en el sistema, la estimación empírica $\hat{p}$ puede obtenerse contabilizando el número de errores de decisión $N_{e}$ que se producen en una **muestra de evaluación** formada por $N$ muestras.
+
+$$
+\hat{p} = \frac{N_{e}}{N}
+$$
+
+Si $N$ es muy grande, se podemos asumir que $\hat{p}$ se distribuye normalmente de forma que $\hat{p} \sim \mathcal{N}\left( p, \frac{P(1-p)}{N} \right)$, por lo que para obtener un intervalo de confianza del 95% o, lo que es lo mismo, un error de primera especie de 0.05, tenemos que tener un error absoluto $\epsilon$ de:
+
+$$
+P(\hat{p} - \epsilon \leq p \leq \hat{p} + \epsilon) = 0.95, \quad 
+\epsilon = 1.96 \sqrt{ \frac{\hat{p}(1-\hat{p})}{N} }
+$$
+
+Y por tanto $p = \hat{p} \pm \epsilon$.
+
+# Métodos de partición de datos
+
+Dado un conjunto de datos *etiquetados*, podemos separarlos para usarlo en la fase de entrenamiento (que determina los pesos) y en la fase de evaluación (que comprueba que los pesos funcionan bien con datos más allá del entrenamiento) de las siguientes maneras:
+
+1. **Resustitución o *Resubstitution***
+    - Todos los datos disponibles se usan en ambas fases.
+    - Es demasiado optimista, no da buenos resultados y no permite saber como de útil son los pesos para objetos $x \in U$ que no formen parte de los datos que ya tenemos.
+2. **Partition o *Hold Out***
+    - Los datos se subdividen en un subconjunto para el entrenamiento y otro para el test.
+    - Se desaprovechan datos que podrían usarse para entrenar. Por esto mismo, se intenta que el subconjunto de entrenamiento sea más grande.
+3. **Validación Cruzada en $B$ bloques o *B-fold Cross Validation***
+    - Los datos se dividen aleatoriamente en $B$ bloques, y se entrena a tantos sistemas como bloques haya. En cada sistema se excluye de los datos de entrenamiento a un bloque distinto, que se usará para la fase de evaluación.
+    - Aumenta el coste computacional al tener que entrenar varios sistemas, y se siguen dejando bastantes datos para la fase de evaluación.
+4. **Exclusión individual o *Leaving One Out***
+    - Funciona igual que la anterior, pero los bloques son de tamaño $1$ siempre. Esto quiere decir que cada dato se usa como único test de un sistema diferente, entrenado con los $n-1$ datos restantes.
+    - Se maximizan los datos que se usan para el entrenamiento, pero también aumenta mucho el coste computacional.
