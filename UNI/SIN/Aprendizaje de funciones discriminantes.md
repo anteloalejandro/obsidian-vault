@@ -25,6 +25,34 @@ $$
 
 ![[Aprendizaje de funciones discriminantes - funciones discriminantes.png]]
 
+## Funciones discriminantes lineales
+
+En las **funciones discriminantes lineales** podemos definir $g_{c}(y)$ como:
+
+$$
+g(y) = \sum_{i=1}^{d} a_{i}y_{i} + a_{0} = a^{t}y + a_{0}
+$$
+
+Donde $a_{0}$ es el **peso umbral**, $a$ es el **vector de pesos** y $d$ es la dimensión. Normalmente el vector de pesos o y el peso umbral serán diferentes para cada clase.
+
+Este tipo de función tiene $d+1$ parámetros, es decir, linealmente dependiente de la dimensión.
+
+Cuando todas las funciones discriminantes de un clasificador son lineales, el **clasificador también es lineal**.
+
+## Funciones discriminantes cuadráticas
+
+En el caso de las **funciones discriminantes cuadráticas** tenemos que son de la forma:
+
+$$
+g(y) =
+\sum_{i=1}^{d} \sum_{j=1}^{d} a_{ij}y_{i}y_{j} + \sum_{i=1}^{d} a_{i}y_{i} + a_{0} =
+y^{t}Ay + a^{t}y + a_{0}
+$$
+
+Donde $A$ es la **matriz de pesos**, $a$ es el **vector de pesos**, $a_{0}$ el **peso umbral** y $d$ la dimensión.
+
+Estas funciones tienen un número de parámetros que escala cuadráticamente con la dimensión.
+
 # Fronteras de decisión
 
 Un clasificador divide el espacio de representación en $C$ **regiones de decisión** $R_{1}, \dots, R_{C}$, de forma que la frontera de decisión $R_{i}$ es el espacio formado por los valores de $y \in E$ para los cuales  $g_{i}(y) = \underset{c}{\text{arg max}}\, g_{c}(y) \equiv G(y) = \hat{c}$.
@@ -35,6 +63,7 @@ Las **fronteras de decisión** son el lugar geométrico para en el que se inters
 - Si $E \equiv R^{1}$, la frontera será un punto.
 
 Generalizando, se puede averiguar la frontera de decisión de una clase $i$ arbitraria averiguando cual, de entre el resto de funciones discriminantes, es igual a la función discriminante $g_{i}(y)$. Es decir, es el lugar geométrico formado por $\{\, y \in E : g_{i}(y) = \underset{j\neq i}{\max} \{ g_{j}(y) \} \, \}$.
+
 Por ejemplo, para una frontera de decisión de $E \equiv R^{1}$:
 ![[Aprendizaje de funciones discriminantes - frontera decisión R1.png]]
 
@@ -46,3 +75,27 @@ Como otro ejemplo, las fronteras de decisión del *dataset* IRIS, que tiene $E \
 Dos clasificadores $(g_{1}, \dots, g_{C}),\,(g'_{1}, \dots, g'_{C})$ son equivalentes si las fronteras de decisión resultantes son exactamente las mismas, o lo que es lo mismo, si para los mismos valores de $y$ se induce la misma clase aunque el resultado de la función discriminante sea diferente.
 
 Por tanto, si $f: \mathbb{R} \to \mathbb{R}$ es una función monótona creciente cualquiera, entonces los clasificadores $(g_{1}, \dots, g_{C}),\, (f(g_{1}), \dots, f(g_{C}))$ son equivalentes.
+
+# Notación homogénea
+
+La notación homogénea es una forma de representar los vectores, generalmente la representación $y \in E \equiv \mathbb{R}^{D}$ de un objeto $x \in U$, además del vector de pesos $a$.
+
+Se denota usando `mathrm`, por ejemplo, $y \underset{\text{pasa a}}{\to} \mathrm{y}$, del mismo modo que $a \underset{\text{pasa a}}{\to} \mathrm{a}$. Se definen de la siguiente forma:
+
+$$
+\mathrm{y} =
+(1, y_{1}, \dots, y_{D})^{t}, \quad \mathrm{a}_{c} = (a_{c 0}, a_{c 1}, \dots, a_{c D})^{t}
+$$
+
+> [!info]
+> Nótese que $\mathbf{y}$ **empieza con un** $1$ en la primera posición (digamos, la posición cero), del mismo modo que $\mathbf{a}$ **empieza con** $a_{0}$.
+
+La función discriminatoria pasa de ser $g_{c}(y) = a_{c}^{t}y + a_{c 0}$ a ser $g_{c}(y) = \mathrm{a}_{c}^{t} \mathrm{y}$. Las funciones dan el mismo resultado, pero con esta notación incorporamos el escalar $a_{0}$ dentro del propio vector para solo operar con vectores.
+
+Por tanto, la regla de clasificación pasa a ser:
+$$
+\hat{c} = G(y) \equiv g_{c}(y) =  \underset{c}{\text{argmax}}\, \mathrm{a}_{c}^{t} \mathrm{y}
+$$
+
+> [!info]
+> Nótese que la $y$ usada como argumento de $g_{c}$ y $G$ y la $\mathrm{y}$ como resultado de $g_{c}$ **son diferentes**. Es decir, tanto la función de discriminación lineal como el generalizador reciben el vector $y \in E$, pero devuelven el producto de escalar de los vectores $\mathrm{a}_{c} · \mathrm{y}$.
