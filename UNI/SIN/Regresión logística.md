@@ -77,3 +77,82 @@ $$
 p(y \mid x, \theta) = \text{Cat}(y \mid \mathcal{S}(G)) = \prod_{c} \mathcal{S}(G)_{c}^{y_{c}}
 $$
 Lo importante aquí es que la función predictora $f(x, \theta)$, y por consiguiente $S(G)$ puede ser diferente para para cada clase, denotado por $S(G)_{c}$.
+
+# Regresión logística
+
+Tenemos los siguientes datos:
+- $x \in \mathbb{R}^{D}$ es un vector de $D$ dimensiones.
+- $\mathrm{W} \in \mathbb{R}^{D\times C}$ es una matriz de pesos iniciales en la que cada fila representa los pesos de una clase.
+- Un clasificador $G = (g_{1}, \dots, g_{C})$
+- Un vector de logits $a = f(x, \mathrm{W}) = (g_{1}(x), \dots, g_{C}(x)) = \mathrm{W}^{t}x$, que tiene un tamaño de $C$. Es lo mismo que el clasificador $G$, pero aplicado a la muestra $x$.
+- $\mu = \mathcal{S}(a)$ es la distribución de probabilidades para la muestra $x$.
+
+Siendo $x \in \mathbb{R}^{D}$ un vector de $D$ dimensiones, $\mathrm{W} \in \mathbb{R}^{D\times C}$ una matriz de pesos iniciales en las que cada fila representa los pesos de una clase, $a = f(x, \mathrm{W}) = \mathrm{W}^{t}x$ el resultado de aplicar la función predictora de logits a $x$, y $\mu = \mathcal{S(a)}$ la función que nos devuelve el vector de probabilidades, la **regresión logística es**:
+$$
+p(y \mid x, \mathrm{W}) = \text{Cat}(y \mid \mu)
+$$
+
+Como resultado de la regresión logística tendremos $C$ vectores $\mu_{1}, \dots, \mu_{C}$ que corresponden cada uno a una variable categórica $y$, cada uno de tamaño $D$, que contienen la distribución de probabilidad.
+
+> [!important] $\mu_{c} = \mathcal{S}(a)_{c} = p(y = c \mid x, \mathrm{W})$
+
+En resumidas cuentas, ahora la estimación de la probabilidad de que una clase sea correcta depende de la muestra $x$ y se pueden aplicar distintos clasificadores/FDs.
+
+# Aprendizaje por máxima verosimilitud
+
+El objetivo es establecer una forma de aprender la matriz de pesos $\mathrm{W}$ a partir de un conjunto de datos de entrenamiento $\mathcal{D} = \{ (x_{n}, y_{n}) \}_{n=1}^{N}$, donde $x_{n}$ es una muestra e $y_{n}$ la variable categórica para el conjunto de las clases.
+
+Para ello se hace uso de la *log-verosimilitud* condicional, que es el logaritmo natural de $\mathcal{D}$ expresado en función de $\mathrm{W}$. Siendo $\mu_{n} = \mathcal{S(a_{n})}$ y $a_{n} = \mathrm{W}^{t}x_{n}$, se define como:
+
+$$
+\begin{align}
+\text{LL}(\mathrm{W}) &= \log p(\mathcal{D} \mid \mathrm{W}) \\
+&= \log \prod_{n=1}^{N} p(y_{n} \mid x_{n}, \mathrm{W}) 
+ = \sum_{n=1}^{N} \log p(y_{n} \mid x_{n, \mathrm{W}}) \\
+&= \sum_{n=1}^{N} \log Cat(y_{n} \mid \mu_{n})
+ = \sum_{n=1}^{N} \log \prod_{c=1}^{C} \mu_{nc}^{y_{nc}} \\
+&= \sum_{n=1}^{N} \sum_{c=1}^{C} y_{nc} \log \mu_{nc}
+\end{align}
+$$
+
+Más concretamente, para el **aprendizaje por máxima verosimilitud**, escogeremos el valor de $\mathrm{W}$ que mayor probabilidad, es decir, mayor valor de $\text{LL}$ dé.
+
+$$
+\mathrm{W}^{*} = \underset{\mathrm{W}}{\mathrm{argmax}}\ \text{LL}(\mathrm{W})
+$$
+
+## Aprendizaje por mínima NLL
+
+El riesgo empírico log-pérdida $\mathcal{L}(\mathrm{W})$ es igual la neg-log-verosimilitud, que a su vez es la log-verosimilitud dividido entre el número de muestras $N$ y multiplicado por $-1$.
+$$
+\mathcal{L}(\mathrm{W}) = \text{NLL}(\mathrm{W}) = - \frac{1}{2} \text{LL}(\mathrm{W})
+$$
+
+Si planteamos el aprendizaje por máxima verosimilitud desde el punto de vista de la minimización de errores, entonces escogeremos el vector de pesos que menor valor de NLL dé:
+
+$$
+W^{*} = \underset{\mathrm{W}}{\text{argmin}}\ \text{NLL}(\mathrm{W})
+$$
+
+# Aprendizaje con descenso por gradiente
+
+El descenso por gradiente es un algoritmo iterativo para minimizar la función $\mathcal{L}(\theta)$ a partir de un valor inicial para el vector de parámetros $\theta_{0}$.
+
+Dados...
+- un **factor de aprendizaje** $\eta_{i} > 0$ que puede ser un valor pequeño constante $\forall i,\,\eta_{i} = \eta$
+- la **dirección de descenso más pronunciada**, que la negativa del gradiente de $\mathcal{L}(\theta_{i})$, que se escribe $- \nabla \mathcal{L}(\theta_{i})$
+... El algoritmo del descenso por gradiente de define así:
+
+$$
+\theta_{i+1} = \theta_{i} - \eta_{i} \nabla \mathcal{L}(\theta_{i})
+$$
+
+Mientras $\eta$ no sea excesivamente grande y la función $\mathcal{L}$ sea convexa, siempre se converge a un mínimo global (en caso contrario se convergería a un mínimo local). Por tanto valores de $\theta_{0}$ mejor adaptados al problema convergerán más rápido, pero en cualquier caso siempre se convergerá.
+
+Como establecemos $\mathcal{L}(\theta) = \text{NLL}(\theta)$ y $\text{NLL}$ cumple estas características, sabemos que siempre converge.
+
+En lo que respecta al gradiente $\nabla \mathcal{L}(\theta_{i})$, lo dejaremos simplemente como:
+
+$$
+\nabla \mathcal{L}(\theta_{i}) = \frac{\partial \ \text{NLL}}{\partial \ \mathrm{W}} = \frac{1}{N} \sum_{i=1}^{N} x_{n} (\mu_{n} - y_{n})^{t}
+$$
