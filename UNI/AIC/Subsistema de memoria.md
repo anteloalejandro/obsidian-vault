@@ -183,3 +183,76 @@ t_{\text{acierto}} = \text{\% aciertos} \times TA_{\text{acierto}} + \text{\% fa
 $$
 
 # Mejora de prestaciones de MP
+
+Las celdas que componen la RAM almacenan un bloque y se organizan en matrices de $2^{n}$ filas y $2^{m}$ columnas
+
+La búsqueda en esta matriz sigue estos dos pasos:
+- Primero se transmite la dirección de fila.
+    - Señal RAS.
+    - Se lee la fila entera que contiene el bloque deseado.
+    - Se guarda en el buffer de fila, que guarda más de 1KB de datos.
+- Luego se transmite la columna.
+    - Señal CAS.
+    - Se accede a los datos del bloque deseado usando la columna como índice en la fila que contiene el bloque.
+    - Los datos se transfieren al controlador de memoria.
+
+![[Subsistema de memoria - búsqueda de bloque.png]]
+
+En consiguientes búsquedas, si el bloque requerido ya está en el buffer de fila no es necesario volver a cargarlo. En caso contrario, se ha de cerrar la fila con una estructura destructiva y cargar la nueva. A esto se le conoce como **precarga**.
+
+El bus de memoria por el que se envían los datos tiene una frecuencia $f_{mem} \neq f_{cpu}$ y un ancho de 64 bits, por lo que el tiempo para realizar una operación se expresa en ciclos de bus.
+
+Estas memorias son del tipo SDRAM (*Synchronous Dynamic Random Access Memory*), y la hay de dos categorías:
+- SDR: Realiza una transferencia por ciclo.
+- DDR: Realiza dos transferencias por ciclo, por lo que puede tardar hasta la mitad.
+
+Es decir, si medimos las **transferencias por bloque**, tendríamos que para transferir un bloque de 64 Bytes harían falta $(64 · 8) \mathbf{/} 64 = 8$ transferencias, que tardarían dos 8 ciclos en enviarse con memoria SDR pero 4 ciclos si se usa memoria DDR.
+
+Dadas las siguientes órdenes...
+- PRECHARGE: Cerrar fila.
+- ACTIVATE: Abrir fila.
+- READ: Leer columna desde el buffer de fila.
+- WRITE: Escribir dato
+... tendríamos un cronograma con el siguiente para 4 transferencias consecutivas de 8B de una memoria SDR.
+
+![[Subsistema de memoria - cronograma básico.png]]
+
+Primero se hace la recarga de la fila, que implica una escritura en el buffer de la fila, de ahí la señal en RAS\* y WE\*. Después tenemos la señal RAS\* de nuevo al leer la fila y cargarla en el buffer. Finalmente llegamos a la fase de lectura del dato en la que hay una señal CAS\* porque se lee la columna indicada, tras lo que se envían los datos.
+
+> [!important] Si la fila estuviese ya abierta, empezaríamos directamente desde la fase *Read*.
+
+La temporazación de la RAM viene definida por los siguientes datos:
+![[Subsistema de memoria - temporización.png]]
+- $CL$ (*CAS Latency*): Número máximo de ciclos entre el envío de la dirección de columna (CAS, fase Read) y el comienzo de la ráfaga.
+- $t_{\text{RCD}}$ (*RAS to CAS Delay*): Número mínimo de ciclos entre la apertura de la fila (RAS, fase Active) y el acceso a columna (CAS, fase Read).
+- $t_{\text{RP}}$ (*RAS Precharge*): Número mínimo de ciclos entre la precarga y la lectura de la siguiente fila (Active).
+- $t_{\text{RAS}}$ (*Active to Precharge Delay*): Número mínimo de ciclos entre la activación de una file (Read) y su precarga.
+
+La latencia $L$ se define como el tiempo mínimo que tiene que pasar desde una precarga hasta el comienzo de la siguiente ráfaga. $L = t_{\text{RP}} + t_{\text{RCD}} + CL$.
+
+La latencia de escritura $L_{r}$ es simplemente el tiempo que pasa desde que se lee la columna hasta que se puede comenzar la ráfaga. $L_{r} = CL$.
+
+A partir de esto, la penalización por fallo (en ciclos de bus) es igual al producto de la latencia y la tasa de fallos, más el producto de la latencia de escritura y la tasa de aciertos más los ciclos de transferencia que que se pueden hacer. Nótese que aquí $TA$ es la tasa de aciertos.
+$$
+\begin{align}
+PF &= L·(1- TA_{b}) + L_{r}·TA_{b} + \frac{B}{B_{w}} \\
+PF_{\text{acierto}} &= L_{r} + \frac{B}{B_{w}} \\
+PF_{\text{fallo}} &= L + \frac{B}{B_{w}}
+\end{align}
+$$
+
+En la práctica, $L_{r} = CL$ suele ser $L / 3$, y a menudo también se da que $t_{\text{RP}} = T_{\text{RCD}} = CL = L / 3$.
+
+## Políticas del controlador
+
+Encontramos principalmente de 2 tipos:
+- FIFO / FCFS
+- FR-FIFO / FR_FCFS: Prioriza primero los bloques que ya estén en el buffer de fila, y después prioriza según FIFO. Depende mucho de la localidad espacial.
+
+## Organización de la memoria
+
+La memoria se divide chips, que a su vez se dividen en bancos a los que se puede acceder en paralelo y que tienen su propio buffer de fila y matriz de celdas.
+
+Las interfaces (tamaño de palabra en bits) son estrechas. Normalmente se usan chips DRAM x8, x4, o x16.
+
+Cada módulo ha de tener como mínimo un rango, que son los grupos de chips que se pueden formar con 64 bits. Por ejemplo, con interfaz x8 y 16 chips tendríamos $\frac{64}{16 · 8} = 2$ rangos. Los chips de un mismo rango no comparten datos pero sí los buses de dirección y órdenes, así hacen todo a la vez.
