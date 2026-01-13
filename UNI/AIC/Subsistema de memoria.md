@@ -62,7 +62,7 @@ Finalmente, cabe destacar que cuando se usa paralelismo y gestión dinámica, lo
 
 ![[Prestaciones de la memoria - fraccion no solapada.png]]
 
-# Mejora de prestaciones
+# Mejora de prestaciones de caché
 
 La forma de mejorar las prestaciones de una unidad de memoria caché son reducir PF, TF o TA.
 
@@ -168,3 +168,18 @@ El siguiente es un ejemplo de optimización de la localidad espacial
 ![[Subsistema de memoria - acceso por filas.png]]
 
 Y el **blocking** es un ejemplo clásico de mejora de localidad temporal:
+![[Subsistema de memoria - blocking.png]]
+
+## Reducción del tiempo en caso de acierto
+
+El tiempo se puede mejorar usando predictores de vía para reducir los fallos de bloque por conflicto sin aumentar el tiempo de acceso.
+
+- Si el predictor falla el tiempo de acceso se eleva (por ejemplo a 3 ciclo).
+- Si el predictor acierta se reduce el tiempo de acceso a 1 ciclo.
+
+Sólo nos interesará si tenemos predictores muy buenos, ya que el tiempo de acierto se calcula como:
+$$
+t_{\text{acierto}} = \text{\% aciertos} \times TA_{\text{acierto}} + \text{\% fallos} \times TA_{\text{fallo}}
+$$
+
+# Mejora de prestaciones de MP
