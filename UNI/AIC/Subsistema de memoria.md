@@ -58,7 +58,7 @@ $$
 > \end{align}
 > $$
 
-Finalmente, cabe destacar que cuando se usa paralelismo y gestión dinámica, los fallos de lectura de datos no se detiene hasta que deje de haber entradas disponibles en el ROB o estaciones de reserva. En este caso se multiplica $PFL$ por $FNS$ (la fracción no solapada)
+Finalmente, cabe destacar ejecución fuera de orden, los fallos de lectura de datos no se detienen hasta que deje de haber entradas disponibles en el ROB o estaciones de reserva. En este caso se multiplica $PFL_{\text{L1D}}$ por $FNS$ (la fracción no solapada).
 
 ![[Prestaciones de la memoria - fraccion no solapada.png]]
 
