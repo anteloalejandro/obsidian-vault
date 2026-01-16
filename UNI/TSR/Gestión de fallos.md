@@ -80,6 +80,11 @@ Tenemos dos clases de consistencia:
 
 En entornos escalables de alta disponibilidad, no se puede tener consistencia perfecta todo el tiempo, así que sólo se exige una Consistencia Final (*eventual consistency*). Esto se define como la capacidad del sistema de que todos sus nodos converjan al mismo estado cuando deja de haber escrituras y están más ociosos.
 
+
+> [!info] Trabajar con Consistencia Eventual
+> Para trabajar con consistencia eventual tendremos que asegurar que las operaciones que hagamos sean conmutativas. Por ejemplo, tendríamos que transformar las operaciones de multiplicación en operaciones de división.
+
+
 Tampoco significa esto que se admita cualquier inconsistencia entre las réplicas, pues la Consistencia Centrada en Datos y el algoritmo utilizado definen que divergencias se permiten.
 
 Se dividen en dos grandes grupos: Si las escrituras y lecturas permiten que la réplica mantenga el control del flujo de datos sin esperar, hablamos de modelos de consistencia rápidos, y en caso contrario, modelos de consistencia lentos.
