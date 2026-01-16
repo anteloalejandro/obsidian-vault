@@ -16,8 +16,8 @@ Un servicio correctamente diseñado es tolerante a fallos suyos y de los otros s
 # Partición
 
 Una partición es cuando un grupo de nodos queda aislado del resto del sistema. Esto nos permite aislar nodos que estén dando problemas. Hay dos formas de llevar a cabo el particionado:
-1. En un sistema particionable, cada uno de los grupos aislados puede continuar con su trabajo, y hará falta algún protocolo de reconciliación para que puedan volver a prestar servicio.
-2. En un modelo de partición primaria, sólo continua el grupo que tenga la mayoría de nodos. Por tanto, es más volátil, pero más fácil de implementar.
+1. En un sistema particionable, cada uno de los grupos aislados puede continuar con su trabajo, y hará falta algún protocolo de reconciliación para que puedan volver a prestar servicio. Sólo pueden usar modelos de consistencia rápida o eventual.
+2. En un modelo de partición primaria, sólo continua el grupo que tenga la mayoría de nodos. Por tanto, es más volátil, pero más fácil de implementar. Pueden usar cualquier modelo de consistencia.
 
 # Replicación
 
