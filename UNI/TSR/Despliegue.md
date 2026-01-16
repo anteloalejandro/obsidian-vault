@@ -99,7 +99,9 @@ Dockerfile es el nombre del archivo de configuración de docker a partir del cua
 - `WORKDIR <path>` indica el directorio de trabajo en el anfitrión para las ordenes `RUN`, `CMD` y `ENTRYPOINT`.
 - `RUN <order>` ejecuta una orden en el SHELL del anfitrión durante la creación de la imagen.
 - `CMD <order>` establece una orden que ejecutar en el SHELL del contenedor. Sólo se ejecuta la última `CMD` especificada.
-- `ENTRYPOINT <orden>` igual que `CMD`, pero el contenedor finaliza al terminarse la orden. De nuevo, sólo se ejecuta la última `CMD` o `ENTRYPOINT` especificada.
+    - Esto también implica que si se pasa una orden por la línea de comandos al hacer `docker run`, sólo se ejecutará esta última.
+- `ENTRYPOINT <orden>` igual que `CMD`, pero el contenedor finaliza al terminarse la orden. 
+    - `ENTRYPOINT` y `CMD` se pueden usar juntos para establecer un comando con `ENTRYPOINT` y argumentos para éste con `CMD`. Además, `ENTRYPOINT` no se sobrescribe con las órdenes pasadas por línea de comandos, así que se podrían elegir los argumentos de ese modo.
 - `ADD <origin> <destination>` copia ficheros de un lugar en el anfitrión o internet a la destinación especificada dentro de la imagen. Expande ficheros comprimidos.
 - `COPY <origin> <destination>` es igual que `ADD`, pero no expande ficheros comprimidos.
 - `EXPOSE <port>` expone un puerto por el que el contenedor puede atender o hacer peticiones.
