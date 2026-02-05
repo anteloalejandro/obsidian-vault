@@ -1,7 +1,7 @@
 
 # *Clustering* particional
 
-El *clustering* es otra forma de referirse al aprendizaje no supervisado, y el *clustering* no particional es uno de los métodos más comunes.
+El *clustering* es una forma de aprendizaje no supervisado, y el *clustering* no particional es uno de los métodos más comunes.
 
 Partimos de una **función criterio** $J$ que evalúa la calidad de cualquier partición $\Pi$ de $N$ datos en $C$ *clusters* o agrupaciones:
 
