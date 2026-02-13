@@ -161,7 +161,7 @@
   { trigger: ">>", replacement: "\\gg", options: "mA" },
   { trigger: "<<", replacement: "\\ll", options: "mA" },
   { trigger: "simm", replacement: "\\sim", options: "mA" },
-  { trigger: "sim=", replacement: "\\simeq", options: "mA" },
+  { trigger: "simeq", replacement: "\\simeq", options: "mA" },
   { trigger: "propto", replacement: "\\propto", options: "mA" },
 
 
@@ -175,6 +175,8 @@
   { trigger: "larr", replacement: "\\Leftarrow", options: "mA" },
   { trigger: "uarr", replacement: "\\Uparrow", options: "mA" },
   { trigger: "rarr", replacement: "\\Rightarrow", options: "mA" },
+  { trigger: "vdash", replacement: "\\vdash", options: "mA" },
+  { trigger: "dashv", replacement: "\\dashv", options: "mA" },
   { trigger: "dash", replacement: "\\textendash", options: "mA" },
 
   { trigger: "and", replacement: "\\cap", options: "mA" },
