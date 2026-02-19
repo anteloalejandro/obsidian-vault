@@ -77,3 +77,9 @@ $$
 Este algoritmo cambia, en orden, las $a$ por $X$ y las $b$ por $Y$.
 - Si hay más $a$ o más $b$, avanza en una dirección hasta que se sale
 - Si no son contiguas...
+
+# Funciones computables
+
+función parcial: no definida para todas las entradas
+
+$\eta$ devuelve $\lambda$ si la entrada pertenece al lenguaje.
