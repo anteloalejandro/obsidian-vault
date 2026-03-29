@@ -233,7 +233,6 @@ Así, en algún momento se llegará al último valor de $z$ para el cual la func
 
 ![[Programación Lineal - resolución gráfica.png]]
 
-
 > [!NOTE] ¿Cuántas soluciones óptimas?
 > Es posible que la recta de la función objetivo sea paralela a una de las restricciones que dibujan los límites de la región factible. En ese caso habrá infinitas soluciones a lo largo de ese lado de la región factible, en vez de una sola.
 > 
@@ -249,7 +248,20 @@ Un problema está en forma estándar si se cumplen todas las siguientes condicio
 - Todas las restricciones son igualdades
 - Todas las variables de decisión son no-negativas.
 
-La forma de convertir a todas las restricciones en igualdades es introduciendo una **variable de holgura** en cada restricción con una desigualdad, y pasando dicha desigualdad en una igualdad. La holgura representa como de lejos pueden estar los valores de la recta formada por la restricción sin dejar de ser soluciones posibles.
+La forma de convertir a todas las restricciones en igualdades es introduciendo una **variable de holgura** en cada restricción con una desigualdad, y pasando dicha desigualdad en una igualdad.
+
+
+> [!NOTE] Holgura
+> La holgura es la diferencia entre el lado izquierdo y derecho de una restricción.
+> 
+> Representa cuánto puede moverse una restricción antes de afectar a la solución óptima. En el ejemplo de la región factible, dadas las restricciones de la siguiente figura, DEPTO2 y DEPTO3 son limitativas porque la solución óptima está en su intersección ($C$), así que sus variables de holgura son $x_{5} = x_{3} = 0$
+> 
+> Por otro lado, DEPTO1 es un recurso sobrante con una holgura de $x_{4} = 4-2 = 2$
+> 
+> ![[Programación Lineal - holgura.png]]
+
+
+La holgura representa como de lejos pueden estar los valores de la recta formada por la restricción sin dejar de ser soluciones posibles.
 
 Esta variable sumará o restará al lado izquierdo según la dirección de la desigualdad. Intuitivamente, la variable sumará si la desigualdad es $\leq$ para que las soluciones posibles captadas por la restricción, que están a la izquierda de la recta, pasen a estar pegados a ella.
 
@@ -266,5 +278,34 @@ Si dada una solución óptima, una de las restricciones tiene una variable de ho
 
 Dado un  problema lineal, el análisis de sensibilidad nos da herramientas para estudiar no sólo la solución óptima, si no también como de susceptible a cambios es y como volver a calcular la solución óptima tras el cambio en un parámetro sin volver a resolver todo el modelo.
 
-## A.S. de la función objetivo
+## A.S. de los coeficientes la función objetivo
 
+Intenta determinar el intervalo de variación de los parámetros de decisión $c_{i}$ de la función objetivo para los que la solución óptima de la función objetivo **no cambia**.
+
+> [!warning] Solución óptima vs valor óptimo
+> Que la solución óptima no cambie quiere decir que el valor de las variables de decisión y holgura no cambia.
+> No ha de confundirse con el valor óptimo de la función objetivo, que es el valor de $z$, que puede cambiar si la variable de decisión asociada a $c_{i}$ es distinta de 0.
+
+Gráficamente, la nueva función óptima $z$ tendrá un ángulo distinto, por lo que podemos saber si la solución óptima ha cambiado haciendo de nuevo las rectas isométricas de $z'$.
+
+![[Programación Lineal - análisis de sensibilidad coeficientes.png]]
+
+También sabemos que cualquier cambio en $c_{i}$ en una dirección siempre produce el mismo cambio (aumento o disminución) en el valor óptimo siempre que esté dentro del intervalo de variación, y cualquier cambio igual en la dirección opuesta produce el cambio contrario.
+
+Concretamente, si se modifica el coeficiente de $x_{1}$ en la función objetivo, cada incremento de una unidad en el coeficiente se traduce en un incremento del valor óptimo igual a la componente $x_{1}$ del punto extremo (solución óptima). En el ejemplo anterior, cada incremento de una unidad en el coeficiente resulta en un incremento de 2 en $z$.
+
+Los límites se calculan (en el caso de la resolución gráfica, con dos variables) sacando dos valores $z'$ y $z''$ que pasan por el punto extremo (en el ejemplo, $C$). El punto extremo está formado la intersección entre dos restricciones no redundantes $R_{1},R_{2}$, por lo que $z'$ modificará su $c'_{i}$ para que ser para ser paralelo con $R_{1}$ y $z''$ su $c''_{i}$ para ser paralelo con $R_{2}$.
+
+Las funciones objetivo $z'$ y $z''$, usando las variables de la solución óptima, tendrán cada una un valor límite de $c_{i}$.
+
+## A.S. vector de recursos
+
+Calcula el **coste de oportunidad** de una restricción, que es a su vez la variación de la función objetivo por unidad añadida al $b_{i}$ (lado derecho) de la restricción. Los cambios en $b_{i}$ se traducen desplazamientos de la recta de la restricción, que a su vez dan lugar a aumentos o disminuciones en la región factible.
+
+- Dada una restricción $\leq$ limitativa, la región factible **aumenta** conforme aumenta $b_{i}$, por lo que la función objetivo siempre será igual o mejor.
+- Si la restricción es, en cambio, una $\geq$ limitativa, la región factible disminuye conforme aumenta $b_{i}$, así que la función objetivo siempre será igual o peor.
+- Si no es limitativa y los cambios están dentro del intervalo de sensibilidad la región factible se queda igual, así que no hay cambios en la solución óptima. Las restricciones tampoco afectan a los coeficientes de $z$, así que tampoco cambia el valor óptimo.
+
+El intervalo de sensibilidad se saca sencillamente a partir de la variable de holgura.
+
+# Algoritmo simplex
