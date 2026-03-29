@@ -302,10 +302,86 @@ Las funciones objetivo $z'$ y $z''$, usando las variables de la solución óptim
 
 Calcula el **coste de oportunidad** de una restricción, que es a su vez la variación de la función objetivo por unidad añadida al $b_{i}$ (lado derecho) de la restricción. Los cambios en $b_{i}$ se traducen desplazamientos de la recta de la restricción, que a su vez dan lugar a aumentos o disminuciones en la región factible.
 
+Asumiendo que el cambio en $b_{i}$ está dentro del intervalo de análisis de sensibilidad:
 - Dada una restricción $\leq$ limitativa, la región factible **aumenta** conforme aumenta $b_{i}$, por lo que la función objetivo siempre será igual o mejor.
 - Si la restricción es, en cambio, una $\geq$ limitativa, la región factible disminuye conforme aumenta $b_{i}$, así que la función objetivo siempre será igual o peor.
-- Si no es limitativa y los cambios están dentro del intervalo de sensibilidad la región factible se queda igual, así que no hay cambios en la solución óptima. Las restricciones tampoco afectan a los coeficientes de $z$, así que tampoco cambia el valor óptimo.
+- Si no es limitativa la región factible se queda igual, así que no hay cambios en la solución óptima. Las restricciones tampoco afectan a los coeficientes de $z$, así que tampoco cambia el valor óptimo.
+- En cualquier caso, las variables que son 0 siguen siéndolo y las que no siguen sin serlo. Es decir, **la solución básica no cambia**.
 
 El intervalo de sensibilidad se saca sencillamente a partir de la variable de holgura.
 
 # Algoritmo simplex
+
+El algoritmo simplex se compone de las siguientes etapas:
+- Inicialización: Se encuentra una solución básica inicial $SB_{0}$.
+- Prueba de optimalidad: Si la solución básica actual $SB_{i}$ es óptima, se finaliza el algoritmo, si no, se pasa a iteración.
+- Iteración: Se encuentra una solución básica factible $SB_{i+1}$ adyacente mejor que la actual.
+
+> [!info] Solución Básica
+> Es una solución del sistema con $n$ variables de decisión y holgura, y $m$ restricciones, para la cual se han igualado a 0 $n-m$ y se ha resuelto el sistema de $m$ ecuaciones con $m$ variables.
+> 
+> *El punto extremo siempre es solución básica*.
+> 
+> En definitiva, tendremos $n-m$ variables **no básicas** (iguales a 0) y las $m$ variables restantes serán **básicas** (distintas a 0).
+> 
+> *Buscaremos soluciones que, además de básicas, sean **factibles**.*
+> 
+> Una solución básica también será **adyacente** si sus conjuntos **sólo distan en una variable básica**.
+
+**Función objetivo**
+$$
+Max\ z = 3x_{1} + 5x_{2}
+$$
+
+**Restricciones**
+$$
+\begin{align}
+& x_{1} \leq 4 \\
+& 2x_{2} \leq 12 \\
+& 3x_{1} + 2x_{2} \leq 18 \\
+& x_{1}, x_{2} \geq 0
+\end{align}
+$$
+
+**Restricciones en forma estándar**
+$$
+\begin{align}
+& x_{1} &+x_{3} & & &= 4 \\
+& 2x_{2} & & +x_{4} & &=12 \\
+& 3x_{1} + 2x_{2} & & & +x_{5} &= 18 \\
+& x_{j} \geq 0 \quad 1 \leq j \leq 5
+\end{align}
+$$
+
+**Tabla simplex**
+
+| Ecuación: VB | $x_{1}$ | $x_{2}$ | $x_{3}$ | $x_{4}$ | $x_{5}$ | $b_{i}$     |
+| ------------ | ------- | ------- | ------- | ------- | ------- | ----------- |
+| E1: $x_{3}$  | 1       | 0       | 1       | 0       | 0       | 4           |
+| E2: $x_{4}$  | 0       | 2       | 0       | 1       | 0       | 12          |
+| E3: $x_{5}$  | 3       | 2       | 0       | 0       | 1       | 18          |
+| **CR**       | **-3**  | **-5**  | **0**   | **0**   | **0**   | **$z = 0$** |
+
+En la tabla simplex, se dan las siguientes condiciones:
+- Las variables básicas son aquellas que tienen en su coeficiente (celda) valor **0 en todas las filas menos una**.
+- Si es básica, cuando su coeficiente no es 0, **es 1**.
+- Cada ecuación **solo tiene una** variable básica con valor no-cero, o sea, 1.
+- La ultima ecuación es una excepción, es el **coeficiente reducido**. Lo que hacemos es pasar reorganizar la función objetivo $z = 3x_{1}+5x_{2} \to z - 3x_{1} - 5x_{2} = 0$ y en lugar del $b_{i}$ obtenemos el valor de la función objetivo para estos coeficientes (inicialmente siempre 0).
+
+*Dadas estas condiciones, las variables de holgura siempre serán las variables básicas iniciales sin importar el modelo.*
+
+Para la solución factible inicial, se toma 0 como valor para todas las variables de decisión, en este caso $x_{1},x_{2} = 0$. En realidad, como ya se ha mencionado antes en cada iteración se cogen las no básicas y se les pone valor 0.
+
+Esto tiene la ventaja de que siempre sabemos la solución a golpe de vista. Por ejemplo, en este caso, la solución básica es $x_{1}=x_{2}=0,\,x_{3}=4,\,x_{4}=12,\,x_{5}=18,\,-z=0$
+
+Para comprobar que la solución es **factible**, se miran los coeficientes de las variables básicas en la fila CR. Si todas son igual o mayores que 0, es factible.
+
+Para comprobar si la solución es óptima, tenemos que entender primero que representan los coeficientes de las variables no básicas en la tabla simplex.
+
+Dada la fila de una ecuación, los coeficientes son cuanto decrementa la variable básica que tiene en $1$ la dicha fila por cada unidad de variable correspondiente a la ecuación que **entra en la solución**. En el ejemplo, por cada $x_{2}$ que entra en la solución, $x_{4}$ decrementa en 2 y $z$ *incrementa* en 5 porque el coeficiente es negativo.
+
+**Por tanto, si aún se puede incrementar el valor de $z$, aún no tenemos la solución óptima.** Como buscamos soluciones básicas adyacentes, sólo escogeremos haremos que entre una de las variables, la que mayor incremento dé, y tendremos que hacer que otra salga.
+
+
+> [!info] Entrar y sacar variables
+> Contents
