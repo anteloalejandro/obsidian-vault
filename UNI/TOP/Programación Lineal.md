@@ -355,12 +355,14 @@ $$
 
 **Tabla simplex**
 
+
 | Ecuación: VB | $x_{1}$ | $x_{2}$ | $x_{3}$ | $x_{4}$ | $x_{5}$ | $b_{i}$     |
 | ------------ | ------- | ------- | ------- | ------- | ------- | ----------- |
 | E1: $x_{3}$  | 1       | 0       | 1       | 0       | 0       | 4           |
 | E2: $x_{4}$  | 0       | 2       | 0       | 1       | 0       | 12          |
 | E3: $x_{5}$  | 3       | 2       | 0       | 0       | 1       | 18          |
 | **CR**       | **-3**  | **-5**  | **0**   | **0**   | **0**   | **$z = 0$** |
+^simplex-1
 
 En la tabla simplex, se dan las siguientes condiciones:
 - Las variables básicas son aquellas que tienen en su coeficiente (celda) valor **0 en todas las filas menos una**.
@@ -383,5 +385,72 @@ Dada la fila de una ecuación, los coeficientes son cuanto decrementa la variabl
 **Por tanto, si aún se puede incrementar el valor de $z$, aún no tenemos la solución óptima.** Como buscamos soluciones básicas adyacentes, sólo escogeremos haremos que entre una de las variables, la que mayor incremento dé, y tendremos que hacer que otra salga.
 
 
-> [!info] Entrar y sacar variables
-> Contents
+> [!info]+ Entrar y sacar variables de la base
+> Entrar variables en la base hace referencia a hacerlas variables básicas. En cada iteración meteremos una variable en la base hasta alcanzar la solución óptima, pero como hemos de tener exactamente $m$ variables básicas, una de las que ya son básicas tendrá que salir.
+> 
+> La variable que sale de la base se calcula a partir de los valores en la columna de la variable que entra en la base. Cada celda o cociente de esa columna (excluyendo el CR) está asociada a una variable básica, más concretamente a una disminución del valor de la variable por cada unidad que entra en la base.
+> 
+> Como el valor de estas variables debe mantenerse superior o igual a 0, no se puede disminuir su valor tanto como se quiera, y tendremos que limitar las unidades que entran en la base para que todas las variables básicas sean iguales o superiores a 0.
+> 
+> En el ejemplo anterior, cada unidad de $x_{2}$ introducida en la base disminuye en 2 a $x_{4}$ y a $x_{5}$, y en 0 a $x_{3}$. Por tanto, la máxima reducción que se puede hacer es la máxima que cumpla $12 - 2·x_{2_{\text{introducida}}} \geq 0$ y $18 - 2·x_{2_{\text{introducida}}} \geq 0$, que sería 6. La variable que saldrá es la que nos limite más la cantidad de $x_{2}$ que podemos introducir en la base, que en este caso es $x_{4},\,b_{2} = 12$, que será reemplazado por $x_{2}$ en la próxima tabla que se construya.
+> 
+> La forma más sencilla es hacer la división entera de $b_{i}$ y la $i$-ésima celda de la columna de la variable que entra en la base, y coger el mínimo.
+> 
+> No se acaba aquí el proceso, sin embargo. Ahora que sabemos por cuál se va a sustituir, necesitamos que la nueva columna $x_{2}$ tenga el mismo valor que la vieja columna $x_{4}$ para mantener la matriz de identidad (sólo un 1 por variable básica, al que llamaremos **pivote**, y el resto de la columna en 0, **semipivotes**).
+> 
+> Esto se consigue tratando a la tabla de nuevo como un sistema de ecuaciones y aplicando operaciones matriciales como con el método de Gauss, por lo que afectará a otros resultados de otras columnas.
+> 
+> Por norma general, intentaremos que el pivote primero tenga valor 1 haciendo una división, y luego reduciremos los semipivotes mediante restas con el pivote.
+> 
+> En este ejemplo, haremos las operaciones $\frac{1}{2} R_{2} \to -2R_{2} + R_{3} \to 5R_{2} + R_{4}$.
+
+Cuando se alcance la solución óptima, extraer otros dos datos de la línea CR:
+- Los coeficientes asociados a variables de holgura dan el coste de oportunidad de dichas variables.
+- Los coeficientes asociados a variables decisión dan el coste reducido de dichas variables.
+
+**Tabla simplex, segunda iteración**
+
+Recordemos que la tabla estaba así...
+![[#^simplex-1]]
+
+...y que hemos decidido meter la $x_{2}$ en la base y sacar a la $x_{4}$...
+
+| Ecuación: VB | $x_{1}$ | $x_{4}$ | $x_{3}$ | $x_{2}$ | $x_{5}$ | $b_{i}$     |
+| ------------ | ------- | ------- | ------- | ------- | ------- | ----------- |
+| E1: $x_{3}$  | 1       | 0       | 1       | 0       | 0       | 4           |
+| E2: $x_{2}$  | 0       | 1       | 0       | 2       | 0       | 12          |
+| E3: $x_{5}$  | 3       | 0       | 0       | 2       | 1       | 18          |
+| **CR**       | **-3**  | **0**   | **0**   | **-5**  | **0**   | **$z = 0$** |
+Ahora hemos de aplicar las operaciones $\frac{1}{2} R_{2} \to -2R_{2} + R_{3} \to 5R_{2} + R_{4}$ para mantener la matriz de identidad formada por las variables básicas.
+
+| Ecuación: VB | $x_{1}$ | $x_{4}$ | $x_{3}$ | $x_{2}$ | $x_{5}$ | $b_{i}$      |
+| ------------ | ------- | ------- | ------- | ------- | ------- | ------------ |
+| E1: $x_{3}$  | 1       | 0       | 1       | 0       | 0       | 4            |
+| E2: $x_{2}$  | 0       | 1/2     | 0       | 1       | 0       | 6            |
+| E3: $x_{5}$  | 3       | -1      | 0       | 0       | 1       | 6            |
+| **CR**       | **-3**  | **5/2** | **0**   | **0**   | **0**   | **$z = 30$** |
+
+El nuevo estado de la tabla simplex nos dice que el valor de la función objetivo ha mejorado de 0 a 30 y que cambiar $x_{4}$ resultaría en un valor de $z$ inferior. 
+
+**Tabla simplex, tercera iteración**
+
+Sólo queda $x_{1}$ por meter en la base, que provoca una disminución por unidad introducida de $1$ en $x_{3} = 4$ y de $3$ en $x_{5} = 6$. Ya que $6 / 3 = 2 < 4 / 1 = 4$, será $x_{5}$ el que salga.
+
+Se tendrán que hacer las operaciones $\frac{1}{3} R_{3},\,-R_{3} + R_{1},\,3R_{3} + R_{4}$, además de intercambiar las columnas, lo que da el siguiente resultado:
+
+| Ecuación: VB | $x_{5}$ | $x_{4}$                | $x_{3}$ | $x_{2}$ | $x_{1}$ | $b_{i}$      |
+| ------------ | ------- | ---------------------- | ------- | ------- | ------- | ------------ |
+| E1: $x_{3}$  | -1/3    | 1/3                    | 1       | 0       | 0       | 2            |
+| E2: $x_{2}$  | 0       | 1/2                    | 0       | 1       | 0       | 6            |
+| E3: $x_{1}$  | 1/3     | -1/3                   | 0       | 0       | 1       | 2            |
+| **CR**       | **1**   | *5/2 - 1 =*<br>**1.5** | **0**   | **0**   | **0**   | **$z = 36$** |
+Como cambiar las cualquiera de las variables no básicas resultaría en una disminución de $z$, hemos alcanzado la solución óptima, que es $x_{1}=2,\,x_{2}=6$, y el valor óptimo, que es $z=36$.
+
+También sabemos que los dos coeficientes que quedan en la fila CR, que están asociados a variables de holgura, nos dan el coste de oportunidad de la restricción. Concretamente:
+- Costes de oportunidad:
+    - En un aumento en una unidad de $x_{5}$, el valor de $z$ bajará en 1.
+    - En un aumento en una unidad de $x_{4}$, el valor de $z$ bajará en 1.5.
+    - $x_{3}$ es básica y de holgura, así que no hay coste de oportunidad.
+- Holguras
+    - $x_{4}$ y $x_{5}$ son variables de holgura no básicas, lo que quiere decir que para la restricción 2 y 3 no hay holgura (limitativas). Esto también implica que la solución está en la intersección de ambas restricciones.
+    - $x_{3}$ es básica y tiene 2 como valor, así que la restricción 1 tiene 2 unidades de holgura (hacia la izquierda).
