@@ -464,3 +464,81 @@ También sabemos que los dos coeficientes que quedan en la fila CR, que están a
     - $x_{3}$ es básica y tiene 2 como valor, así que la restricción 1 tiene 2 unidades de holgura (hacia la izquierda).
 
 # Simplex Revisado
+
+Es una versión modificada del simplex con tablas que trata de reducir la cantidad de cálculos y memoria.
+
+Volviendo al ejemplo del simplex...
+![[#^simplex-1]]
+
+En la primera iteración del problema, sólo necesitamos saber:
+- El contenido de la columna $b_{i}$ para saber el valor de las variables básicas. No hace falta la matriz de identidad, porque ya sabemos en la primera iteración siempre son las de holgura.
+- Las celdas correspondientes a las variables no básicas (que serán las de decisión) de la línea CR.
+- La columna que se va a insertar en la base, según el valor de las celdas no básicas de CR, para determinar la variable que va a salir de la base.
+- El valor de la función objetivo.
+
+En todas las subsecuentes iteraciones también es suficiente con esta información a la hora de determinar los pasos a seguir.
+
+Algunos de estos datos, sin embargo, dependen de otros datos de la tabla que a priori no son obligatorios. Por tanto, el objetivo es encontrar unas fórmulas que nos permitan sacar los datos necesarios en cada iteración.
+
+Primero pasaremos de representar los modelos de programación lineal en forma estándar a representarlos en **forma matricial**, y convertir este modelo en forma matricial a la nomenclatura del Simplex revisado.
+
+$$
+\begin{matrix}
+Max\ z = c^{t}x \\
+Ax = b \\
+x \geq 0
+\end{matrix}
+\Huge\equiv\normalsize
+\begin{matrix}
+Max\ z = c^{t}_{B}\ x_{B} + c^{t}_{NB}\ x_{NB} \\
+B\ x_{B} + NB\ x_{NB} = b \\
+x_{B},x_{NB} \geq 0
+\end{matrix}
+$$
+
+> [!NOTE] Nomenclatura del Simplex Revisado
+> $x_{B}$: Vector de variables básicas
+> $c^{t}_{B}$: Vector de coeficientes asociados a variables básicas en la función objetivo
+> $x_{NB}$: Vector de variables no básicas
+> $c^{t}_{NB}$: Vector de coeficientes asociados a variables no básicas en la función objetivo
+> $B$: Matriz cuyas columnas son vectores $c_{B}^{t}$.
+> $NB$: Matriz cuyas columnas son vectores $c^{t}_{NB}$.
+> $b$: Vector de los lados derechos de las restricciones
+
+> [!NOTE] Cálculo de la solución
+> Para calcular el valor de una solución $x_{B}$, se deberá despejar a partir del sistema de ecuaciones de las restricciones $B\ x_{B} + NB\ x_{NB} = b$. Normalmente restaríamos, pero como estamos trabajando con matrices directamente multiplicamos ambos lados por $B^{-1}$.
+> $$
+> \begin{align}
+> B^{-1}B\ x_{B} + B^{-1}NB\ x_{NB} &= B^{-1}b \\
+> x_{B} + B^{-1}NB\ x_{NB} &= B^{-1}b &  B^{-1}B \text{ es matriz de identidad} \\
+> x_{B} &= B^{-1}b &  x_{NB} = 0 \\
+> \end{align}
+> $$
+> Por tanto, la solución se puede sacar a partir los coeficientes de las variables básicas y de el lado derecho de las restricciones.
+
+> [!NOTE] Cálculo de las Variables Básicas
+> Para calcular cuáles son las nuevas variables básicas necesitamos la columna de los coeficientes de la variable que entra (para lo que hace también falta las variables no básicas en CR).
+> 
+> Haciendo el producto de matrices $B^{-1}\ NB$ obtenemos una nueva matriz que es igual a la parte no básica de la tabla simplex después de haber hecho el cambio de columnas y aplicar Gauss para conservar la matriz de identidad de las variables básicas.
+> 
+> Siendo $a_{i}$ columna de $NB$, podemos generalizar y decir que, para sacar la columna de una variable no básica cualquiera, podemos hacerlo haciendo el producto $y_{i} = B^{-1}\ a_{i}$.
+>
+> Por tanto, para sacar la columna de variables básicas con la que calcular que variable sale de la base, cogemos la columna $JE$, que es la que mejor básica tiene en CR y por tanto la que va a entrar en la base, y sacamos su $y_{JE}$.
+> 
+> Para calcular los valores no básicos en la línea CR, debemos calcular los $c_{j} - z_{j}$. $c_{j}$ se conoce porque es la $j$-ésima columna de $B$, pero $z_{j}$ hay que calcularlo.
+> $$
+> z_{j} = \sum^{m}_{i} c_{i} a_{ij} = c^{t}_{B} y_{j} = \underbrace{ (c^{t}_{B}B^{-1}) }_{ \text{común } \forall z_{j} }a_{j}
+> $$
+> El $JE$ será la $j$ del $c_{j}-z_{j}$ de mejor valor.
+
+> [!NOTE] Valor de la función objetivo
+> El **valor** de la función objetivo para una solución básica dada se calcula simplemente con el producto de los coeficientes básicos y las variables básicas.
+> $$
+> z = c^{t}_{B}\ x_{B}
+> $$
+
+Como conclusión, el único dato que hace falta calcular, que no esté ya en el modelo original es $B$ o su inversa $B^{-1}$, por lo que se agiliza mucho la computación y, sobre todo, el uso de memoria respecto a la tabla simplex. Los datos propios del modelo, además, son constantes, así que no hace falta actualizarlos en cada iteración.
+
+Además, ya que sólo dependemos de $B$, que tiene una dimensión de $m\times m$, la complejidad del Simplex revisado sólo depende del número de restricciones, a diferencia de la tabla Simplex que también depende de las variables.
+
+Para no calcular $B$ y $B^{-1}$ cada vez, usaremos $B^{-1}$ todo el tiempo y le aplicaremos las mismas operaciones que le aplicaríamos a $B$ para formar la matriz de identidad, como si $B^{-1}$ tuviese los mismos valores que $B$. Esto implica que el resultado de $B^{-1}$ no tiene necesariamente por qué ser la matriz de identidad.
