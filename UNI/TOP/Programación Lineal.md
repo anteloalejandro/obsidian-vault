@@ -523,7 +523,7 @@ $$
 > 
 > Siendo $a_{i}$ columna de $NB$, podemos generalizar y decir que, para sacar la columna de una variable no básica cualquiera, podemos hacerlo haciendo el producto $y_{i} = B^{-1}\ a_{i}$.
 >
-> Por tanto, para sacar la columna de variables básicas con la que calcular que variable sale de la base, cogemos la columna $JE$, que es la que mejor básica tiene en CR y por tanto la que va a entrar en la base, y sacamos su $y_{JE}$.
+> Por tanto, para sacar la columna de variables no básicas con la que calcular que variable sale de la base, cogemos la columna $JE$, que es la que mejor básica tiene en CR y por tanto la que va a entrar en la base, y sacamos su $y_{JE}$.
 > 
 > Para calcular los valores no básicos en la línea CR, debemos calcular los $c_{j} - z_{j}$. $c_{j}$ se conoce porque es la $j$-ésima columna de $B$, pero $z_{j}$ hay que calcularlo.
 > $$
