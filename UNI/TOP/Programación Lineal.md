@@ -328,6 +328,8 @@ El algoritmo simplex se compone de las siguientes etapas:
 > 
 > Una solución básica también será **adyacente** si sus conjuntos **sólo distan en una variable básica**.
 
+Ahora ser verá el funcionamiento de la tabla simplex en base al siguiente ejemplo:
+
 **Función objetivo**
 $$
 Max\ z = 3x_{1} + 5x_{2}
@@ -353,7 +355,7 @@ $$
 \end{align}
 $$
 
-**Tabla simplex**
+## Tabla Simplex
 
 
 | Ecuación: VB | $x_{1}$ | $x_{2}$ | $x_{3}$ | $x_{4}$ | $x_{5}$ | $b_{i}$     |
@@ -363,6 +365,8 @@ $$
 | E3: $x_{5}$  | 3       | 2       | 0       | 0       | 1       | 18          |
 | **CR**       | **-3**  | **-5**  | **0**   | **0**   | **0**   | **$z = 0$** |
 ^simplex-1
+
+### Inicialización
 
 En la tabla simplex, se dan las siguientes condiciones:
 - Las variables básicas son aquellas que tienen en su coeficiente (celda) valor **0 en todas las filas menos una**.
@@ -374,9 +378,11 @@ En la tabla simplex, se dan las siguientes condiciones:
 
 Para la solución factible inicial, se toma 0 como valor para todas las variables de decisión, en este caso $x_{1},x_{2} = 0$. En realidad, como ya se ha mencionado antes en cada iteración se cogen las no básicas y se les pone valor 0.
 
-Esto tiene la ventaja de que siempre sabemos la solución a golpe de vista. Por ejemplo, en este caso, la solución básica es $x_{1}=x_{2}=0,\,x_{3}=4,\,x_{4}=12,\,x_{5}=18,\,-z=0$
+Esto tiene la ventaja de que siempre sabemos la solución a golpe de vista. Por ejemplo, en este caso, la solución básica es $x_{1}=x_{2}=0,\,x_{3}=4,\,x_{4}=12,\,x_{5}=18,\, z=0$
 
 Para comprobar que la solución es **factible**, se miran los coeficientes de las variables básicas en la fila CR. Si todas son igual o mayores que 0, es factible.
+
+### Optimalidad
 
 Para comprobar si la solución es óptima, tenemos que entender primero que representan los coeficientes de las variables no básicas en la tabla simplex.
 
@@ -407,6 +413,8 @@ Dada la fila de una ecuación, los coeficientes son cuanto decrementa la variabl
 Cuando se alcance la solución óptima, extraer otros dos datos de la línea CR:
 - Los coeficientes asociados a variables de holgura dan el coste de oportunidad de dichas variables.
 - Los coeficientes asociados a variables decisión dan el coste reducido de dichas variables.
+
+### Iteración
 
 **Tabla simplex, segunda iteración**
 
@@ -454,3 +462,5 @@ También sabemos que los dos coeficientes que quedan en la fila CR, que están a
 - Holguras
     - $x_{4}$ y $x_{5}$ son variables de holgura no básicas, lo que quiere decir que para la restricción 2 y 3 no hay holgura (limitativas). Esto también implica que la solución está en la intersección de ambas restricciones.
     - $x_{3}$ es básica y tiene 2 como valor, así que la restricción 1 tiene 2 unidades de holgura (hacia la izquierda).
+
+# Simplex Revisado
