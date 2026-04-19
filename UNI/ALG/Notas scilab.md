@@ -123,7 +123,7 @@ for i = 1:10 do x = inv(LD)*(b-U*x); end
 
 # Vectores y matrices estocásticos
 
-*Estocástico* →De Probabilidad.
+*Estocástico* → De Probabilidad.
 
 Un vector $v_{p}$ es estocástico si la suma de sus magnitudes es exactamente igual a uno. Una matriz $P$ es estocástica si todas sus columnas son vectores estocásticos.
 
