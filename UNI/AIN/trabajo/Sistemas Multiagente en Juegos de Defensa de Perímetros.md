@@ -104,4 +104,6 @@ $$
 Nótese $Q_{LG}$ es una puntuación **mínima** para los intrusos (la primera cota inferior de todo el artículo, de hecho), por lo que $Q^{*} \geq Q_{LG}$.
 
 La estrategia de los defensores en este caso consiste en:
+- Ignorar intrusos incapturables.
 - Si, para un par de defensores, $q_{k} = 0$, evitar que entren más intrusos mediante la estrategia dos-a-uno.
+- Defensa uno-a-uno para el resto de intrusos.
