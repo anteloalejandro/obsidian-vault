@@ -147,3 +147,68 @@ Son problemas cuadráticos porque **la función objetivo** viene definida por **
 Son problemas en los que las variables de decisión son **enteros** y el espacio de soluciones está formado por **subconjuntos de los números naturales**. El objetivo de este tipo de problemas consiste en hallar el mejor valor de entre un número **finito o numerable** de soluciones viables.
 
 La enumeración de los conjuntos de este problema resulta casi imposible incluso para problemas de tamaño moderado.
+
+## Problema *Knapsack*
+
+Es una variante de la optimización combinatoria que se plantea así:
+- $n$ artículos diferentes deben ser introducidos en una mochila.
+- Cada artículo $i$ tiene un peso $w_{i}$ y un valor $v_{i}$.
+- La mochila tiene una capacidad máxima de peso $W$.
+
+El objetivo del problema es **maximizar el valor total** sin superar la capacidad máxima.
+
+La formulación matemática de este tipo de problemas es:
+
+$$
+\begin{align}
+\text{Max}\ z = & \sum_{i=1}^{n}v_{i}x_{i} \\
+& \sum_{i=1}^{n} w_{i}x_{i} \leq W \\
+& x_{i} \in \{ 0,1 \} \quad \forall i
+\end{align}
+$$
+
+### *Bin Packing*
+
+El problema del empaquetado en contenedores es una variante del *knapsack* en el que tenemos un conjunto de objetos que hay que ubicar en $K$ contenedores idénticos de modo que se **minimice el número de contenedores** habiendo ubicado todos los objetos.
+
+Entre las aplicaciones de este tipo de problemas se encuentran la Logística, Gestión financiera, optimización de publicidad y el diseño de circuitos electrónicos.
+
+Dada una cota superior $U>K$ del mínimo número de contenedores necesarios, la formulación matemática se hace de la siguiente forma:
+
+$$
+\begin{align}
+\text{Min}\ z = &\sum_{j=1}^{U} y_{j} \\
+& \sum_{j=1}^{U} x_{ij} = 1 & i = 1,\dots,n \\
+& \sum_{j=1}^{n} w_{j} x_{jk} \leq W·y_{k} & k=1,\dots,U \\
+& y_{k}, x_{ik} \in \{ 0,1 \} & \forall i,k
+\end{align}
+$$
+
+- $x_{ik}(0,1)$ da 1 si $i$ se ubica en el contenedor $k$, 0 si no.
+- $y_{k}(0,1)$ da 1 si el contenedor se usa, 0 si no.
+
+> [!NOTE] Problemas con la simetría.
+> 
+> Esta variante tiene el problema de que al haber muchas soluciones equivalentes (los contenedores no se distinguen entre sí) con el mismo valor de la función objetivo, se malgasta poder computacional. Esto se soluciona forzando a que los contenedores se usen en un orden predeterminado para reducir la simetría, de forma que los primeros contenedores tienen más prioridad que los siguientes.
+> 
+> $$
+> y_{k+1} \leq y_{k} \quad \forall k
+> $$
+
+## Problemas de *Cutting Stock*
+
+En los problemas de corte de materias primas se definen $K$ patrones de corte, para cada uno de los cuales se extraen $a_{ik}$ unidades de piezas de tamaño $i$, generando un residuo $r_{k}$ por cada pieza.
+
+Siendo $d_{i}$ la demanda de unidades de tamaño $i$, y $x_{k}$ el número de veces que hay que aplicar el patrón $k$, la formulación matemática para minimizar el desperdicio producido es:
+
+$$
+\begin{align}
+\text{Min}\ z = &\sum r_{k}x_{k} \\
+& \sum_{k} a_{ik} x_{k} \geq d_{i} & i=1,\dots,I
+\end{align}
+$$
+
+### POR HACER: Generación de Columnas
+
+## Problemas de Turnos y Horarios
+
