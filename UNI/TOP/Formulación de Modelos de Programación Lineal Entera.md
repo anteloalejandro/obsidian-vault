@@ -212,3 +212,50 @@ $$
 
 ## Problemas de Turnos y Horarios
 
+Consisten en determinar la **mínima cantidad de empleados** necesaria en cada horario para cubrir unas necesidades determinadas.
+
+La formulación matemática para un problema cuyo objetivo es minimizar la cantidad de trabajadores es de la forma:
+$$
+\begin{align}
+\text{Min}\ z = & \sum_{k}^{K} x_{k} \\
+&\sum_{k}^{K} a_{ik}\ x_{k} \geq d_{i} & i = 1,\dots,I
+\end{align}
+$$
+- Tenemos $K$ turnos diferentes y $I$ *slots* de tiempo.
+- El turno $k\in K$ se trabaja o no en el *slot* $i\in I$, expresado mediante el coeficiente $a_{ik} \in \{ 0,1 \}$.
+- $d_{i}$ es la demanda de trabajadores en el slot de tiempo $i$.
+- $x_{k}$ es el número de trabajadores que trabajan en el turno $k$.
+
+Este tipo de problemas se pueden ver como un caso particular de los [[#Problemas de cubrimiento]]. 
+
+El procedimiento general para formular un problema de este tipo el siguiente procedimiento.
+
+1. **Enumerar en forma de tabla** todos los turnos trabajo para un trabajador cualquiera.
+2. Asignar una variable de decisión por cada **combinación de turnos posibles y tipos de trabajador** haya.
+3. Añadir una restricción por cada **tramo horario y tipo de trabajador** en la que haya una necesidad mínima de trabajo.
+4. Representar el total de trabajadores a contratar o el coste total de la operación, según toque, en la función objetivo.
+
+## Problemas de cubrimiento
+
+Los problemas de cubrimiento son aquellos en los que existen $m$ características y $n$ subconjuntos resultantes de posibles combinaciones de dichas características.
+
+Estos problemas tratan de minimizar el coste del subconjunto de combinaciones de manera que se cubra cada característica al menos una vez.
+
+También se les llama problemas de localización cuando el objetivo es dar servicio a un conjunto de usuario minimizando el número de puntos de servicio o el coste de la operación.
+
+Una región $R$ tiene un conjunto de objetos $S = \{ 1,\dots,m \}$ y una clase $H = \{ H_{1},\dots,H_{n} \}$ formada por subconjuntos de $S$, cada uno de los cuales tiene un coste $c_{i}$ asociado. Buscamos cubrir con coste mínimo todos los elementos de $S$ con subconjuntos $H_{i}$.
+
+![[Formulación de Modelos de Programación Lineal Entera - set covering.png]]
+
+La formulación matemática de este tipo de problemas es:
+$$
+\begin{align}
+\text{Min}\ z = & \sum_{i}^{n} c_{i} x_{i} \\
+&\sum_{i}^{n} a_{ij} x_{i} \geq 1 & j = 1,\dots,m \\
+&x_{i} \in \{ 0,1 \} & \forall i
+\end{align}
+$$
+- $x_{i}$ indica si $H_{i}$ está en la solución.
+- $a_{ij}$ indica si el objeto $j \in S$ está en $H_{i}$.
+
+El problema con este tipo de problemas el número enorme de variables que aparecen en problemas reales.
