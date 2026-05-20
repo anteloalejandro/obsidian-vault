@@ -76,7 +76,7 @@ Podemos encontrarnos con los siguientes cambios respecto al formato usual:
 - Maximizar beneficios en lugar de minimizar costes.
 - Evitar combinaciones imposibles.
 - Almacenes o puntos de transbordo, con restricciones de equilibrio.
-- Varios productos distintos a envíar.
+- Varios productos distintos a enviar.
 
 # Problemas de Asignación
 
@@ -98,6 +98,58 @@ $$
 $$
 - $x_{ij}$ indica si a $i$ se le asigna $j$ ($x_{ij}=1$) o no ($x_{ij}=0$).
 - $c_{ij}$ es el coste de asignar $i$ a $j$.
+
+> [!example] Ejemplo
+> El director de márketing de una cierta compañía está organizando la reunión anual de ventas para los directores regionales y personal asociado. Como el apoyo administrativo de la reunión, tiene previsto contratar a 4 empleados temporales (Ana , Iván, Juan y Susana), cada uno de los cuales se hará cargo de una de las siguientes tareas:
+> 1. Procesamiento de los textos en las presentaciones escritas.
+> 2. Procesamiento de los gráficos en las presentaciones orales y escritas.
+> 3. Preparación de los packs de la reunión, incluyendo copias del material escrito.
+> 4. Manejo del registro de participantes (anticipado y *on-site*).
+> 
+> Aunque cada empleado temporal tiene la información mínima necesaria para realizar cualquiera de las cuatro tareas, tienen una eficiencia considerablemente distinta para realizar los distintos trabajos.
+> 
+> En la siguiente tabla se muestran las horas que cada uno de ellos requeriría para realizar cada tarea. La columna más a la derecha muestra el sueldo de cada empleado basado en su bonificiación.
+> 
+> | Empleado | Proc. Textos | Gráficos | Packs | Inscripciones | Sueldo (€/h) |
+> | -------- | ------------ | -------- | ----- | ------------- | ------------ |
+> | Ana      | 35           | 41       | 27    | 40            | 14           |
+> | Iván     | 47           | 45       | 32    | 51            | 12           |
+> | Juan     | 39           | 56       | 36    | 43            | 13           |
+> | Susana   | 32           | 51       | 25    | 46            | 15           |
+> 
+> *Plantea un modelo de programación lineal que permita a la compañía conocer cuál es la asignación de los empleados a las tareas con mínimo coste de personal*
+> 
+> > [!success]- Solución
+> > **Variables de decisión**
+> > 
+> > - $x_{ij}$ indica si a $i$ se le asigna $j$.
+> >     - Ana → 1
+> >     - Iván → 2
+> >     - Juan → 3
+> >     - Susana → 4
+> > 
+> > **Función objetivo**
+> > 
+> > $$
+> > \text{Min}\ z = \begin{align}
+> > & 14(35x_{11} + 41x_{12} + 27x_{13} + 40x_{14}) \\
+> > +\ & 12(47x_{21} + 45x_{22} + 32x_{23} + 51x_{24}) \\
+> > +\ & 13(39x_{31} + 56x_{32} + 56x_{33} + 43x_{34}) \\
+> > +\ & 14(32x_{41} + 51x_{42} + 25x_{43} + 46x_{44})
+> > \end{align}
+> > $$
+> > 
+> > **Restricciones**
+> > 
+> > Sólo hay que poner las típicas del problema.
+> > $$
+> > \begin{align}
+> > & \sum_{j=1}^{n}x_{ij}=1 & i=1,\dots,n \\
+> > & \sum_{i=1}^{n}x_{ij}=1 & j=1,\dots,n \\
+> > & x_{ij} \in \{ 0,1 \} & \forall i,j
+> > \end{align}
+> > $$
+> 
 
 ## Problema de Asignación *Generalizado*
 
@@ -167,6 +219,45 @@ $$
 \end{align}
 $$
 
+> [!example] Ejemplo
+> Un inversor puede invertir hasta en 5 proyectos diferentes. Cada uno de estos proyectos tiene un beneficio esperado y un presupuesto, ambos en millones de euros, que se pueden ver en la siguiente tabla.
+> 
+> |             | Teatro | Supermercado | Zoo | Fábrica | Estación |
+> | ----------- | ------ | ------------ | --- | ------- | -------- |
+> | Beneficio   | 5      | 3            | 6   | 1       | 3.5      |
+> | Presupuesto | 8      | 4            | 10  | 2       | 6        |
+> 
+> El presupuesto máximo no puede exceder los 14 millones de euros.
+> 
+> *Se quiere encontrar la combinación de proyectos que maximiza el beneficio, respetando el presupuesto máximo estipulado.*
+> 
+> > [!success]- Solución
+> > **Variables de decisión**
+> > 
+> > $x_{i}$ indica si se va a invertir en el proyecto $i$ o no.
+> > 1. Teatro
+> > 2. Supermercado
+> > 3. Zoo
+> > 4. Fábrica
+> > 5. estación
+> > 
+> > **función objetivo**
+> > 
+> > $$
+> > \text{Max}\ z = 5x_{1} + 3x_{2} + 6 x_{3} + 1x_{4} + 3.5x_{5}
+> > $$
+> > 
+> > **restricciones**
+> > 
+> > $$
+> > \begin{align}
+> > [\text{max presupuesto}] &: 8x_{1} + 4x_{2} + 10x_{3} + 2x_{4} + 6x_{5} \leq 14 \\
+> > [\text{max proyectos}] &: \sum_{i} x_{i} \leq 5
+> > \end{align}
+> > $$
+> > 
+> 
+
 ### *Bin Packing*
 
 El problema del empaquetado en contenedores es una variante del *knapsack* en el que tenemos un conjunto de objetos que hay que ubicar en $K$ contenedores idénticos de modo que se **minimice el número de contenedores** habiendo ubicado todos los objetos.
@@ -178,14 +269,14 @@ Dada una cota superior $U>K$ del mínimo número de contenedores necesarios, la 
 $$
 \begin{align}
 \text{Min}\ z = &\sum_{j=1}^{U} y_{j} \\
-& \sum_{j=1}^{U} x_{ij} = 1 & i = 1,\dots,n \\
+& \sum_{j=1}^{U} x_{ij} = 1 & j = 1,\dots,n \\
 & \sum_{j=1}^{n} w_{j} x_{jk} \leq W·y_{k} & k=1,\dots,U \\
 & y_{k}, x_{ik} \in \{ 0,1 \} & \forall i,k
 \end{align}
 $$
 
-- $x_{ik}(0,1)$ da 1 si $i$ se ubica en el contenedor $k$, 0 si no.
-- $y_{k}(0,1)$ da 1 si el contenedor se usa, 0 si no.
+- $x_{ik}$ da 1 si $i$ se ubica en el contenedor $k$, 0 si no.
+- $y_{k}$ da 1 si el contenedor se usa, 0 si no.
 
 > [!NOTE] Problemas con la simetría.
 > 
@@ -194,6 +285,44 @@ $$
 > $$
 > y_{k+1} \leq y_{k} \quad \forall k
 > $$
+
+> [!example] Ejemplo
+> Un taller tiene que cortar trozos de rail ferroviario a partir de raíles de $V=12$ metros de largo. Actualmente tiene en stock $K=20$ raíles y hay $I=3$ tamaños de corte, cada uno de una longitud $v_{i} < V$ y una demanda $d_{i}$, como se indica en la siguiente tabla.
+> 
+> | Pieza          | 1   | 2   | 3   |
+> | -------------- | --- | --- | --- |
+> | Longitud pieza | 3   | 5   | 7   |
+> | Demanda        | 20  | 10  | 5   |
+> *Se quiere determinar como obtener las piezas demandadas usando el mínimo número de raíles*.
+> 
+> > [!success]- Solución
+> > **Variables de decisión**
+> > 
+> > - Hay $K=20$ "bins", una por cada raíl.
+> > - $y_{k}$ indica si se ha usado el $k$-ésimo raíl.
+> > - El peso máximo es $V*K=240$. El peso de cada pieza es cuánto de ese 240 se "come" para producir cada pieza, que es igual a la longitud de la pieza $v_{i}$.
+> > - $x_{ik}$ indica cuántos raíles de tamaño $v_i$ se han producido usando el raíl $k$
+> > 
+> > **Función objetivo**
+> > 
+> > $$
+> > \text{Min}\ z = \sum_{k=1}^{K=20} y_{k}
+> > $$
+> > 
+> > **Restricciones**
+> > 
+> > $$
+> > \begin{align}
+> > [\text{demanda 1}] &: \sum_{k} x_{1 k} \geq 20 \\
+> > [\text{demanda 2}] &: \sum_{k} x_{2 k} \geq 10 \\
+> > [\text{demanda 3}] &: \sum_{k} x_{3 k} \geq 5 \\
+> >  \\
+> > [\text{producción } k] &: v_{1}x_{1k} + v_{2}x_{2k} + v_{3}x_{3k} \leq 20 (x_{1k} + x_{2k} + x_{3k}) & \forall k
+> >  \\
+> > [\text{pesos } k] &: \sum_{i}^{20} x_{ik} v_{i} \leq 240y_{ik} & \forall k
+> > \end{align}
+> > $$
+> 
 
 ## Problemas de *Cutting Stock*
 

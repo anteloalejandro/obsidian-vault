@@ -16,7 +16,7 @@ L_{j} · \delta_{j} \leq x_{j} \leq U_{j} · \delta_{j}
 \end{align}
 $$
 
-Si la producción sólo estuviese acotada inferiormente, podríamos pensar que la restricción sería $L_{j} · \delta_{j} \leq x_{j}$, pero esto no garantiza el cumplimiento de la cota inferior (¿?). Como no tenemos una cota inferior, simplemente inventamos una $M_{j}$.
+Si la producción sólo estuviese acotada inferiormente, podríamos pensar que la restricción sería $L_{j} · \delta_{j} \leq x_{j}$, pero esto no garantiza que el valor de. Como no tenemos una cota inferior, simplemente inventamos una $M_{j}$.
 $$
 L_{j} · \delta_{j} \leq x_{j} \leq M_{j} · \delta_{j}
 $$
