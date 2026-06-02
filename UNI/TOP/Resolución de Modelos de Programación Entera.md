@@ -10,7 +10,7 @@ Las PPLE mixtas son las más comunes, pero a diferencia de las otras tiene infin
 
 Los PPLE **no cumplen la propiedad** de convexidad que sí cumplen los modelos de programación lineal clásicos. Esta propiedad es **necesaria para el algoritmo Simplex**.
 
-Se introduce el concepto de **Relajación Lineal**, que es el problema de programación lineal resultante de obviar que las variables deben ser enteras. Al tener menos restricciones, el valor óptimo de la Relajación Lineal siempre es mejor o igual que el de la PPLE original, siempre y cuando el problema sea de maximización.
+Se introduce el concepto de **Relajación Lineal**, que es el problema de programación lineal resultante de obviar que las variables deben ser enteras. Al tener menos restricciones, el valor óptimo de la Relajación Lineal siempre es mejor o igual que el de la PPLE original (mayor si es maximización, menor si es minimización).
 
 ![[Resolución de Modelos de Programación Entera - Relajación lineal.png]]
 
@@ -27,6 +27,14 @@ Segundo, están los algoritmos de bifurcación y acotación, también llamadas t
 1. Se considera sólo la relajación lineal del problema.
 2. Si la solución obtenida no es entera, se selecciona una de las variables que aún tiene valor continuo, denotada por $x_{s} = a,b$ ($a$ es la parte entera y $b$ la decimal), y se crean dos problemas hijos del problema actual: uno en el que añadimos la restricción $x_{s} \geq a+1$ y otro en el que se añade la restricción $x_{s} \leq a$. A esta operación se le llama **Bifurcación**.
 3. Se repite el proceso, seleccionando problemas en **cierto orden**, donde cada uno de los problemas con solución no entera genera 2 hijos cada vez. Cada uno de los problemas con solución entera se convierte en candidata a solución óptima. La mejor de las candidatas, llamada **incumbente**, se utiliza como *baseline* para el proceso de **Poda**, en el que se obvian problemas descendientes que no darían soluciones óptimas.
+
+
+> [!NOTE] Restricciones del *Branch and Bound*
+> Por la forma en la que se definen las restricciones de la bifurcación, la desigualdad funciona, a efectos prácticos, como una igualdad, ya que la variable siempre tendrá el valor del lado derecho de la igualdad.
+>
+> Esto sucede porque el valor óptimo de la función usando números reales siempre quiere tener un $x_{s} \leq a+1$ y $x_{s} \geq a$, es decir, se intentan acercar todo lo posible al valor original, que es el límite entre lo que hemos permitido y el original.
+> 
+> Esto sólo se aplica de un nodo a su hijo directo, pues una restricción posterior en otra variable puede modificar el valor de otras en la función objetivo.
 
 
 > [!NOTE] Soluciones del *Branch and Bound*
