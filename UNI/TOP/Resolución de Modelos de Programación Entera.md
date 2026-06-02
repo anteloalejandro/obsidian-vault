@@ -14,7 +14,7 @@ Se introduce el concepto de **Relajación Lineal**, que es el problema de progra
 
 ![[Resolución de Modelos de Programación Entera - Relajación lineal.png]]
 
-Una opción que tenemos para solucionar los PPLE es hacer su Relajación Lineal y truncar los decimales de la solución. No podemos redondear, porque redondear puede darnos soluciones más allá de la región factible.
+Una opción que tenemos para solucionar los PPLE es hacer su Relajación Lineal y truncar los decimales de la solución. No podemos redondear, porque redondear puede darnos soluciones más allá de la región factible. Esto, sin embargo, no nos proporciona una solución óptima, sólo una posible.
 
 Aparte de esto, tenemos dos posibles métodos para resolver esta clase de problemas. 
 
@@ -29,17 +29,17 @@ Segundo, están los algoritmos de bifurcación y acotación, también llamadas t
 3. Se repite el proceso, seleccionando problemas en **cierto orden**, donde cada uno de los problemas con solución no entera genera 2 hijos cada vez. Cada uno de los problemas con solución entera se convierte en candidata a solución óptima. La mejor de las candidatas, llamada **incumbente**, se utiliza como *baseline* para el proceso de **Poda**, en el que se obvian problemas descendientes que no darían soluciones óptimas.
 
 
-> [!NOTE] Title
+> [!NOTE] Soluciones del *Branch and Bound*
 > B&B va obteniendo soluciones cada vez más próximas a la solución óptima del PPLE, por lo que cuando se obtenga una solución entera para la relajación lineal, dicha solución también será la óptima para el problema original.
 
 
 La poda consiste en dejar de explorar problemas descendientes que sabemos que no van a mejorar.
 - Si la solución de un nodo es entera, ya es óptima para todo su subárbol, así que no seguimos explorando sus descendientes.
 - Si la solución de un nodo no es entera y el valor de la función objetivo es peor que la mejor cota entera disponible, ninguno de sus descendientes será mejor, así que los obviamos.
+- Si un nodo no tiene solución no tiene sentido tratar de generar sus descendientes.
 
-La cota entera (inferior si el objetivo es maximizar, superior si es minimizar) es la mejor solución hasta la fecha de un subproblema con solución entera o la mejor solución de un problema con solución no entera tras truncar todas las variables de decisión, según cual sea mejor.
-
-Por ejemplo, si tenemos un problema con $\max z = 3x_{1} + 4x_{2}$ y encontramos $x_{1}=1.5, x_{2}=2, z=12.5$, la (posible) cota entera no es $\lfloor 12.5 \rfloor = 12$, sino $3\lfloor x_{1} \rfloor + 4\lfloor x_{2} \rfloor = 9$.
+> [!note] Cota Entera
+> La cota entera (inferior si el objetivo es maximizar, superior si es minimizar) es la mejor solución hasta la fecha de un subproblema con solución entera.
 
 Hay dos ordenes que podemos elegir para seleccionar que descendiente queremos solucionar:
 - Cota más reciente: Esencialmente, es DFS. Requiere poca memoria pero tiene que examinar más nodos por norma general.
