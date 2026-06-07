@@ -282,15 +282,13 @@ El autómata final consiste en formar la cadena $x = t_{1}\ 1\ 1\ t_{2}\ 1\ 1\ \
 \node (q0) [state, ] {$t_i$};
 \node (q1) [state, right = of q0] {};
 \node (q2) [state, right = of q1] {};
-\node (q3) [state, right = of q2] {};
-\node (q4) [state, right = of q3] {};
+\node (q3) [state, accepting, right = of q2] {};
 
 \path [-stealth]
   (q0) edge node {1} (q1)
   (q1) edge [bend left] node {1} (q0)
   (q1) edge node {1} (q2)
   (q2) edge node {1} (q3)
-  (q3) edge node {1} (q4)
   ;
 
 %% END %%
@@ -300,3 +298,26 @@ El autómata final consiste en formar la cadena $x = t_{1}\ 1\ 1\ t_{2}\ 1\ 1\ \
 
 \end{document}
 ```
+
+### Máquina asociada a una palabra
+
+A cada palabra $x \in \{ 0,1 \}^{*}$ se le puede asociar una máquina de Turing $M_{x}$ y un lenguaje $L_{x} \subseteq \{ 0,1 \}^{*}$ de la siguiente forma:
+
+- Si $x$ es un código válido de la máquina normalizada $M$: $M_{x} = M, L_{x} = L(M)$
+- Si no lo es: $M_{x} = M_{\text{null}}, L_{x} = L(M_{\text{null}}) = \emptyset$
+
+$M_{\text{null}}$ es una máquina de Turing normalizada sin estado final, es decir, $F = \emptyset$. Por tanto, es una máquina de Turing cuya ejecución nunca acaba.
+
+# El Lenguaje Diagonal
+
+Se trata de un lenguaje que se define como el lenguaje binario formado por palabras que no pertenecen al lenguaje aceptado por la máquina de Turing $M_{x}$ asociada a cada palabra.
+$$
+\text{DIA} = \{ x \in \{ 0,1 \}^{*} : x \not\in L_{x} \}
+$$
+
+Este lenguaje es un ejemplo de lenguaje **no recursivamente enumerable**.
+
+## Demostración
+
+Para demostrar que el lenguaje diagonal no es recursivamente enumerable, podemos comprobar si la asunción de que sí lo es es coherente.
+
