@@ -391,3 +391,91 @@ Dada una máquina normalizada $M$ y una cadena binaria $x$, la concatenación de
 $$
 x \in L(M) \iff c_{M}\ x \in \mathrm{UNI}
 $$
+
+El lenguaje universal es recursivamente enumerable, pero no recursivo.
+
+Esto lo sabemos porque, dado el lenguaje COMDIA  $\{ x_{i} \in \{ 0,1 \}^{*} : x_{i} \in L_{x_{i}} \}$ (complementario de DIA), si UNI fuese recursivo podríamos hacer una máquina que siempre parase para COMDIA, en cuyo caso COMDIA también sería recursivo.
+
+## El Lenguaje de la Parada
+
+**Parada** se refiere a que la máquina finalice, ya sea con un acierto o error, pero que no se quede pillada.
+
+Es el lenguaje formado por cadenas que una MTU puede procesar, es decir, cadenas $x$ cuya $c(x)$ sea un código válido de $M_{x}$ y cuya $M_{c(x)}$ se detenga al procesar $d(x)$.
+
+$$
+\mathrm{PAR} = \{ x \in \{ 0,1 \}^{*} : c(x) \in \mathrm{COD} \land M_{c(x)}(d(x)) \downarrow \}
+$$
+
+El lenguaje de parada es recursivamente numerable, pero no recursivo.
+
+Si fuese recursivo, podríamos construir una máquina UNI usando PAR y un MTU (que devolviese N cuando $d(x) \not\in L_{c(x)}$ y S cuando $d(x) \in L_{c(x)}$) que siempre parase, en cuyo caso UNI también sería recursivo, pero no lo es. Esto se debe a que UNI es el lenguaje formado por las $d(x) \in L_{c(x)}$.
+
+UNI no es recursivo, por lo que PAR tampoco puede serlo.
+
+A diferencia de PAR, el lenguaje complementario COMPAR, definido como $\{ x \in \{ 0,1 \}^{*} : c(x) \not\in \mathrm{COD} \lor M_{c(x)}(d(x)) \uparrow \}$, no es recursivamente enumerable, pues si un lenguaje y su complementario son recursivamente enumerables, entonces ambos son recursivos.
+
+
+## Lenguaje vacío y no vacío
+
+El lenguaje vacío está formado por todas las cadenas binarias que codifican una máquina de Turing que no acepta ninguna cadena. Su complementario, el lenguaje no vacío, codifica todas las cadenas binarias que codifican una máquina de Turing que acepta alguna cadena.
+
+$$
+\begin{align}
+L_{v} &= \{ x \in \{ 0,1 \}^{*} : L_{x} = \emptyset \} \\
+\overline{L_{v}} = L_{nv} &= \{ x \in \{ 0,1 \}^{*}: L_{x} \neq \emptyset \}
+\end{align}
+$$
+
+El lenguaje $L_{nv}$ es recursivamente enumerable, pero el $L_{n}$ no.
+
+## Compilación de Máquinas de Turing
+
+Tenemos un algoritmo $\mathcal{A}$ que toma como entrada una cadena $x$ y, a partir de $x = c(x)d(x)$ obtiene una nueva máquina de Turing $y$ con ciertas propiedades.
+
+La máquina de Turing $y$ recibe como entrada una cadena $w$ que ignora y devuelve el resultado de procesar $d(x)$ como entrada de la máquina codificada de por $c(x)$. Es decir, acepta cualquier $w$ independientemente de su valor siempre y cuando, para la $x$ de entrada del algoritmo $\mathcal{A}$ con el que se ha creado $d(x) \in L_{c(x)}$.
+
+$$
+L_{y} = \begin{cases}
+\emptyset &\iff d(x) \not\in L_{c(x)} \\
+\{ 0,1 \}^{*} &\iff d(x) \in L_{c(x)}
+\end{cases}
+$$
+
+> [!NOTE] Propiedades de $L_{v}$ y $L_{nv}$
+> Se puede usar $y$ como entrada de un aceptor de $L_{nv}$ para formar una máquina aceptora de UNI para la entrada $x$. También por esto, $L_{nv}$ no puede ser recursivo, porque UNI sería recursivo entonces.
+> 
+> Por lo mismo, $L_{v}$ no puede ser recursivamente enumerable, porque si no $L_{nv}$ sería recursivo.
+
+# Propiedades
+
+Dada una una propiedad $P$ definimos la clase de la propiedad $\mathcal{P}$ como el conjunto de lenguajes recursivos enumerables para los que se cumple $P$. El lenguaje de la propiedad es, por tanto, $L_{\mathcal{P}}$.
+
+$$
+\begin{align}
+\mathcal{P} &= \{ L \in \mathcal{L}_{\mathrm{REN}}(\{ 0,1 \}^{*}) : P(L) \} \\
+L_{\mathcal{P}} &= \{ x \in \{ 0,1 \}^{*} : L_{x} \in \mathcal{P} \}
+\end{align}
+$$
+
+
+> [!NOTE]
+> Siendo $x$ un código válido de la máquina de Turing $M$, el lenguaje aceptado $L(M)$ cumple la propiedad $P$ si y sólo si $x \in L_{\mathcal{P}}$. Además, sólo podemos saber si $P$ es **decidible** si $L_{\mathcal{P}}$ es recursivo.
+
+
+Una propiedad $P$ es trivial si su clase $\mathcal{P}$ incluye todos los lenguajes recursivamente enumerables (binarios en este caso) o si no incluye ningún lenguaje.
+
+$$
+\mathcal{P} = \mathcal{L}_{\mathrm{REN}}(\{ 0,1 \}^{*}) \lor \mathcal{P} = \emptyset
+$$
+
+Cualquier otra propiedad se considera **no trivial**.
+
+## Teorema de Rice
+
+Este teorema dice que para cualquier propiedad no trivial $P$ de los $\mathcal{L}_{\mathrm{REN}}$ es no decidible ($L_{\mathcal{p}}$ es no recursivo).
+
+La demostración consiste en 4 pasos:
+1. Suponemos que $\emptyset$ no tiene la propiedad $P$. Si no se da el caso trabajamos con la complementaria a $P$.
+2. Suponemos que el lenguaje $L$ cumple la propiedad.
+3. Suponemos que $L_{\mathcal{P}}$ es recursivo, ergo $P$ es decidible.
+4. Similar a como hemos hecho hasta ahora, reducimos UNI a $L_{\mathcal{P}}$ y concluimos que, por contradicción, $L_{\mathcal{P}}$ no puede ser recursivo, y por
