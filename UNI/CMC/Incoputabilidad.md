@@ -321,3 +321,73 @@ Este lenguaje es un ejemplo de lenguaje **no recursivamente enumerable**.
 
 Para demostrar que el lenguaje diagonal no es recursivamente enumerable, podemos comprobar si la asunción de que sí lo es es coherente.
 
+- Si el lenguaje es recursivamente enumerable, hay una máquina $M_{\text{DIA}}$ que acepta éste lenguaje.
+- Podemos enumerar todos los códigos posibles para máquinas de Turing, sean válidos o no para $M_{\text{DIA}}$, enumerando palabras $x_{i} \in \{ 0,1 \}^{*}$ en orden canónico.
+
+A partir de la enumeración, saldrán todos los lenguajes recursivamente enumerables.
+$$
+\begin{matrix}
+x_{0} & x_{1} & \dots & x_{n} & \dots & \text{Cadenas en órden canónico}\\
+\downarrow & \downarrow & & \downarrow & \\
+M_{x_{0}} & M_{x_{1}} & \dots & M_{x_{n}} & \dots & \text{Máquinas normalizadas asociadas}  \\
+\downarrow & \downarrow & & \downarrow & \\
+L(M_{x_{0}}) & L(M_{x_{1}}) & \dots & L(M_{x_{n}}) & \dots & \text{Leng. recursivamente enumerables} \\
+\downarrow & \downarrow & & \downarrow & \\
+L_{x_{0}} & L_{x_{1}} & \dots & L_{x_{n}} & \dots & \text{Leng. recursivamente enumerables} \\
+\end{matrix}
+$$
+
+Si construimos una matriz de forma que para la posición $(i,j) = 1 \iff x_{i} \in L_{x_{j}}$ y $(i,j) = 0 \iff x_{i} \not\in L_{x_{j}}$, obtenemos algo así:
+
+![[Incoputabilidad - lenguaje diagonal.png]]
+
+De forma que el lenguaje DIA puede pasar a representarse como el lenguaje formado por las posiciones de la diagonal cuyos valores son 0.
+$$
+\begin{align}
+\text{DIA}  &= \{ x_{i} \in \{ 0,1 \}^{*} : (i,i) = 0 \} \\
+&= \{ x_{i} \in \{ 0,1 \}^{*} : x_{i} \not\in L_{x_{i}} \}
+\end{align}
+$$
+De nuevo, si DIA es diagonal, existe una máquina Turing normalizada codificable mediante la cadena $x_{p}$ tal que $\text{DIA} = L_{x_{p}}$. Se da una situación incongruente si suponemos que es enumerable:
+- $x_{p} \in \mathrm{DIA} \implies (p,p)=1 \implies x_{p} \not\in \mathrm{DIA}$
+- $x_{p} \not\in \mathrm{DIA} \implies (p,p) = 0 \implies x_{p} \in \mathrm{DIA}$
+
+***Por tanto, no es recursivamente enumerable.***
+
+# La Máquina de Turing Universal
+
+Una MTU es una máquina que puede simular cualquier otra máquina de Turing sin importar la cadena de entrada que se elija.
+
+Si consideramos la cadena binaria $x = c(x)d(x)$, se definen aplicaciones de la forma $c,d : \{ 0,1 \}^{*} \to \{ 0,1 \}^{*}$ donde:
+- Si $x$ tiene como **prefijo** $u$ un **código válido** de máquina de Turing, $c(x) = u, d(x) = z$, siendo $z$ el resto de la cadena. Por tanto, si se da este caso, $x = uz$.
+- Si no se da el caso, $c(x) = x, d(x) = \lambda$, por lo que $x = c(x)$.
+
+Así, el lenguaje universal se define como aquel formado por palabras cuya parte restante $d(x)$ forme parte del lenguaje definido por la máquina de Turing $M_{c(x)}$ que representa el prefijo $c(x)$.
+$$
+\mathrm{UNI} = \{ x \in \{ 0,1 \}^{*}: d(x) \in L_{c(x)} \}.
+$$
+
+## Funcionamiento
+
+La MTU contará con 3 cintas, todas ellas con un puntero aparte:
+1. **Entrada**: Es donde se calculan $c(x)d(x)$ a partir de la palabra $x$ arbitraria.
+2. **Emulación:** Simula la máquina de Turing usando $d(x)$, que es como la $x$ de esta cinta.
+3. **Estado:** Se guarda el estado global de la máquina (puntero/estado simulado).
+
+![[Incoputabilidad - MTU.png]]
+
+El algoritmo sigue los siguientes pasos:
+1. La cinta de entrada comprueba si existe un prefijo $c(x) \in \mathrm{COD}$.
+2. Si no, rechaza $x$ y se detiene. Si lo hay, copia $d(x)$ a la cinta de emulación y escribe en la cinta de estado un símbolo $0$, es la codificación del estado $q_{1} \to 0^{1}$.
+3. Empieza la simulación:
+    1. A partir del estado de la cinta de estado y del símbolo actual en la cinta de emulación (que hará de símbolo de entrada), se busca el movimiento/transición en la máquina $M_{c(x)}$ (codificada como $c(x)$) de la cinta de entrada.
+    2. Cambia el estado en la cinta de estado sobrescribiendo con un $0^{i}$ correspondiente al estado de salida $q_{i}$.
+    3. Escribe en la cinta de emulación el símbolo de salida y aplica el movimiento correspondiente.
+    4. Si la máquina no encuentra una transición aplicable en la codificación $c(x)$, la máquina finaliza la simulación y, si el estado en la cinta de estado es el $0^{2}$ correspondiente al estado final $q^{2}$, el estado final es de aceptación. Si no hay transición aplicable pero el estado final no corresponde a $q^{2}$, no se acepta la cadena $x$. Si hay transición aplicable, se repite la simulación desde el punto 3.1.
+
+## El Lenguaje Universal
+
+Dada una máquina normalizada $M$ y una cadena binaria $x$, la concatenación de un código válido $c_{M}$ de $M$ y la cadena binaria forma parte del lenguaje universal si y sólo si $x$ forma parte del lenguaje aceptado por $M$.
+$$
+x \in L(M) \iff c_{M}\ x \in \mathrm{UNI}
+$$
