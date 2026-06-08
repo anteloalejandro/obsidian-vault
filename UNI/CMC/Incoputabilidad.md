@@ -479,3 +479,15 @@ La demostración consiste en 4 pasos:
 2. Suponemos que el lenguaje $L$ cumple la propiedad.
 3. Suponemos que $L_{\mathcal{P}}$ es recursivo, ergo $P$ es decidible.
 4. Similar a como hemos hecho hasta ahora, reducimos UNI a $L_{\mathcal{P}}$ y concluimos que, por contradicción, $L_{\mathcal{P}}$ no puede ser recursivo, y por
+
+Dado un algoritmo $\mathcal{B}$ que toma una cadena $x$ y una cadena cadena que codifica un lenguaje $x_{L}$, se obtiene una nueva máquina de Turing $y$ con ciertas propiedades.
+
+ El automata $y$ tiene dentro un aceptor del lenguaje codificado por $c(x)$ que recibe como entrada el $d(x)$ de la $x$ pasada como entrada al algoritmo $\mathcal{B}$. También tiene dentro un aceptor del lenguaje que codifica $x_{L}$. La máquina $y$ entonces recibe como entrada una cadena $w$ y la acepta si $L$ la acepta y si $d(x) \in L_{c(x)}$.
+$$
+L_{y} = \begin{cases}
+L &\iff d(x) \in L_{c(x)} \\
+\emptyset &\iff d(x) \not\in L_{c(x)}
+\end{cases}
+$$
+
+El algoritmo $\mathcal{B}$ no es recursivo por el mismo motivo que $\mathcal{A}$ y, al igual que éste, sí es recursivamente enumerable.
