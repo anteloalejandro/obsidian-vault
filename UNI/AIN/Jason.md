@@ -66,4 +66,6 @@ Para cada creencia se anota su origen para diferenciar entre las creencias local
 
 Los agentes tienen una mailbox y una función de selección de mensajes `msg(M)` de su mailbox.
 
-# Ejemplos
+La comunicación entre agentes se hace con la instrucción interna `.send(receptor, performativa, creencia)`, donde la performativa son el tipo de comunicación (petición, respuesta, etc...). Opcionalmente, puede haber varios receptores en forma de lista.
+
+Al usar performativas como `tell`, el agente al que se manda el mensaje pasará a tener la creencia especificada.
