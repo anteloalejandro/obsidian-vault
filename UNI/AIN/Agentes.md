@@ -38,7 +38,7 @@ Un programa estático (asumiendo que el entorno también lo es), se puede ejecut
 
 En el mundo real, sin embargo, los entornos son dinámicos.
 
-Se entiende como reactividad a la capacidad del agente de reaccionar a los cambios del entorno y dar respuestas correctar teniendo el cuenta el nuevo estado del entorno. 
+Se entiende como reactividad a la capacidad del agente de reaccionar a los cambios del entorno y dar respuestas correctas teniendo el cuenta el nuevo estado del entorno. 
 
 Esto no significa que la respuesta tiene que darse rápido o antes de que el entorno vuelva a cambiar. La repuesta tiene simplemente que ser válida para el estado que haya a la hora de llevarla a cabo (predicir es una opción)
 
@@ -71,7 +71,7 @@ Los agentes débiles tienen autonomía, proactividad, reactividad y sociabilidad
 
 > Lola cogió su paraguas porque creía que estaba lloviendo y no quería mojarse
 
-Este forma de describir las acciones de una persona hacen uso de la psicología popular. Podemos predecir y explicar el comportamiento de alguien entendiendo sus creencias, deseos y capacidades cognitivas.
+Esta forma de describir las acciones de una persona hacen uso de la psicología popular. Podemos predecir y explicar el comportamiento de alguien entendiendo sus creencias, deseos y capacidades cognitivas.
 
 Del mismo modo, el un sistema intencional  es aquel compuesto por entidades cuyo comportamiento puede ser predicho atribuyendo creencias, deseos y perspicacia racional.
 
@@ -81,7 +81,7 @@ En los sistemas intencionales de segundo un agente orden tiene creencias y deseo
 
 # Agentes de razonamiento deductivo
 
-Paradigma conocido como **IA Simbólica**, usa lógica proposicional y reglas de de deducción, donde la base de hechos contiene las creencias expresadas usando dicha lógica proposicional (lógica de predicados en primer orden). [[Representación del Conocimiento#Sistemas basados en reglas]].
+Paradigma conocido como **IA Simbólica**, usa lógica proposicional y reglas de de deducción, donde la base de hechos contiene las creencias expresadas usando dicha lógica proposicional (lógica de predicados en primer orden). Véase [[Representación del Conocimiento#Sistemas basados en reglas|Sistemas Basados en Reglas]].
 
 Tenemos dos problemas clave:
 - **Problema de transducción**. Cómo pasar la información cruda recibida por los sensores a una representación lógica útil.
