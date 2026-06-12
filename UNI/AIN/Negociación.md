@@ -231,9 +231,108 @@ Dada una función de bienestar social $W$, Arrow define como criterios justos y 
 El teorema de Arrow, sin embargo, describe que mientras haya más de 3 opciones, se cumpla el criterio de Pareto y la Independencia de Alternativas Irrelevantes, el bienestar social será necesariamente dictatorial.
 
 $$
-\lvert O \rvert  > 3 \land P(x) \land \text{IIA}(W) \implies D(W)
+\lvert O \rvert  > 3 \land P(W) \land \text{IIA}(W) \implies D(W)
 $$
 
 En definitiva, según el teorema de Arrow, no existe una forma exacta y justa de representar la voluntad colectiva.
 
 # Subastas
+
+## Subasta Inglesa
+
+Es un tipo de subasta en la que sólo se considera un producto a la vez por su funcionamiento, así que es un problema en el que hay 1 vendedor y n compradores.
+
+1. El vendedor ajusta un precio inicial (mínimo) para el producto
+2. Los compradores pujan por él con un valor mayor que el anterior. La puja suele ser pública.
+3. Se termina cuando se cumple la condición de terminación establecida.
+    - Tiempo límite total
+    - No recibir pujas en cierto tiempo
+4. El ganador paga lo que pujó (puja máxima).
+
+Cuenta con una estrategia dominante: Pujar con un incremento tan pequeño como se pueda hasta que el resto de agentes alcancen su máximo.
+
+
+## Subasta Japonesa
+
+Otro ejemplo en el que sólo se considera un producto cada vez.
+
+1. El vendedor da un precio inicial (mínimo) para el producto
+2. Los compradores se comprometen públicamente a aceptar el precio. Si no, abandonan la puja para siempre.
+3. El vendedor es el que incrementa el precio a su discreción, hasta que sólo queda un comprador.
+4. El ganador paga el precio **de la ronda anterior**. El vendedor no le puede poner un precio cuando ya sólo queda él.
+
+La estrategia dominante es **decir la verdad**: Continuar con el proceso siempre que el límite máximo de dinero del agente lo permita.
+
+## Subasta holandesa
+
+De nuevo, sólo se considera un producto cada vez, pero ahora el precio es descendente.
+1. El vendedor da un precio inicial (máximo) para el producto.
+2. El precio va descendiendo mientras un reloj o temporizador va bajando (baja a cada tick).
+3. La subasta termina cuando un comprador acepta la oferta.
+
+***No tiene estrategias dominantes***
+
+Es particularmente usado cuando se quiere vender rápido; la presión que ejerce el sistema sobre los agentes les incentiva a tomar decisiones apresuradas.
+
+## Subasta de sobre cerrado
+
+Esta es, en realidad, una familia de subastas en la que también se considera un sólo producto. Son los únicos que veremos de puja privada.
+
+1. Los compradores pujan un valor al mediador sin saber lo que pujan los demás.
+2. Gana el comprador con la puja más alta.
+
+Las variantes difieren en el **precio a pagar**. En la subasta cerrada de primer precio, se paga el precio de la puja más alta, en la de segundo precio, gana el comprador con la puja más alta pero paga el precio de la segunda puja más alta. Se puede extender trivialmente este sistema hasta el $k$-ésimo precio.
+
+La variante de primer precio **no tiene estrategia dominante**, porque pujar por nuestro máximo significaría también perderlo todo, y eso no es estrategia dominante.
+
+Las otras variantes **sí tienen estrategia dominante**, porque pujando nuestro precio máximo maximizamos las posibilidades de ganar pero no influye en lo que nos gastamos. A efectos prácticos, acaba sucediendo lo mismo que con la subasta inglesa o la japonesa: el agente con más dinero paga únicamente la cantidad mínima que no pueden pagar los demás.
+
+## Comparación de subastas
+
+- Si los agentes son ajenos al riesgo, todas son igual de buenas desde el punto de vista del beneficio esperado.
+- Las subastas con estrategias dominantes son, por regla general, más baratas computacionalmente, aunque hay que considerar el coste de las comunicaciones.
+- Desde el punto de vista del beneficio real, las peores subastas son la holandesa y el sobre cerrado de primer precio, pues incentivan a pagar más al no saber cuánto es lo mínimo que se puede pagar para ganar.
+
+## Problemas con las subastas
+
+- Los compradores pueden colaborar entre sí para afectar al resultado. Son susceptibles la subasta inglesa, japonesa y la de sobre cerrado de segundo precio, al tener estrategia dominante basada en las acciones del resto de pujantes.
+- El propio subastador, o un colaborador suyo, puede pujar por el producto para inflar su valor. Si gana sin querer, no pierde ni gana nada, pero si pierde, ha hecho que el ganador pague más de lo que debería.
+
+## Subastas por más de una unidad
+
+Para llevar a cabo subastas en las que se venden múltiples unidades del mismo producto, hay que considerar:
+- Si la puja es divisible o no (todo o nada)
+- Si es divisible, ¿pagan todos los ganadores lo mismo?
+- Si los distintos ganadores pagan lo mismo, ¿pagan la cantidad más alta de entre los ganadores o la más baja?
+- ¿Cómo se hacen los desempates? Tiempo, cantidad, precio, etc...
+
+Hay ciertas subastas que ya tienen reglas definidas para esto:
+- **Subasta japonesa**: En vez de decir si o no, se dice el número de unidades que se compromete a comprar el agente. La subasta termina cuando la demanda iguala o supera el número de unidades disponibles.
+- **Subasta holandesa**: En la subasta holandesa, en vez de decir si compras o no compras al precio actual, se indican cuantas unidades comprarías. Si esa cantidad no es igual a todas las unidades disponibles, continúa.
+
+## Subastas combinatorias
+
+Estas son subastas en las que tenemos $m$ bienes potencialmente distintos a subastas y $n$ agentes pujadores.
+
+Contamos con una función de evaluación para cada agente que indica lo "bueno" que es un conjunto de bienes por el que se puja para él. Se cumple la **libre disposición**, que indica que si a un conjunto le metes más cosas, es mejor. Esto siempre es cierto porque lo "bueno" que es el conjunto no tiene en cuenta el precio que se paga por él, solo el valor que aporta al agente (es decir, cuánto lo quiere).
+
+Una asignación es una lista de subconjuntos de bienes $g_{1},\dots,g_{n}$, uno para cada agente $Ag_{i}$, tal que los subconjuntos para cada agente no se solapen ni se dupliquen. Al conjunto de asignaciones de conjuntos de bienes $G$ a los agentes $Ag$ es $alloc(G, Ag)$.
+
+La asignación se puede hacer tratando de maximizar el bienestar social, calculando la suma de todas las utilidades de cada agente.
+
+$$
+F_{N}(g_{1},\dots g_{n}) = \sum_{a \in Ag} u_{a}(g_{a})
+$$
+Entonces, la subasta combinatoria se puede definir como la asignación que maximice la función $F_{N}$ dadas las funciones de evaluación de cada agente.
+
+$$
+g_{1}^{*},\dots g_{n}^{*} =
+\underset{
+    \large
+    \begin{matrix}
+        \forall a\in A \\
+        g_{a} \in alloc(G, Ag)
+    \end{matrix}
+}{\arg\max}\
+F_{N}(g_{1},\dots,g_{n})
+$$
