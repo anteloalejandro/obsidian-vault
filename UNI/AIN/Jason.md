@@ -1,7 +1,5 @@
 
-# Cositas
-
-## Beliefs
+# Beliefs
 
 Colección de literales representados como predicados
 
@@ -26,7 +24,7 @@ likely_colour(C,B)
     :- colour(C,B)[source(S)] & (Self == S) ...
 ```
 
-## Goals
+# Goals
 
 Las *test goals* `?` sirven para instanciar una variable a partir de información en la base de creencias
 
@@ -40,7 +38,7 @@ Las *achievement goals* `!` expresan un estado al que se quiere llegar.
 !own(house)
 ```
 
-## Plans
+# Plans
 
 Los planes tienen tres partes:
 - Evento disparador
@@ -58,6 +56,14 @@ Dentro del cuerpo de un plan hay una secuencia compuesta por varias o ninguna de
 - *Mental Notes*. Sirven para añadir `+`, eliminar `-` y sustituir `+-` creencias.
 - *Expression*. Expresiones similares a Prolog
 
-## Recuperación frente a fallos
+# Recuperación frente a fallos
 
 Al crear una *goal* se añade un evento de fallo `-!g(goal deletion event)` que elimina el evento añadido cuando se produce un error durante su ejecución. Se pueden *stackear* eventos de fallo que llegarán antes de este.
+
+# Comunicación
+
+Para cada creencia se anota su origen para diferenciar entre las creencias locales y las que le ha informado otro agente (`id`, `self`, o `percept`).
+
+Los agentes tienen una mailbox y una función de selección de mensajes `msg(M)` de su mailbox.
+
+# Ejemplos
