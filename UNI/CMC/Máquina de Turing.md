@@ -158,7 +158,9 @@ Las máquinas tendrán como alfabeto de entrada $\Sigma = \{ 0,1 \}$, y codifica
 - Un número $n$ se codifica mediante $n$ ceros: $n \to 0^{n}$.
 - El $1$ sirve como separador de cada número de la tupla de entrada: $(n_{1},\dots n_{m}) \to 0^{n_{1}} 1 \dots 1 0^{n_{m}}$
 
-El alfabeto de salida se codifica igual que el de entrada $\Gamma = \Sigma = \{ 0,1 \}$, aunque la cinta de salida sigue pudiendo tener celdas en blanco.
+El alfabeto de salida se codifica igual que el de entrada, aunque la cinta de salida sigue pudiendo tener celdas en blanco.
+
+$$\Gamma = \Sigma + \{ B \} = \{ 0,1, B \}$$
 
 Sin embargo, para que la función codificada por la máquina se considere válida para una entrada, la salida resultante **no debe tener símbolos $B$ intercalados**.
 
@@ -205,5 +207,89 @@ L \in \mathcal{L}_{R} &\iff \exists \varphi_{L,\Sigma} \text{ turing-computable}
 L \in \mathcal{L}_{REN} - \mathcal{L}_{R} &\implies \not\exists \varphi_{L,\Sigma} \text{ turing-computable}
 \end{align}
 $$
-# 
-$\eta$ devuelve $\lambda$ si la entrada pertenece al lenguaje.
+
+# Construcción de Máquinas de Turing
+
+Son procedimientos de alto nivel para facilitar la definición de máquinas complejas sin alterar el modelo subyacente.
+
+## Parametrización de estados
+
+Consiste en representar los estados posibles mediante tuplas de $n$ parámetros, de forma que cada estado está representado por una tupla diferente.
+
+$$
+\begin{gather}
+M = (\Sigma, \Gamma, Q, f, B, q_{0}, F)\\
+Q \subseteq \{
+   [p_{1},p_{2},\dots,p_{n}]: p_{i} \in \mathcal{P}_{i},\,
+   i = 1,\dots,n
+\}
+\end{gather}
+$$
+
+Esto es útil cuando queremos estados complejos que incluyan, por ejemplo, los caracteres que se están leyendo. 
+
+> [!example] Ejemplo: *Técnica de Almacenamiento*
+> Sabemos que los estados de normal tienen la forma $q \in Q$, por lo que las funciones de transición $f$ son $f : Q \times \Gamma \to Q \times \Gamma \times \{ L,R \}$.
+> 
+> Podríamos cambiar la $Q$ por $Q' = Q \times \Gamma \times \Gamma$, de modo que los estados ahora podrían almacenar caracteres y considerarse estados distintos.
+> 
+> Dados $A,B,C \in \Gamma$ cualesquiera y $q,p \in Q$, se puede ahora definir, por ejemplo, la transición $f([q, A, B], C) = ([p,B,C], C, R)$, de modo que al encontrar el símbolo $C$ en la cinta, estando en el estado $[q,A,B]$, cambiamos al estado $[p,B,C]$ avanzando a la derecha dejando el símbolo $C$ intacto.
+> 
+> El comportamiento de esta función de transición es el de una cola buffer de tamaño 2, que expulsa la $A$ y mete la $C$, sin sobrescribir nada manteniendo en el estado los 2 últimos símbolos visitados.
+> 
+> A partir de aquí se pueden hacer modificaciones para cambiar lo que hacemos (en lugar de no sobrescribir $C$) en función de los 2 últimos caracteres leídos y/o el valor del carácter actual. También se puede extender para mantener los últimos $n$ caracteres leídos.
+
+## Cinta con varias bandas o sectores
+
+Esta técnica consiste en considerar que la banda se divide horizontalmente en $n$ sectores/bandas, de modo que cada celdilla está compuesta de $n$ subceldillas, cada una correspondiente a un sector.
+
+Cada sector puede tener un alfabeto diferente, $\Gamma_{i}$, pero todos contienen el símbolo $B$. El alfabeto de la cinta "real" estará, por tanto, compuesto de todos los distintos alfabetos de cada uno de los sectores.
+
+$$
+\Gamma = \Gamma_{1} \times \dots  \times \Gamma_{n}
+$$
+
+Del mismo modo, se considera que una celdilla está en blanco cuando todas sus subceldillas también lo están. Por tanto, en la definición de la máquina $M$, se cambia el símbolo blanco por $\mathcal{B} = [B,..,B]$.
+
+![[Máquina de Turing - cinta con sectores.png]]
+
+Siempre fijaremos un sector concreto como el **sector de entrada**, que como el nombre indica es el que recibe la palabra de entrada. Así, siendo el $i$-ésimo sector el sector de entrada, el alfabeto de entrada queda como $\Sigma = \{ [B,\dots,a_{i},\dots,B]:a_{i} \in \Sigma_{i} \}$, siendo cada $\Sigma_{i} = \Gamma_{i} - \{ \mathcal{B} \}$.
+
+> [!example] Ejemplo
+> Podríamos tener un sector de entrada en el que se procesasen los datos, con un sector extra para llevar el registro de los caracteres cambiados, para los que marcaríamos su posición correspondiente en la cinta extra con un `~`.
+> 
+> Así, podríamos definir una función de transición que conviNOTErtiese, por ejemplo, el símbolo $a$ en $b$ y registrase el cambio en la cinta extra.
+> 
+> $$
+> f(q, [a, B]) = (p, [b, \sim ], R)
+> $$
+> 
+> ![[Máquina de Turing - ejemplo varios sectores.png]]
+
+## Desplazamiento del contenido
+
+Permite trasladar el contenido de una cinta un número predeterminado $k$ de posiciones hacia la derecha.
+
+Supongamos que en el instante actual tenemos en la cinta una palabra $\alpha \in (\Sigma - X)^{*}$ seguida del relleno con símbolos blancos, siendo $X$ el símbolo de relleno (que puede ser $B$ o no).
+
+Si dividimos el contenido de la cinta en $\alpha = \alpha_{1}\alpha_{2}, \alpha_{1} \neq \lambda$, buscaremos transformar el contenido de la cinta en $a_{1}X^{k}a_{2}$, desplazando el sufijo $a_{2}$ en $k$ posiciones, insertando la palabra de relleno $X^{k}$ antes de él.
+
+Para conseguir esto, tendremos que cambiar la $Q$ (aplicando parametrización de estados) por un estado de la forma $[q,a_{1},\dots,a_{k}],\, a_{i} \in \Sigma$. Por ejemplo, para $k=2$:
+- El estado inicial del desplazamiento es $[q,X,X]$, de forma que el cabezal esté en la posición de inicio de $\alpha_{2}$. La $q$ es nuestro estado de "continuación".
+- El estado final del desplazamiento es $[p, B,B]$, de forma que el cabezal esté en el último símbolo de $X^{k}$, o sea, desplazado $k$ posiciones respecto al inicio del procedimiento. La $p$ es nuestro estado de "parada".
+- Se definen en la función de transición de la máquina las transiciones necesarias para aplicar el desplazamiento:
+    - $f([q,A_{1},A_{2}], A) = ([q,A_{2},A], A_{1}, R)$ para $A_{1} \neq B \neq A_{2}$ y un $A \in \Gamma$ cualquiera.
+        - Al encontrar símbolo $A$, se inserta en la cola del estado, se escribe el estado expulsado de la cola y se desplaza a la derecha, manteniendo el estado $q$ (de continuación).
+    - $f([q,A_{1},B],B) = ([p,B,B], A_{1},L)$ para $A_{1} \neq B$.
+        - Si nos encontramos, específicamente, símbolo blanco $B$ y ya hemos tenemos uno en la cola, hacemos lo mismo que la transición anterior, pero además cambiamos al estado $p$ (de parada).
+    - $f([p,B,B],A) = ([p,B,B],A,L)$ para $A \neq X$.
+        - Cuando se alcanza el estado de parada del desplazamiento, se retrocede en la cadena insertada hasta poner el cabezal en la última $X$.
+- La máquina seguirá operando a partir de este punto de acuerdo al resto de transiciones. Se tendrá que tener en cuenta que el lo que lee actualmente el cabezal es, específicamente, la última $X$, no el símbolo siguiente.
+
+Así, como el estado que inicia el desplazamiento es $[q,X,X]$, se insertan dos $X$ en la cinta guardando los 2 símbolos borrados, y se avanza por el resto de la cinta escribiendo los símbolos que vamos sacando del buffer y guardando en el buffer los símbolos que vamos sobreescribiendo. Se continua así hasta que se alcanzan 2 blancos, en cuyo caso se retrocede hasta la última $X$ escrita.
+
+Para soportar un número arbitrario (pero aún predefinido) de $k$ simplemente se tienen que extender esto para usar tuplas de tamaño de $k$ deseado.
+
+# Modificaciones de las Máquinas de Turing
+
+## Cinta infinita en ambos sentidos
