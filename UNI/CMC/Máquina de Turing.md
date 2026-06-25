@@ -535,7 +535,7 @@ Para la intersección tenemos que hacer que $M'$ sólo se active cuando $M$ acep
 
 ## Más proposiciones
 
-- Los $L \in \mathcal{L}_{R}$ también son cerrados para la concatenación clausura $L^{*}$, clausura positiva $L^{+}$ y reverso $L^{r}$.
+- Los $L \in \mathcal{L}_{R}$ también son cerrados para la concatenación, clausura $L^{*}$, clausura positiva $L^{+}$ y reverso $L^{r}$.
 - También lo el resto de $L \in \mathcal{L}_{REN}$.
 - Los $L \in \mathcal{L}_{R}$ sólo son cerrados para los homomorfismos $h: \Delta^{*} \to \Gamma^{*}$ (codificación) para los que $h(a) \neq \lambda,\,\forall a \in \Delta^{*}$.
 - Los $L \in \mathcal{L}_{R}$ sí son cerrados para los homomorfismos inversos $h^{-1}: \Gamma^{*} \to \Delta^{*}$ (decodificación).
