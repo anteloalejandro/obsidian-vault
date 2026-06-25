@@ -445,6 +445,7 @@ La solución radica en:
 - Modificar la $M$ para que sólo pueda llevar a cabo $j$ movimientos, que recibirá como parámetro del generador de pares. Si se pasa, no acepta la palabra, por lo que sabemos que ahora $M$ siempre se detiene, por lo que la $M$ con $j$ ahora acepta un lenguaje $\mathcal{L}_{R}$.
 - Cada palabra que acepte $M$ en $j$ movimientos formará parte de la salida de $M'$, pero independientemente de si se acepta o no, se volverá a generar un par y se repetirá el proceso.
 
+![[Máquina de Turing - Generador REN.png]]
 
 > [!NOTE] Generador de Pares
 > Genera pares de la forma `#(1,1)#(2,1)#(1,2)#(3,1)#(2,2)#(1,3)#...` que no se repiten.
@@ -456,5 +457,86 @@ Esto es más sencillo aún, pues sólo es necesaria una máquina de Turing que c
 
 Si y sólo si el comparador dice que son iguales, entonces la palabra forma parte $L(M)$. Si el comparador dice que son diferentes, se genera una nueva palabra y se vuelve a intentar. Así, $M$ podrá aceptar sólo las palabras que $M'$ puede generar, y acepta todas las que se pueden generar, así que $L(M) = G(M)$.
 
+![[Máquina de Turing - Aceptor REN.png]]
+
 ## Caracterización de los lenguajes recursivos
 
+Para demostrar ahora que se un lenguaje es recursivo si y solo si hay un generador de Turing que enumere sus palabras, debemos ser más estrictos.
+- Las palabras generadas deben estar en orden canónico
+- Debemos demostrar que se puede hacer un generador $M'$ en orden canónico de cualquier lenguaje $L \in \mathcal{L}_{R}$ aceptado por una máquina de Turing $M$.
+- Debemos demostrar que si un generador $M'$ devuelve las palabras del lenguaje en orden canónico, existe una máquina Turing $M$ que siempre acepta el lenguaje y siempre finaliza (por tanto, el lenguaje aceptado es $\mathcal{L}_{R}$).
+
+Crear un generador a partir de una máquina de Turing que sólo acepta $\mathcal{L}_{R}$ es sencillo:
+- Se usa un generador de palabras en orden canónico.
+- La salida del generador en orden canónico se usa como entrada del aceptor $M$.
+- Como $M$ tiene señal de aceptación y rechazo, todas las palabras aceptadas (que ya estarán en o.c.) forman parte de la salida.
+- Se acepte o se rechace, se vuelve a generar una nueva palabra en o.c.
+
+![[Máquina de Turing - Generador Recursivo.png]]
+
+Para crear el aceptor a partir del generador, no sólo volveremos a necesitar el la máquina comparadora de igualdad, sino también una comparadora de orden canónico.
+
+La comparadora de o.c. se usa para saber cuando ya no tiene sentido generar más palabras, pues si la palabra generada es mayor que la entrada, sabemos que todas las siguientes palabras generadas también lo serán, y por tanto ya no existe la posibilidad de que $x \in G(M')$.
+
+![[Máquina de Turing - Aceptor Recursivo.png]]
+
+Con esto queda demostrado el teorema.
+
+# Propiedades de los $\mathcal{L}_{REN}$ y $\mathcal{L}_{R}$
+
+## Los $L \in \mathcal{L}_{R}$ son cerrados para el complemento
+
+-  El complemento de un lenguaje son todas aquellas palabras formadas con símbolos del mismo alfabeto que NO forman parte de él.
+- "Cerrado" quiere decir que el complemento sigue perteneciendo a la misma clase:  $L, \overline{L} \in \mathcal{L}_{R}$.
+
+Podemos, a partir de una máquina Turing que acepte el lenguaje $L(M) \in \mathcal{L}_{R}$ y, por tanto, siempre se detenga, una máquina Turing $M'$ que use como salida de aceptación la de rechazo de $M$, y como salida de rechazo la de aceptación de $M$.
+
+## Los $L \in \mathcal{L}_{REN} - \mathcal{L}_{R}$ *no* son cerrados para el complemento
+
+Asumimos un $L \in \mathcal{L}_{REN}$, por lo que existe una máquina de Turing $M$ que lo acepta, pero puede no detenerse.
+
+Para que $\overline{L}$ fuese cerrado en este caso, tendría que existir una máquina $M'$ que aceptase las palabras que *no* forman parte de $L$, y por tanto se detuviese ante ellas. En ese caso, podríamos formar una máquina $M''$ que aceptase las palabras que forman el lenguaje usando la $M$ como señal de aceptación y rechazase *deteniéndose* las palabras que no forman parte del lenguaje usando $M'$ como señal de rechazo.
+
+![[Máquina de Turing - complemento de REN.png]]
+
+Por tanto, si $L,\overline{L} \in \mathcal{L}_{REN}$ hemos encontrado una máquina $M''$ que acepta el lenguaje y siempre se detiene, lo que implica que $L$ y, por consiguiente, $\overline{L}$, son necesariamente **recursivos**.
+
+## Los $L \in L_{R}$ son cerrados para la unión y la intersección
+
+Dados los lenguajes $L(M)$ y $L'(M')$, podemos construir una máquina $M''$ que forme la unión de ambos lenguajes $L''(M'') = L \cup L'$ y siempre se detenga.
+
+- Si $x$ es aceptado por $M$, es aceptado por $M''$.
+- Si $x$ no es aceptado por $M$...
+    - ... pero sí por $M'$, es aceptado por $M''$
+    - ... y tampoco por $M'$, es rechazado por $M''$
+
+![[Máquina de Turing - unión recursivos.png]]
+
+De forma análoga, podemos hacer un $M''$ que forme la intersección de ambos lenguajes y siempre se detenga.
+
+- Si $x$ es aceptado por $M$...
+    - ... y también por $M'$, es aceptado por $M''$
+    - ... pero no por $M'$, es rechazado por $M''$
+- Si $x$ es rechazado por $M$, es rechazado por $M''$.
+
+![[Máquina de Turing - intersección recursivos.png]]
+
+## Todos los $L \in \mathcal{L}_{REN}$ también son cerrados para la unión e intersección
+
+Como aquí no necesitamos la señal de rechazo tampoco en la unión, podemos atar dos máquinas $M,M'$ obviando las señales de rechazo.
+
+Para la unión, podemos conectar ambas salidas como salida de $M''$ a la vez, en paralelo. Si una de las dos se detiene, la otra seguirá mandando señal, y consideramos que no hay conflicto si ninguna se detiene.
+
+![[Máquina de Turing - unión REN.png]]
+
+Para la intersección tenemos que hacer que $M'$ sólo se active cuando $M$ acepte el lenguaje, y en este caso la salida de $M''$ es la salida de $M'$. La $x$ sigue yendo a ambas máquinas a la vez.
+
+![[Máquina de Turing - intersección REN.png]]
+
+## Más proposiciones
+
+- Los $L \in \mathcal{L}_{R}$ también son cerrados para la concatenación clausura $L^{*}$, clausura positiva $L^{+}$ y reverso $L^{r}$.
+- También lo el resto de $L \in \mathcal{L}_{REN}$.
+- Los $L \in \mathcal{L}_{R}$ sólo son cerrados para los homomorfismos $h: \Delta^{*} \to \Gamma^{*}$ (codificación) para los que $h(a) \neq \lambda,\,\forall a \in \Delta^{*}$.
+- Los $L \in \mathcal{L}_{R}$ sí son cerrados para los homomorfismos inversos $h^{-1}: \Gamma^{*} \to \Delta^{*}$ (decodificación).
+- Los $L \in \mathcal{L}_{REN}$ son cerrados para los homomorfismos y homomorfismos inversos.
