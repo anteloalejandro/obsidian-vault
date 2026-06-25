@@ -405,3 +405,56 @@ Y el algoritmo de simulación es el siguiente:
 4. Si se ha llegado a un estado de aceptación, finaliza. Si no, vuelve al paso 2.
 
 Este algoritmo se traduce en pasar por hasta $r^{i}$ configuraciones para encontrar la solución óptima ubicada en una profundidad de $i$.
+
+# Generadores de Turing
+
+Otro uso de las máquinas de Turing, además de aceptar lenguajes y computar funciones, es generar lenguajes.
+
+Para generar lenguajes se utilizará una máquina multicinta *sin* cinta de entrada, designando una de las cintas como cinta de salida. El cabezal de la cinta de salida sólo puede avanzar hacia la derecha, y sólo avanza si se escribe un símbolo distinto a al blanco $B$.
+
+La cinta de salida tiene sus propios alfabetos de entrada $\Sigma_{S}$ y salida $\Gamma_{S}$, teniendo este último un símbolo extra (además del $B$) de separación, $\#$. $\Sigma_{S} = \Gamma_{S} - \{ B, \# \}$.
+
+Como no estamos buscando aceptar ningún lenguaje, $F = \emptyset$. Además, todas las cintas deben empezar completamente llenas de blancos.
+
+El lenguaje generado por la máquina generadora $M$ se define como el conjunto de todas aquellas palabras $x \in \Sigma_{S}^{*}$ para las que $\#x\#$ aparece en la cinta de salida en algún momento. 
+
+$$
+L = G(M) \equiv \#x_{1}\#x_{2}\#\dots
+$$
+
+Nótese que una palabra puede aparecer más de una vez en la salida, con que aparezca una vez es suficiente. Esto puede ser problemático a la hora de demostrar si una palabra es generada o no (podríamos encontrarnos generando infinitamente la misma palabra). Por tanto, queremos encontrar un $M'$ que genere las mismas palabras que $M$, pero una sola vez cada una de ellas.
+
+La forma más sencilla de implementarlo es copiando la estructura de $M$ pero añadiendo una cinta más, que será la nueva cinta de salida. En la vieja cinta de salida se levanta la restricción de moverse para atrás, de modo que podemos copiar las palabras de la salida de $M$ a la de $M'$ comprobando antes si no se han repetido en la salida de $M$.
+
+## Caracterización de los lenguajes recursivamente enumerables
+
+Las máquinas de Turing aceptan (o no) lenguajes $L \in \mathcal{L}_{REN}$. Por tanto, si no existe una máquina que acepte un determinado lenguaje, dicho lenguaje no es recursivamente enumerable. Entonces, buscaremos relacionar las máquinas generadoras y las máquinas aceptoras de forma que si existe una debe existir la otra. Si conseguimos demostrar esto, podremos asegurar que $L \in \mathcal{L}_{REN}$ si existe cualquiera de los tipos de máquinas.
+
+Supongamos una máquina aceptora $M$ cuyo lenguaje aceptado es $L(M) \in \mathcal{L}_{REN}$ y una máquina generadora $M'$ de forma que $G(M') = L(M) \subseteq \Sigma^{*}$.
+
+Si ya tenemos la $M$ construida, se podríamos construir la $M'$ a partir de ella de la siguiente forma:
+- Creamos un generador de palabras de $\Sigma^{*}$ en orden canónico.
+- La salida del generador en orden canónico se usa como entrada para la $M$.
+- La salida de la $M$ serán todas las palabras posibles que acepta $M$, escritas una sola vez, y en orden. Por tanto, la salida de $M$ será la de $M'$.
+
+Esta aproximación tiene el problema de que podríamos llegar (de hecho, si $L \in \mathcal{L}_{REN} - \mathcal{L}_{R}$, en algún punto llegaríamos sí o sí) a una palabra en la que $M(x)↑$.
+
+La solución radica en:
+- Usar un generador de pares $(i,j)$ ordenados de números naturales, que generará un nuevo par en cada paso de la simulación.
+- Modificar el generador en orden canónico para que solo suelte la $i$-ésima palabra (dada por el par $i,j$).
+- Modificar la $M$ para que sólo pueda llevar a cabo $j$ movimientos, que recibirá como parámetro del generador de pares. Si se pasa, no acepta la palabra, por lo que sabemos que ahora $M$ siempre se detiene, por lo que la $M$ con $j$ ahora acepta un lenguaje $\mathcal{L}_{R}$.
+- Cada palabra que acepte $M$ en $j$ movimientos formará parte de la salida de $M'$, pero independientemente de si se acepta o no, se volverá a generar un par y se repetirá el proceso.
+
+
+> [!NOTE] Generador de Pares
+> Genera pares de la forma `#(1,1)#(2,1)#(1,2)#(3,1)#(2,2)#(1,3)#...` que no se repiten.
+> ![[Máquina de Turing - generador de pares.png]]
+
+Con esto tenemos demostrado que para cualquier aceptor $M$, podemos crear un generador $M'$. Ahora resta demostrar lo contrario: para un generador $M$, debemos poder crear un aceptor $M$ de forma que $L(M) = G(M')$.
+
+Esto es más sencillo aún, pues sólo es necesaria una máquina de Turing que compare si dos cadenas son iguales. Una vez creada, la entrada de $M$ se pasa dicha máquina, junto a una $x_{i}$ generada por $M'$ cada vez.
+
+Si y sólo si el comparador dice que son iguales, entonces la palabra forma parte $L(M)$. Si el comparador dice que son diferentes, se genera una nueva palabra y se vuelve a intentar. Así, $M$ podrá aceptar sólo las palabras que $M'$ puede generar, y acepta todas las que se pueden generar, así que $L(M) = G(M)$.
+
+## Caracterización de los lenguajes recursivos
+
