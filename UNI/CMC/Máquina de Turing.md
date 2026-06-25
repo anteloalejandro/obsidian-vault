@@ -539,4 +539,4 @@ Para la intersección tenemos que hacer que $M'$ sólo se active cuando $M$ acep
 - También lo el resto de $L \in \mathcal{L}_{REN}$.
 - Los $L \in \mathcal{L}_{R}$ sólo son cerrados para los homomorfismos $h: \Delta^{*} \to \Gamma^{*}$ (codificación) para los que $h(a) \neq \lambda,\,\forall a \in \Delta^{*}$.
 - Los $L \in \mathcal{L}_{R}$ sí son cerrados para los homomorfismos inversos $h^{-1}: \Gamma^{*} \to \Delta^{*}$ (decodificación).
-- Los $L \in \mathcal{L}_{REN}$ son cerrados para los homomorfismos y homomorfismos inversos.
+- Los $L \in \mathcal{L}_{REN} - \mathcal{L}_{R}$ son cerrados para los homomorfismos y homomorfismos inversos.
