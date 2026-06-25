@@ -312,7 +312,7 @@ Así, avanzar el cabezal hacia delante por la cinta implica avanzar por el lado 
 
 Esta modificación implica que cada máquina depende de un número $k$ fijo de cintas independientes en ambos sentidos, cada una de ellas cabezales independientes pero compartiendo un control finito (estado).
 
-En cada parte del proceso se leen los símbolos a los que apunta cada cabezal simultáneamente, y se elige una transición en base a dichos símbolos y el estado del control finito. Cada cinta puede escribir y moverse de forma independiente. De hecho, en este modelo permitimos que algunos de los cabezales se queden inmóviles. Teniendo todo esto en cuenta, la función de transición tiene la forma:
+En cada parte del proceso se leen los símbolos a los que apunta cada cabezal simultáneamente, y se elige una transición en base a dichos símbolos y el estado del control finito. Cada cinta puede escribir y moverse de forma independiente. De hecho, en este modelo **permitimos que algunos de los cabezales se queden inmóviles**. Teniendo todo esto en cuenta, la función de transición tiene la forma:
 
 $$
 \begin{align}
