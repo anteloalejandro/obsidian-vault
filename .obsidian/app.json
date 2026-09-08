@@ -17,5 +17,6 @@
   "userIgnoreFilters": [
     "Assets/"
   ],
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "settingsPopoutWindow": false
 }
