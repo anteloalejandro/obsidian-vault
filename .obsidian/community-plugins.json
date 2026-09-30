@@ -12,5 +12,7 @@
   "obsidian-latex-suite",
   "obsidian-mindmap-nextgen",
   "math-in-callout",
-  "code-styler"
+  "code-styler",
+  "obsidian-circuitjs",
+  "obsidian-tikzjax"
 ]
