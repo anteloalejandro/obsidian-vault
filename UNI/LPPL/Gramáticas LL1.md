@@ -1,5 +1,7 @@
 ## Gramáticas LL1
 
+"Left-to-right Left-most derivation, 1 paso posible en cada estado"
+
 Lo es si y sólo si:
 $$
 \text{PRIM}(\alpha \ \text{SIG}(A)) \cap \text{PRIM}(\beta \ \text{SIG}(A)) = \emptyset
@@ -76,3 +78,4 @@ A' -> yxA' | epsilon
 ```
 
 Inicialmente tenemos recursividad si aplicamos sustición A o si sustituimos S. Hemos decidido traducir la S primero, pero es perfectamente posible que al aplicar S no hubiesemos conseguido una gramática LL1 y aplicando la A sí. Por tanto, para comprobar si es LL1, hay que probar **todas las sustituciones**.
+
